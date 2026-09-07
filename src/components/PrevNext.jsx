@@ -8,18 +8,18 @@ function Card({ chapter, lang, direction }) {
   return (
     <a
       href={hrefFor(chapter.id)}
-      className={`group flex items-center gap-1.5 rounded-lg border border-line bg-surface p-2 transition-colors hover:border-line-strong ${
+      className={`card card--interactive group flex items-center gap-3 p-4 no-underline transition-colors hover:border-line-hover min-h-[56px] ${
         isNext ? 'text-end sm:col-start-2' : ''
       }`}
     >
-      {!isNext && <ArrowIcon className="shrink-0 rotate-180 text-ink-3 transition-colors group-hover:text-accent rtl:rotate-0" />}
+      {!isNext && <ArrowIcon className="shrink-0 rotate-180 text-muted transition-colors group-hover:text-action rtl:rotate-0" width="18" height="18" />}
       <span className="min-w-0 flex-1">
-        <span className="block text-xs font-medium uppercase tracking-wide text-ink-3">
+        <span className="block label text-muted">
           {t(lang, isNext ? 'next' : 'previous')}
         </span>
-        <span className="block truncate text-base font-medium text-ink">{chapter.title[lang]}</span>
+        <span className="block truncate text-[17px] font-semibold text-ink group-hover:text-action transition-colors">{chapter.title[lang]}</span>
       </span>
-      {isNext && <ArrowIcon className="shrink-0 text-ink-3 transition-colors group-hover:text-accent rtl:rotate-180" />}
+      {isNext && <ArrowIcon className="shrink-0 text-muted transition-colors group-hover:text-action rtl:rotate-180" width="18" height="18" />}
     </a>
   )
 }
@@ -30,7 +30,7 @@ export default function PrevNext({ chapter, lang }) {
   const next = chapters[i + 1]
   if (!prev && !next) return null
   return (
-    <nav aria-label="Chapter navigation" className="print-hidden mt-10 grid grid-cols-1 gap-2 border-t border-line pt-4 sm:grid-cols-2">
+    <nav aria-label="Chapter navigation" className="print-hidden mt-12 grid grid-cols-1 gap-4 border-t border-line pt-6 sm:grid-cols-2">
       {prev && <Card chapter={prev} lang={lang} direction="prev" />}
       {next && <Card chapter={next} lang={lang} direction="next" />}
     </nav>

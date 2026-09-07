@@ -65,20 +65,20 @@ function Placeholder({ chapterId, asset, lang, className = '' }) {
       role="img"
       aria-label={asset.alt?.[lang] || asset.brief}
       style={ratioStyle(asset.ratio)}
-      className={`placeholder flex w-full flex-col items-center justify-center gap-1.5 rounded-lg border-2 border-dashed border-line-strong bg-surface p-3 text-center shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] ${className}`}
+      className={`placeholder flex w-full flex-col items-center justify-center gap-2 rounded-card border-2 border-dashed border-line-strong bg-surface p-4 text-center shadow-raised ${className}`}
     >
-      <ImageIcon className="text-ink-3" width="28" height="28" />
-      <p className="text-xs font-medium uppercase tracking-wide text-ink-3">
+      <ImageIcon className="text-muted" width="28" height="28" />
+      <p className="label text-muted">
         {t(lang, 'placeholder')}
       </p>
       {asset.brief && (
-        <p dir="auto" className="max-w-[48ch] text-sm leading-[22px] text-ink-2">
+        <p dir="auto" className="max-w-[48ch] text-[15px] leading-[22px] text-body">
           {asset.brief}
         </p>
       )}
-      <p className="mt-0.5 text-xs text-ink-3">
+      <p className="mt-0.5 text-xs text-muted">
         {t(lang, 'expectedFile')}:{' '}
-        <code className="rounded-sm bg-raised px-0.5 text-ink-2">
+        <code className="rounded bg-surface-sunken px-1.5 py-0.5 text-body">
           assets/{chapterId}/{asset.file}
         </code>
       </p>
@@ -122,7 +122,7 @@ function Figure({ chapterId, asset, lang, eager, live }) {
     <div
       ref={ref}
       style={ratioStyle(asset.ratio)}
-      className="relative w-full overflow-hidden rounded-lg border border-line bg-raised shadow-[0_4px_24px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25)] transition-shadow duration-200 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
+      className="card card--interactive relative w-full overflow-hidden p-0 bg-surface-sunken"
     >
       {hasDiagram && (
         <iframe
@@ -162,7 +162,7 @@ export default function Asset({ chapterId, asset, lang, eager = false, live = tr
   if (!asset?.file) return null
   const alt = asset.alt?.[lang]
   return (
-    <figure className="my-4">
+    <figure className="my-6">
       {/* key forces a fresh load state when the file changes */}
       <Figure
         key={`${chapterId}/${asset.file}`}
@@ -173,7 +173,7 @@ export default function Asset({ chapterId, asset, lang, eager = false, live = tr
         live={live}
       />
       {alt && (
-        <figcaption className="mt-1.5 text-sm leading-[22px] text-ink-2">{alt}</figcaption>
+        <figcaption className="caption mt-2">{alt}</figcaption>
       )}
     </figure>
   )

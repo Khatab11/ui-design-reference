@@ -16,25 +16,21 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
         }`}
       />
 
-      {/* Floating Glassmorphic Sidebar */}
+      {/* Floating Sidebar adhering to 260px width in DESIGN_SYSTEM.md §8 */}
       <aside
         aria-label={t(lang, 'contents')}
         className={`print-hidden fixed z-50 flex flex-col transition-all duration-200 ease-out
           /* Mobile: floating sheet */
-          max-md:top-2 max-md:bottom-2 max-md:start-2 max-md:w-[min(296px,calc(100vw-16px))] max-md:rounded-2xl
+          max-md:top-2 max-md:bottom-2 max-md:start-2 max-md:w-[min(280px,calc(100vw-16px))] max-md:rounded-card
           ${open ? 'max-md:translate-x-0 max-md:opacity-100' : 'max-md:ltr:-translate-x-[calc(100%+24px)] max-md:rtl:translate-x-[calc(100%+24px)] max-md:opacity-0 max-md:pointer-events-none'}
-          /* Desktop: floating glass sidebar adhering to 8pt grid */
-          md:top-[80px] md:bottom-2 md:start-2 md:w-[256px] md:z-20 md:rounded-2xl
-          /* Glassmorphism visual effect */
-          bg-surface/75 dark:bg-surface/70 backdrop-blur-xl backdrop-saturate-150
-          border border-line/70 dark:border-line/40
-          shadow-xl shadow-ink/5 dark:shadow-black/40
-          ring-1 ring-white/30 dark:ring-white/5`}
+          /* Desktop: 260px sidebar */
+          md:top-[76px] md:bottom-3 md:start-3 md:w-[260px] md:z-20 md:rounded-card
+          bg-surface border border-line shadow-overlay`}
       >
         {/* Mobile Header */}
-        <div className="flex h-[56px] shrink-0 items-center justify-between border-b border-line/60 px-3 md:hidden">
+        <div className="flex h-[56px] shrink-0 items-center justify-between border-b border-line px-3 md:hidden">
           <div className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-accent/30 bg-accent/10 text-accent font-semibold text-xs">
+            <div className="flex h-7 w-7 items-center justify-center rounded-[6px] bg-action text-white font-semibold text-xs">
               UI
             </div>
             <span className="text-sm font-semibold text-ink">{site.title[lang]}</span>
@@ -43,27 +39,27 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
             type="button"
             onClick={onClose}
             aria-label={t(lang, 'closeMenu')}
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-line/70 bg-surface/60 text-ink-2 hover:border-line-strong hover:bg-raised hover:text-ink active:scale-95"
+            className="btn btn--secondary btn--sm flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center p-0"
           >
             <CloseIcon width="16" height="16" />
           </button>
         </div>
 
         {/* Desktop Header Badge */}
-        <div className="hidden shrink-0 items-center justify-between border-b border-line/50 px-3 py-2.5 md:flex">
-          <div className="flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-3">
+        <div className="hidden shrink-0 items-center justify-between border-b border-line px-3 py-3 md:flex">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-action" />
+            <span className="label text-muted">
               {t(lang, 'contents')}
             </span>
           </div>
-          <span className="rounded-md border border-line/70 bg-raised/80 px-1.5 py-0.2 font-mono text-[10px] font-medium text-ink-3">
-            {chapters.length} {lang === 'ar' ? 'أقسام' : 'chapters'}
+          <span className="tag tag--neutral py-0 px-1.5 font-mono text-[10px]">
+            {chapters.length} {lang === 'ar' ? 'فصل' : 'chapters'}
           </span>
         </div>
 
         {/* Navigation Content */}
-        <nav className="flex-1 overflow-y-auto px-2 py-2.5">
+        <nav className="flex-1 overflow-y-auto px-2 py-2">
           <ol className="space-y-1">
             {chapters.map((chapter, i) => {
               const active = chapter.id === activeChapterId
@@ -72,17 +68,17 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
                   <a
                     href={hrefFor(chapter.id)}
                     aria-current={active ? 'page' : undefined}
-                    className={`flex items-center gap-2 rounded-xl px-2 py-1.5 text-xs font-medium transition-all ${
+                    className={`flex items-center gap-2 rounded-control px-2.5 py-2 text-sm font-medium transition-all no-underline ${
                       active
-                        ? 'bg-accent/15 text-accent-ink font-semibold border border-accent/25 shadow-2xs backdrop-blur-xs'
-                        : 'text-ink-2 hover:bg-raised/70 hover:text-ink border border-transparent hover:border-line/50'
+                        ? 'bg-action-tint text-action font-semibold border border-action-tint-line'
+                        : 'text-body hover:bg-ground hover:text-ink border border-transparent'
                     }`}
                   >
                     <span
-                      className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md font-mono text-[10px] font-semibold transition-colors ${
+                      className={`flex h-5 w-5 shrink-0 items-center justify-center rounded font-mono text-[11px] font-semibold transition-colors ${
                         active
-                          ? 'bg-accent/20 text-accent-ink'
-                          : 'bg-raised/90 text-ink-3 group-hover/item:text-ink-2'
+                          ? 'bg-action text-white'
+                          : 'bg-surface-sunken text-muted group-hover/item:text-body'
                       }`}
                     >
                       {String(i + 1).padStart(2, '0')}
@@ -92,7 +88,7 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
 
                   {/* Subsections under active chapter */}
                   {active && (
-                    <ol className="ms-3 mt-1 space-y-0.5 border-s border-line/80 ps-2.5">
+                    <ol className="ms-3 mt-1 space-y-0.5 border-s border-line ps-2.5">
                       {chapter.sections.map((section) => {
                         const current = section.id === activeSectionId
                         return (
@@ -100,10 +96,10 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
                             <a
                               href={hrefFor(chapter.id, section.id)}
                               aria-current={current ? 'location' : undefined}
-                              className={`-ms-px block border-s-2 py-1 pe-1.5 ps-2 text-[11px] leading-relaxed transition-all rounded-e-md ${
+                              className={`-ms-px block border-s-2 py-1.5 pe-1.5 ps-2 text-xs leading-relaxed transition-all rounded-e no-underline ${
                                 current
-                                  ? 'border-accent font-semibold text-accent-ink bg-accent/10 shadow-2xs'
-                                  : 'border-transparent text-ink-2 hover:border-line-strong hover:bg-raised/60 hover:text-ink'
+                                  ? 'border-action font-semibold text-action bg-action-tint/50'
+                                  : 'border-transparent text-muted hover:border-line-strong hover:bg-ground hover:text-ink'
                               }`}
                             >
                               {section.title[lang]}
@@ -120,12 +116,12 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
         </nav>
 
         {/* Footer / Print Option */}
-        <div className="shrink-0 border-t border-line/60 p-2 bg-surface/40 backdrop-blur-sm rounded-b-2xl">
+        <div className="shrink-0 border-t border-line p-2">
           <a
             href="#/print"
-            className="flex items-center justify-center gap-1.5 rounded-xl border border-line/70 bg-surface/60 px-2.5 py-1.5 text-xs font-medium text-ink-2 shadow-2xs transition-all hover:border-line-strong hover:bg-raised hover:text-ink active:scale-98"
+            className="btn btn--secondary btn--sm w-full gap-2 text-xs"
           >
-            <PrintIcon width="16" height="16" className="text-ink-3" />
+            <PrintIcon width="16" height="16" className="text-muted" />
             <span>{t(lang, 'printAll')}</span>
           </a>
         </div>
