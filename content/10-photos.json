@@ -51,6 +51,15 @@
         "type": "tip",
         "en": "Always apply a semi-transparent dark overlay (e.g. 40%–60% black) when overlaying white text on photography to preserve contrast.",
         "ar": "استخدم دائماً طبقة شفافة داكنة (من 40% إلى 60%) أسفل النصوص البيضاء فوق الصور لضمان سهولة القراءة."
+      },
+      "asset": {
+        "file": "photo-text-overlays.png",
+        "alt": {
+          "en": "Techniques for readable text over photography: bare text, gradient scrim, and frosted glass",
+          "ar": "طرق ضمان قراءة النصوص فوق الصور: النص المجرد، التدرج المظلل، والبطاقة الزجاجية"
+        },
+        "ratio": "16:9",
+        "brief": "Three hero banner panels over a bright detailed photo: (1) Bare white text (illegible FAIL), (2) Smooth black-to-transparent gradient scrim overlay (crisp readability PASS), and (3) Floating frosted glass card with 20px blur (premium finish PASS)."
       }
     },
     {
@@ -62,6 +71,15 @@
       "body": {
         "en": "Select photography featuring one clear, unambiguous focal point. If the viewer must search around to decipher the subject, the photo dilutes focus.\n\n**Directional Gaze:** Eye-tracking studies prove that human viewers naturally follow the gaze of people depicted in photos. If a person in the hero image looks towards your Call-to-Action button or value proposition, user eyes naturally follow their line of sight.\n\n**RTL Adaptation:** In Arabic interfaces where headlines and CTAs sit on the right, ensure the subject looks **towards the right**, reinforcing attention toward your primary conversion goal.",
         "ar": "اختار صور ليها نقطة تركيز بؤرية واحدة واضحة؛ المستخدم مش المفروض يدور جوه الصورة عشان يفهمها.\n\n**اتجاه النظر (Directional Gaze):** أبحاث تتبع حركة العين أثبتت إن الناس بطبيعتهم بيتبعوا اتجاه نظرات الأشخاص في الصور. لو الشخص اللي في الصورة باصص ناحية زرار الـ CTA أو العنوان الرئيسي، عين المستخدم هتروح معاه تلقائياً.\n\n**قاعدة الـ RTL:** في الواجهات العربية، العنوان والأزرار غالباً على اليمين؛ احرص إن اتجاه نظر الشخص في الصورة يكون متجه ناحية اليمين مش الشمال."
+      },
+      "asset": {
+        "file": "directional-gaze.png",
+        "alt": {
+          "en": "Using human directional gaze in photography to direct user attention toward the CTA",
+          "ar": "استخدام اتجاه نظرة الشخص في الصورة لتوجيه انتباه المستخدم نحو زر الإجراء"
+        },
+        "ratio": "16:9",
+        "brief": "Two landing page hero mockups: Left shows a model looking away out of the screen (pulling attention off-page); Right shows the model looking and subtly pointing directly toward the headline and primary \"Get Started\" CTA."
       }
     },
     {
@@ -73,6 +91,15 @@
       "body": {
         "en": "Photos must tell an aspirational story rather than merely cataloging raw objects. A flat photo of kitchen utensils conveys cold data; a happy family laughing while cooking dinner conveys aspiration, belonging, and joy. Remember: **people buy on emotion and justify with logic**.\n\nAlways test and crop your images across standard responsive aspect ratios (`16:9`, `4:3`, `1:1`, `4:5`) to prevent awkward cropping on mobile screens.",
         "ar": "الصور لازم تحكي قصة ملهمة مش بس تعرض بضاعة جامدة. صورة شوك وسكاكين على خلفية بيضاء بتديك معلومة ميتة؛ لكن صورة عيلة بتطبخ مع بعض بتديك دفء وأمل وقصة حب. الناس بتشتري بالعاطفة وتبرر بالمنطق.\n\nاختبر دايمًا قص وتجاوب صورك بنسب الأبعاد المختلفة (16:9, 4:3, 1:1) على كل الشاشات عشان تتفادى قص الرؤوس أو التفاصيل المهمة على الموبايل."
+      },
+      "asset": {
+        "file": "responsive-aspect-ratios.png",
+        "alt": {
+          "en": "Responsive aspect ratio cropping across desktop, tablet, and mobile cards",
+          "ar": "قص الصور حسب النسب المتجاوبة عبر الشاشات المختلفة مع حماية نقطة التركيز"
+        },
+        "ratio": "16:9",
+        "brief": "The same portrait image displayed across three UI components: 16:9 wide desktop header, 4:3 tablet card, and 1:1 mobile square, demonstrating smart focal-point anchoring (keeping the subject centered) vs naive center cropping."
       }
     }
   ]

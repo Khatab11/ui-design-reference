@@ -11,16 +11,32 @@
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9VKDN8XNTX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-9VKDN8XNTX');
+
+      // Hash routing: report each chapter/section as its own page view.
+      window.addEventListener('hashchange', function () {
+        gtag('event', 'page_view', {
+          page_location: window.location.href,
+          page_path: window.location.pathname + window.location.hash,
+          page_title: document.title,
+        });
+      });
+    </script>
     <script>
       // Apply persisted theme + language before first paint to avoid flashes.
       (function () {
         try {
-          var theme = localStorage.getItem('uiref:theme');
-          if (!theme) {
-            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          }
+          var theme = localStorage.getItem('uiref:theme') || 'light';
           if (theme === 'dark') document.documentElement.classList.add('dark');
-          var lang = localStorage.getItem('uiref:lang') || 'en';
+          var lang = localStorage.getItem('uiref:lang') || 'ar';
           document.documentElement.lang = lang;
           document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         } catch (e) {}

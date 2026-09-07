@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { chapters, chapterById } from './lib/content.js'
 import { useHashRoute, useLocalStorage } from './lib/hooks.js'
-import { STORAGE_KEYS, site, DEFAULT_LANG } from './config.js'
+import { STORAGE_KEYS, site, DEFAULT_LANG, DEFAULT_THEME } from './config.js'
 import { t } from './lib/ui.js'
 import { stripMarkdown } from './lib/search.js'
 import { sectionDomId } from './components/Section.jsx'
@@ -10,10 +10,6 @@ import Sidebar from './components/Sidebar.jsx'
 import Chapter from './components/Chapter.jsx'
 import Search from './components/Search.jsx'
 import PrintView from './components/PrintView.jsx'
-
-function prefersDark() {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
 
 function setMetaTag(attrName, attrValue, content) {
   if (content === undefined || content === null) return
@@ -44,7 +40,7 @@ function truncate(text = '', max = 160) {
 
 export default function App() {
   const [lang, setLang] = useLocalStorage(STORAGE_KEYS.lang, DEFAULT_LANG)
-  const [theme, setTheme] = useLocalStorage(STORAGE_KEYS.theme, prefersDark)
+  const [theme, setTheme] = useLocalStorage(STORAGE_KEYS.theme, DEFAULT_THEME)
   const route = useHashRoute()
   const [activeSection, setActiveSection] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)

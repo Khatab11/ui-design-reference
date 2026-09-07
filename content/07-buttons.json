@@ -66,6 +66,15 @@
         "type": "tip",
         "en": "Maintain minimum 44x44 pt tap targets on mobile to guarantee smooth one-handed usability.",
         "ar": "حافظ على مساحة لمس لا تقل عن 44×44 نقطة للأزرار على الموبايل لتسهيل الاستخدام بيد واحدة."
+      },
+      "asset": {
+        "file": "touch-targets.png",
+        "alt": {
+          "en": "Mobile 44px minimum hit target bounding box and thumb reach zones",
+          "ar": "مساحة اللمس الدنيا 44 بكسل ومناطق وصول الإبهام على شاشات الموبايل"
+        },
+        "ratio": "16:9",
+        "brief": "Annotated mobile screen showing: (1) A small 32px visual button surrounded by a translucent 44×44pt green hit boundary, and (2) An ergonomic thumb reach heat map showing the natural bottom-arc zone versus the hard-to-reach top corners."
       }
     },
     {
@@ -77,6 +86,15 @@
       "body": {
         "en": "Every production button must support all interactive states:\n\n- **Default:** The resting baseline appearance.\n- **Hover:** Visible feedback when hovered with a mouse cursor.\n- **Active / Pressed:** Physical compression feedback during a click.\n- **Disabled:** Dimmed, non-interactive state clearly indicating requirements are not yet met.",
         "ar": "كل زرار جاهز للإنتاج لازم يغطي ٤ حالات تفاعلية كاملة:\n\n- **الافتراضية (Default):** شكل الزرار وهو في وضع الاستعداد.\n- **التمرير (Hover):** استجابة بصرية لما ماوس المستخدم يقف فوقه.\n- **الضغط (Active / Pressed):** إحساس انضغاط الزرار لحظة النقر.\n- **المعطّل (Disabled):** لون باهت يوضح إن متطلبات الضغط لسه مكملتش."
+      },
+      "asset": {
+        "file": "button-states.png",
+        "alt": {
+          "en": "Interactive button states: default, hover, active, focus, disabled, and loading",
+          "ar": "حالات الأزرار التفاعلية: الافتراضية، التحويم، الضغط، التركيز، التعطيل، والتحميل"
+        },
+        "ratio": "16:9",
+        "brief": "Matrix displaying primary and secondary buttons across 6 interactive states: Default, Hover (subtle darken), Pressed (scale 0.98 + darker fill), Focus Visible (2px offset ring), Disabled (sunken grey fill), and Loading (retaining label with spinner)."
       }
     },
     {
@@ -93,6 +111,15 @@
         "type": "note",
         "en": "Consistency in RTL button ordering builds muscle memory for Arabic users. Never flip button positions unpredictably across screens.",
         "ar": "الاتساق في ترتيب أزرار النماذج يبني ذاكرة حركية للمستخدمين العرب؛ لا تغير أماكن الأزرار بين الشاشات."
+      },
+      "asset": {
+        "file": "button-pairing-and-rtl.png",
+        "alt": {
+          "en": "Button pair ordering in LTR versus RTL layouts with visual hierarchy",
+          "ar": "ترتيب أزواج الأزرار في الواجهات الإنجليزية والعربية مع الحفاظ على الهرمية"
+        },
+        "ratio": "16:9",
+        "brief": "Two modal dialog footers: Top shows LTR layout with Secondary Cancel on the left and Primary Confirm on the right; Bottom shows RTL Arabic layout with Secondary Cancel on the right and Primary Confirm on the left, respecting reading direction."
       }
     }
   ]

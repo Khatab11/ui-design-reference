@@ -19,6 +19,15 @@
       "body": {
         "en": "Every digital product employs a synthesis of three core navigation patterns:\n\n1. **Visible Navigation:** Persistent tabs or header bars anchored in place. Zero-click discovery.\n2. **Hidden Navigation:** Off-canvas sidebars, hamburger drawers, and full-screen overlays. High capacity for deep site hierarchies, but requires an intentional click.\n3. **Contextual Navigation:** In-content hyperlinks, product tag chips, and inline breadcrumbs embedded directly within the flow of reading.",
         "ar": "أي تطبيق أو موقع بيستخدم توليفة من تلات أشكال أساسية للتنقل:\n\n1. **التنقل الظاهر (Visible):** تابات ثابتة ومفتوحة دايمًا قدام العين؛ أسرع وسيلة وصول بدون أي كليك إضافي.\n2. **التنقل المخفي (Hidden):** القوائم الجانبية المنسدلة (Hamburger Menu)؛ بتستوعب أقسام فرعية كتير لكنها بتتطلب نقرة إضافية.\n3. **التنقل السياقي (Contextual):** روابط ومسارات مدمجة جوه المحتوى نفسه (زي وسوم التاج، هاشتاجات، أو مسار الصفحات Breadcrumbs)."
+      },
+      "asset": {
+        "file": "three-navigation-paradigms.png",
+        "alt": {
+          "en": "The three digital navigation paradigms: bottom tab bar, desktop top bar, and drawer sidebar",
+          "ar": "الأنماط الثلاثة للتنقل الرقمي: شريط التبويبات السفلي، الشريط العلوي، والقائمة الجانبية"
+        },
+        "ratio": "16:9",
+        "brief": "Architectural breakdown of three navigation patterns: (1) Mobile persistent 4-tab bottom bar for core destinations, (2) Desktop horizontal header with categorized dropdown menus, and (3) Collapsible sidebar drawer for deep, multi-tier utility tools."
       }
     },
     {
@@ -82,6 +91,15 @@
         "type": "note",
         "en": "Always anchor primary Arabic navigation to the right edge. Arabic users visually initiate spatial scanning from right to left.",
         "ar": "ثبّت عناصر التنقل الرئيسية في الواجهات العربية ناحية اليمين؛ العين العربية تبدأ المسح البصري تلقائياً من أقصى اليمين."
+      },
+      "asset": {
+        "file": "rtl-navigation-flipping.png",
+        "alt": {
+          "en": "RTL navigation horizontal flipping rules for Arabic interface design",
+          "ar": "قواعد عكس اتجاه التنقل للواجهات العربية من اليمين إلى اليسار"
+        },
+        "ratio": "16:9",
+        "brief": "Two mobile app headers and tab bars comparing LTR vs RTL: Annotations highlight what flips (Back arrow points right, tab order starts from right, chevron disclosure indicators flip) versus what never flips (media scrubbers, phone numbers, Western brand logos)."
       }
     }
   ]

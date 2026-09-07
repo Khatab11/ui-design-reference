@@ -35,6 +35,15 @@
         "type": "tip",
         "en": "Label buttons with explicit action phrases (e.g. \"Create Account\" or \"Pay $49\") rather than generic placeholders like \"Submit\".",
         "ar": "سمِّ الأزرار دائماً بالفعل الصريح الناتج عنها (مثل \"إنشاء الحساب\" أو \"ادفع ٥٠ ج.م\") بدلاً من الكلمات العامة مثل \"إرسال\"."
+      },
+      "asset": {
+        "file": "button-copy-specificity.png",
+        "alt": {
+          "en": "Specific action-oriented button copy versus ambiguous generic labels",
+          "ar": "نصوص الأزرار المحددة الموجهة للنتيجة مقابل النصوص العامة المبهمة"
+        },
+        "ratio": "16:9",
+        "brief": "Comparison of modal dialog buttons: Left dialog uses vague buttons \"OK\" and \"Cancel\" leaving the user uncertain of what happens; Right dialog uses explicit outcome labels \"Save Draft\" and \"Discard Changes\", eliminating all ambiguity."
       }
     },
     {
@@ -51,6 +60,15 @@
         "type": "warning",
         "en": "Never use \"Yes / Cancel\" on destructive confirmation dialogs. Explicitly state the action (e.g. \"Delete Project\" vs \"Keep Project\").",
         "ar": "لا تستخدم أبداً خيارات \"نعم / إلغاء\" في نوافذ التأكيد الحساسة؛ سمِّ كل زرار بإجرائه الفعلي الصريح لمنع الأخطاء الكارثية."
+      },
+      "asset": {
+        "file": "destructive-modal-dialog.png",
+        "alt": {
+          "en": "Eliminating double-negatives in destructive confirmation dialogs",
+          "ar": "إلغاء أسلوب النفي المزدوج في النوافذ التأكيدية للإجراءات الحساسة"
+        },
+        "ratio": "16:9",
+        "brief": "Before/after confirmation dialog: Left shows confusing prompt \"Do you want to cancel the deletion? [Yes] [No]\" causing cognitive paralysis; Right shows clear prompt \"Delete this invoice permanently? [Keep Invoice] [Delete Invoice]\" with destructive red primary styling."
       }
     },
     {
@@ -62,6 +80,15 @@
       "body": {
         "en": "Avoid robotic, bureaucratic error codes that leave users stranded. When something fails, state what happened in plain human language and immediately propose an actionable path forward.\n\n- ❌ Robotic Error: *\"Error 408: Request timeout; packet stream disrupted.\"*\n- ✅ Human Error: *\"We lost connection to the server. Please check your internet and tap retry.\"*\n\nUsers aren't network engineers — they need to know what to do next.",
         "ar": "ابعد تماماً عن لغة الآلات المعقدة وأكواد الأخطاء الجافة اللي بتسيب المستخدم عاجز. لما يحصل خطأ، اشرح المشكلة بلغة بشرية بسيطة واقترح فوراً حل عملي:\n\n- ❌ خطأ برمجي معقد: *\"خطأ 408: انقطاع الاتصال وتجاوز مهلة الاستجابة اللاسلكية.\"*\n- ✅ لغة بشرية مفيدة: *\"مفيش اتصال بالإنترنت. اتأكد من تشغيل الواي فاي وجرّب تدوس إعادة المحاولة.\"*\n\nالمستخدم مش مهندس شبكات؛ هو محتاج يعرف الخطوة اللي المفروض يعملها دلوقتي."
+      },
+      "asset": {
+        "file": "conversational-error-states.png",
+        "alt": {
+          "en": "Human conversational error messages with solutions versus cryptic system error codes",
+          "ar": "رسائل الخطأ الإنسانية المصحوبة بالحلول مقابل الأكواد التقنية الصماء"
+        },
+        "ratio": "16:9",
+        "brief": "Side-by-side error toasts: Left displays robotic message \"Error 504: Gateway Timeout / Operation Aborted\"; Right displays human, actionable copy \"We couldn’t reach the payment server. Your card was not charged. [Try Again in 2 mins]\"."
       }
     },
     {

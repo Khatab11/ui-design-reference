@@ -57,6 +57,15 @@
       "body": {
         "en": "Always begin wireframing and initial UI layouts strictly in greyscale. Designing in black and white forces you to establish visual hierarchy, spacing, contrast, and layout clarity before making subjective, emotional color choices. If a layout fails to work in greyscale, adding color will only disguise its structural weaknesses.",
         "ar": "صمم الهيكل المبدئي (Wireframe) بالأبيض والأسود والرمادي الأول، وبعدين ضيف الألوان. الأسلوب ده بيجبرك ترتب الأولويات والتسلسل البصري وتوزيع المساحات بشكل موضوعي قبل ما تتدخل العواطف أو بهرجة الألوان. لو التصميم مش واضح بالأبيض والأسود، الألوان مش هتحل مشاكله."
+      },
+      "asset": {
+        "file": "wireframe-first.png",
+        "alt": {
+          "en": "Comparison of UI designed in greyscale first versus color added purposefully",
+          "ar": "مقارنة بين تصميم الواجهة بالرمادي أولاً ثم إضافة الألوان بشكل وظيفي"
+        },
+        "ratio": "16:9",
+        "brief": "Side-by-side comparison of the same card interface: Left in pure greyscale hierarchy establishing spacing, typography, and contrast without distraction; Right showing the single intentional brand blue accent applied to the primary CTA and active indicator."
       }
     },
     {
@@ -109,6 +118,15 @@
         "type": "tip",
         "en": "Do not mechanically follow the 60-30-10 rule. A functional UI palette requires dedicated semantic tints, shades, and greys.",
         "ar": "لا تعتمد ميكانيكياً على قاعدة 60-30-10؛ الواجهات الحقيقية تتطلب لوحة منظمة بدرجات رمادية وألوان دلالية واضحة."
+      },
+      "asset": {
+        "file": "palette-architecture.png",
+        "alt": {
+          "en": "Systematic UI color palette architecture showing brand, neutrals, and semantic colors",
+          "ar": "بنية متكاملة للوحة ألوان الواجهة تشمل ألوان العلامة، المحايدة، والدلالية"
+        },
+        "ratio": "16:9",
+        "brief": "Horizontal swatch board demonstrating a production color system: Brand action primary hue with 5 tints/shades, warm neutral ramp (9 steps from ground #FAF9F7 to ink #1A1A17), and semantic alert trios (success green, warning amber, error red) with their tint backgrounds."
       }
     },
     {
@@ -125,6 +143,15 @@
         "type": "warning",
         "en": "Never rely solely on color to convey meaning (e.g. error states). Always accompany color cues with descriptive text or icons.",
         "ar": "لا تعتمد على اللون وحده أبدًا لتوصيل المعنى (مثل حالات الخطأ)؛ ادعمه دائمًا بنص توضيحي أو أيقونة واضحة."
+      },
+      "asset": {
+        "file": "wcag-contrast-ratios.png",
+        "alt": {
+          "en": "WCAG contrast ratio comparison showing passing versus failing text combinations",
+          "ar": "مقارنة نسب التباين وفق معايير WCAG توضح النماذج الناجحة والراسبة"
+        },
+        "ratio": "16:9",
+        "brief": "Grid of 4 text-on-surface cards with prominent contrast badges: (1) Low contrast gray text on white (2.1:1 FAIL), (2) Accessible body text (5.5:1 PASS AA), (3) Large headline on tinted fill (4.8:1 PASS AAA), and (4) Red error text on white accompanied by warning icon (4.6:1 PASS)."
       }
     }
   ]
