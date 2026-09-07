@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FAF9F7">
+  <title>Built for Systematic Performance — UI Design Reference</title>
+
+  <!-- Google Fonts: Public Sans (400, 500, 600, 700) per Design System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap">
+
+  <script>
+    // Entrance animation trigger before first paint
+    document.documentElement.classList.add("entrance-active");
+    window.__entranceFailsafe = setTimeout(function () {
+      document.documentElement.classList.remove("entrance-active");
+    }, 3200);
+  </script>
+
+  <style>
+    /* ==================================================
+       TOKENS & BASE RULES (from DESIGN_SYSTEM.md)
+       ================================================== */
+    :root {
+      /* Brand Tokens — Education Platform */
+      --color-action: #1F5AE0;
+      --color-action-hover: #1747B8;
+      --color-action-pressed: #123A96;
+      --color-action-tint: #EAF1FE;
+      --color-action-tint-line: #C7DBFB;
+
+      /* Neutrals — Warm */
+      --color-ink: #1A1A17;
+      --color-body: #4A4842;
+      --color-muted: #7A776F;
+      --color-line: #E6E3DD;
+      --color-line-strong: #CFCBC2;
+      --color-line-hover: #A8A49B;
+      --color-surface: #FFFFFF;
+      --color-surface-sunken: #F0EEE9;
+      --color-ground: #FAF9F7;
+
+      /* Feedback */
+      --color-success: #0E7A5F;
+      --color-warning: #A45B00;
+      --color-error: #C0271C;
+
+      /* Typography */
+      --font-sans: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+      /* Stage Layout Variables */
+      --paper: var(--color-ground);
+      --ink: var(--color-ink);
+      --copy: var(--color-body);
+      --glass-line: rgba(255, 255, 255, 0.34);
+      --card-ref-w: 429;
+      --card-ref-h: 554;
+      --card-radius: 12;
+      --card-count: 3;
+      --gap: clamp(8px, 1.5vw, 23px);
+      --gutter: clamp(14px, 3.6vw, 54px);
+      --content-max: calc(var(--card-count) * var(--card-ref-w) * 1px + (var(--card-count) - 1) * var(--gap));
+      --pad-top: clamp(20px, 8.4vh, 88px);
+      --pad-bottom: clamp(16px, 3vh, 48px);
+      --masthead-gap: clamp(16px, 3vw, 40px);
+      --cards-offset: clamp(14px, 8.4vh, 80px);
+
+      --radius-tag: 6px;
+      --radius-control: 8px;
+      --radius-card: 12px;
+      --radius-pill: 999px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      min-width: 100%;
+      height: 100%;
+      overflow: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--font-sans);
+      font-optical-sizing: auto;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    button, a { font: inherit; }
+
+    /* ==================================================
+       STAGE LAYOUT
+       ================================================== */
+    .stage {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      height: 100svh;
+      overflow: hidden;
+      padding: var(--pad-top) var(--gutter) var(--pad-bottom);
+      background:
+        linear-gradient(rgba(250, 249, 247, 0.12), rgba(250, 249, 247, 0.12)),
+        url("https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/5c3ec08f-2dbf-4c0a-8588-f6106a789443.webp") center / cover no-repeat,
+        var(--paper);
+    }
+
+    .stage-motion {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .stage-motion--narrow { display: none; }
+
+    .paper-texture {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      display: none;
+    }
+    .filter-defs {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .masthead, .cards {
+      width: min(100%, var(--content-max));
+      margin-inline: auto;
+    }
+
+    /* ==================================================
+       MASTHEAD
+       ================================================== */
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, clamp(260px, 32vw, 483px));
+      gap: var(--masthead-gap);
+      align-items: start;
+      z-index: 2;
+      flex: 0 0 auto;
+    }
+
+    h1.headline {
+      margin: 0;
+      max-width: 100%;
+      color: var(--color-ink);
+      font-size: clamp(24px, min(3.1vw, 5.9vh), 47px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .headline__line {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+
+    .dot-word {
+      display: inline-block;
+      flex: 0 0 auto;
+      width: 4.851em;
+      height: .766em;
+      margin-left: .319em;
+      color: var(--color-action);
+      transform: translateY(.085em);
+    }
+    .dot-svg {
+      display: block;
+      overflow: visible;
+      color: inherit;
+    }
+
+    p.intro {
+      container-type: inline-size;
+      width: 100%;
+      margin: .34em 0 0;
+      color: var(--color-body);
+      font-size: clamp(13px, min(1.36vw, 2.6vh), 20.6px);
+      font-weight: 400;
+      letter-spacing: -0.017em;
+      line-height: 1.62;
+      max-width: 70ch;
+    }
+    .desktop-break { display: none; }
+    @container (min-width: 26.5em) {
+      .desktop-break { display: inline; }
+    }
+
+    /* ==================================================
+       CARDS ROW & CONTAINER UNIT
+       ================================================== */
+    section.cards {
+      flex: 1 1 auto;
+      container-type: size;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--gap);
+      min-height: 0;
+      margin-top: var(--cards-offset);
+      --card-w: min(
+        (100cqw - (var(--card-count) - 1) * var(--gap)) / var(--card-count),
+        100cqh * var(--card-ref-w) / var(--card-ref-h),
+        var(--card-ref-w) * 1px
+      );
+    }
+
+    .card {
+      container-type: inline-size;
+      position: relative;
+      flex: 0 0 auto;
+      overflow: hidden;
+      width: var(--card-w);
+      aspect-ratio: 429 / 554;
+      border: 1px solid var(--glass-line);
+      border-radius: calc(var(--card-w) * 12 / 429);
+      background-origin: border-box;
+      color: #fff;
+      --u: calc(100cqw / 429);
+      box-shadow: 0 4px 16px rgba(26, 26, 23, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      background:
+        linear-gradient(102deg, rgba(255, 255, 255, 0.10), transparent 28%, rgba(255, 255, 255, 0.08) 62%, transparent 88%),
+        radial-gradient(ellipse 85% 34% at 54% 7%, rgba(255, 255, 255, 0.24), transparent 72%);
+    }
+
+    .card__grain {
+      position: absolute;
+      z-index: 2;
+      inset: -8%;
+      width: 116%;
+      height: 116%;
+      opacity: .46;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .card__media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      pointer-events: none;
+    }
+
+    /* ==================================================
+       CARD 1 — SPATIAL SYSTEM (.card--speed)
+       ================================================== */
+    .card--speed {
+      background:
+        radial-gradient(ellipse 34% 24% at 50% 2%, rgba(200, 224, 255, 0.15) 0%, transparent 76%),
+        radial-gradient(ellipse 44% 34% at 106% 20%, rgba(190, 215, 255, 0.12) 0%, transparent 74%),
+        radial-gradient(ellipse 40% 27% at 50% 82%, rgba(200, 225, 255, 0.10) 0%, transparent 74%),
+        radial-gradient(ellipse 43% 31% at -7% 61%, rgba(23, 71, 184, 0.22) 0%, transparent 74%),
+        radial-gradient(ellipse 47% 34% at 107% 82%, rgba(18, 58, 150, 0.28) 0%, transparent 74%),
+        linear-gradient(180deg, rgba(234, 241, 254, 0.44) 0%, rgba(199, 219, 251, 0.20) 9%, transparent 22%),
+        radial-gradient(ellipse 44% 34% at 50% 111%, rgba(10, 28, 75, 0.50) 0%, transparent 74%),
+        radial-gradient(ellipse 105% 32% at 50% 80%, rgba(199, 219, 251, 0.26) 0%, rgba(31, 90, 224, 0.20) 48%, transparent 78%),
+        radial-gradient(ellipse 55% 22% at -5% 39%, rgba(180, 220, 255, 0.18) 0%, transparent 76%),
+        radial-gradient(ellipse 64% 49% at -8% 106%, rgba(31, 90, 224, 0.50) 0%, rgba(23, 71, 184, 0.28) 49%, transparent 78%),
+        radial-gradient(ellipse 64% 49% at 108% 106%, rgba(31, 90, 224, 0.46) 0%, rgba(18, 58, 150, 0.26) 49%, transparent 78%),
+        radial-gradient(ellipse 52% 54% at -8% 44%, rgba(199, 219, 251, 0.24) 0%, transparent 77%),
+        radial-gradient(ellipse 68% 45% at -4% -3%, rgba(234, 241, 254, 0.72) 0%, rgba(199, 219, 251, 0.40) 46%, transparent 77%),
+        radial-gradient(ellipse 70% 45% at 104% -4%, rgba(234, 241, 254, 0.76) 0%, rgba(199, 219, 251, 0.42) 48%, transparent 78%),
+        radial-gradient(ellipse 93% 47% at 106% 58%, rgba(240, 245, 255, 0.70) 0%, rgba(210, 230, 255, 0.42) 48%, transparent 76%),
+        radial-gradient(ellipse 74% 40% at -8% 73%, rgba(31, 90, 224, 0.46) 0%, rgba(23, 71, 184, 0.25) 48%, transparent 77%),
+        radial-gradient(ellipse 77% 36% at 57% 58%, rgba(199, 219, 251, 0.32) 0%, rgba(31, 90, 224, 0.18) 50%, transparent 78%),
+        radial-gradient(ellipse 54% 30% at 50% 17%, rgba(18, 58, 150, 0.32) 0%, transparent 78%),
+        linear-gradient(180deg, #2563eb 0%, #1d4ed8 38%, #1e40af 72%, #0f172a 100%);
+      background-origin: border-box;
+    }
+    .card--speed::before {
+      background:
+        linear-gradient(103deg, rgba(255, 255, 255, 0.09), transparent 31%, rgba(255, 255, 255, 0.06) 63%, transparent 88%),
+        radial-gradient(ellipse 92% 19% at 51% 0%, rgba(255, 255, 255, 0.10), transparent 78%);
+    }
+    .card--speed .card__grain { opacity: .54; }
+    .card--speed .card__title { top: 6.3%; color: #fff; font-size: calc(22.7 * var(--u)); }
+
+    /* Gauge */
+    svg.gauge {
+      position: absolute;
+      z-index: 2;
+      top: 27.63%;
+      left: 10.5%;
+      width: 79%;
+      height: 59%;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .tick { stroke: rgba(199, 219, 251, 0.42); }
+
+    .metric--speed {
+      top: 48.6%;
+    }
+    .metric--speed .dot-number {
+      width: 31.2%;
+    }
+    .metric--speed .dot-svg {
+      transform: translate(calc(4 * var(--u)), calc(2 * var(--u))) scale(.925, 1.018);
+      transform-origin: left top;
+    }
+    .metric--speed .metric__unit {
+      margin-left: 1%;
+      font-size: calc(30.6 * var(--u));
+      transform: translateY(calc(5 * var(--u)));
+    }
+    .card--speed .caption {
+      top: 64.75%;
+      font-size: calc(20.33 * var(--u));
+    }
+
+    /* ==================================================
+       CARD 2 — TYPOGRAPHY & SCALE (.card--context)
+       ================================================== */
+    .card--context {
+      background:
+        radial-gradient(ellipse 118% 66% at 48% -8%, rgba(221, 232, 255, 0.08), transparent 74%),
+        radial-gradient(ellipse 106% 52% at 48% 112%, rgba(230, 180, 255, 0.10), transparent 73%),
+        radial-gradient(ellipse 82% 15% at 50% 29%, rgba(220, 200, 255, 0.26), transparent 81%),
+        radial-gradient(ellipse 64% 18% at 50% 61%, rgba(200, 170, 240, 0.20), transparent 81%),
+        radial-gradient(ellipse 43% 42% at -5% 30%, rgba(190, 210, 255, 0.53), transparent 78%),
+        radial-gradient(ellipse 43% 42% at 105% 30%, rgba(220, 190, 250, 0.54), transparent 78%),
+        radial-gradient(ellipse 70% 48% at 70% 110%, rgba(200, 190, 230, 0.62), transparent 77%),
+        radial-gradient(ellipse 70% 23% at 78% 1%, rgba(230, 200, 250, 0.56), transparent 78%),
+        radial-gradient(ellipse 78% 25% at 15% 8%, rgba(200, 205, 255, 0.54), transparent 79%),
+        radial-gradient(ellipse 38% 31% at 80% 90%, rgba(210, 180, 230, 0.38), transparent 74%),
+        radial-gradient(ellipse 45% 26% at 47% 78%, rgba(210, 180, 220, 0.45), transparent 73%),
+        linear-gradient(164deg, #7c3aed 0%, #6d28d9 29%, #4c1d95 64%, #1e1b4b 100%);
+      background-origin: border-box;
+    }
+    .card--context .card__title {
+      font-size: calc(23 * var(--u));
+      line-height: 1.48;
+    }
+    .card--context .card__grain { opacity: .68; }
+    .card--context::before {
+      mix-blend-mode: multiply;
+      opacity: .54;
+      background:
+        radial-gradient(ellipse 18% 23% at 20% 32%, rgba(50, 20, 120, 0.24), transparent 76%),
+        radial-gradient(ellipse 20% 24% at 81% 30%, rgba(70, 25, 100, 0.22), transparent 76%),
+        radial-gradient(ellipse 66% 9% at 50% 30%, rgba(60, 20, 110, 0.26), transparent 82%),
+        radial-gradient(ellipse 68% 8% at 50% 69%, rgba(40, 15, 80, 0.23), transparent 83%),
+        linear-gradient(103deg, rgba(255, 255, 255, 0.08), transparent 31%, rgba(255, 255, 255, 0.05) 63%, transparent 88%);
+    }
+
+    .context-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .context-backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .context-backdrop svg {
+      width: 100%;
+      height: 100%;
+      mask: linear-gradient(180deg, #000 0%, #000 54%, rgba(0, 0, 0, 0.72) 58%, rgba(0, 0, 0, 0.18) 62%, transparent 65%);
+      -webkit-mask: linear-gradient(180deg, #000 0%, #000 54%, rgba(0, 0, 0, 0.72) 58%, rgba(0, 0, 0, 0.18) 62%, transparent 65%);
+    }
+
+    .context-window {
+      position: absolute;
+      z-index: 3;
+      top: 32.4%;
+      left: 20.4%;
+      width: 59%;
+      height: 30.1%;
+      overflow: hidden;
+      border-radius: calc(10 * var(--u));
+      background:
+        linear-gradient(0deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0) 80%),
+        linear-gradient(270deg, rgba(124, 58, 237, 0.62) 0px, rgba(124, 58, 237, 0) calc(5 * var(--u))),
+        radial-gradient(ellipse 118% 70% at 60% 8%, rgba(235, 215, 255, 0.34), transparent 74%),
+        linear-gradient(105deg, rgba(245, 235, 255, 0.72) 0%, rgba(167, 139, 250, 0.68) 51%, rgba(124, 58, 237, 0.82) 100%);
+      box-shadow: 0 calc(13 * var(--u)) calc(25 * var(--u)) rgba(30, 10, 60, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20);
+      backdrop-filter: blur(calc(9 * var(--u))) saturate(1.08);
+      -webkit-backdrop-filter: blur(calc(9 * var(--u))) saturate(1.08);
+    }
+    .context-window .window-grain {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .24;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+    .window-lines {
+      position: absolute;
+      top: 9%;
+      left: 6.7%;
+      width: 87%;
+      height: 24%;
+      display: flex;
+      flex-direction: column;
+    }
+    .window-lines span:nth-child(1) {
+      display: block;
+      height: calc(6 * var(--u));
+      border-radius: calc(2.5 * var(--u));
+      background: rgba(255, 255, 255, 0.72);
+      width: 29%;
+      margin-bottom: calc(3 * var(--u));
+    }
+    .window-lines span:nth-child(2) {
+      display: block;
+      width: 100%;
+      height: calc(22 * var(--u));
+      border-radius: calc(6 * var(--u));
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.82), rgba(220, 200, 255, 0.78) 42%, rgba(196, 181, 253, 0.85));
+    }
+    .window-lines span:nth-child(3) {
+      display: block;
+      width: 86%;
+      height: calc(6 * var(--u));
+      border-radius: calc(2.5 * var(--u));
+      background: rgba(255, 255, 255, 0.50);
+      margin-top: calc(3 * var(--u));
+      opacity: .64;
+    }
+
+    .metric--context {
+      top: 48.0%;
+      transform: translateX(2.1cqw);
+    }
+    .metric--context .dot-number {
+      width: 30.5%;
+    }
+    .metric--context .dot-svg {
+      transform: translate(calc(-1 * var(--u)), calc(-.5 * var(--u))) scale(.96, 1.02);
+      transform-origin: center;
+    }
+    .card--context .caption {
+      top: 65.72%;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: calc(19.1 * var(--u));
+      letter-spacing: calc(-.28 * var(--u));
+      line-height: 1.38;
+    }
+
+    /* ==================================================
+       CARD 3 — BILINGUAL PARITY (.card--connections)
+       ================================================== */
+    .card--connections {
+      background:
+        radial-gradient(ellipse 54% 14% at 56% 0%, rgba(255, 230, 210, 0.16), transparent 76%),
+        radial-gradient(ellipse 38% 24% at 102% 8%, rgba(255, 210, 180, 0.24), transparent 75%),
+        radial-gradient(ellipse 28% 24% at -5% 66%, rgba(255, 200, 170, 0.30), transparent 74%),
+        radial-gradient(ellipse 46% 30% at 104% 32%, rgba(230, 130, 40, 0.42), transparent 74%),
+        radial-gradient(ellipse 80% 36% at 62% 57%, rgba(220, 110, 30, 0.62), transparent 72%),
+        radial-gradient(ellipse 58% 30% at 6% 103%, rgba(160, 50, 20, 0.38), transparent 76%),
+        radial-gradient(ellipse 60% 32% at 97% 101%, rgba(140, 40, 15, 0.42), transparent 76%),
+        linear-gradient(177deg, #c25e1a 0%, #b45309 24%, #92400e 52%, #78350f 78%, #451a03 100%);
+      background-origin: border-box;
+    }
+    .card--connections .card__grain { opacity: .58; }
+    .card--connections::before {
+      background:
+        linear-gradient(102deg, rgba(255, 255, 255, 0.08), transparent 30%, rgba(255, 255, 255, 0.05) 62%, transparent 88%),
+        radial-gradient(ellipse 84% 26% at 54% 4%, rgba(255, 255, 255, 0.12), transparent 74%);
+    }
+
+    .connections-map {
+      position: absolute;
+      z-index: 2;
+      top: 21.7%;
+      left: 0;
+      width: 100%;
+      height: 43%;
+      opacity: .78;
+      pointer-events: none;
+    }
+    .connections-map svg {
+      width: 100%;
+      height: 100%;
+      mask: linear-gradient(180deg, #000 0%, #000 50%, rgba(0, 0, 0, 0.46) 67%, rgba(0, 0, 0, 0.15) 83%, transparent 96%);
+      -webkit-mask: linear-gradient(180deg, #000 0%, #000 50%, rgba(0, 0, 0, 0.46) 67%, rgba(0, 0, 0, 0.15) 83%, transparent 96%);
+    }
+
+    .metric--connections {
+      top: 48.5%;
+      transform: translateX(2.1cqw);
+    }
+    .metric--connections .dot-number {
+      width: 23%;
+    }
+
+    /* ==================================================
+       SHARED CARD CONTROLS & TYPOGRAPHY
+       ================================================== */
+    .card__title {
+      position: absolute;
+      z-index: 4;
+      top: 6.1%;
+      left: 5%;
+      width: 90%;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.96);
+      font-size: calc(22.95 * var(--u));
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 1.48;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(26, 26, 23, 0.24);
+    }
+
+    .metric {
+      position: absolute;
+      z-index: 5;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.97);
+      filter: drop-shadow(0 1px 2px rgba(26, 26, 23, 0.18));
+      pointer-events: none;
+    }
+
+    .metric__unit {
+      margin-left: 1.3%;
+      font-size: calc(30.46 * var(--u));
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: calc(-.8 * var(--u));
+    }
+
+    .caption {
+      position: absolute;
+      z-index: 5;
+      top: 65.1%;
+      left: 10%;
+      width: 80%;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: calc(19.95 * var(--u));
+      font-weight: 400;
+      letter-spacing: calc(-.36 * var(--u));
+      line-height: 1.45;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(26, 26, 23, 0.22);
+    }
+
+    /* Button conforming strictly to DESIGN_SYSTEM.md §4:
+       min-height: 44px, radius 8px, accessible focus ring */
+    .learn-more {
+      position: absolute;
+      z-index: 6;
+      top: 83.75%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(118 * var(--u));
+      height: calc(44 * var(--u));
+      min-height: 44px;
+      padding: 0 calc(20 * var(--u));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: var(--radius-control);
+      color: var(--color-ink);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.60) inset, 0 2px 6px rgba(26, 26, 23, 0.14);
+      font-size: calc(14.5 * var(--u));
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform var(--duration-fast, 140ms) ease, box-shadow var(--duration-fast, 140ms) ease, background var(--duration-fast, 140ms) ease;
+    }
+    .learn-more:hover {
+      transform: translateX(-50%) translateY(calc(-2 * var(--u)));
+      background: #ffffff;
+      box-shadow: 0 6px 18px rgba(26, 26, 23, 0.22);
+    }
+    .learn-more:active {
+      transform: translateX(-50%) translateY(0);
+      background: var(--color-surface-sunken);
+    }
+    .learn-more:focus-visible {
+      outline: 2px solid var(--color-action);
+      outline-offset: 2px;
+    }
+
+    /* ==================================================
+       ENTRANCE ANIMATIONS (one-shot, entrance-active)
+       ================================================== */
+    @keyframes headline-reveal {
+      from { opacity: 0; transform: translateY(0.52em); clip-path: inset(0 0 56% 0); }
+      to   { opacity: 1; transform: none; clip-path: inset(-8% -2% -8% -2%); }
+    }
+    @keyframes support-reveal {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes card-establish {
+      from { opacity: 0.52; transform: translateY(10px) scale(0.985); }
+      to   { opacity: 1; transform: none; scale: 1; }
+    }
+    @keyframes card-title-reveal {
+      from { opacity: 0; transform: translateY(calc(8 * var(--u))); clip-path: inset(0 0 48% 0); }
+      to   { opacity: 1; transform: none; clip-path: inset(-8% -2% -8% -2%); }
+    }
+    @keyframes gauge-resolve {
+      from { opacity: 0; transform: translateY(calc(9 * var(--u))) scale(0.972); clip-path: inset(0 7% 18% 7%); }
+      to   { opacity: 1; transform: none; scale: 1; clip-path: inset(-3%); }
+    }
+    @keyframes panel-resolve {
+      from { opacity: 0; transform: translateY(calc(10 * var(--u))) scale(0.972); clip-path: inset(8% 4% 8% 4%); }
+      to   { opacity: 1; transform: none; scale: 1; clip-path: inset(-3%); }
+    }
+    @keyframes network-resolve {
+      from { opacity: 0; transform: translateY(calc(6 * var(--u))); clip-path: inset(45% 0 45% 0); }
+      to   { opacity: .78; transform: none; clip-path: inset(0); }
+    }
+    @keyframes metric-resolve {
+      from { opacity: 0; transform: translateY(calc(7 * var(--u))) scale(0.985); filter: blur(2.5px); }
+      to   { opacity: 1; transform: none; scale: 1; filter: none; }
+    }
+    @keyframes control-settle {
+      from { opacity: 0; transform: translateX(-50%) translateY(calc(6 * var(--u))) scale(0.975); }
+      to   { opacity: 1; transform: translateX(-50%) none; scale: 1; }
+    }
+
+    html.entrance-active .headline__line:nth-child(1) {
+      animation: headline-reveal 0.84s cubic-bezier(.16, 1, .3, 1) 0.08s both;
+    }
+    html.entrance-active .headline__line:nth-child(2) {
+      animation: headline-reveal 0.84s cubic-bezier(.16, 1, .3, 1) 0.17s both;
+    }
+    html.entrance-active .intro {
+      animation: support-reveal 0.72s cubic-bezier(.22, 1, .36, 1) 0.25s both;
+    }
+
+    html.entrance-active .card--speed       { --entrance-delay: 0.46s; }
+    html.entrance-active .card--context     { --entrance-delay: 0.58s; }
+    html.entrance-active .card--connections { --entrance-delay: 0.70s; }
+
+    html.entrance-active .card {
+      animation: card-establish 0.76s cubic-bezier(.16, 1, .3, 1) var(--entrance-delay) both;
+    }
+    html.entrance-active .card .card__title {
+      animation: card-title-reveal 0.62s cubic-bezier(.22, 1, .36, 1) calc(var(--entrance-delay) + 0.14s) both;
+    }
+    html.entrance-active .card .gauge {
+      animation: gauge-resolve 0.82s cubic-bezier(.16, 1, .3, 1) calc(var(--entrance-delay) + 0.30s) both;
+    }
+    html.entrance-active .card .context-window {
+      animation: panel-resolve 0.82s cubic-bezier(.16, 1, .3, 1) calc(var(--entrance-delay) + 0.30s) both;
+    }
+    html.entrance-active .card .connections-map {
+      animation: network-resolve 0.82s cubic-bezier(.16, 1, .3, 1) calc(var(--entrance-delay) + 0.30s) both;
+    }
+    html.entrance-active .card .metric {
+      animation: metric-resolve 0.66s cubic-bezier(.16, 1, .3, 1) calc(var(--entrance-delay) + 0.48s) both;
+    }
+    html.entrance-active .card .caption {
+      animation: support-reveal 0.54s cubic-bezier(.22, 1, .36, 1) calc(var(--entrance-delay) + 0.64s) both;
+    }
+    html.entrance-active .card .learn-more {
+      animation: control-settle 0.52s cubic-bezier(.16, 1, .3, 1) calc(var(--entrance-delay) + 0.80s) both;
+    }
+
+    /* ==================================================
+       RESPONSIVE RULES
+       ================================================== */
+    @media (min-width: 768px) and (max-width: 1180px) and (max-aspect-ratio: 6/7) {
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: center;
+        align-content: center;
+        --card-w: min(
+          (100cqw - var(--gap)) / 2,
+          (100cqh - var(--gap)) / 2 * 429 / 554,
+          429px
+        );
+      }
+      .card:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+      }
+    }
+
+    @media (max-width: 767px) {
+      html, body {
+        height: auto;
+        overflow: visible;
+      }
+      .stage {
+        height: auto;
+        min-height: 100svh;
+        overflow: visible;
+        background:
+          linear-gradient(rgba(250, 249, 247, 0.08), rgba(250, 249, 247, 0.08)),
+          url("https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/0f4926a4-e660-4df2-9195-2bfb3e341bdd.webp") center top / 100% 100% no-repeat,
+          var(--paper);
+      }
+      .stage-motion--wide { display: none; }
+      .stage-motion--narrow { display: block; }
+      .masthead { grid-template-columns: minmax(0, 1fr); }
+      .cards {
+        container-type: inline-size;
+        flex: 0 0 auto;
+        flex-direction: column;
+        align-items: center;
+        --card-w: min(100cqw, 429px);
+      }
+      html.entrance-active .card {
+        --entrance-delay: 0.40s !important;
+      }
+    }
+
+    /* ==================================================
+       ACCESSIBILITY: PREFERS-REDUCED-MOTION
+       ================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .stage-motion, .card__media {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG Global Filter Definitions -->
+  <div class="filter-defs" aria-hidden="true">
+    <svg>
+      <defs>
+        <!-- Card Noise -->
+        <filter id="cardNoise">
+          <feTurbulence type="fractalNoise" baseFrequency=".54" numOctaves="3" seed="27" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+          <feComponentTransfer>
+            <feFuncR type="linear" slope="1.8" intercept="-.25" />
+            <feFuncG type="linear" slope="1.8" intercept="-.25" />
+            <feFuncB type="linear" slope="1.8" intercept="-.25" />
+            <feFuncA type="table" tableValues="0 .52" />
+          </feComponentTransfer>
+        </filter>
+
+        <!-- Context Panel Noise -->
+        <filter id="panelNoiseF">
+          <feTurbulence type="fractalNoise" baseFrequency=".58" numOctaves="3" seed="13" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+          <feComponentTransfer>
+            <feFuncA type="table" tableValues="0 .38" />
+          </feComponentTransfer>
+        </filter>
+
+        <!-- Gauge Filters -->
+        <filter id="radarSoft"><feGaussianBlur stdDeviation="1.35" /></filter>
+        <filter id="radarHalo"><feGaussianBlur stdDeviation="5.2" /></filter>
+        <filter id="gaugeBlur"><feGaussianBlur stdDeviation="11" /></filter>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Hidden Paper Texture (display: none, per spec) -->
+  <svg class="paper-texture" aria-hidden="true">
+    <defs>
+      <filter id="paperNoise">
+        <feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="4" seed="8" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+      <pattern id="paperFiber" width="100" height="100" patternTransform="rotate(17)" patternUnits="userSpaceOnUse">
+        <rect width="100" height="100" filter="url(#paperNoise)" />
+      </pattern>
+    </defs>
+  </svg>
+
+  <main class="stage">
+    <!-- Looping Stage Motion (Desktop) -->
+    <video class="stage-motion stage-motion--wide" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+      poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/5c3ec08f-2dbf-4c0a-8588-f6106a789443.webp"
+      src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_125226_45cb4f38-aa7e-47e1-885d-ae0b69745369.mp4"></video>
+
+    <!-- Looping Stage Motion (Mobile) -->
+    <video class="stage-motion stage-motion--narrow" autoplay muted loop playsinline preload="none" aria-hidden="true"
+      poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/0f4926a4-e660-4df2-9195-2bfb3e341bdd.webp"
+      src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_125242_daae1570-386d-4bd5-8896-80499e2371e0.mp4"></video>
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <h1 class="headline">
+        <span class="headline__line">
+          Built for
+          <span class="dot-word" data-dots="Intelligent" aria-label="Intelligent"></span>
+        </span>
+        <span class="headline__line">Performance</span>
+      </h1>
+      <p class="intro">
+        Every capability is engineered for speed, scale and<br class="desktop-break"> contextual understanding, giving your AI the foundation<br class="desktop-break"> to reason, adapt and perform in production.
+      </p>
+    </header>
+
+    <!-- Cards Row -->
+    <section class="cards" aria-label="Performance capabilities">
+
+      <!-- CARD 1: Speed / Latency -->
+      <article class="card card--speed">
+        <video class="card__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+          poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/167977c6-8539-46b1-9a15-8dba566f50b8.png"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_130045_1a612b69-4854-4b34-8043-ccb91f2c60af.mp4"></video>
+
+        <svg class="card__grain" viewBox="0 0 429 554" preserveAspectRatio="none" aria-hidden="true">
+          <rect width="100%" height="100%" filter="url(#cardNoise)" />
+        </svg>
+
+        <h2 class="card__title">Inference Speed<br>AI Response Latency</h2>
+
+        <!-- Gauge SVG -->
+        <svg class="gauge" viewBox="0 0 326 326" aria-hidden="true">
+          <defs>
+            <linearGradient id="gaugeArc" gradientUnits="userSpaceOnUse" x1="7" y1="136" x2="312" y2="109">
+              <stop offset="0" stop-color="#93c5fd" stop-opacity=".06" />
+              <stop offset="0.08" stop-color="#60a5fa" stop-opacity=".44" />
+              <stop offset="0.34" stop-color="#3b82f6" stop-opacity=".94" />
+              <stop offset="0.58" stop-color="#1f5ae0" stop-opacity="1" />
+              <stop offset="0.82" stop-color="#dbeafe" stop-opacity=".74" />
+              <stop offset="0.94" stop-color="#eff6ff" stop-opacity=".28" />
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="gaugeShadow" gradientUnits="userSpaceOnUse" x1="11" y1="136" x2="308" y2="110">
+              <stop offset="0" stop-color="#0f2557" stop-opacity=".04" />
+              <stop offset="0.09" stop-color="#0f2557" stop-opacity=".17" />
+              <stop offset="0.52" stop-color="#123a96" stop-opacity=".18" />
+              <stop offset="0.78" stop-color="#1747b8" stop-opacity=".10" />
+              <stop offset="1" stop-color="#1747b8" stop-opacity="0" />
+            </linearGradient>
+            <radialGradient id="radarBeam" cx="163" cy="163" r="145" gradientUnits="userSpaceOnUse">
+              <stop offset="0.3" stop-color="#123a96" stop-opacity="0" />
+              <stop offset="0.45" stop-color="#1747b8" stop-opacity=".025" />
+              <stop offset="0.7" stop-color="#1f5ae0" stop-opacity=".065" />
+              <stop offset="0.9" stop-color="#3b82f6" stop-opacity=".08" />
+              <stop offset="1" stop-color="#60a5fa" stop-opacity=".05" />
+            </radialGradient>
+            <linearGradient id="radarBeamEdge" x1="238" y1="33" x2="190.5" y2="115.4" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#e0f2fe" stop-opacity=".19" />
+              <stop offset="0.48" stop-color="#bae6fd" stop-opacity=".11" />
+              <stop offset="0.82" stop-color="#93c5fd" stop-opacity=".045" />
+              <stop offset="1" stop-color="#93c5fd" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="M11.34 136.26A154 154 0 0 1 307.71 110.33" fill="none" stroke-width="3.2" stroke-linecap="round" stroke="url(#gaugeShadow)" />
+          <path d="M6.91 135.48A158.5 158.5 0 0 1 311.94 108.79" fill="none" stroke-width="2.2" stroke-linecap="round" stroke="url(#gaugeArc)" />
+          <path d="M19.22 137.65A146 146 0 0 1 236 36.56" fill="none" stroke-width="1.15" stroke="rgba(147, 197, 253, 0.31)" />
+          <path d="M238 33.1A150 150 0 0 1 277.9 66.6L199.8 119.5A55 55 0 0 0 190.5 115.4Z" fill="#123a96" opacity=".022" filter="url(#radarHalo)" />
+          <path d="M238 33.1A150 150 0 0 1 277.9 66.6L199.8 119.5A55 55 0 0 0 190.5 115.4Z" fill="url(#radarBeam)" filter="url(#radarSoft)" />
+          <path d="M238 33.1L190.5 115.4" stroke="url(#radarBeamEdge)" stroke-width="1.25" stroke-linecap="round" filter="url(#radarSoft)" />
+          <g id="gaugeTicks"></g>
+          <ellipse cx="225" cy="166" rx="92" ry="76" fill="#fff" opacity=".055" filter="url(#gaugeBlur)" />
+        </svg>
+
+        <div class="metric metric--speed">
+          <span class="dot-number" data-dots="118"></span>
+          <span class="metric__unit">ms</span>
+        </div>
+
+        <div class="caption">Average global<br>response</div>
+        <button type="button" class="learn-more">Learn More</button>
+      </article>
+
+      <!-- CARD 2: Context Window -->
+      <article class="card card--context">
+        <video class="card__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+          poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/0446d1d5-e65e-4db5-8090-3e30d09afc43.png"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_130054_dd005674-d693-4d81-80a5-357f7f10b3a3.mp4"></video>
+
+        <svg class="card__grain" viewBox="0 0 429 554" preserveAspectRatio="none" aria-hidden="true">
+          <rect width="100%" height="100%" filter="url(#cardNoise)" />
+        </svg>
+
+        <h2 class="card__title">Context Window<br>Long-form Understanding</h2>
+
+        <!-- Context Tile Wall Backdrop -->
+        <div class="context-backdrop">
+          <svg viewBox="0 0 429 554" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="tTLf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4b0ee" stop-opacity=".05"/><stop offset="1" stop-color="#c6bbff" stop-opacity=".18"/></linearGradient>
+              <linearGradient id="tTCf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d5c2ff" stop-opacity=".22"/><stop offset=".4" stop-color="#e0bdff" stop-opacity=".26"/><stop offset=".75" stop-color="#f2a0ee" stop-opacity=".32"/><stop offset="1" stop-color="#ff96da" stop-opacity=".34"/></linearGradient>
+              <linearGradient id="tTRf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe8da" stop-opacity=".56"/><stop offset=".5" stop-color="#f9c6d0" stop-opacity=".26"/><stop offset="1" stop-color="#eba4bf" stop-opacity=".08"/></linearGradient>
+              <linearGradient id="tMRf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e858b8" stop-opacity=".52"/><stop offset=".5" stop-color="#e6459c" stop-opacity=".46"/><stop offset="1" stop-color="#de74ba" stop-opacity=".16"/></linearGradient>
+              <filter id="tileSoft"><feGaussianBlur stdDeviation="3.4" /></filter>
+              <filter id="groutSoft"><feGaussianBlur stdDeviation="6.5" /></filter>
+            </defs>
+            <rect x="-24" y="22" width="106" height="149" rx="15" fill="url(#tTLf)" filter="url(#tileSoft)" />
+            <rect x="88" y="22" width="247" height="150" rx="15" fill="url(#tTCf)" filter="url(#tileSoft)" />
+            <rect x="346" y="22" width="111" height="147" rx="15" fill="url(#tTRf)" filter="url(#tileSoft)" />
+            <rect x="-24" y="177" width="108" height="174" rx="15" fill="rgba(218,211,255,.2)" filter="url(#tileSoft)" />
+            <rect x="88" y="177" width="247" height="174" rx="15" fill="rgba(224,189,255,.24)" filter="url(#tileSoft)" />
+            <rect x="344" y="175" width="113" height="176" rx="15" fill="url(#tMRf)" filter="url(#tileSoft)" />
+          </svg>
+        </div>
+
+        <!-- Frosted Glass Context Window -->
+        <div class="context-window">
+          <svg class="window-grain" viewBox="0 0 252 166" preserveAspectRatio="none" aria-hidden="true">
+            <rect width="100%" height="100%" filter="url(#panelNoiseF)" />
+          </svg>
+          <div class="window-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="metric metric--context">
+          <span class="dot-number" data-dots="2.4"></span>
+          <span class="metric__unit">M</span>
+        </div>
+
+        <div class="caption">Tokens processed<br>simultaneously</div>
+        <button type="button" class="learn-more">Learn More</button>
+      </article>
+
+      <!-- CARD 3: Intelligent Connections -->
+      <article class="card card--connections">
+        <video class="card__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+          poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/da8d0242-4dee-4f6d-813f-a5887e86ad77.png"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_130103_7550f407-f14b-40a6-9616-7a26d7a8bd9f.mp4"></video>
+
+        <svg class="card__grain" viewBox="0 0 429 554" preserveAspectRatio="none" aria-hidden="true">
+          <rect width="100%" height="100%" filter="url(#cardNoise)" />
+        </svg>
+
+        <h2 class="card__title">Intelligent Connections<br>Cross-Source Context</h2>
+
+        <!-- Connections Map SVG -->
+        <div class="connections-map">
+          <svg viewBox="0 0 429 238" preserveAspectRatio="none" aria-hidden="true">
+            <!-- White stroke network -->
+            <path opacity=".20" d="M0 5H128c27 0 36 7 39 26 2 16 9 22 24 22h106c16 0 23-8 25-25 2-16 10-23 31-23h76" fill="none" stroke="#ffffff" stroke-width="1" />
+            <path opacity=".30" d="M0 117h46c15 0 22 8 26 25 5 23 12 31 31 31h174c18 0 25-8 30-31 4-17 11-25 26-25h96" fill="none" stroke="#ffffff" stroke-width="1" />
+            <path opacity=".34" d="M0 173h87c15 0 22 7 27 25 4 15 11 22 28 22h140c17 0 25-7 29-22 5-18 12-25 28-25h90" fill="none" stroke="#ffffff" stroke-width="1" />
+            <path opacity=".16" d="M0 228h120c17 0 25-5 28-18 4-15 10-20 28-20h81c18 0 25 6 28 20 4 13 11 18 28 18h116" fill="none" stroke="#ffffff" stroke-width="1" />
+            <path opacity=".26" d="M0 5H429M0 61H429M0 117H429" fill="none" stroke="#ffffff" stroke-width="1" />
+            <path opacity=".09" d="M0 173H429" fill="none" stroke="#ffffff" stroke-width="1" />
+            <!-- Warm strokes -->
+            <path opacity=".52" d="M0 61h95c14 0 22-6 27-20 4-13 12-20 27-20h115c15 0 23 6 27 20 5 14 13 20 28 20h110" fill="none" stroke="#fff8dd" stroke-width="1.15" />
+            <path opacity=".94" d="M0 117h88c15 0 22-8 25-25 4-24 12-31 31-31h129c20 0 27 7 31 31 3 17 10 25 26 25h99" fill="none" stroke="#fff8dd" stroke-width="1.15" />
+            <!-- Glowing Nodes -->
+            <circle cx="45" cy="117" r="6.5" fill="#ffffff" />
+            <circle cx="133" cy="61" r="6.5" fill="#fff4a7" />
+            <circle cx="189" cy="61" r="6.5" fill="#fff1a4" />
+            <circle cx="319" cy="61" r="6.5" fill="#fff4a6" />
+            <circle cx="319" cy="117" r="6.5" fill="#fff2a0" />
+          </svg>
+        </div>
+
+        <div class="metric metric--connections">
+          <span class="dot-number" data-dots="16"></span>
+          <span class="metric__unit">K</span>
+        </div>
+
+        <div class="caption">Connected data<br>sources</div>
+        <button type="button" class="learn-more">Learn More</button>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- ==================================================
+       VANILLA JS: LED DOT TYPE & GAUGE TICKS
+       ================================================== -->
+  <script>
+    (function () {
+      // 7-row bitmap glyph definitions
+      var GLYPHS = {
+        "0": ["01110", "10001", "10011", "10101", "11001", "10001", "01110"],
+        "1": ["010", "110", "010", "010", "010", "010", "111"],
+        "2": ["01110", "10001", "00001", "00010", "00100", "01000", "11111"],
+        "3": ["11110", "00001", "00001", "01110", "00001", "00001", "11110"],
+        "4": ["00010", "00110", "01010", "10010", "11111", "00010", "00010"],
+        "5": ["11111", "10000", "10000", "11110", "00001", "00001", "11110"],
+        "6": ["01110", "10000", "10000", "11110", "10001", "10001", "01110"],
+        "7": ["11111", "00001", "00010", "00100", "01000", "01000", "01000"],
+        "8": ["01110", "10001", "10001", "01110", "10001", "10001", "01110"],
+        "9": ["01110", "10001", "10001", "01111", "00001", "00001", "01110"],
+        ".": ["0", "0", "0", "0", "0", "0", "1"],
+        "I": ["111", "010", "010", "010", "010", "010", "111"],
+        "a": ["00000", "00000", "01110", "00001", "01111", "10001", "01111"],
+        "e": ["00000", "00000", "01110", "10001", "11111", "10000", "01110"],
+        "g": ["00000", "00000", "01111", "10001", "01111", "00001", "01110"],
+        "i": ["1", "0", "1", "1", "1", "1", "1"],
+        "l": ["10", "10", "10", "10", "10", "10", "01"],
+        "n": ["00000", "00000", "11110", "10001", "10001", "10001", "10001"],
+        "t": ["010", "010", "111", "010", "010", "010", "001"],
+        "r": ["00000", "00000", "10110", "11001", "10000", "10000", "10000"]
+      };
+
+      // Render dot SVG glyphs for any container with [data-dots]
+      var dotContainers = document.querySelectorAll("[data-dots]");
+      dotContainers.forEach(function (container) {
+        var text = container.getAttribute("data-dots");
+        var isWord = container.classList.contains("dot-word");
+        var isContext = container.closest(".metric--context") !== null;
+
+        var pitchX = isWord ? 4 : 5;
+        var pitchY = 4;
+        var gap = 1;
+        var dotRadius = isWord ? 1.8 : (isContext ? 2.32 : 1.55);
+
+        var circles = [];
+        var curX = 0;
+
+        for (var i = 0; i < text.length; i++) {
+          var char = text[i];
+          var glyph = GLYPHS[char];
+          if (!glyph) {
+            curX += pitchX * 2;
+            continue;
+          }
+          var charCols = glyph[0].length;
+          for (var r = 0; r < 7; r++) {
+            var row = glyph[r];
+            for (var c = 0; c < row.length; c++) {
+              if (row[c] === '1') {
+                var cx = curX + c * pitchX + 1.55;
+                var cy = r * pitchY + 1.55;
+                circles.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + dotRadius + '"/>');
+              }
+            }
+          }
+          curX += charCols * pitchX + (pitchX * gap);
+        }
+
+        var svgHtml = '<svg class="dot-svg" viewBox="0 0 ' + curX + ' 28" fill="currentColor" aria-hidden="true">' +
+          circles.join('') +
+          '</svg>';
+        container.innerHTML = svgHtml;
+      });
+
+      // Render Speed Gauge Ticks (i=0..22; angle=(190 + i*5)*PI/180; center 163,163)
+      var ticksGroup = document.getElementById("gaugeTicks");
+      if (ticksGroup) {
+        var tickElements = [];
+        for (var i = 0; i <= 22; i++) {
+          var angle = (190 + i * 5) * Math.PI / 180;
+          var outer = 142;
+          var inner = (i % 5 === 0) ? 129 : 133;
+          var strokeWidth = (i % 5 === 0) ? 1.5 : 1.0;
+
+          var x1 = 163 + inner * Math.cos(angle);
+          var y1 = 163 + inner * Math.sin(angle);
+          var x2 = 163 + outer * Math.cos(angle);
+          var y2 = 163 + outer * Math.sin(angle);
+
+          tickElements.push(
+            '<line class="tick" x1="' + x1.toFixed(2) + '" y1="' + y1.toFixed(2) +
+            '" x2="' + x2.toFixed(2) + '" y2="' + y2.toFixed(2) +
+            '" stroke-width="' + strokeWidth + '"/>'
+          );
+        }
+        ticksGroup.innerHTML = tickElements.join('');
+      }
+
+      // Entrance animation cleanup and prefers-reduced-motion listener
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        if (window.__entranceFailsafe) clearTimeout(window.__entranceFailsafe);
+        document.documentElement.classList.remove("entrance-active");
+      } else {
+        var isMobile = window.matchMedia('(max-width: 767px)').matches;
+        var watchElem = isMobile
+          ? document.querySelector(".card--speed .learn-more")
+          : document.querySelector(".card--connections .learn-more");
+
+        if (watchElem) {
+          watchElem.addEventListener("animationend", function () {
+            if (window.__entranceFailsafe) clearTimeout(window.__entranceFailsafe);
+            document.documentElement.classList.remove("entrance-active");
+          }, { once: true });
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
