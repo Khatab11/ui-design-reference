@@ -1,0 +1,88 @@
+{
+  "id": "navigation",
+  "order": 16,
+  "title": {
+    "en": "Navigation",
+    "ar": "التنقل"
+  },
+  "intro": {
+    "en": "Navigation is the architectural spine of your application. Master visible tabs, hidden drawers, contextual links, cognitive limits, and Arabic RTL spatial conventions.",
+    "ar": "التنقل هو العمود الفقري لمعمارية أي تطبيق رقمي. اتعلم توازن بين التابات الظاهرة والسايدبار المخفي، تطبق قانون هيك للأحمال الإدراكية، وتظبط اتجاهات الـ RTL العربية."
+  },
+  "sections": [
+    {
+      "id": "three-navigation-types",
+      "title": {
+        "en": "The Three Navigation Paradigms",
+        "ar": "الأنواع الثلاثة للتنقل"
+      },
+      "body": {
+        "en": "Every digital product employs a synthesis of three core navigation patterns:\n\n1. **Visible Navigation:** Persistent tabs or header bars anchored in place. Zero-click discovery.\n2. **Hidden Navigation:** Off-canvas sidebars, hamburger drawers, and full-screen overlays. High capacity for deep site hierarchies, but requires an intentional click.\n3. **Contextual Navigation:** In-content hyperlinks, product tag chips, and inline breadcrumbs embedded directly within the flow of reading.",
+        "ar": "أي تطبيق أو موقع بيستخدم توليفة من تلات أشكال أساسية للتنقل:\n\n1. **التنقل الظاهر (Visible):** تابات ثابتة ومفتوحة دايمًا قدام العين؛ أسرع وسيلة وصول بدون أي كليك إضافي.\n2. **التنقل المخفي (Hidden):** القوائم الجانبية المنسدلة (Hamburger Menu)؛ بتستوعب أقسام فرعية كتير لكنها بتتطلب نقرة إضافية.\n3. **التنقل السياقي (Contextual):** روابط ومسارات مدمجة جوه المحتوى نفسه (زي وسوم التاج، هاشتاجات، أو مسار الصفحات Breadcrumbs)."
+      }
+    },
+    {
+      "id": "visible-vs-hidden",
+      "title": {
+        "en": "Accessibility vs. Capacity: Hick's Law",
+        "ar": "المعادلة: سهولة الوصول مقابل السعة"
+      },
+      "body": {
+        "en": "The choice between visible and hidden navigation hinges on cognitive bandwidth:\n\n- **Visible Navigation Limits:** 3 to 5 tabs on mobile; up to 7 links on desktop. Exceeding this triggers **Hick’s Law**, increasing user decision time exponentially.\n- **When to Use Hidden:** If your product contains 8 or more top-level sections, place the core 4–5 in visible navigation and tuck secondary administration into a hidden drawer.\n\nNever overwhelm user short-term working memory.",
+        "ar": "القرار بين التنقل الظاهر والمخفي بيعتمد على معادلة بسيطة: **سهولة الوصول مقابل السعة الإدراكية**:\n\n- **حدود التنقل الظاهر:** من ٣ إلى ٥ تابات على الموبايل، وبحد أقصى ٧ روابط على الديسكتوب. زيادة الروابط عن كده بيخضع لـ **قانون هيك (Hick's Law)** وبيسبب شلل في اتخاذ القرار.\n- **إمتى تستخدم القائمة المخفية:** لما يكون عندك أقسام وإعدادات تزيد عن ٧ صفحات؛ حط الأهم في التابات الظاهرة وانقل الباقي للسايدبار."
+      },
+      "callout": {
+        "type": "tip",
+        "en": "Cap mobile bottom navigation at 5 items max to avoid cramped touch targets and cognitive paralysis.",
+        "ar": "لا تزد عن 5 تابات في شريط التنقل السفلي للموبايل للحفاظ على مساحات لمس مريحة وسهولة في الاختيار."
+      }
+    },
+    {
+      "id": "mobile-tab-bar-design",
+      "title": {
+        "en": "Mobile Tab Bar Architecture",
+        "ar": "تصميم شريط التابات للموبايل"
+      },
+      "body": {
+        "en": "Constructing an ergonomic mobile bottom navigation bar:\n1. Create a full-width bottom container with **60–84 pt height**.\n2. Partition into equal slots (e.g. 4 or 5 columns).\n3. Center each icon and its supporting text label vertically within its slot.\n4. Dim inactive items to ~35%–50% opacity, while rendering the active item in high-contrast brand color.\n5. On buttonless modern smartphones (iPhone Home Indicator), leave generous bottom padding to prevent accidental OS gestures.",
+        "ar": "خطوات بناء شريط تابات سفلي مثالي على الموبايل:\n1. ارسم شريط بعرض الشاشة بارتفاع **٦٠ إلى ٨٤ نقطة**.\n2. قسم المستطيل لأقسام متساوية أفقياً بعدد التابات (مثلاً ٤ أو ٥ أقسام).\n3. وسّط الأيقونة والتسمية النصية رأسياً كمجموعة واحدة.\n4. خلّي العناصر غير النشطة بشفافية خافتة (35%–50%)، والتاب النشط بلون البراند الصريح.\n5. في الهواتف الحديثة بدون زرار هوم، سيب مسافة أمان في الأسفل لمنع تداخل اللمس مع سحب النظام."
+      },
+      "asset": {
+        "file": "tab-bar-anatomy.png",
+        "alt": {
+          "en": "Mobile tab bar layout with home indicator safe area and active states",
+          "ar": "تخطيط شريط التابات السفلي للموبايل مع مسافة الأمان وحالة التفعيل"
+        },
+        "ratio": "16:9",
+        "brief": "A mobile screen bottom frame showing 4 navigation tabs with the home tab highlighted in brand accent, clear inactive icons, and safe area margin above the home bar."
+      }
+    },
+    {
+      "id": "desktop-nav-and-sidebar",
+      "title": {
+        "en": "Desktop Headers & Drawer Sidebars",
+        "ar": "نافيجيشن الديسكتوب والسايدبار الجانبي"
+      },
+      "body": {
+        "en": "On desktop, navigation tabs live in the header. If you include an action button (e.g. \"Login\" or \"Get Started\"), **place it at the very end of the row**. Never insert a heavy button into the middle of navigation links where it interrupts reading flow.\n\n**The Slide-Out Sidebar:** When invoking a hidden menu, darken the background with a 60%–70% opacity backdrop scrim to focus attention entirely on the drawer.",
+        "ar": "على الديسكتوب، التابات بتعيش في الهيدر العلوي. لو هتحط زرار بارز (زي \"تسجيل الدخول\")، **حطه دايمًا في آخر الصف**؛ إياك تحط زرار في نص روابط التصفح لأنه بيقطع تسلسل حركة العين.\n\n**السايدبار المنزلق:** لما تفتح قائمة جانبية مخفية، حط خلفية معتمة (Backdrop Scrim) بشفافية 60%–70% فوق محتوى الصفحة عشان تعزل التشتيت."
+      }
+    },
+    {
+      "id": "rtl-navigation-rules",
+      "title": {
+        "en": "RTL Navigation & Arabic Alignment",
+        "ar": "قواعد التنقل في الواجهات العربية"
+      },
+      "body": {
+        "en": "In Arabic interfaces, visual navigation flips horizontally:\n\n- **Tab Bar Ordering:** Runs strictly from right to left. Tab 1 (\"Home\") must sit at the far **Right**, not the left.\n- **Sidebar Ingress:** The drawer must slide in from the **Right** edge. A sidebar opening from the left in an Arabic app feels jarring and broken.",
+        "ar": "في الواجهات العربية، كل عناصر التنقل بتنعكس أفقياً:\n\n- **ترتيب التابات:** بيمشي من اليمين للشمال؛ التاب الأول (\"الرئيسية\") مكانه الطبيعي في **أقصى اليمين** مش الشمال.\n- **دخول القائمة الجانبية:** السايدبار لازم ينزلق ويدخل من **حافة الشاشة اليمنى**؛ فتحه من الشمال بيدي إحساس فوري بأن التطبيق مترجم ترجمة آلية ركيكة."
+      },
+      "callout": {
+        "type": "note",
+        "en": "Always anchor primary Arabic navigation to the right edge. Arabic users visually initiate spatial scanning from right to left.",
+        "ar": "ثبّت عناصر التنقل الرئيسية في الواجهات العربية ناحية اليمين؛ العين العربية تبدأ المسح البصري تلقائياً من أقصى اليمين."
+      }
+    }
+  ]
+}

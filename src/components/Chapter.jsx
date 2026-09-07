@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import { chapterIndex } from '../lib/content.js'
 import { t } from '../lib/ui.js'
 import Section from './Section.jsx'
@@ -6,8 +7,15 @@ import PrevNext from './PrevNext.jsx'
 
 export function ChapterHeader({ chapter, lang }) {
   const number = String(chapterIndex(chapter.id) + 1).padStart(2, '0')
+  const shouldReduceMotion = useReducedMotion()
+
   return (
-    <header className="border-b border-line pb-4">
+    <motion.header
+      initial={shouldReduceMotion ? false : { opacity: 0, y: -12 }}
+      animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="border-b border-line pb-4"
+    >
       <p className="font-mono text-sm text-ink-3">
         {t(lang, 'chapter')} {number}
       </p>
@@ -17,12 +25,13 @@ export function ChapterHeader({ chapter, lang }) {
       {chapter.intro?.[lang] && (
         <p className="mt-2 max-w-[60ch] text-lg text-ink-2">{chapter.intro[lang]}</p>
       )}
-    </header>
+    </motion.header>
   )
 }
 
 export default function Chapter({ chapter, lang, onActiveSection }) {
   const ref = useRef(null)
+  const shouldReduceMotion = useReducedMotion()
 
   // Active-section tracking: the topmost section intersecting a band near the
   // top of the viewport wins.
@@ -51,12 +60,19 @@ export default function Chapter({ chapter, lang, onActiveSection }) {
   }, [chapter.id, onActiveSection])
 
   return (
-    <article ref={ref} className="mx-auto w-full max-w-prose">
+    <motion.article
+      key={chapter.id}
+      ref={ref}
+      initial={shouldReduceMotion ? false : { opacity: 0 }}
+      animate={shouldReduceMotion ? undefined : { opacity: 1 }}
+      transition={{ duration: 0.35, ease: 'easeOut' }}
+      className="mx-auto w-full max-w-prose"
+    >
       <ChapterHeader chapter={chapter} lang={lang} />
       {chapter.sections.map((section) => (
         <Section key={section.id} chapter={chapter} section={section} lang={lang} />
       ))}
       <PrevNext chapter={chapter} lang={lang} />
-    </article>
+    </motion.article>
   )
 }
