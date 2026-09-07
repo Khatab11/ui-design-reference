@@ -1,6 +1,7 @@
 import { t } from '../lib/ui.js'
 import Markdown from './Markdown.jsx'
 import { AlertIcon, InfoIcon, PenIcon } from './Icons.jsx'
+import { motion, useReducedMotion } from 'framer-motion'
 
 // Visual treatment per callout type. `quote` is rendered separately below.
 const styles = {
@@ -28,6 +29,7 @@ const styles = {
 }
 
 export default function Callout({ callout, lang }) {
+  const shouldReduceMotion = useReducedMotion()
   if (!callout) return null
   const text = callout[lang] ?? callout.en
   const type = callout.type || 'tip'
@@ -43,9 +45,11 @@ export default function Callout({ callout, lang }) {
   const style = styles[type] ?? styles.tip
   const { Icon } = style
   return (
-    <aside
+    <motion.aside
       data-callout={type}
-      className={`callout my-4 flex gap-1.5 rounded-lg border p-2 text-ink ${style.box}`}
+      whileHover={shouldReduceMotion ? undefined : { y: -1 }}
+      transition={{ duration: 0.2 }}
+      className={`callout my-4 flex gap-1.5 rounded-lg border p-2 text-ink shadow-[0_4px_24px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25)] transition-shadow duration-200 ${style.box}`}
     >
       <Icon className={`mt-0.5 shrink-0 ${style.icon}`} />
       <div>
@@ -54,6 +58,6 @@ export default function Callout({ callout, lang }) {
         </p>
         <Markdown className="mt-0.5">{text}</Markdown>
       </div>
-    </aside>
+    </motion.aside>
   )
 }

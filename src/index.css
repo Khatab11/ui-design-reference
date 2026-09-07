@@ -9,7 +9,7 @@
   --c-raised: 243 241 237;     /* code blocks, hover */
   --c-line: 229 226 220;
   --c-line-strong: 204 200 192;
-  --c-ink: 28 27 25;
+  --c-ink: 26 26 26;           /* #1A1A1A: book rule - avoid pure black */
   --c-ink-2: 92 89 83;
   --c-ink-3: 138 134 126;
   --c-accent: 163 81 43;       /* copper */
@@ -55,8 +55,13 @@
     @apply bg-bg text-ink font-sans text-base antialiased;
     font-feature-settings: 'cv11', 'ss01', 'calt';
   }
+  html[lang='ar'] {
+    /* Book typography rule: Arabic needs more vertical room than Latin (1.7 - 1.8) */
+    line-height: 1.75;
+  }
   html[lang='ar'] body {
     @apply font-arabic;
+    line-height: 1.75;
     font-feature-settings: normal;
   }
   ::selection {
@@ -135,6 +140,44 @@
   .prose th { @apply font-medium; }
   .prose tbody tr:last-child td { border-bottom: 0; }
   .prose img { @apply rounded-lg; }
+
+  /* Arabic line-height adjustment (1.7 - 1.8 per book rule) */
+  html[lang='ar'] .prose {
+    line-height: 1.75;
+  }
+  html[lang='ar'] .prose p,
+  html[lang='ar'] .prose li,
+  html[lang='ar'] .prose blockquote {
+    line-height: 1.75;
+  }
+  html[lang='ar'] .prose h1,
+  html[lang='ar'] .prose h2,
+  html[lang='ar'] .prose h3,
+  html[lang='ar'] .prose h4 {
+    line-height: 1.35;
+  }
+}
+
+/* ---------- Glassmorphism & Modern Floating Styles ---------- */
+.glass-panel {
+  background-color: rgb(var(--c-surface) / 0.75);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgb(var(--c-line) / 0.7);
+}
+
+.glass-floating {
+  background-color: rgb(var(--c-surface) / 0.78);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgb(var(--c-line) / 0.6);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+}
+
+.dark .glass-floating {
+  background-color: rgb(var(--c-surface) / 0.72);
+  border-color: rgb(var(--c-line-strong) / 0.35);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgb(var(--c-line) / 0.3);
 }
 
 .print-only { display: none; }
@@ -149,7 +192,7 @@
     --c-raised: 243 241 237;
     --c-line: 229 226 220;
     --c-line-strong: 204 200 192;
-    --c-ink: 28 27 25;
+    --c-ink: 26 26 26;           /* #1A1A1A: book rule - avoid pure black */
     --c-ink-2: 92 89 83;
     --c-ink-3: 138 134 126;
     --c-accent: 163 81 43;
@@ -165,7 +208,7 @@
   html { scroll-behavior: auto; }
   body {
     background: #fff !important;
-    color: #000 !important;
+    color: #1A1A1A !important;   /* Book rule: avoid pure black */
     font-size: 11pt;
     line-height: 1.5;
   }
@@ -185,7 +228,7 @@
   pre, code, .placeholder, .callout {
     border-color: #999 !important;
     background: #fff !important;
-    color: #000 !important;
+    color: #1A1A1A !important;   /* Book rule: avoid pure black */
   }
   .placeholder { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }

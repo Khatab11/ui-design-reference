@@ -1,0 +1,79 @@
+{
+  "id": "personality",
+  "order": 14,
+  "title": {
+    "en": "Personality",
+    "ar": "الشخصية"
+  },
+  "intro": {
+    "en": "Personality is the cohesive thread uniting typography, color, imagery, and language. Learn how to architect an intentional product persona, understand Arabic linguistic nuances, and build memorable brand character.",
+    "ar": "الشخصية هي الخيط الرابط لكل تفاصيل التصميم من خطوط وألوان ولغة وصور. اتعلم إزاي تبني شخصية متكاملة لمنتجك، تفهم تأثير اللهجة في الواجهات العربية، وتصنع انطباعاً لا يُنسى."
+  },
+  "sections": [
+    {
+      "id": "personality-anchors-everything",
+      "title": {
+        "en": "Personality Anchors Every Design Decision",
+        "ar": "الشخصية هي الخيط الرابط لكل القرارات"
+      },
+      "body": {
+        "en": "This is arguably the most vital concept in UI design: **every visual decision you make ultimately serves a single goal: building a cohesive product personality.**\n\nBefore choosing typefaces, color tokens, or icon weights, you must answer:\n- What does this brand value most?\n- Who is the intended user demographic (age, profession, culture)?\n- What emotional posture should the interface convey (playful buddy vs. sober fiduciary advisor)?",
+        "ar": "ده يمكن أهم مبدأ في التصميم كله: **كل قرار بصري بتاخده بيخدم في النهاية هدف واحد بس: بناء شخصية متسقة ومميزة للمنتج.**\n\nقبل ما تختار خط أو لون أو أيقونة، لازم تسأل نفسك:\n- البراند ده هدفه وقيمه إيه؟\n- مين الجمهور المستهدف بالتحديد (أعمارهم، ثقافتهم، اهتماماتهم)؟\n- إيه الانطباع والشعور اللي الواجهة لازم تنقله (صديق مرح ولطيف ولا مستشار مالي رزين وصارم)؟"
+      }
+    },
+    {
+      "id": "design-is-emotion",
+      "title": {
+        "en": "Design is Emotion: Good vs. Great Designers",
+        "ar": "التصميم مشاعر: الفرق بين المصمم الكويس والعظيم"
+      },
+      "body": {
+        "en": "> **\"Design is all about experience, feeling, and emotion.\"**\n\n- **A Good Designer:** Selects elements because they look pretty in isolation.\n- **A Great Designer:** Engineers every component to trigger the exact intended emotional response for the target audience.\n\nNever base UI choices on personal vanity or client whim. If you personally love bubblegum pink and bouncy illustrations, that does not make them appropriate for a wealth management banking portal.",
+        "ar": "> **\"التصميم كله عن التجربة والمشاعر والعواطف.\"**\n\n- **المصمم الكويس:** بيختار حاجات شكلها حلو وخلاص.\n- **المصمم العظيم:** بيختار كل تفصيلة عشان تثير المشاعر المحددة اللي الجمهور محتاجها للثقة في المنتج.\n\nإياك تبني قراراتك على ذوقك الشخصي أو ذوق العميل الفردي؛ لو إنت بتحب الرسوم الكرتونية والألوان الفاقعة ده ميعنيش إنها مناسبة لمنصة استثمار وبنوك."
+      },
+      "callout": {
+        "type": "quote",
+        "en": "Never base a design decision on personal taste. Ground it strictly in target audience needs and the brand's desired emotional impact.",
+        "ar": "أبدًا متبني قرار تصميمي على ذوقك الشخصي؛ ابنيه دائمًا على احتياجات الجمهور المستهدف والأثر العاطفي المطلوب."
+      }
+    },
+    {
+      "id": "archetypes-playful-serious-neutral",
+      "title": {
+        "en": "Three Core Personality Archetypes",
+        "ar": "أنماط الشخصية: المرحة، الجدية، والمحايدة"
+      },
+      "body": {
+        "en": "Visual elements systematically shape personality tiers:\n\n1. **The Playful Archetype:** Vibrant saturated colors, rounded Sans-Serif fonts, generous border radius, colorful illustrations, and casual microcopy. (Ideal for youth apps, gamified ed-tech, Duolingo).\n2. **The Serious / Prestigious Archetype:** De-saturated neutrals, high-contrast serif headlines, sharp or subtle radii, authentic editorial photography, and formal tone of voice. (Essential for private wealth, enterprise security, healthcare).\n3. **The Neutral / Functional Archetype:** Muted greys, standard system sans fonts, functional layout without decorative flourishes. Safe and universally readable (B2B workflow tools, Jira, linear spreadsheets).",
+        "ar": "الشخصية بتتشكل من توليفة متناغمة:\n\n1. **الشخصية المرحة (Playful):** ألوان حيوية مشبعة، خطوط مستديرة، زوايا ناعمة بـ Radius عالي، رسوم مبهجة، ولغة كاجوال ودودة (زي تطبيقات الأطفال وتعليم اللغات).\n2. **الشخصية الجدية/الفخمة (Serious):** ألوان وقورة هادية، خطوط رصينة، زوايا حادة أو مدروسة، صور فوتوغرافية واقعية، ولغة فصحى رسمية (بنوك، استثمار، وماركات فاخرة).\n3. **الشخصية المحايدة (Neutral):** تصميم وظيفي بحت خالي من البهرجة، لغة مباشرة، تركيز كامل على سرعة الإنجاز (أدوات إدارة المشاريع والسحابية B2B)."
+      }
+    },
+    {
+      "id": "arabic-linguistic-personality",
+      "title": {
+        "en": "Language Register in Arabic Personality",
+        "ar": "المستوى اللغوي والشخصية في السياق العربي"
+      },
+      "body": {
+        "en": "In the Arab digital world, linguistic register (tone and dialect) is the single most potent lever of product personality:\n\n- **Colloquial (e.g. Egyptian / Gulf Ammiya):** Radiates instant warmth, approachable camaraderie, and effortless humor. Perfect for local lifestyle, food delivery, and youth products.\n- **Modern Standard Arabic (Fusha):** Conveys indisputable authority, institutional trust, and pan-Arab gravitas. Essential for fintech, legal tech, and enterprise software.\n\nThe gulf between spoken dialects and formal Arabic is far wider than English casual vs. formal registers. Choose deliberately and maintain strict linguistic consistency across your interface.",
+        "ar": "في العالم العربي، المستوى اللغوي واللهجة هما أقوى أداة لتحديد شخصية المنتج الرقمي:\n\n- **العامية المبسطة (مصرية أو خليجية):** بتعطي إحساس فوري بالقرب والصداقة والمرح، ومثالية لتطبيقات التوصيل والخدمات اليومية للشباب.\n- **الفصحى المعاصرة (فصحى مرنة):** بتعطي هيبة ومصداقية مؤسسية وأمان، وضرورية للتطبيقات المالية والاستثمارية والرسمية.\n\nالفرق بين الفصحى والعامية في العربية أعمق بكتير من الفرق بين الإنجليزية الرسمية والكاجوال؛ اختار لغتك بوعي والتزم بيها في كل الأزرار والرسائل."
+      },
+      "callout": {
+        "type": "note",
+        "en": "Arabic linguistic register fundamentally dictates brand perception. Match your dialect or Fusha register strictly to the emotional expectations of your audience.",
+        "ar": "اختيار اللهجة العامية أو الفصحى هو الركيزة الكبرى لشخصية التطبيق في الوطن العربي؛ حدده بناءً على ثقة وتوقعات المستخدمين."
+      }
+    },
+    {
+      "id": "consistency-cheatsheet",
+      "title": {
+        "en": "The Consistency Rule & Visual Cheatsheet",
+        "ar": "قاعدة الاتساق وجدول المقارنة البصرية"
+      },
+      "body": {
+        "en": "Mixing conflicting visual signals (e.g. serious traditional serif typography coupled with silly bouncy cartoon characters) creates a jarring, schizophrenic design that repels users.\n\n| Design Token | Playful Archetype | Serious / Prestigious Archetype |\n|---|---|---|\n| **Palette** | Saturated, vibrant accents | Low-saturation neutrals, deep navy, gold |\n| **Typography** | Rounded soft Sans-Serif | High-contrast Serif or stately geometry |\n| **Corners** | Pill & generous radius (16–24pt) | Crisp, subtle radius (4–8pt) |\n| **Icons** | Rounded strokes & filled bulbs | Sharp, delicate hairline strokes |\n| **Imagery** | Stylized 2D/3D illustrations | Crisp authentic human photography |\n| **Tone of Voice** | Friendly, witty, conversational | Concise, reassuring, formal |",
+        "ar": "خلط إشارات متناقضة (زي خط رسمي جاد جداً مع رسوم كرتونية بهلوانية) بيصنع واجهة مشوهة ومريبة للمستخدم.\n\n| العنصر | شخصية مرحة | شخصية رسمية / فخمة |\n|---|---|---|\n| **الألوان** | مشبعة ونابضة | ألوان وقورة، كحلي، ذهبي رمادي |\n| **الخطوط** | Sans-Serif دائرية ناعمة | خطوط رصينة أو كوفية هندسية |\n| **الانحناءات** | زوايا مستديرة ناعمة (16-24pt) | زوايا حادة أو خفيفة (4-8pt) |\n| **الأيقونات** | حواف مستديرة ومصمتة | خطوط دقيقة وحادة |\n| **الصور** | رسوم توضيحية مرحة | صور فوتوغرافية حقيقية عالية الجودة |\n| **اللغة** | كاجوال وودودة | فصحى هادئة ومحترمة |"
+      }
+    }
+  ]
+}

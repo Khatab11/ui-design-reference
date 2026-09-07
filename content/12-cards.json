@@ -1,0 +1,88 @@
+{
+  "id": "cards",
+  "order": 12,
+  "title": {
+    "en": "Cards",
+    "ar": "البطاقات"
+  },
+  "intro": {
+    "en": "Cards aggregate related information into modular, scannable units. Learn content prioritization, click affordance, responsive layout rules, and defensive edge-case handling.",
+    "ar": "البطاقات بتجمع المعلومات المرتبطة بموضوع واحد في حاوية معيارية سهلة التصفح. اتعلم ترتيب أولويات المحتوى، إيحاء النقر والتفاعل، القواعد المتجاوبة، والتعامل مع الحالات الحرجة."
+  },
+  "sections": [
+    {
+      "id": "what-is-a-card",
+      "title": {
+        "en": "What is a Card?",
+        "ar": "إيه هي البطاقة؟"
+      },
+      "body": {
+        "en": "A card is an enclosed, modular container grouping related content about a single subject (typically image, title, metadata, and an action cue).\n\n**Think of a card as a bite-sized teaser for a full page.** Just as readers judge books by their covers, users evaluate cards in split seconds to decide whether to tap deeper or scroll past.",
+        "ar": "البطاقة (Card) بتجمع كل المعلومات المتعلقة **بموضوع واحد** (صورة، عنوان، بيانات، وزرار تفاعل) في حاوية واحدة سهلة التصفح.\n\n**فكرة البطاقة الأساسية: اعتبرها نسخة مصغرة وموجزة من صفحة كاملة.** زي ما الناس بتحكم على الكتاب من غلافه، المستخدم بيقرر في جزء من الثانية — يدوس عشان يعرف أكتر ولا يكمل تصفح."
+      }
+    },
+    {
+      "id": "content-prioritization",
+      "title": {
+        "en": "Content Prioritization: Less is More",
+        "ar": "طريقة اختيار المحتوى وترتيب الأولويات"
+      },
+      "body": {
+        "en": "The common trap is cramming an entire page into a card container. Packing recipes with full ingredient steps, for instance, overwhelms user memory and kills scannability.\n\n**The 3-Step Filter:**\n1. List every piece of metadata belonging to the entity.\n2. Isolate only the essentials needed to make a click decision (e.g. photo, recipe title, prep time, difficulty).\n3. Ruthlessly strip everything else. Additional details belong on the full destination page.",
+        "ar": "الغلطة الشائعة هي حشو كل معلومات الصفحة جوه الكارت؛ مثلاً لو كارت وصفة طبخ، حشو المكونات وطريقة التحضير بالكامل هيدمر سهولة التصفح ويزود الإجهاد الذهني.\n\n**فلتر الاختيار في ٣ خطوات:**\n1. اكتب كل المعلومات المتاحة عن العنصر.\n2. اختار بس التفاصيل اللي المستخدم محتاجها عشان يقرر يفتح أو لأ (الصورة، العنوان، وقت الطبخ، ومستوى الصعوبة).\n3. شيل أي معلومة زيادة؛ مكانها الطبيعي في الصفحة الداخلية."
+      },
+      "callout": {
+        "type": "tip",
+        "en": "More information on a card is not better. Overloading cards slows decisions; prioritize ruthlessly.",
+        "ar": "زيادة المعلومات داخل البطاقة لا تعني جودة أفضل؛ الإفراط يشتت انتباه المستخدم ويصعّب اتخاذ القرار."
+      }
+    },
+    {
+      "id": "anatomy-of-a-card",
+      "title": {
+        "en": "Anatomy of a Card",
+        "ar": "تشريح البطاقة وعناصرها"
+      },
+      "body": {
+        "en": "Standard cards feature modular sub-components:\n- **Media Header:** Featured photograph or visual illustration.\n- **Status / Category Badge:** Contextual tag in the corner.\n- **Title & Summary:** Crisp, scannable headline paired with supporting description.\n- **Secondary Metadata:** Price, date, rating, or author.\n- **Primary CTA:** Explicit button or arrow affordance.",
+        "ar": "البطاقة النموذجية بتتكون من وحدات واضحة:\n- **هيدر بصري:** صورة فوتوغرافية أو رسمة توضيحية في الأعلى.\n- **شارة الحالة (Badge):** في الزاوية لتوضيح التصنيف أو التوفر.\n- **العنوان والوصف:** نص قصير واضح ومباشر.\n- **بيانات فرعية:** السعر، التقييم، أو التاريخ.\n- **إجراء تفاعلي:** زرار واضح أو سهم يشجع على النقر."
+      },
+      "asset": {
+        "file": "card-anatomy.png",
+        "alt": {
+          "en": "Diagram showing card anatomy: header image, badge, title, metadata, and button",
+          "ar": "رسم توضيحي لعناصر البطاقة: الصورة، الشارة، العنوان، البيانات، والزرار"
+        },
+        "ratio": "16:9",
+        "brief": "An annotated card layout broken down with labels pointing to image container, status badge, typography block, metadata pills, and CTA button."
+      }
+    },
+    {
+      "id": "responsive-and-edge-cases",
+      "title": {
+        "en": "Responsive Templates & Data Edge Cases",
+        "ar": "التجاوب والحالات الحرجة"
+      },
+      "body": {
+        "en": "Designers rarely control raw dynamic user data. Always establish defensive rules:\n\n- **Long Headlines:** Enforce strict CSS line-clamp truncation (e.g. 2 lines maximum with an ellipsis `…`) so card heights remain predictable.\n- **Missing Images:** Never display broken icons or blank holes; supply an elegant default fallback illustration or tonal placeholder.\n- **Responsive Grids:** Design dedicated desktop, tablet, and mobile variants up front rather than hacking breakpoint transforms later.",
+        "ar": "كمصمم، إنت مش بتتحكم في النصوص أو الصور اللي المستخدمين والسيستم هيحطوها؛ عشان كده لازم تحط قواعد صارمة:\n\n- **العناوين الطويلة:** حدد حد أقصى للأسطر (سطرين مثلاً مع ثلاث نقط اقتصاص `…`) للحفاظ على ارتفاع البطاقات المتناسق.\n- **الصور المفقودة:** لا تترك فراغات بيضاء فارغة؛ جهز صورة افتراضية (Placeholder) مصممة بعناية.\n- **الشبكة المتجاوبة:** صمم قوالب مخصصة للموبايل والتابلت والديسكتوب من البداية."
+      },
+      "callout": {
+        "type": "warning",
+        "en": "Always design for worst-case text overflow and missing assets to prevent production layouts from breaking.",
+        "ar": "صمم دائماً للحالات الحرجة مثل النصوص الطويلة جداً والصور المفقودة لمنع تشوه واجهة المستخدم الحقيقية."
+      }
+    },
+    {
+      "id": "affordance-and-elevation",
+      "title": {
+        "en": "Click Affordance & Elevation Styles",
+        "ar": "إيحاء النقر وأساليب الارتفاع"
+      },
+      "body": {
+        "en": "A card must communicate that it is interactive:\n- **Elevation Style:** Pick one consistent container style across your product: White surface with soft drop shadow, crisp 1px stroke outline, or subtle tonal surface fill. Never mix these randomly.\n- **Hover Affordance:** On desktop, lift the card slightly (-2px vertical translation) and expand the soft outer shadow on hover to provide tactile feedback.",
+        "ar": "البطاقة لازم تعلن عن نفسها كعنصر قابل للضغط:\n- **أسلوب الارتفاع:** اختار نمط واحد ثابت في كل منتجك: خلفية بيضاء مع ظل ناعم، حدود رفيعة (1px Stroke)، أو سطح ملون ناعم. إياك تخلط بينهم.\n- **تفاعل الـ Hover:** في الديسكتوب، لما الماوس يمر فوق البطاقة ارفعها لفوق درجة بسيطة وزوّد نعومة الظل لتقديم استجابة لمسية فخمة."
+      }
+    }
+  ]
+}
