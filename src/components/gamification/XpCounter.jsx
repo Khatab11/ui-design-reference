@@ -7,8 +7,7 @@ export default function XpCounter({ xp = 1240, lang = 'ar', onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="btn btn--secondary btn--sm !rounded-full !px-3 !py-1 !gap-2 text-start transition-transform active:scale-[0.96] hover:border-line-hover"
-      style={{ minHeight: '38px' }}
+      className="btn btn--secondary btn--sm !rounded-full !px-3.5 !py-1 !gap-2 text-start transition-transform active:scale-[0.96] hover:border-line-hover h-11 min-h-[44px]"
       title={lang === 'ar' ? `انقر لفتح مركز الإنجازات (${xp} XP)` : `Click to open Gamification Hub (${xp} XP)`}
     >
       <div className="flex items-center gap-1.5">

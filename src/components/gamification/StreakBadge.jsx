@@ -25,10 +25,9 @@ export default function StreakBadge({ streak = 5, weeklyHistory = [true, true, t
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="btn btn--secondary btn--sm !rounded-full !px-3 !gap-1.5 transition-transform active:scale-[0.96]"
+        className="btn btn--secondary btn--sm !rounded-full !px-3.5 !gap-2 transition-transform active:scale-[0.96] h-11 min-h-[44px]"
         aria-expanded={open}
         aria-label={lang === 'ar' ? `سلسلة استمرارية ${streak} أيام` : `${streak} day study streak`}
-        style={{ minHeight: '38px' }}
       >
         <svg
           className="w-4 h-4 text-[#E65100] animate-pulse"

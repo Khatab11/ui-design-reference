@@ -54,7 +54,7 @@ export default function GamificationHub({
             <button
               type="button"
               onClick={onClose}
-              className="btn btn--secondary btn--sm !p-2 !min-h-[36px] !rounded-full"
+              className="btn btn--secondary btn--sm h-11 w-11 min-h-[44px] min-w-[44px] !p-0 !rounded-full flex items-center justify-center active:scale-[0.96]"
               aria-label={lang === 'ar' ? 'إغلاق' : 'Close'}
             >
               ✕
@@ -164,7 +164,7 @@ export default function GamificationHub({
 
             {/* 3. LEADERBOARD TAB */}
             {tab === 'leaderboard' && (
-              <Leaderboard userXp={state.xp} lang={lang} />
+              <Leaderboard userXp={state.xp} userName={state.userName} lang={lang} />
             )}
 
             {/* 4. BADGES TAB */}

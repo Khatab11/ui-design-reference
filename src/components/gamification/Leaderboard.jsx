@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react'
 import { computeLeaderboard } from '../../lib/gamification.js'
 
-export default function Leaderboard({ userXp = 1240, lang = 'ar' }) {
+export default function Leaderboard({ userXp = 1240, userName, lang = 'ar' }) {
   const [pageSize, setPageSize] = useState(10)
-  const leaderboard = useMemo(() => computeLeaderboard(userXp, lang === 'ar' ? 'أنت (المتعلم)' : 'You (Learner)'), [userXp, lang])
+  const defaultName = lang === 'ar' ? 'أنت (المتعلم)' : 'You (Learner)'
+  const displayName = userName || defaultName
+  const leaderboard = useMemo(() => computeLeaderboard(userXp, displayName), [userXp, displayName])
 
   const top3 = leaderboard.slice(0, 3)
   const rest = leaderboard.slice(0, pageSize)
@@ -150,7 +152,7 @@ export default function Leaderboard({ userXp = 1240, lang = 'ar' }) {
           <select
             value={pageSize}
             onChange={(e) => setPageSize(Number(e.target.value))}
-            className="select !py-1 !min-h-[32px] text-xs"
+            className="select !py-1 min-h-[44px] text-xs"
           >
             <option value={5}>5</option>
             <option value={10}>10</option>

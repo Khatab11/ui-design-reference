@@ -51,7 +51,7 @@ export default function QuestsList({ quests = [], lang = 'ar', onClaimQuest }) {
                     <button
                       type="button"
                       onClick={() => onClaimQuest?.(quest.id)}
-                      className="btn btn--primary btn--sm !min-h-[36px] !py-1 !px-3 !text-xs font-bold active:scale-[0.96]"
+                      className="btn btn--primary btn--sm min-h-[44px] !px-3.5 !text-xs font-bold active:scale-[0.96]"
                     >
                       {lang === 'ar' ? 'استلام المكافأة' : 'Claim'}
                     </button>
