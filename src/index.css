@@ -172,6 +172,7 @@ html {
 
 body {
   margin: 0;
+  min-width: 320px;
   background: var(--color-ground);
   color: var(--color-body);
   font-family: var(--font-sans);
@@ -664,6 +665,24 @@ code:not(pre code) {
   font-size: var(--text-small);
 }
 
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+}
+
+.table-scroll:focus-visible {
+  outline: 2px solid var(--color-action);
+  outline-offset: 2px;
+}
+
+.table-scroll table {
+  min-width: 520px;
+}
+
 .table th, .prose th {
   text-align: start;
   font-size: var(--text-label);
@@ -728,6 +747,7 @@ code:not(pre code) {
    Prose (Article Markdown Output)
    ========================================================================== */
 .prose {
+  min-width: 0;
   color: var(--color-body);
   font-size: var(--text-body);
   line-height: var(--lh-body);
@@ -743,6 +763,7 @@ code:not(pre code) {
   color: var(--color-body);
   margin: 0 0 var(--space-3);
   max-width: 70ch;
+  overflow-wrap: anywhere;
 }
 
 .prose strong {
@@ -837,6 +858,11 @@ code:not(pre code) {
   border-radius: 4px;
   padding: 1px 5px;
   white-space: nowrap;
+}
+
+.prose :not(pre) > code {
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .prose pre {

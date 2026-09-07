@@ -22,14 +22,14 @@ export default function Section({ chapter, section, lang, eagerAssets = false, l
       whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className="scroll-mt-[88px] pt-10"
+      className="min-w-0 scroll-mt-[88px] pt-8 sm:pt-10"
     >
-      <h2 className="group flex items-center gap-1.5 text-[22px] font-semibold leading-[1.25] tracking-[-0.01em] text-ink">
-        <span>{section.title[lang]}</span>
+      <h2 className="group flex min-w-0 items-start gap-1.5 text-[20px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink sm:text-[22px] sm:leading-[1.25]">
+        <span className="min-w-0 flex-1 break-words">{section.title[lang]}</span>
         <a
           href={hrefFor(chapter.id, section.id)}
           aria-label={t(lang, 'linkToSection')}
-          className="print-hidden inline-flex h-9 w-9 min-h-[36px] min-w-[36px] items-center justify-center text-muted no-underline opacity-0 transition-all duration-150 hover:text-action focus-visible:opacity-100 group-hover:opacity-100 rounded-control"
+          className="print-hidden inline-flex h-9 w-9 min-h-[36px] min-w-[36px] shrink-0 items-center justify-center rounded-control text-muted no-underline opacity-100 transition-all duration-150 hover:text-action sm:opacity-0 sm:focus-visible:opacity-100 sm:group-hover:opacity-100"
         >
           <LinkIcon width="16" height="16" />
         </a>
