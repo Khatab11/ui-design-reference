@@ -14,6 +14,13 @@ const components = {
       </a>
     )
   },
+  table({ children, ...rest }) {
+    return (
+      <div className="table-scroll" tabIndex="0" role="region" aria-label="Scrollable table">
+        <table {...rest}>{children}</table>
+      </div>
+    )
+  },
 }
 
 export default function Markdown({ children, className = '' }) {

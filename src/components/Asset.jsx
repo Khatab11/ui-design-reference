@@ -65,7 +65,7 @@ function Placeholder({ chapterId, asset, lang, className = '' }) {
       role="img"
       aria-label={asset.alt?.[lang] || asset.brief}
       style={ratioStyle(asset.ratio)}
-      className={`placeholder flex w-full flex-col items-center justify-center gap-2 rounded-card border-2 border-dashed border-line-strong bg-surface p-4 text-center shadow-raised ${className}`}
+      className={`placeholder flex min-h-[220px] w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-card border-2 border-dashed border-line-strong bg-surface p-3 text-center shadow-raised sm:min-h-0 sm:p-4 ${className}`}
     >
       <ImageIcon className="text-muted" width="28" height="28" />
       <p className="label text-muted">
@@ -78,7 +78,7 @@ function Placeholder({ chapterId, asset, lang, className = '' }) {
       )}
       <p className="mt-0.5 text-xs text-muted">
         {t(lang, 'expectedFile')}:{' '}
-        <code className="rounded bg-surface-sunken px-1.5 py-0.5 text-body">
+        <code className="break-all rounded bg-surface-sunken px-1.5 py-0.5 text-body">
           assets/{chapterId}/{asset.file}
         </code>
       </p>
