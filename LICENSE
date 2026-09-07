@@ -19,3 +19,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+The MIT licence above covers the site's source code (everything outside
+content/, design/, docs/ and public/assets/). The course text, diagrams and
+image briefs in those folders are the course author's teaching material,
+based on "UI Design Principles" by Michael Filipiuk, and are not covered by
+the MIT licence; all rights reserved unless stated otherwise.

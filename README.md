@@ -133,6 +133,10 @@ src/
 tailwind.config.js  8pt spacing scale, type scale, colour tokens
 ```
 
+## License
+
+The site's code is MIT licensed (see `LICENSE`). The course text, diagrams and briefs under `content/`, `design/`, `docs/` and `public/assets/` are the course author's teaching material, based on *UI Design Principles* by Michael Filipiuk, and are not part of the MIT grant.
+
 ## Design tokens
 
 - Spacing: 8px base (`p-1` = 8px, `p-2` = 16px, `p-3` = 24px, and so on) with 4px and 12px half-steps.
