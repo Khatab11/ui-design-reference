@@ -35,6 +35,15 @@
       "body": {
         "en": "The goal of early ideation is transferring concepts from your brain onto paper as quickly and cheaply as possible.\n\n**The Rule:** Quantity trumps beauty. Ten rough, messy sketches exploring distinct layout structures are infinitely more valuable than one polished drawing. Do not think about fonts, colors, or shadows. Uncoupling structural exploration from visual styling liberates rapid experimentation.",
         "ar": "الهدف هنا إنك تفرّغ الأفكار من دماغك على الورق بأسرع وأرخص طريقة ممكنة.\n\n**القاعدة الأساسية: الكمية أهم من الجمال في المرحلة دي.** ١٠ رسومات سريعة وخشنة بتستكشف ١٠ طرق مختلفة لحل الشاشة أحسن بكتير من رسمة واحدة متزوقة. افصل التفكير في الهيكل تماماً عن التفكير في الخطوط والألوان."
+      },
+      "asset": {
+        "file": "paper-sketching-ideation.png",
+        "alt": {
+          "en": "Rapid paper sketches exploring multiple mobile screen layout ideas in low fidelity",
+          "ar": "اسكتشات ورقية سريعة لاستكشاف أفكار تخطيط شاشات الموبايل بكفاءة"
+        },
+        "ratio": "16:9",
+        "brief": "Overhead view of a designer sketchbook showing 6 rapid thumbnail sketches of an e-commerce product screen, exploring different hero image sizes, tab placements, and checkout bar positions with handwritten notes and arrows."
       }
     },
     {
@@ -82,6 +91,15 @@
         "type": "tip",
         "en": "Never deliver designs without explaining the strategic rationale behind key decisions. Walking clients through solutions prevents random feedback loops.",
         "ar": "لا تسلم ملفات التصميم بدون شرح منطق القرارات؛ تقديم الأسباب الاستراتيجية يحمي التصميم من طلبات التعديل غير المدروسة."
+      },
+      "asset": {
+        "file": "design-system-handover.png",
+        "alt": {
+          "en": "Professional design system handoff board showing design tokens, states, and responsive views",
+          "ar": "لوحة تسليم احترافية لمنظومة التصميم تشمل الرموز البرمجية والحالات والتجاوب"
+        },
+        "ratio": "16:9",
+        "brief": "A structured Figma presentation canvas: Top row displays design tokens (color swatches with hex, typography scale, 8pt spacing ladder); Middle row shows component state matrix (buttons, inputs, cards); Bottom row shows mobile and desktop responsive views."
       }
     }
   ]

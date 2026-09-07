@@ -66,6 +66,15 @@
         "type": "tip",
         "en": "Shift the hue by 20°–25° between ends to maintain luminous purity and eliminate muddy middle transitions.",
         "ar": "حرّك درجة الـ Hue بمقدار ٢٠ إلى ٢٥ درجة فقط بين طرفي التدرج لتجنب ظهور بقع رمادية باهتة في المنتصف."
+      },
+      "asset": {
+        "file": "smooth-vs-muddy-gradients.png",
+        "alt": {
+          "en": "Comparison of muddy direct gradients versus smooth hue-shifted gradients",
+          "ar": "مقارنة بين التدرج العشوائي الباهت والتدرج المتناسق المدروس"
+        },
+        "ratio": "16:9",
+        "brief": "Two gradient bars side-by-side: Top showing a muddy, dull transition between complementary hues (blue to orange through grayish brown); Bottom showing a vibrant 3-stop hue-shifted gradient passing through natural warm bridge tones."
       }
     },
     {
@@ -82,6 +91,15 @@
         "type": "warning",
         "en": "Excessive gradient usage causes visual clutter and damages scannability. Restraint is the key to premium aesthetics.",
         "ar": "الإفراط في التدرجات الحيوية يسبب إرهاقاً بصرياً ويضعف التسلسل الهرمي. الاعتدال سر الفخامة."
+      },
+      "asset": {
+        "file": "gradient-restraint.png",
+        "alt": {
+          "en": "Tasteful gradient accent usage versus overpowering full-screen gradient",
+          "ar": "الاستخدام المتزن للتدرجات كعنصر تركيز مقابل التدرج الصارخ المشتت"
+        },
+        "ratio": "16:9",
+        "brief": "Two mobile screen mockups: Left shows a sleek dark dashboard using subtle gradient rim light on an active chart line and button; Right shows an overwhelming rainbow gradient background that destroys card contrast and text readability."
       }
     }
   ]

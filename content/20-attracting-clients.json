@@ -57,6 +57,15 @@
       "body": {
         "en": "Clients search portfolios by industry keyword (e.g. \"fintech banking app\", \"food delivery checkout\"). If your portfolio consists exclusively of crypto dashboards, e-commerce fashion brands won't hire you.\n\n**MENA High-Demand Sectors:** In the Arab market, the most active hiring sectors are:\n1. Fast-Commerce & On-Demand Delivery\n2. FinTech & Digital Wallets\n3. HealthTech & Telemedicine\n4. Digital Government Services\nCurate your public case studies around these sectors to maximize regional contract opportunities.",
         "ar": "العملاء بيبحثوا في البورتفوليو حسب مجال البيزنس (تطبيق بنكي، متجر أزياء، تطبيق حجز). لو كل معرض أعمالك تطبيقات ألعاب، مش هيجيلك عملاء استثمار وبنوك.\n\n**أكثر القطاعات طلباً في السوق العربي:**\n1. تطبيقات التوصيل والتجارة السريعة\n2. التكنولوجيا المالية (FinTech) والمحافظ الرقمية\n3. الصحة وحجز العيادات\n4. المنصات الحكومية الرقمية\nركز مشاريعك على المجالات دي عشان تفتح لنفسك أكبر فرص تعاقد في المنطقة."
+      },
+      "asset": {
+        "file": "portfolio-case-study-anatomy.png",
+        "alt": {
+          "en": "Anatomy of a high-converting UI/UX case study presentation",
+          "ar": "تشريح دراسة حالة احترافية لتصميم الواجهات تجذب العملاء رفيعي المستوى"
+        },
+        "ratio": "16:9",
+        "brief": "Vertical infographic breakdown of an effective portfolio case study: (1) Hero screen in clean device frame, (2) The Business Problem & Constraint, (3) User Journey Wireframe sketch, (4) High-Fidelity UI Screen Gallery with annotations, and (5) Client Outcome / Key Metric."
       }
     },
     {
