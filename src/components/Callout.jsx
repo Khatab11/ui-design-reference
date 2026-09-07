@@ -3,28 +3,26 @@ import Markdown from './Markdown.jsx'
 import { AlertIcon, InfoIcon, PenIcon } from './Icons.jsx'
 import { motion, useReducedMotion } from 'framer-motion'
 
-// Visual treatment per callout type. `quote` is rendered separately below.
-const styles = {
+const config = {
   tip: {
     Icon: InfoIcon,
-    box: 'border-accent/25 bg-accent-soft',
-    icon: 'text-accent',
-    label: 'text-accent-ink',
+    variant: 'tip',
+    iconClass: 'text-success',
   },
   warning: {
     Icon: AlertIcon,
-    box: 'border-warn/30 bg-warn-soft',
-    icon: 'text-warn',
-    label: 'text-warn',
+    variant: 'caution',
+    iconClass: 'text-warning',
   },
-  // Content the course author added that is not in the source book. Cool
-  // colour + dashed border so it reads as "different" next to tip/warning,
-  // and the dashed edge survives the colour-stripping print stylesheet.
+  caution: {
+    Icon: AlertIcon,
+    variant: 'caution',
+    iconClass: 'text-warning',
+  },
   note: {
     Icon: PenIcon,
-    box: 'border-dashed border-note/50 bg-note-soft',
-    icon: 'text-note',
-    label: 'text-note',
+    variant: 'note',
+    iconClass: 'text-action',
   },
 }
 
@@ -36,28 +34,30 @@ export default function Callout({ callout, lang }) {
 
   if (type === 'quote') {
     return (
-      <blockquote className="callout my-4 border-s-2 border-accent ps-3">
-        <Markdown className="text-lg italic leading-[30px] text-ink [&_p]:text-lg [&_p]:leading-[30px]">{text}</Markdown>
+      <blockquote className="my-5 border-s-2 border-line-strong ps-4 text-ink">
+        <Markdown className="text-lg italic leading-[30px] [&_p]:text-lg [&_p]:leading-[30px] [&_p]:text-ink">{text}</Markdown>
       </blockquote>
     )
   }
 
-  const style = styles[type] ?? styles.tip
-  const { Icon } = style
+  const { Icon, variant, iconClass } = config[type] ?? config.tip
   return (
     <motion.aside
       data-callout={type}
       whileHover={shouldReduceMotion ? undefined : { y: -1 }}
       transition={{ duration: 0.2 }}
-      className={`callout my-4 flex gap-1.5 rounded-lg border p-2 text-ink shadow-[0_4px_24px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25)] transition-shadow duration-200 ${style.box}`}
+      className={`callout callout--${variant} my-5 flex gap-3`}
     >
-      <Icon className={`mt-0.5 shrink-0 ${style.icon}`} />
-      <div>
-        <p className={`text-xs font-semibold uppercase tracking-wide ${style.label}`}>
+      <Icon className={`mt-0.5 shrink-0 ${iconClass}`} width="20" height="20" />
+      <div className="min-w-0 flex-1">
+        <p className="callout__title">
           {t(lang, type)}
         </p>
-        <Markdown className="mt-0.5">{text}</Markdown>
+        <div className="text-[17px] leading-[1.65] text-body [&_p]:text-[17px] [&_p]:leading-[1.65] [&_p]:text-body [&_p:last-child]:mb-0">
+          <Markdown>{text}</Markdown>
+        </div>
       </div>
     </motion.aside>
   )
 }
+

@@ -14,16 +14,16 @@ export function ChapterHeader({ chapter, lang }) {
       initial={shouldReduceMotion ? false : { opacity: 0, y: -12 }}
       animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="border-b border-line pb-4"
+      className="border-b border-line pb-6"
     >
-      <p className="font-mono text-sm text-ink-3">
+      <p className="label text-muted">
         {t(lang, 'chapter')} {number}
       </p>
-      <h1 className="mt-1 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+      <h1 className="mt-2 text-[34px] font-semibold leading-[1.10] tracking-[-0.02em] text-ink">
         {chapter.title[lang]}
       </h1>
       {chapter.intro?.[lang] && (
-        <p className="mt-2 max-w-[60ch] text-lg text-ink-2">{chapter.intro[lang]}</p>
+        <p className="mt-3 max-w-[70ch] text-[17px] leading-[1.65] text-body">{chapter.intro[lang]}</p>
       )}
     </motion.header>
   )

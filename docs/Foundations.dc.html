@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #FAF9F7; -webkit-font-smoothing: antialiased; }
+  a { color: #1F5AE0; text-decoration: none; }
+  a:hover { color: #1747B8; text-decoration: underline; }
+  input, select, textarea, button { font-family: inherit; }
+  ::placeholder { color: #A8A49B; }
+</style>
+</helmet>
+<div dir="{{ dirValue }}" style="font-family: 'Public Sans', Helvetica, Arial, sans-serif; color: #1A1A17; background: #FAF9F7; min-height: 100vh; padding: 0 24px 112px; box-sizing: border-box;">
+<div style="max-width: 1120px; margin: 0 auto; display: grid; gap: 88px;">
+
+  <header style="padding: 80px 0 52px; display: grid; gap: 22px; border-bottom: 1px solid #E6E3DD;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div style="width: 20px; height: 20px; border-radius: 5px; background: #1F5AE0;"></div>
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7A776F;">{{ brandName }} · Design foundations</span>
+    </div>
+    <h1 style="font-weight: 700; font-size: 56px; line-height: 1.02; letter-spacing: -0.03em; margin: 0; max-width: 19ch; text-wrap: pretty;">The basics, defined once.</h1>
+    <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #4A4842; max-width: 60ch; text-wrap: pretty;">Color roles, type scale, buttons and inputs for a course catalog. Original to this brand — build every page from these and the site stays coherent as the catalog grows.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1747B8; background: #EAF1FE; border: 1px solid #C7DBFB; border-radius: 999px; padding: 6px 12px;">Public Sans</span>
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #4A4842; background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 999px; padding: 6px 12px;">4px base grid</span>
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #4A4842; background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 999px; padding: 6px 12px;">WCAG AA minimum</span>
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #4A4842; background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 999px; padding: 6px 12px;">44px hit targets</span>
+    </div>
+  </header>
+
+  <section style="display: grid; gap: 32px;">
+    <div style="display: grid; gap: 10px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7A776F;">01 — Color</span>
+      <h2 style="font-weight: 600; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">Roles, not decoration</h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4A4842; max-width: 62ch; text-wrap: pretty;">One brand blue carries every primary action. It means "this is the thing to click" — so it never becomes a background wash and never emphasises body text. Everything else is a warm neutral doing structural work.</p>
+    </div>
+
+    <div style="display: grid; gap: 14px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7A776F;">Brand · action</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 12px;">
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 80px; background: #1F5AE0;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Action</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#1F5AE0 · buttons, links</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 80px; background: #1747B8;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Action hover</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#1747B8</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 80px; background: #123A96;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Action pressed</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#123A96</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 80px; background: #EAF1FE; border-bottom: 1px solid #E6E3DD;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Action tint</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#EAF1FE · selected rows</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; gap: 14px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7A776F;">Neutrals · warm</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 12px;">
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 80px; background: #1A1A17;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Ink</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#1A1A17 · headings</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 80px; background: #4A4842;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Body</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#4A4842 · paragraphs</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 80px; background: #7A776F;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Muted</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#7A776F · labels, meta</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 80px; background: #E6E3DD;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Line</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#E6E3DD · borders</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 80px; background: #FFFFFF; border-bottom: 1px solid #E6E3DD;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Surface</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#FFFFFF · cards</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 80px; background: #FAF9F7; border-bottom: 1px solid #E6E3DD;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Ground</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#FAF9F7 · page</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; gap: 14px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7A776F;">Feedback · use sparingly</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 12px;">
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 60px; background: #0E7A5F;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Success</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#0E7A5F</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 60px; background: #A45B00;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Warning</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#A45B00</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 60px; background: #C0271C;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Error</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#C0271C</span></div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; overflow: hidden;">
+          <div style="height: 60px; background: #F0F7F4; border-bottom: 1px solid #E6E3DD;"></div>
+          <div style="padding: 11px 13px; display: grid; gap: 3px;"><span style="font-size: 13px; font-weight: 600;">Success tint</span><span style="font-size: 11px; color: #7A776F; letter-spacing: 0.04em;">#F0F7F4</span></div>
+        </div>
+      </div>
+    </div>
+
+    <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 4px;">
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; padding: 18px 20px; display: grid; gap: 7px;">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #0E7A5F;">Do</span>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #4A4842;">Keep blue for one action per view. When two buttons sit together, only the intended next step is filled.</p>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; padding: 18px 20px; display: grid; gap: 7px;">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #C0271C;">Don't</span>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #4A4842;">Don't colour text blue for emphasis — readers will try to click it. Use weight instead.</p>
+        </div>
+      </div>
+    </sc-if>
+  </section>
+
+  <section style="display: grid; gap: 32px;">
+    <div style="display: grid; gap: 10px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7A776F;">02 — Type</span>
+      <h2 style="font-weight: 600; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">One family, clear jumps</h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4A4842; max-width: 62ch; text-wrap: pretty;">Six sizes only. Each step is far enough from the next to read as a different level at a glance — hierarchy comes from size and weight, never from colour.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 12px; overflow: hidden;">
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 20px; align-items: baseline; padding: 22px 24px; border-bottom: 1px solid #F0EEE9;">
+        <span style="font-size: 56px; font-weight: 700; line-height: 1.02; letter-spacing: -0.03em;">Learn something that pays</span>
+        <span style="font-size: 12px; color: #7A776F; letter-spacing: 0.04em; text-align: end;">Display / 56 · 700 · -3%</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 20px; align-items: baseline; padding: 22px 24px; border-bottom: 1px solid #F0EEE9;">
+        <span style="font-size: 34px; font-weight: 600; line-height: 1.1; letter-spacing: -0.02em;">Data analysis, from zero</span>
+        <span style="font-size: 12px; color: #7A776F; letter-spacing: 0.04em; text-align: end;">H2 / 34 · 600 · -2%</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 20px; align-items: baseline; padding: 22px 24px; border-bottom: 1px solid #F0EEE9;">
+        <span style="font-size: 22px; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em;">Week 3 — Joins and grouping</span>
+        <span style="font-size: 12px; color: #7A776F; letter-spacing: 0.04em; text-align: end;">H3 / 22 · 600</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 20px; align-items: baseline; padding: 22px 24px; border-bottom: 1px solid #F0EEE9;">
+        <span style="font-size: 17px; font-weight: 400; line-height: 1.65; color: #4A4842;">Body copy sits at 17 with generous leading. Keep measure under 70 characters so the eye finds the next line without effort.</span>
+        <span style="font-size: 12px; color: #7A776F; letter-spacing: 0.04em; text-align: end;">Body / 17 · 400 · 1.65</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 20px; align-items: baseline; padding: 22px 24px; border-bottom: 1px solid #F0EEE9;">
+        <span style="font-size: 14px; font-weight: 400; line-height: 1.55; color: #4A4842;">Small text for helper copy, captions and course metadata.</span>
+        <span style="font-size: 12px; color: #7A776F; letter-spacing: 0.04em; text-align: end;">Small / 14 · 400</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 20px; align-items: baseline; padding: 22px 24px;">
+        <span style="font-size: 11px; font-weight: 600; line-height: 1.4; letter-spacing: 0.14em; text-transform: uppercase; color: #7A776F;">Section label</span>
+        <span style="font-size: 12px; color: #7A776F; letter-spacing: 0.04em; text-align: end;">Label / 11 · 600 · +14%</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: grid; gap: 32px;">
+    <div style="display: grid; gap: 10px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7A776F;">03 — Buttons</span>
+      <h2 style="font-weight: 600; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">Four levels of insistence</h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4A4842; max-width: 62ch; text-wrap: pretty;">Primary, secondary, quiet, destructive. Every button is at least 44px tall, and every one shows a visible focus ring — keyboard users buy courses too.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 12px; padding: 28px; display: grid; gap: 30px;">
+      <div style="display: grid; gap: 14px;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7A776F;">Variants</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+          <button type="button" style="min-height: 44px; padding: 0 22px; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #1F5AE0; border: 1px solid #1F5AE0; border-radius: 8px; cursor: pointer; transition: background 140ms ease;" style-hover="background: #1747B8; border-color: #1747B8;" style-active="background: #123A96; border-color: #123A96;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 2px;">Enroll now</button>
+          <button type="button" style="min-height: 44px; padding: 0 22px; font-size: 15px; font-weight: 600; color: #1A1A17; background: #FFFFFF; border: 1px solid #CFCBC2; border-radius: 8px; cursor: pointer; transition: background 140ms ease;" style-hover="background: #FAF9F7; border-color: #A8A49B;" style-active="background: #F0EEE9;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 2px;">View syllabus</button>
+          <button type="button" style="min-height: 44px; padding: 0 16px; font-size: 15px; font-weight: 600; color: #1F5AE0; background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; transition: background 140ms ease;" style-hover="background: #EAF1FE;" style-active="background: #D7E5FC;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 2px;">Save for later</button>
+          <button type="button" style="min-height: 44px; padding: 0 22px; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #C0271C; border: 1px solid #C0271C; border-radius: 8px; cursor: pointer; transition: background 140ms ease;" style-hover="background: #A11F16; border-color: #A11F16;" style-focus="outline: 2px solid #C0271C; outline-offset: 2px;">Cancel plan</button>
+        </div>
+      </div>
+
+      <div style="display: grid; gap: 14px; border-top: 1px solid #F0EEE9; padding-top: 26px;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7A776F;">Sizes</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+          <button type="button" style="min-height: 56px; padding: 0 30px; font-size: 17px; font-weight: 600; color: #FFFFFF; background: #1F5AE0; border: 1px solid #1F5AE0; border-radius: 10px; cursor: pointer;" style-hover="background: #1747B8;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 2px;">Large · hero</button>
+          <button type="button" style="min-height: 44px; padding: 0 22px; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #1F5AE0; border: 1px solid #1F5AE0; border-radius: 8px; cursor: pointer;" style-hover="background: #1747B8;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 2px;">Medium · default</button>
+          <button type="button" style="min-height: 44px; padding: 0 14px; font-size: 13px; font-weight: 600; color: #1A1A17; background: #FFFFFF; border: 1px solid #CFCBC2; border-radius: 7px; cursor: pointer;" style-hover="background: #FAF9F7;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 2px;">Small · in card</button>
+        </div>
+      </div>
+
+      <div style="display: grid; gap: 14px; border-top: 1px solid #F0EEE9; padding-top: 26px;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7A776F;">States</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+          <div style="display: grid; gap: 7px; justify-items: start;">
+            <button type="button" style="min-height: 44px; padding: 0 22px; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #1747B8; border: 1px solid #1747B8; border-radius: 8px; cursor: pointer;">Hover</button>
+            <span style="font-size: 12px; color: #7A776F;">#1747B8</span>
+          </div>
+          <div style="display: grid; gap: 7px; justify-items: start;">
+            <button type="button" style="min-height: 44px; padding: 0 22px; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #1F5AE0; border: 1px solid #1F5AE0; border-radius: 8px; cursor: pointer; outline: 2px solid #1F5AE0; outline-offset: 2px;">Focused</button>
+            <span style="font-size: 12px; color: #7A776F;">2px ring, 2px offset</span>
+          </div>
+          <div style="display: grid; gap: 7px; justify-items: start;">
+            <button type="button" disabled="{{ true }}" style="min-height: 44px; padding: 0 22px; font-size: 15px; font-weight: 600; color: #A8A49B; background: #F0EEE9; border: 1px solid #E6E3DD; border-radius: 8px; cursor: not-allowed;">Disabled</button>
+            <span style="font-size: 12px; color: #7A776F;">Never hide it — explain why</span>
+          </div>
+          <div style="display: grid; gap: 7px; justify-items: start;">
+            <button type="button" style="min-height: 44px; padding: 0 22px; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #1F5AE0; border: 1px solid #1F5AE0; border-radius: 8px; cursor: progress; display: inline-flex; align-items: center; gap: 9px;">
+              <span style="width: 13px; height: 13px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.45); border-top-color: #FFFFFF; display: inline-block; animation: dcspin 700ms linear infinite;"></span>
+              Processing
+            </button>
+            <span style="font-size: 12px; color: #7A776F;">Label stays legible</span>
+          </div>
+        </div>
+      </div>
+
+      <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+        <p style="margin: 0; border-top: 1px solid #F0EEE9; padding-top: 22px; font-size: 14px; line-height: 1.6; color: #4A4842; max-width: 70ch;">Labels name the outcome, not the mechanism: “Enroll now”, not “Submit”. Width is content-driven — buttons never stretch to fill a container unless they are the only control in a mobile-width row.</p>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="display: grid; gap: 32px;">
+    <div style="display: grid; gap: 10px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7A776F;">04 — Inputs</span>
+      <h2 style="font-weight: 600; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">Always labelled, always 44px</h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4A4842; max-width: 62ch; text-wrap: pretty;">Labels sit above the field and stay visible while typing. Helper text is permanent; error text replaces it and says what to do next.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 12px; padding: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 26px 24px;">
+      <div style="display: grid; gap: 7px;">
+        <label for="f-name" style="font-size: 13px; font-weight: 600; color: #1A1A17;">Full name</label>
+        <input id="f-name" type="text" placeholder="Layla Haddad" style="min-height: 44px; padding: 0 14px; font-size: 15px; color: #1A1A17; background: #FFFFFF; border: 1px solid #CFCBC2; border-radius: 8px; box-sizing: border-box; width: 100%;" style-hover="border-color: #A8A49B;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 1px; border-color: #1F5AE0;" />
+        <span style="font-size: 13px; color: #7A776F;">Appears on your certificate.</span>
+      </div>
+
+      <div style="display: grid; gap: 7px;">
+        <label for="f-mail" style="font-size: 13px; font-weight: 600; color: #1A1A17;">Work email</label>
+        <input id="f-mail" type="email" value="layla@compan" style="min-height: 44px; padding: 0 14px; font-size: 15px; color: #1A1A17; background: #FFFFFF; border: 1px solid #C0271C; border-radius: 8px; box-sizing: border-box; width: 100%;" style-focus="outline: 2px solid #C0271C; outline-offset: 1px;" />
+        <span style="font-size: 13px; font-weight: 500; color: #C0271C;">Add the domain ending, e.g. .com</span>
+      </div>
+
+      <div style="display: grid; gap: 7px;">
+        <label for="f-track" style="font-size: 13px; font-weight: 600; color: #1A1A17;">Learning track</label>
+        <select id="f-track" style="min-height: 44px; padding: 0 12px; font-size: 15px; color: #1A1A17; background: #FFFFFF; border: 1px solid #CFCBC2; border-radius: 8px; box-sizing: border-box; width: 100%; appearance: none;" style-hover="border-color: #A8A49B;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 1px; border-color: #1F5AE0;">
+          <option>Data &amp; analytics</option>
+          <option>Product design</option>
+          <option>Software engineering</option>
+        </select>
+        <span style="font-size: 13px; color: #7A776F;">You can switch tracks later.</span>
+      </div>
+
+      <div style="display: grid; gap: 7px;">
+        <label for="f-search" style="font-size: 13px; font-weight: 600; color: #1A1A17;">Search courses</label>
+        <div style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; background: #FAF9F7; border: 1px solid #CFCBC2; border-radius: 999px; box-sizing: border-box;">
+          <span style="width: 13px; height: 13px; border: 2px solid #7A776F; border-radius: 50%; flex: none;"></span>
+          <input id="f-search" type="search" placeholder="SQL for beginners" style="flex: 1; min-width: 0; border: none; background: transparent; font-size: 15px; color: #1A1A17; outline: none; padding: 0;" />
+        </div>
+        <span style="font-size: 13px; color: #7A776F;">Pill shape is reserved for search only.</span>
+      </div>
+
+      <div style="display: grid; gap: 7px;">
+        <label for="f-goal" style="font-size: 13px; font-weight: 600; color: #1A1A17;">What do you want to achieve?</label>
+        <textarea id="f-goal" rows="3" placeholder="Move into an analyst role within a year." style="padding: 11px 14px; font-size: 15px; line-height: 1.55; color: #1A1A17; background: #FFFFFF; border: 1px solid #CFCBC2; border-radius: 8px; box-sizing: border-box; width: 100%; resize: vertical;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 1px; border-color: #1F5AE0;"></textarea>
+        <span style="font-size: 13px; color: #7A776F;">Optional · helps us recommend courses.</span>
+      </div>
+
+      <div style="display: grid; gap: 7px;">
+        <span style="font-size: 13px; font-weight: 600; color: #1A1A17;">Disabled &amp; read-only</span>
+        <input type="text" value="Cohort starts 12 October" disabled="{{ true }}" style="min-height: 44px; padding: 0 14px; font-size: 15px; color: #7A776F; background: #F0EEE9; border: 1px solid #E6E3DD; border-radius: 8px; box-sizing: border-box; width: 100%; cursor: not-allowed;" />
+        <span style="font-size: 13px; color: #7A776F;">Greyed, but still readable at AA.</span>
+      </div>
+
+      <div style="display: grid; gap: 12px; align-content: start;">
+        <span style="font-size: 13px; font-weight: 600; color: #1A1A17;">Choice controls</span>
+        <label style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #4A4842; cursor: pointer; min-height: 28px;">
+          <input type="checkbox" checked="{{ true }}" style="width: 18px; height: 18px; accent-color: #1F5AE0; margin: 0;" />
+          Email me new courses in my track
+        </label>
+        <label style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #4A4842; cursor: pointer; min-height: 28px;">
+          <input type="radio" name="pay" checked="{{ true }}" style="width: 18px; height: 18px; accent-color: #1F5AE0; margin: 0;" />
+          Pay in full — save 15%
+        </label>
+        <label style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #4A4842; cursor: pointer; min-height: 28px;">
+          <input type="radio" name="pay" style="width: 18px; height: 18px; accent-color: #1F5AE0; margin: 0;" />
+          Three monthly instalments
+        </label>
+      </div>
+
+      <div style="display: grid; gap: 12px; align-content: start;">
+        <span style="font-size: 13px; font-weight: 600; color: #1A1A17;">Tags &amp; badges</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start;">
+          <span style="font-size: 12px; font-weight: 600; color: #1747B8; background: #EAF1FE; border: 1px solid #C7DBFB; border-radius: 6px; padding: 5px 10px;">Beginner</span>
+          <span style="font-size: 12px; font-weight: 600; color: #0E7A5F; background: #F0F7F4; border: 1px solid #CDE6DD; border-radius: 6px; padding: 5px 10px;">Certificate</span>
+          <span style="font-size: 12px; font-weight: 600; color: #A45B00; background: #FDF4E8; border: 1px solid #F0DFC4; border-radius: 6px; padding: 5px 10px;">3 seats left</span>
+          <span style="font-size: 12px; font-weight: 600; color: #4A4842; background: #FAF9F7; border: 1px solid #E6E3DD; border-radius: 6px; padding: 5px 10px;">Arabic subtitles</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: grid; gap: 32px;">
+    <div style="display: grid; gap: 10px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7A776F;">05 — Space &amp; shape</span>
+      <h2 style="font-weight: 600; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">A 4px grid, six radii</h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4A4842; max-width: 62ch; text-wrap: pretty;">Spacing steps double as they grow, so related things sit close and unrelated things sit far apart without anyone measuring.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px;">
+      <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 12px; padding: 24px; display: grid; gap: 14px;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7A776F;">Spacing</span>
+        <div style="display: grid; gap: 9px;">
+          <div style="display: flex; align-items: center; gap: 12px;"><div style="height: 10px; width: 4px; background: #1F5AE0; border-radius: 2px;"></div><span style="font-size: 13px; color: #4A4842;">4 · icon to label</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><div style="height: 10px; width: 8px; background: #1F5AE0; border-radius: 2px;"></div><span style="font-size: 13px; color: #4A4842;">8 · label to field</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><div style="height: 10px; width: 16px; background: #1F5AE0; border-radius: 2px;"></div><span style="font-size: 13px; color: #4A4842;">16 · within a card</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><div style="height: 10px; width: 24px; background: #1F5AE0; border-radius: 2px;"></div><span style="font-size: 13px; color: #4A4842;">24 · card padding</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><div style="height: 10px; width: 48px; background: #1F5AE0; border-radius: 2px;"></div><span style="font-size: 13px; color: #4A4842;">48 · block to block</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><div style="height: 10px; width: 88px; background: #1F5AE0; border-radius: 2px;"></div><span style="font-size: 13px; color: #4A4842;">88 · section to section</span></div>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 12px; padding: 24px; display: grid; gap: 14px; align-content: start;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7A776F;">Radius</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <div style="display: grid; gap: 7px; justify-items: center;"><div style="width: 56px; height: 44px; background: #FAF9F7; border: 1px solid #CFCBC2; border-radius: 6px;"></div><span style="font-size: 12px; color: #7A776F;">6 · tag</span></div>
+          <div style="display: grid; gap: 7px; justify-items: center;"><div style="width: 56px; height: 44px; background: #FAF9F7; border: 1px solid #CFCBC2; border-radius: 8px;"></div><span style="font-size: 12px; color: #7A776F;">8 · control</span></div>
+          <div style="display: grid; gap: 7px; justify-items: center;"><div style="width: 56px; height: 44px; background: #FAF9F7; border: 1px solid #CFCBC2; border-radius: 12px;"></div><span style="font-size: 12px; color: #7A776F;">12 · card</span></div>
+          <div style="display: grid; gap: 7px; justify-items: center;"><div style="width: 56px; height: 44px; background: #FAF9F7; border: 1px solid #CFCBC2; border-radius: 999px;"></div><span style="font-size: 12px; color: #7A776F;">Pill · search</span></div>
+        </div>
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7A776F; margin-top: 8px;">Elevation</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+          <div style="display: grid; gap: 7px; justify-items: center;"><div style="width: 84px; height: 44px; background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px;"></div><span style="font-size: 12px; color: #7A776F;">Flat · default</span></div>
+          <div style="display: grid; gap: 7px; justify-items: center;"><div style="width: 84px; height: 44px; background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; box-shadow: 0 2px 6px rgba(26,26,23,0.07);"></div><span style="font-size: 12px; color: #7A776F;">Raised · hover</span></div>
+          <div style="display: grid; gap: 7px; justify-items: center;"><div style="width: 84px; height: 44px; background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 10px; box-shadow: 0 12px 28px rgba(26,26,23,0.14);"></div><span style="font-size: 12px; color: #7A776F;">Overlay · modal</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: grid; gap: 24px;">
+    <div style="display: grid; gap: 10px;">
+      <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7A776F;">06 — Put together</span>
+      <h2 style="font-weight: 600; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">The tokens in context</h2>
+    </div>
+    <div style="background: #FFFFFF; border: 1px solid #E6E3DD; border-radius: 12px; padding: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start;">
+      <div style="display: grid; gap: 14px;">
+        <svg viewBox="0 0 320 170" role="img" aria-label="Course thumbnail placeholder" style="width: 100%; height: auto; border-radius: 10px; border: 1px solid #E6E3DD; display: block;">
+          <defs><pattern id="ph1" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#FAF9F7"></rect><rect width="4" height="10" fill="#F0EEE9"></rect></pattern></defs>
+          <rect width="320" height="170" fill="url(#ph1)"></rect>
+          <text x="160" y="90" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#7A776F">course thumbnail 16:9</text>
+        </svg>
+        <div style="display: flex; gap: 8px;">
+          <span style="font-size: 12px; font-weight: 600; color: #1747B8; background: #EAF1FE; border: 1px solid #C7DBFB; border-radius: 6px; padding: 5px 10px;">Beginner</span>
+          <span style="font-size: 12px; font-weight: 600; color: #0E7A5F; background: #F0F7F4; border: 1px solid #CDE6DD; border-radius: 6px; padding: 5px 10px;">Certificate</span>
+        </div>
+        <h3 style="margin: 0; font-size: 22px; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em;">SQL for people who hate spreadsheets</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #4A4842;">Six weeks · 18 lessons · Weekly live review with a working analyst.</p>
+        <div style="display: flex; align-items: baseline; gap: 10px;">
+          <span style="font-size: 26px; font-weight: 700; letter-spacing: -0.02em;">SAR 690</span>
+          <span style="font-size: 14px; color: #7A776F; text-decoration: line-through;">SAR 1,190</span>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button type="button" style="min-height: 44px; padding: 0 22px; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #1F5AE0; border: 1px solid #1F5AE0; border-radius: 8px; cursor: pointer;" style-hover="background: #1747B8;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 2px;">Enroll now</button>
+          <button type="button" style="min-height: 44px; padding: 0 18px; font-size: 15px; font-weight: 600; color: #1A1A17; background: #FFFFFF; border: 1px solid #CFCBC2; border-radius: 8px; cursor: pointer;" style-hover="background: #FAF9F7;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 2px;">Syllabus</button>
+        </div>
+      </div>
+
+      <div style="display: grid; gap: 16px; background: #FAF9F7; border: 1px solid #E6E3DD; border-radius: 10px; padding: 22px;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7A776F;">Get the syllabus</span>
+        <div style="display: grid; gap: 7px;">
+          <label for="f-lead" style="font-size: 13px; font-weight: 600; color: #1A1A17;">Email</label>
+          <input id="f-lead" type="email" placeholder="you@company.com" style="min-height: 44px; padding: 0 14px; font-size: 15px; color: #1A1A17; background: #FFFFFF; border: 1px solid #CFCBC2; border-radius: 8px; box-sizing: border-box; width: 100%;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 1px; border-color: #1F5AE0;" />
+        </div>
+        <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.5; color: #4A4842; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: #1F5AE0; margin: 2px 0 0;" />
+          Also send me the free intro lesson.
+        </label>
+        <button type="button" style="min-height: 48px; padding: 0 22px; font-size: 16px; font-weight: 600; color: #FFFFFF; background: #1F5AE0; border: 1px solid #1F5AE0; border-radius: 8px; cursor: pointer; width: 100%;" style-hover="background: #1747B8;" style-focus="outline: 2px solid #1F5AE0; outline-offset: 2px;">Send it to me</button>
+        <span style="font-size: 13px; color: #7A776F;">One email, no drip campaign.</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;brandName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Academy&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showNotes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;rtl&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    if (document.getElementById("dc-spin-kf")) return;
+    const s = document.createElement("style");
+    s.id = "dc-spin-kf";
+    s.textContent = "@keyframes dcspin{to{transform:rotate(360deg)}}";
+    document.head.appendChild(s);
+  }
+  renderVals() {
+    return {
+      brandName: this.props.brandName ?? "Academy",
+      dirValue: this.props.rtl ? "rtl" : "ltr",
+      showNotes: this.props.showNotes ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
