@@ -86,7 +86,7 @@ export default function Auth({
   const errors = {
     ...(mode === 'signup' ? { fullName: fullName.trim() ? '' : 'fullNameRequired' } : null),
     email: emailError(email),
-    password: password ? '' : 'passwordRequired',
+    password: password.trim() ? '' : 'passwordRequired',
     ...(mode === 'signup' ? { agreeTerms: agreeTerms ? '' : 'agreeTermsRequired' } : null),
   }
   const fields = Object.keys(errors)
@@ -402,7 +402,12 @@ export default function Auth({
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    onBlur={() => markTouched('email')}
+                    onBlur={() => {
+                      // Normalise here so a pasted address with stray spaces is
+                      // stored the way a server would receive it.
+                      setEmail((v) => v.trim())
+                      markTouched('email')
+                    }}
                     aria-invalid={errorFor('email') ? 'true' : 'false'}
                     aria-describedby={errorFor('email') ? 'auth-email-error' : undefined}
                     placeholder={t(lang, 'emailPlaceholder')}
