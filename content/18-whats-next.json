@@ -3,11 +3,11 @@
   "order": 18,
   "title": {
     "en": "What's Next?",
-    "ar": "ماذا بعد؟"
+    "ar": "إيه اللي بعد كده؟"
   },
   "intro": {
     "en": "You have mastered the foundational laws of UI components. Now transition from academic knowledge to instinctual muscle memory, targeted study from real-world apps, and landing your first client.",
-    "ar": "لقد أتقنت القوانين الأساسية لمكونات واجهة المستخدم (UI components). انتقل الآن من المعرفة الأكاديمية إلى الذاكرة العضلية الغريزية، والدراسة المستهدفة من تطبيقات العالم الحقيقي، والحصول على عميلك الأول."
+    "ar": "وصلت لهنا واستوعبت المبادئ الأساسية لمكونات الواجهة. دلوقتي جه وقت تحويل المعرفة النظرية لغريزة وذاكرة حركية، الممارسة بالدراسة من تطبيقات حقيقية، واقتناص أول فرصة عمل."
   },
   "sections": [
     {
@@ -19,15 +19,6 @@
       "body": {
         "en": "UI design is not mystical magic — every world-class interface is assembled from basic geometric primitives (rectangles, ovals, vectors, and typographic strings) governed by laws of spacing, contrast, and visual hierarchy.\n\nOnce you master core components (buttons, text inputs, cards, navigation bars) and spatial hierarchy, you can design *any* digital product. This systemic foundation is vastly superior to following one-off tutorials that only teach how to clone a single specific screen.",
         "ar": "تصميم الواجهات مش سحر غامض — أي تطبيق عالمي بيتكون في النهاية من أشكال هندسية أولية بسيطة (مستطيلات، دوائر، ونصوص) محكومة بقواعد المسافات، التباين، والتسلسل البصري.\n\nلما تفهم المكونات الجوهرية (أزرار، حقول إدخال، كروت، وتصفح) وقواعد الهيراركي، هتقدر تصمم أي شاشة تخطر على بالك. الأساس ده أقوى بكتير من إنك تتابع درس بيعلمك رسم شاشة واحدة بعينها."
-      },
-      "asset": {
-        "file": "assembled-primitives.png",
-        "alt": {
-          "en": "Exploded UI diagram showing complex interface built from simple geometric primitives",
-          "ar": "مخطط تفكيكي يوضح بناء واجهة متقدمة من أشكال هندسية بدائية بسيطة"
-        },
-        "ratio": "16:9",
-        "brief": "Exploded view of a modern crypto/banking analytics card showing its atomic decomposition: 3 rounded rectangles for surfaces, 2 circular avatar masks, 4 typographic text layers, and 1 vector icon curve, proving that all UI is assembled from simple primitives."
       }
     },
     {
@@ -38,12 +29,12 @@
       },
       "body": {
         "en": "A seasoned \"design eye\" is earned through repetition. In your early months, deciding whether a headline needs 600 or 700 weight, or whether card borders look cleaner at `#E5E5E5` vs `#ECECEC`, feels deliberate and slow.\n\nWith consistent daily practice, these fine-grained micro-decisions become second nature. There are no shortcuts: visual intuition is the product of hundreds of hours spent nudging pixels.",
-        "ar": "تُكتسب \"العين التصميمية\" المتمرسة من خلال التكرار. في أشهُرك الأولى، قد تشعر بالبطء والتأني عند تحديد ما إذا كان العنوان يحتاج إلى وزن 600 أو 700، أو ما إذا كانت حدود البطاقة تبدو أنظف باللون `#E5E5E5` مقابل `#ECECEC`.\n\nمع الممارسة اليومية المستمرة، تصبح هذه القرارات الدقيقة والمفصلة طبيعة ثانية. لا توجد طرق مختصرة: الحدس البصري هو نتاج مئات الساعات التي تقضيها في ضبط وحدات البكسل."
+        "ar": "\"العين التصميمية\" الحساسة بتتولد مع الوقت والتكرار. في البداية، قرار اختيار وزن الخط Bold ولا SemiBold، أو الفرق بين رمادي `#1A1A1A` و `#121212`، بياخد منك وقت وتفكير وتردد.\n\nمع الممارسة المستمرة، القرارات الدقيقة دي بتتحول لحاسة سريعة وحدس فوري بيميز الصح من الغلط في ثواني. مفيش طريق مختصر؛ الذوق البصري بيتراكم مع ساعات الشغل والتطبيق."
       },
       "callout": {
         "type": "tip",
         "en": "Visual intuition cannot be taught through passive reading alone; it develops through hundreds of hours of hands-on layout adjustments.",
-        "ar": "لا يمكن تعليم الحدس البصري من خلال القراءة السلبية وحدها؛ بل يتطور من خلال مئات الساعات من التعديلات العملية على التخطيط."
+        "ar": "الحس التصميمي لا يُكتسب بالقراءة وحدها؛ بل يُصقل عبر مئات الساعات من الممارسة اليدوية الفعلية."
       }
     },
     {
@@ -54,12 +45,12 @@
       },
       "body": {
         "en": "Recreating existing interfaces pixel-for-pixel is one of the fastest ways to learn the hidden math behind production layouts.\n\n**Ethical Guidelines:**\n- **Private Practice Only:** Recreating screens in your private Figma workspace is powerful study. Publishing or claiming someone else's work as your own is intellectual property theft.\n- **Study Real Apps (Mobbin):** Practice by cloning production screens from **mobbin.com** rather than conceptual Dribbble shots. Mobbin catalogs battle-tested interfaces engineered for real users, edge cases, and technical constraints.",
-        "ar": "تُعد إعادة إنشاء واجهات موجودة بكسل ببكسل إحدى أسرع الطرق لتعلم الرياضيات الخفية وراء تخطيطات الإنتاج.\n\n**إرشادات أخلاقية:**\n- **ممارسة خاصة فقط:** تُعد إعادة إنشاء الشاشات في مساحة عمل Figma الخاصة بك دراسة قوية. لكن نشر أو ادعاء عمل شخص آخر كعمل خاص بك يُعد سرقة للملكية الفكرية.\n- **دراسة التطبيقات الحقيقية (Mobbin):** تدرّب عن طريق استنساخ شاشات الإنتاج من mobbin.com بدلاً من لقطات Dribbble المفاهيمية. يقوم Mobbin بفهرسة واجهات تم اختبارها في المعارك ومصممة للمستخدمين الحقيقيين، وحالات الحافة (Edge cases)، والقيود الفنية."
+        "ar": "إعادة رسم ونقل تصميمات حقيقية بكسل ببكسل (Pixel-Perfect) هي أسرع طريقة لفهم النسب والمسافات الخفية في الشغل الاحترافي.\n\n**القواعد الأخلاقية والمهنية:**\n- **للتدريب الشخصي فقط:** انقل التصميمات في مساحة العمل الخاصة بيك عشان تتعلم؛ لكن إياك تنشر تصميم منقول وتنسبه لنفسك لأن دي سرقة صريحة.\n- **ادرس تطبيقات حقيقية (Mobbin):** اتدرب على شاشات حقيقية من **mobbin.com** بدل لقطات Dribbble الاستعراضية؛ شاشات موبين معمولة لمنتجات نزلت السوق فعلاً واختبرت مع ملايين المستخدمين."
       },
       "callout": {
         "type": "warning",
         "en": "Copying is for private skill calibration only. Never publish cloned designs as original portfolio work.",
-        "ar": "النسخ مخصص لمعايرة المهارات الخاصة فقط. لا تنشر أبدًا تصميمات مستنسخة كعمل أصلي في محفظة أعمالك (Portfolio)."
+        "ar": "إعادة رسم التصميمات مخصصة للتدريب الشخصي المغلق فقط؛ لا تنشر أي عمل منقول في معرض أعمالك."
       }
     },
     {
@@ -70,7 +61,7 @@
       },
       "body": {
         "en": "Commit to daily habit formation. Community initiatives like **Daily UI** provide 100 days of bite-sized prompts to keep your momentum steady.\n\n**When to Begin Freelancing:** Do not wait until you feel 100% \"ready\". The universal milestone is simple: **the moment an inbound inquiry approaches you organically on social media, accept it.** That is the market signaling that your visible output has crossed the commercial threshold.",
-        "ar": "التزم بتكوين عادة يومية. توفر المبادرات المجتمعية مثل Daily UI محفزات صغيرة على مدار 100 يوم للحفاظ على زخمك ثابتًا.\n\n**متى تبدأ العمل الحر (Freelancing):** لا تنتظر حتى تشعر أنك \"مستعد\" بنسبة 100٪. العلامة الفارقة العالمية بسيطة: **في اللحظة التي يأتيك فيها استفسار بشكل طبيعي على وسائل التواصل الاجتماعي، اقبله.** هذه إشارة من السوق إلى أن إنتاجك المرئي قد تجاوز العتبة التجارية."
+        "ar": "التزم بروتين ممارسة يومي ثابت؛ مبادرات زي **Daily UI** بتقدملك تحديات صغيرة يومية بتضمن استمرارية شغفك ومحاسبة نفسك أمام الجمهور.\n\n**إمتى تبدأ شغل فري لانس حقيقي؟** متستناش لحد ما تحس إنك جاهز 100%. القاعدة الذهبية: **أول ما حد يبعتلك على إنستجرام أو لينكدإن يطلب شغل بشكل طبيعي، اقبل فوراً.** دي رسالة من السوق إن مستواك بقى مطلوب تجارياً."
       }
     }
   ]

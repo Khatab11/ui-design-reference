@@ -8,28 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9VKDN8XNTX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-9VKDN8XNTX');
-
-      // Hash routing: report each chapter/section as its own page view.
-      window.addEventListener('hashchange', function () {
-        gtag('event', 'page_view', {
-          page_location: window.location.href,
-          page_path: window.location.pathname + window.location.hash,
-          page_title: document.title,
-        });
-      });
-    </script>
     <script>
       // Apply persisted theme + language before first paint to avoid flashes.
       (function () {
@@ -40,39 +21,6 @@
           document.documentElement.lang = lang;
           document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         } catch (e) {}
-      })();
-    </script>
-    <script>
-      // Suppress and remove any platform-injected Netlify badges or feedback drawers
-      (function () {
-        function removeNetlifyElements() {
-          var elements = document.querySelectorAll(
-            'netlify-drawer, [data-netlify-deploy-id], #netlify-badge, .netlify-badge, [data-netlify-badge], #netlify-cdp-root, iframe[src*="netlify"]'
-          );
-          elements.forEach(function (el) { el.remove(); });
-
-          var links = document.querySelectorAll('a[href*="netlify.com"]');
-          links.forEach(function (a) {
-            var text = (a.textContent || '').toLowerCase();
-            if (text.includes('netlify') || text.includes('powered by') || a.querySelector('svg, img')) {
-              var pos = window.getComputedStyle(a).position;
-              if (pos === 'fixed' || pos === 'absolute' || a.closest('#netlify-badge, .netlify-badge')) {
-                a.remove();
-              }
-            }
-          });
-        }
-
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', removeNetlifyElements);
-        } else {
-          removeNetlifyElements();
-        }
-
-        if (typeof MutationObserver !== 'undefined') {
-          var observer = new MutationObserver(removeNetlifyElements);
-          observer.observe(document.documentElement, { childList: true, subtree: true });
-        }
       })();
     </script>
   </head>

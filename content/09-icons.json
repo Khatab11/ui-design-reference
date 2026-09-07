@@ -7,7 +7,7 @@
   },
   "intro": {
     "en": "Icons are the visual shorthand of digital interfaces. Learn how to maintain scannability, enforce strict stroke consistency, handle uniform bounding boxes, and pair symbols with text.",
-    "ar": "الأيقونات هي الاختصار البصري السريع للواجهات الرقمية. تعلم كيفية الحفاظ على قابلية المسح البصري (Scannability)، وفرض اتساق صارم لسمك الخطوط، والتعامل مع صناديق الحدود الموحدة (Bounding boxes)، وإقران الرموز بالنصوص."
+    "ar": "الأيقونات هي الاختصار البصري السريع في الواجهات الرقمية. اتعلم إزاي تسرّع قراءة المستخدم، تحافظ على سُمك خط موحد، تظبط صناديق الحدود، وتقرن الرموز بالنصوص التوضيحية."
   },
   "sections": [
     {
@@ -18,7 +18,7 @@
       },
       "body": {
         "en": "Users scan digital layouts rapidly rather than reading every word. Well-crafted icons act as immediate visual road signs, allowing users to locate features, filter categories, and recognize actions in fractions of a second.\n\nLong before computers, physical devices like cameras, microwaves, and automotive dashboards relied on pictograms. Their purpose has never been decoration — their purpose is instant, effortless comprehension.",
-        "ar": "يمسح المستخدمون المخططات الرقمية بسرعة بدلاً من قراءة كل كلمة. تعمل الأيقونات المصممة جيدًا كإشارات مرور بصرية فورية، مما يتيح للمستخدمين تحديد موقع الميزات، وتصفية الفئات، والتعرف على الإجراءات في أجزاء من الثانية.\n\nقبل أجهزة الكمبيوتر بوقت طويل، اعتمدت الأجهزة المادية مثل الكاميرات وأجهزة الميكروويف ولوحات تحكم السيارات على الرسوم التوضيحية (Pictograms). لم يكن الغرض منها الزينة أبدًا — بل غرضها الفهم الفوري والسهل."
+        "ar": "أغلب المستخدمين بيمسحوا الواجهة بعينهم مسح سريع ومش بيقرأوا كل سطر. الأيقونات المصممة كويس بتشتغل كإشارات مرور بصرية بتساعد المستخدم يلاقي اللي عايزه في لمح البصر.\n\nالأيقونات كانت موجودة في العالم المادي قبل الشاشات — على أجهزة الراديو، الكاميرات، وعربيات النقل. هدفها مكانش التزيين أبدًا، هدفها إنها **تتفهم بسرعة وبدون مجهود**."
       }
     },
     {
@@ -30,15 +30,6 @@
       "body": {
         "en": "Icons fulfill two primary roles:\n\n- **Clarifying Icons:** Informative markers placed next to categories or features (e.g. category listings for electronics, groceries, fashion). They are non-clickable visual aids.\n- **Interactive Icons:** Functional buttons that trigger immediate actions (e.g. search magnifying glass, favorite heart, navigation tab bar items). Interactive icons must be universally understood and possess an invisible tap target of at least **44x44 pt**.",
         "ar": "الأيقونات بتنقسم لنوعين رئيسيين:\n\n- **أيقونات توضيحية (Clarifying):** بتشرح أو تصنف عناصر لكنها **مش قابلة للضغط** (زي أيقونات أقسام المتجر: إلكترونيات، أزياء، أطعمة).\n- **أيقونات تفاعلية (Interactive):** بتشتغل كأزرار فعلية (زي أيقونة القلب للإعجاب، أو شريط التنقل السفلي). الأيقونات دي لازم تكون مشهورة جداً ومساحة لمسها لا تقل عن **٤٤×٤٤ نقطة**."
-      },
-      "asset": {
-        "file": "clarifying-vs-interactive-icons.png",
-        "alt": {
-          "en": "Distinction between decorative clarifying icons and interactive icon buttons",
-          "ar": "الفرق بين الأيقونات التوضيحية البصرية وأزرار الأيقونات التفاعلية"
-        },
-        "ratio": "16:9",
-        "brief": "Side-by-side comparison: Left shows clarifying bullet icons beside benefit list items (passive, no hover); Right shows an interactive icon toolbar (Search, Filter, Bookmark) with 44px hit bounds and hover state pill backgrounds."
       }
     },
     {
@@ -49,7 +40,7 @@
       },
       "body": {
         "en": "Icons come in various artistic expressions:\n- **Line (Outlined):** Clean, understated, and universally readable.\n- **Filled (Solid):** Heavy visual weight, high prominence.\n- **Duo-tone / Glassmorphic:** Stylized decorative options that can reduce clarity if misused.\n\n**The Single Pack Rule:** Never pull icons from disparate libraries. Differences in corner radii, stroke thickness, and perspective break harmony. **The only allowable exception:** In navigation bars, active states use Filled icons while inactive tabs use Line icons.",
-        "ar": "تأتي الأيقونات بتعابير فنية متنوعة:\n- **الخطية (Line / Outlined):** نظيفة، بسيطة، ومقروءة عالميًا.\n- **المصمتة (Filled / Solid):** ذات وزن بصري ثقيل، وبروز عالٍ.\n- **ثنائية اللون / الزجاجية (Duo-tone / Glassmorphic):** خيارات زخرفية أنيقة يمكن أن تقلل من الوضوح إذا أُسيء استخدامها.\n\n**قاعدة الحزمة الواحدة:** لا تسحب الأيقونات أبدًا من مكتبات متباينة. فالاختلافات في أنصاف أقطار الزوايا، وسمك الخط، والمنظور تكسر التناغم. **الاستثناء الوحيد المسموح به:** في أشرطة التنقل، تستخدم الحالات النشطة (Active) الأيقونات المصمتة (Filled) بينما تستخدم علامات التبويب غير النشطة (Inactive) الأيقونات الخطية (Line)."
+        "ar": "أساليب الأيقونات متعددة:\n- **خطي (Line):** بسيط، أنيق، وسهل القراءة.\n- **مصمت (Filled):** وزن بصري أثقل وملاحظ أسرع.\n- **ثنائي اللون أو زجاجي:** ديكوري أكتر ومحتاج حذر.\n\n**قاعدة الحزمة الواحدة:** إياك تجمع أيقونات من مكتبات مختلفة؛ اختلاف سُمك الخطوط وزوايا الانحناء هيبوظ تناسق التصميم. **الاستثناء الوحيد:** شريط التنقل السفلي، حيث تكون الشاشة النشطة بأيقونة مصمتة (Filled) وباقي الشاشات خطية (Line)."
       },
       "asset": {
         "file": "icon-styles.png",
@@ -69,21 +60,12 @@
       },
       "body": {
         "en": "Always build and export icons inside an identical square **bounding box** (typically 24x24 pt or 20x20 pt). Even if an arrow icon is taller than it is wide, the bounding box ensures optical alignment and reliable layout spacing in code.\n\nMatch stroke weights to your typography: pairing a thin 1px icon with a bold 700-weight headline feels unbalanced, just as a chunky 3px icon overpowers delicate body copy.",
-        "ar": "قم دائمًا ببناء وتصدير الأيقونات داخل صندوق حدود (Bounding box) مربع متطابق (عادةً 24×24 نقطة أو 20×20 نقطة). حتى لو كانت أيقونة السهم أطول من عرضها، يضمن صندوق الحدود محاذاة بصرية ومسافات تخطيط موثوقة في الكود.\n\nطابق أوزان الخطوط (Stroke weights) مع الطباعة (Typography) الخاصة بك: فإقران أيقونة رفيعة بسمك 1 بكسل مع عنوان غامق بوزن 700 يبدو غير متوازن، تمامًا كما تتغلب أيقونة سميكة بسمك 3 بكسل على نص المتن الرقيق."
+        "ar": "صمم وصدّر كل أيقوناتك دايمًا داخل **صندوق حدود (Bounding Box)** موحد الحجم (غالباً ٢٤×٢٤ نقطة). حتى لو الأيقونة مستطيلة، الصندوق المربع الموحد بيضمن إن المحاذاة والمسافات في البرمجة تطلع مضبوطة بالمللي.\n\nوفّق بين سُمك خط الأيقونة ووزن الخط المجاور ليها؛ سُمك خط الأيقونة المتناسق مع التايبوجرافي بيعطي الواجهة طابعاً متكاملاً وفاخراً."
       },
       "callout": {
         "type": "tip",
         "en": "Always design icons within consistent square bounding boxes (e.g. 24x24 pt) to prevent alignment jumping in code.",
         "ar": "احرص على تصميم الأيقونات دائماً داخل إطار مربع ثابت (مثل 24×24 نقطة) لضمان دقة المحاذاة التلقائية في الكود."
-      },
-      "asset": {
-        "file": "icon-bounding-box.png",
-        "alt": {
-          "en": "Uniform 24px icon bounding boxes with optical centering and consistent stroke weight",
-          "ar": "مربعات الاحتواء الموحدة 24 بكسل مع الموازنة البصرية وسُمك الخط المتناسق"
-        },
-        "ratio": "16:9",
-        "brief": "Three distinct icon shapes (Play triangle, Heart, Arrow) aligned within dashed 24×24px bounding boxes, showing optical weight balance (triangle nudged slightly right) and uniform 2px stroke thickness across all three."
       }
     },
     {
@@ -94,21 +76,12 @@
       },
       "body": {
         "en": "Only a handful of icons possess unambiguous, universal meaning without words: Home, Magnifying Glass (Search), Shopping Cart, Profile, and Gear (Settings).\n\nIf an icon represents a domain-specific concept, a newly coined feature, or an ambiguous metaphor, **always accompany it with a clear text label**. If a user has to stop and guess what an icon does, the icon has failed its core duty.",
-        "ar": "يوجد عدد قليل فقط من الأيقونات التي تمتلك معنىً عالميًا لا لبس فيه بدون كلمات: الصفحة الرئيسية (البيت)، عدسة التكبير (البحث)، عربة التسوق، الملف الشخصي، والترس (الإعدادات).\n\nإذا كانت الأيقونة تمثل مفهومًا خاصًا بمجال معين، أو ميزة مسماة حديثًا، أو استعارة غامضة، **فأرفقها دائمًا بتسمية نصية واضحة**. إذا اضطر المستخدم إلى التوقف وتخمين ما تفعله الأيقونة، فإن الأيقونة قد فشلت في واجبها الأساسي."
+        "ar": "عدد قليل جداً من الأيقونات اللي مفهومة عالمياً بدون أي كلمة: البيت (الرئيسية)، العدسة (البحث)، سلة الشراء، والترس (الإعدادات).\n\nلو الأيقونة بتعبر عن ميزة جديدة أو إجراء غير مألوف، **لازم تحط جنبها تسمية نصية صريحة**. لو المستخدم وقف يسأل نفسه \"الأيقونة دي بتعمل إيه؟\"، يبقى الأيقونة فشلت في وظيفتها الأساسية."
       },
       "callout": {
         "type": "warning",
         "en": "Never sacrifice clarity for minimalist aesthetics. Ambiguous standalone icons frustrate users; add text labels.",
         "ar": "لا تضحي بالوضوح من أجل المظهر البسيط؛ الأيقونات الغامضة بدون نص توضيحي تزيد من حيرة المستخدمين."
-      },
-      "asset": {
-        "file": "icon-labels-and-clarity.png",
-        "alt": {
-          "en": "Ambiguous unlabeled icon navigation versus clear icon paired with text label",
-          "ar": "التنقل الغامض بالأيقونات وحدها مقابل الأيقونات المقترنة بنصوص واضحة"
-        },
-        "ratio": "16:9",
-        "brief": "Before/after navigation bar: Top shows mystery-meat unlabeled abstract icons forcing user guesswork; Bottom shows high-conversion navigation bar with icons paired directly with clear 13px text labels underneath."
       }
     }
   ]

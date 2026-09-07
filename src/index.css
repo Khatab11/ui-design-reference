@@ -35,7 +35,7 @@
   --color-error-hover:       #A11F16;
 
   /* Type */
-  --font-sans: 'Public Sans', 'Tajawal', Helvetica, Arial, sans-serif;
+  --font-sans: 'Public Sans', 'IBM Plex Sans Arabic', 'Cairo', Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --text-display: 56px;  --lh-display: 1.02;  --ls-display: -0.03em;  --fw-display: 700;
@@ -172,7 +172,6 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
   background: var(--color-ground);
   color: var(--color-body);
   font-family: var(--font-sans);
@@ -257,7 +256,7 @@ html[lang='ar'] {
 }
 
 html[lang='ar'] body {
-  font-family: 'Tajawal', var(--font-sans);
+  font-family: 'IBM Plex Sans Arabic', 'Cairo', var(--font-sans);
   line-height: 1.75;
 }
 
@@ -665,24 +664,6 @@ code:not(pre code) {
   font-size: var(--text-small);
 }
 
-.table-scroll {
-  max-width: 100%;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  -webkit-overflow-scrolling: touch;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-control);
-}
-
-.table-scroll:focus-visible {
-  outline: 2px solid var(--color-action);
-  outline-offset: 2px;
-}
-
-.table-scroll table {
-  min-width: 520px;
-}
-
 .table th, .prose th {
   text-align: start;
   font-size: var(--text-label);
@@ -747,7 +728,6 @@ code:not(pre code) {
    Prose (Article Markdown Output)
    ========================================================================== */
 .prose {
-  min-width: 0;
   color: var(--color-body);
   font-size: var(--text-body);
   line-height: var(--lh-body);
@@ -763,7 +743,6 @@ code:not(pre code) {
   color: var(--color-body);
   margin: 0 0 var(--space-3);
   max-width: 70ch;
-  overflow-wrap: anywhere;
 }
 
 .prose strong {
@@ -860,11 +839,6 @@ code:not(pre code) {
   white-space: nowrap;
 }
 
-.prose :not(pre) > code {
-  overflow-wrap: anywhere;
-  white-space: normal;
-}
-
 .prose pre {
   background: var(--color-surface-sunken);
   border: 1px solid var(--color-line);
@@ -890,17 +864,6 @@ code:not(pre code) {
   border-radius: var(--radius-card);
   max-width: 100%;
   height: auto;
-}
-
-/* One predictable vertical rhythm between every chapter section. */
-.chapter-section {
-  display: flow-root;
-  margin-block-start: var(--space-5);
-}
-
-.chapter-section > :last-child,
-.chapter-section .prose > :last-child {
-  margin-block-end: 0;
 }
 
 /* Arabic typography adjustments */
@@ -973,26 +936,3 @@ html[lang='ar'] .prose h4 {
   }
   .placeholder { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
-
-/* Suppress platform-injected Netlify badges and feedback drawers */
-netlify-drawer,
-#netlify-badge,
-.netlify-badge,
-[data-netlify-badge],
-[data-netlify-deploy-id],
-#netlify-cdp-root,
-iframe[src*="netlify"],
-div[class*="netlify-feedback"],
-div[id*="netlify-drawer"],
-a[href*="netlify.com"][class*="badge"],
-a[href*="netlify.com"][style*="fixed"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  position: absolute !important;
-  z-index: -9999 !important;
-}
-

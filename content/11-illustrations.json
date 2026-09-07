@@ -7,18 +7,18 @@
   },
   "intro": {
     "en": "Illustrations render abstract metaphors visual. Learn when illustrations outshine photography, where to deploy them, where they should be avoided, and how to maintain coherent brand stylization.",
-    "ar": "تجسد الرسوم التوضيحية (Illustrations) الاستعارات والأفكار المجردة بصريًا. تعلم متى تتفوق الرسوم التوضيحية على التصوير الفوتوغرافي، وأين يجب استخدامها، وأين يجب تجنبها، وكيفية الحفاظ على أسلوب متسق لعلامتك التجارية."
+    "ar": "الرسوم التوضيحية بتجسد المفاهيم والأفكار المجردة اللي متقدرش تصورها بكاميرا. اتعلم إمتى تستخدم الرسوم بدل الصور، أفضل الأماكن لتطبيقها، الأماكن اللي لازم تبعد عنها، وإزاي تحافظ على أسلوب رسم متسق."
   },
   "sections": [
     {
       "id": "why-illustrations",
       "title": {
         "en": "Why Use Illustrations?",
-        "ar": "لماذا نستخدم الرسوم التوضيحية؟"
+        "ar": "ليه بنستخدم الرسوم التوضيحية؟"
       },
       "body": {
         "en": "While photos represent literal, physical reality, illustrations excel at depicting **abstract concepts and metaphors** that cannot be photographed (e.g. \"accelerating creative velocity\", \"data synchronization\", \"algorithmic intelligence\").\n\nA great illustration simplifies complex ideas into friendly, digestible shapes that welcome users into unfamiliar products.",
-        "ar": "في حين أن الصور الفوتوغرافية تمثل الواقع المادي الحرفي، فإن الرسوم التوضيحية تتفوق في تصوير **المفاهيم والاستعارات المجردة** التي لا يمكن تصويرها (مثل \"تسريع وتيرة الإبداع\"، \"مزامنة البيانات\"، \"الذكاء الخوارزمي\").\n\nتعمل الرسمة التوضيحية الرائعة على تبسيط الأفكار المعقدة إلى أشكال ودودة وسهلة الفهم ترحب بالمستخدمين في المنتجات غير المألوفة."
+        "ar": "في حين إن الصور الفوتوغرافية بتعرض العالم الحقيقي الواقعي، الرسوم التوضيحية بتبدع في تجسيد **المفاهيم المجردة** اللي مستحيل تصورها بكاميرا (زي \"تسريع الإبداع\"، \"مزامنة البيانات السحابية\"، أو \"الذكاء الاصطناعي\").\n\nالرسمة الممتازة بتبسط المفاهيم الصعبة وتخلي المنتج الرقمي ودود ومرحب بالمستخدم من أول نظرة."
       }
     },
     {
@@ -29,13 +29,13 @@
       },
       "body": {
         "en": "Deploy illustrations across five high-impact touchpoints:\n\n1. **Landing Page Value Propositions:** Explaining intangible platform features.\n2. **Onboarding Flows:** Setting a delightful, friendly mood without overwhelming new users with detailed UI manuals.\n3. **Empty States:** When a list or inbox has no items, an encouraging illustration paired with a primary action button turns disappointment into engagement.\n4. **404 & Error Pages:** Disarming user frustration with warmth and guidance.\n5. **Gamification & Rewards:** Badges and celebratory graphics (like Duolingo streaks) that motivate repetitive success.",
-        "ar": "استخدم الرسوم التوضيحية في خمس نقاط اتصال (Touchpoints) عالية التأثير:\n\n1. **عروض القيمة في الصفحة الرئيسية (Landing Page Value Propositions):** لشرح ميزات المنصة غير الملموسة.\n2. **مسارات الإعداد (Onboarding Flows):** لتهيئة مزاج مبهج وودود دون إرهاق المستخدمين الجدد بأدلة واجهة المستخدم التفصيلية.\n3. **الحالات الفارغة (Empty States):** عندما لا تحتوي قائمة أو صندوق بريد على أي عناصر، فإن الرسم التوضيحي المشجع المقترن بزر إجراء أساسي يحول خيبة الأمل إلى تفاعل.\n4. **صفحات الخطأ 404:** لتخفيف إحباط المستخدمين عبر الدفء والتوجيه.\n5. **التحفيز والمكافآت (Gamification):** مثل الشارات والرسوم الاحتفالية (كأيام التوالي في Duolingo) التي تحفز النجاح المتكرر."
+        "ar": "استخدم الرسوم التوضيحية في خمس مواضع محورية:\n\n1. **صفحات الهبوط (Landing Pages):** لشرح المزايا البرمجية المجردة.\n2. **شاشات التعريف (Onboarding):** لإيصال المزاج العام والترحيب من غير إغراق المستخدم في تفاصيل مملة.\n3. **الحالات الفارغة (Empty States):** لما مفيش محتوى في الصفحة؛ رسمة لطيفة مع نص وزرار بتنقذ اللحظة.\n4. **صفحات الخطأ ٤٠٤:** تخفيف الإحباط ورسم ابتسامة مع توجيه المستخدم للبحث.\n5. **المكافآت والتحفيز (Gamification):** زي شارات الإنجاز في Duolingo اللي بتشجع على الاستمرار."
       },
       "asset": {
         "file": "illustration-empty-state.png",
         "alt": {
           "en": "Friendly illustration used in an empty state with action button",
-          "ar": "رسم توضيحي ودود يُستخدم في حالة فارغة مع زر إجراء"
+          "ar": "رسمة توضيحية ودودة في حالة فارغة مع زرار اتخاذ إجراء"
         },
         "ratio": "16:9",
         "brief": "A card illustrating an empty inbox state: a minimalist character looking into an open box with a gentle smile, accompanied by headline, helper text, and a primary action button."
@@ -49,21 +49,12 @@
       },
       "body": {
         "en": "Illustrations inherently communicate playfulness, youth, and whimsy. Avoid them in contexts requiring solemn authority:\n\n- **High-End Luxury & Private Banking:** Wealth management, luxury yachts, and haute horlogerie demand serious, high-end photography and tangible prestige.\n- **Actual Physical Products:** **Never** replace an e-commerce product photograph with an illustration. Buyers need to see the exact product they are purchasing.\n\n**Arabic Regional Nuance:** In luxury Gulf markets, ultra-premium lifestyle photography carries vastly more purchasing credibility than stylized cartoons.",
-        "ar": "تنقل الرسوم التوضيحية بطبيعتها طابعًا من المرح والشباب والغرابة. لذا، تجنبها في السياقات التي تتطلب سلطة أو جدية بالغة:\n\n- **الرفاهية الراقية والخدمات المصرفية الخاصة:** تتطلب إدارة الثروات، واليخوت الفاخرة، وصناعة الساعات الراقية تصويراً جاداً وفاخراً يعكس مكانة ملموسة.\n- **المنتجات المادية الفعلية:** لا تستبدل أبداً صورة منتج تجارة إلكترونية برسم توضيحي. يحتاج المشترون إلى رؤية المنتج الدقيق الذي يشترونه.\n\n**خصوصية المنطقة العربية:** في أسواق الخليج الفاخرة، يحمل التصوير الفوتوغرافي لأسلوب الحياة فائق الجودة (Ultra-premium) مصداقية شرائية أكبر بكثير من الرسوم الكرتونية المنمقة."
+        "ar": "الرسوم بطبيعتها بتحمل طاقة مرحة وعفوية، عشان كده تجنبها في:\n\n- **البراندات الفخمة والخدمات المصرفية الجادة:** إدارة الثروات، المجوهرات، أو اليخوت؛ العميل محتاج هيبة ومصداقية صور حقيقية.\n- **المنتج الفعلي في المتجر:** **إياك** تستبدل صورة المنتج اللي المستخدم هيشتريه برسمة كرتونية! المشتري محتاج يشوف تفاصيل اللي هيوصله بالظبط.\n\n**خصوصية الأسواق الخليجية:** الأسواق الخليجية بتعشق الفخامة والبرستيج، فالصور الحقيقية الفاخرة بتكون أقوى بكتير من الرسوم في بناء الثقة."
       },
       "callout": {
         "type": "warning",
         "en": "Never use illustrations for physical e-commerce product listings. Customers demand real photography to evaluate purchases.",
         "ar": "لا تستخدم الرسوم التوضيحية أبداً كبديل لصور المنتجات المعروضة للبيع في المتاجر؛ العميل بحاجة لرؤية السلعة الحقيقية."
-      },
-      "asset": {
-        "file": "where-to-avoid-illustrations.png",
-        "alt": {
-          "en": "High-friction checkout with distracting illustrations versus clean utilitarian flow",
-          "ar": "مقارنة بين مسار دفع معقد برسومات مشتتة ومسار دفع وظيفي مركز"
-        },
-        "ratio": "16:9",
-        "brief": "Side-by-side checkout screens: Left shows checkout cluttered with decorative cartoon characters that distract from payment fields; Right shows a laser-focused, distraction-free utilitarian checkout screen optimized for speed."
       }
     },
     {
@@ -74,21 +65,12 @@
       },
       "body": {
         "en": "Illustrations possess far more visual complexity than icons. When scaled down excessively, details blur into unrecognizable smudges. If you need a compact element, use an icon instead.\n\n**Unified Art Style:** Just like typography and color tokens, your illustrations form your core brand language. Never mix conflicting styles (e.g. flat vector art on one screen, textured hand-drawn sketches on another, and glossy 3D renders on a third). Commit to one cohesive kit.",
-        "ar": "تمتلك الرسوم التوضيحية تعقيدًا بصريًا يفوق الأيقونات بكثير. وعند تصغيرها بشكل مفرط، تتلاشى التفاصيل وتتحول إلى لطخات غير قابلة للتمييز. إذا كنت بحاجة إلى عنصر مدمج، استخدم أيقونة بدلاً من ذلك.\n\n**أسلوب فني موحد:** تمامًا مثل الخطوط (Typography) ورموز الألوان (Color tokens)، تشكل رسوماتك التوضيحية اللغة الأساسية لعلامتك التجارية. لا تخلط أبدًا بين أنماط متعارضة (مثل الرسومات المتجهة المسطحة في شاشة، والرسوم اليدوية ذات الملمس في أخرى، والتصميمات ثلاثية الأبعاد اللامعة في شاشة ثالثة). التزم بمجموعة متماسكة واحدة."
+        "ar": "الرسوم أعقد بصرياً بكتير من الأيقونات؛ لو صغرتها أوي هتفقد تفاصيلها وتتحول لبقع غير مفهومة. لو محتاج عنصر صغير استخدم أيقونة.\n\n**اتساق أسلوب الرسم:** الرسوم جزء لا يتجزأ من هوية البراند زي الخطوط والألوان بالظبط. إياك تخلط بين أساليب متناقضة (رسم مسطح فلات في شاشة، ورسم يدوي خشن في شاشة تانية، ومجسمات 3D في شاشة تالتة). التزم بحزمة واحدة وبأسلوب متناغم."
       },
       "callout": {
         "type": "tip",
         "en": "Pick one illustration library and stick to it across your entire product to protect brand cohesion.",
         "ar": "اختر مكتبة رسوم توضيحية موحدة والتزم بها في كافة شاشات المنتج لحماية اتساق الهوية البصرية."
-      },
-      "asset": {
-        "file": "illustration-style-consistency.png",
-        "alt": {
-          "en": "Clashing mixed illustration styles versus unified cohesive illustration language",
-          "ar": "تضارب أساليب الرسم المختلفة مقابل لغة بصرية ورسومية متناغمة"
-        },
-        "ratio": "16:9",
-        "brief": "Two sets of feature cards: Left shows a messy clash of styles (flat outline icon, 3D glossy character, hand-drawn sketch); Right shows a harmonious illustration system with identical stroke weight, perspective, and brand palette."
       }
     }
   ]
