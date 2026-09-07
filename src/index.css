@@ -936,3 +936,26 @@ html[lang='ar'] .prose h4 {
   }
   .placeholder { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* Suppress platform-injected Netlify badges and feedback drawers */
+netlify-drawer,
+#netlify-badge,
+.netlify-badge,
+[data-netlify-badge],
+[data-netlify-deploy-id],
+#netlify-cdp-root,
+iframe[src*="netlify"],
+div[class*="netlify-feedback"],
+div[id*="netlify-drawer"],
+a[href*="netlify.com"][class*="badge"],
+a[href*="netlify.com"][style*="fixed"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  z-index: -9999 !important;
+}
+
