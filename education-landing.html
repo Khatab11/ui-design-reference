@@ -139,7 +139,7 @@
     }
 
     /* ==================================================
-       MASTHEAD
+       MASTHEAD (Tailored to UI Design Reference)
        ================================================== */
     .masthead {
       display: grid;
@@ -156,7 +156,7 @@
       color: var(--color-ink);
       font-size: clamp(24px, min(3.1vw, 5.9vh), 47px);
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       line-height: 1.15;
     }
 
@@ -167,16 +167,18 @@
     }
 
     .dot-word {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       flex: 0 0 auto;
-      width: 4.851em;
       height: .766em;
-      margin-left: .319em;
+      margin-left: .32em;
       color: var(--color-action);
       transform: translateY(.085em);
     }
-    .dot-svg {
+    .dot-word svg {
       display: block;
+      height: 100%;
+      width: auto;
       overflow: visible;
       color: inherit;
     }
@@ -228,7 +230,7 @@
       background-origin: border-box;
       color: #fff;
       --u: calc(100cqw / 429);
-      box-shadow: 0 4px 16px rgba(26, 26, 23, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      box-shadow: 0 4px 18px rgba(26, 26, 23, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.28);
     }
 
     .card::before {
@@ -298,7 +300,7 @@
     .card--speed .card__grain { opacity: .54; }
     .card--speed .card__title { top: 6.3%; color: #fff; font-size: calc(22.7 * var(--u)); }
 
-    /* Gauge */
+    /* Spatial Gauge (Radar) */
     svg.gauge {
       position: absolute;
       z-index: 2;
@@ -315,16 +317,19 @@
       top: 48.6%;
     }
     .metric--speed .dot-number {
-      width: 31.2%;
+      display: inline-flex;
+      align-items: flex-end;
     }
-    .metric--speed .dot-svg {
-      transform: translate(calc(4 * var(--u)), calc(2 * var(--u))) scale(.925, 1.018);
-      transform-origin: left top;
+    .metric--speed .dot-number svg {
+      height: calc(44 * var(--u));
+      width: auto;
     }
     .metric--speed .metric__unit {
-      margin-left: 1%;
+      margin-left: calc(6 * var(--u));
       font-size: calc(30.6 * var(--u));
-      transform: translateY(calc(5 * var(--u)));
+      transform: translateY(calc(3 * var(--u)));
+      font-weight: 600;
+      opacity: 0.95;
     }
     .card--speed .caption {
       top: 64.75%;
@@ -366,12 +371,6 @@
         linear-gradient(103deg, rgba(255, 255, 255, 0.08), transparent 31%, rgba(255, 255, 255, 0.05) 63%, transparent 88%);
     }
 
-    .context-glow {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
     .context-backdrop {
       position: absolute;
       inset: 0;
@@ -385,17 +384,19 @@
       -webkit-mask: linear-gradient(180deg, #000 0%, #000 54%, rgba(0, 0, 0, 0.72) 58%, rgba(0, 0, 0, 0.18) 62%, transparent 65%);
     }
 
+    /* Typographic Hierarchy Specimen Window */
     .context-window {
       position: absolute;
       z-index: 3;
-      top: 32.4%;
-      left: 20.4%;
-      width: 59%;
-      height: 30.1%;
+      top: 31.4%;
+      left: 17%;
+      width: 66%;
+      height: 31.5%;
       overflow: hidden;
+      padding: calc(14 * var(--u)) calc(16 * var(--u));
       border-radius: calc(10 * var(--u));
       background:
-        linear-gradient(0deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0) 80%),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0) 80%),
         linear-gradient(270deg, rgba(124, 58, 237, 0.62) 0px, rgba(124, 58, 237, 0) calc(5 * var(--u))),
         radial-gradient(ellipse 118% 70% at 60% 8%, rgba(235, 215, 255, 0.34), transparent 74%),
         linear-gradient(105deg, rgba(245, 235, 255, 0.72) 0%, rgba(167, 139, 250, 0.68) 51%, rgba(124, 58, 237, 0.82) 100%);
@@ -413,49 +414,61 @@
       pointer-events: none;
     }
     .window-lines {
-      position: absolute;
-      top: 9%;
-      left: 6.7%;
-      width: 87%;
-      height: 24%;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
+    /* Hierarchy: Tag, Display, Body, Caption */
     .window-lines span:nth-child(1) {
       display: block;
-      height: calc(6 * var(--u));
+      height: calc(5 * var(--u));
       border-radius: calc(2.5 * var(--u));
-      background: rgba(255, 255, 255, 0.72);
-      width: 29%;
-      margin-bottom: calc(3 * var(--u));
+      background: rgba(255, 255, 255, 0.90);
+      width: 32%;
     }
     .window-lines span:nth-child(2) {
       display: block;
       width: 100%;
-      height: calc(22 * var(--u));
-      border-radius: calc(6 * var(--u));
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.82), rgba(220, 200, 255, 0.78) 42%, rgba(196, 181, 253, 0.85));
+      height: calc(18 * var(--u));
+      border-radius: calc(5 * var(--u));
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(233, 213, 255, 0.88) 46%, rgba(196, 181, 253, 0.85));
     }
     .window-lines span:nth-child(3) {
       display: block;
-      width: 86%;
-      height: calc(6 * var(--u));
+      width: 88%;
+      height: calc(5 * var(--u));
       border-radius: calc(2.5 * var(--u));
-      background: rgba(255, 255, 255, 0.50);
-      margin-top: calc(3 * var(--u));
-      opacity: .64;
+      background: rgba(255, 255, 255, 0.70);
+    }
+    .window-lines span:nth-child(4) {
+      display: block;
+      width: 64%;
+      height: calc(5 * var(--u));
+      border-radius: calc(2.5 * var(--u));
+      background: rgba(255, 255, 255, 0.55);
     }
 
     .metric--context {
       top: 48.0%;
-      transform: translateX(2.1cqw);
     }
     .metric--context .dot-number {
-      width: 30.5%;
+      display: inline-flex;
+      align-items: flex-end;
     }
-    .metric--context .dot-svg {
-      transform: translate(calc(-1 * var(--u)), calc(-.5 * var(--u))) scale(.96, 1.02);
-      transform-origin: center;
+    .metric--context .dot-number svg {
+      height: calc(44 * var(--u));
+      width: auto;
+    }
+    .metric--context .metric__unit {
+      margin-left: calc(6 * var(--u));
+      font-size: calc(30.6 * var(--u));
+      transform: translateY(calc(3 * var(--u)));
+      font-weight: 600;
+      opacity: 0.95;
     }
     .card--context .caption {
       top: 65.72%;
@@ -506,10 +519,21 @@
 
     .metric--connections {
       top: 48.5%;
-      transform: translateX(2.1cqw);
     }
     .metric--connections .dot-number {
-      width: 23%;
+      display: inline-flex;
+      align-items: flex-end;
+    }
+    .metric--connections .dot-number svg {
+      height: calc(44 * var(--u));
+      width: auto;
+    }
+    .metric--connections .metric__unit {
+      margin-left: calc(6 * var(--u));
+      font-size: calc(30.6 * var(--u));
+      transform: translateY(calc(3 * var(--u)));
+      font-weight: 600;
+      opacity: 0.95;
     }
 
     /* ==================================================
@@ -544,14 +568,6 @@
       pointer-events: none;
     }
 
-    .metric__unit {
-      margin-left: 1.3%;
-      font-size: calc(30.46 * var(--u));
-      font-weight: 400;
-      line-height: 1;
-      letter-spacing: calc(-.8 * var(--u));
-    }
-
     .caption {
       position: absolute;
       z-index: 5;
@@ -567,7 +583,7 @@
       text-shadow: 0 1px 2px rgba(26, 26, 23, 0.22);
     }
 
-    /* Button conforming strictly to DESIGN_SYSTEM.md §4:
+    /* Action Links conforming strictly to DESIGN_SYSTEM.md §4:
        min-height: 44px, radius 8px, accessible focus ring */
     .learn-more {
       position: absolute;
@@ -575,10 +591,10 @@
       top: 83.75%;
       left: 50%;
       transform: translateX(-50%);
-      width: calc(118 * var(--u));
+      width: calc(134 * var(--u));
       height: calc(44 * var(--u));
       min-height: 44px;
-      padding: 0 calc(20 * var(--u));
+      padding: 0 calc(18 * var(--u));
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -587,17 +603,19 @@
       color: var(--color-ink);
       background: rgba(255, 255, 255, 0.96);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.60) inset, 0 2px 6px rgba(26, 26, 23, 0.14);
-      font-size: calc(14.5 * var(--u));
+      font-size: calc(14 * var(--u));
       font-weight: 600;
       letter-spacing: -0.01em;
       cursor: pointer;
       text-decoration: none;
+      white-space: nowrap;
       transition: transform var(--duration-fast, 140ms) ease, box-shadow var(--duration-fast, 140ms) ease, background var(--duration-fast, 140ms) ease;
     }
     .learn-more:hover {
       transform: translateX(-50%) translateY(calc(-2 * var(--u)));
       background: #ffffff;
       box-shadow: 0 6px 18px rgba(26, 26, 23, 0.22);
+      text-decoration: none;
     }
     .learn-more:active {
       transform: translateX(-50%) translateY(0);
@@ -810,24 +828,24 @@
       poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/0f4926a4-e660-4df2-9195-2bfb3e341bdd.webp"
       src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_125242_daae1570-386d-4bd5-8896-80499e2371e0.mp4"></video>
 
-    <!-- Masthead -->
+    <!-- Masthead: Tailored to UI Design Reference -->
     <header class="masthead">
       <h1 class="headline">
         <span class="headline__line">
           Built for
-          <span class="dot-word" data-dots="Intelligent" aria-label="Intelligent"></span>
+          <span class="dot-word" data-dots="Systematic" aria-label="Systematic"></span>
         </span>
-        <span class="headline__line">Performance</span>
+        <span class="headline__line">Interface Design</span>
       </h1>
       <p class="intro">
-        Every capability is engineered for speed, scale and<br class="desktop-break"> contextual understanding, giving your AI the foundation<br class="desktop-break"> to reason, adapt and perform in production.
+        Every principle is grounded in human perception, spatial mathematics and<br class="desktop-break"> layout rhythm, giving designers the foundation<br class="desktop-break"> to make defensible visual decisions in production.
       </p>
     </header>
 
     <!-- Cards Row -->
-    <section class="cards" aria-label="Performance capabilities">
+    <section class="cards" aria-label="Course pillars and system capabilities">
 
-      <!-- CARD 1: Speed / Latency -->
+      <!-- CARD 1: Spatial System (8pt Grid & Touch Targets) -->
       <article class="card card--speed">
         <video class="card__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/167977c6-8539-46b1-9a15-8dba566f50b8.png"
@@ -837,9 +855,9 @@
           <rect width="100%" height="100%" filter="url(#cardNoise)" />
         </svg>
 
-        <h2 class="card__title">Inference Speed<br>AI Response Latency</h2>
+        <h2 class="card__title">Spatial System<br>8pt Component Grid</h2>
 
-        <!-- Gauge SVG -->
+        <!-- Gauge SVG (Spatial Radar) -->
         <svg class="gauge" viewBox="0 0 326 326" aria-hidden="true">
           <defs>
             <linearGradient id="gaugeArc" gradientUnits="userSpaceOnUse" x1="7" y1="136" x2="312" y2="109">
@@ -883,15 +901,15 @@
         </svg>
 
         <div class="metric metric--speed">
-          <span class="dot-number" data-dots="118"></span>
-          <span class="metric__unit">ms</span>
+          <span class="dot-number" data-dots="8"></span>
+          <span class="metric__unit">pt</span>
         </div>
 
-        <div class="caption">Average global<br>response</div>
-        <button type="button" class="learn-more">Learn More</button>
+        <div class="caption">Consistent rhythm across<br>all touch targets</div>
+        <a href="/#/grid-layout/8pt-grid" class="learn-more">Explore Grids</a>
       </article>
 
-      <!-- CARD 2: Context Window -->
+      <!-- CARD 2: Typographic Scale (Modular Proportions) -->
       <article class="card card--context">
         <video class="card__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/0446d1d5-e65e-4db5-8090-3e30d09afc43.png"
@@ -901,7 +919,7 @@
           <rect width="100%" height="100%" filter="url(#cardNoise)" />
         </svg>
 
-        <h2 class="card__title">Context Window<br>Long-form Understanding</h2>
+        <h2 class="card__title">Type Hierarchy<br>Modular Proportions</h2>
 
         <!-- Context Tile Wall Backdrop -->
         <div class="context-backdrop">
@@ -923,7 +941,7 @@
           </svg>
         </div>
 
-        <!-- Frosted Glass Context Window -->
+        <!-- Frosted Glass Specimen Window (Label, Heading, Body, Caption) -->
         <div class="context-window">
           <svg class="window-grain" viewBox="0 0 252 166" preserveAspectRatio="none" aria-hidden="true">
             <rect width="100%" height="100%" filter="url(#panelNoiseF)" />
@@ -932,19 +950,20 @@
             <span></span>
             <span></span>
             <span></span>
+            <span></span>
           </div>
         </div>
 
         <div class="metric metric--context">
-          <span class="dot-number" data-dots="2.4"></span>
-          <span class="metric__unit">M</span>
+          <span class="dot-number" data-dots="1.2"></span>
+          <span class="metric__unit">x</span>
         </div>
 
-        <div class="caption">Tokens processed<br>simultaneously</div>
-        <button type="button" class="learn-more">Learn More</button>
+        <div class="caption">Harmonic scale from<br>11px to 56px</div>
+        <a href="/#/typography/type-scale" class="learn-more">Explore Type</a>
       </article>
 
-      <!-- CARD 3: Intelligent Connections -->
+      <!-- CARD 3: Bilingual Parity (RTL / LTR Parity) -->
       <article class="card card--connections">
         <video class="card__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/da8d0242-4dee-4f6d-813f-a5887e86ad77.png"
@@ -954,9 +973,9 @@
           <rect width="100%" height="100%" filter="url(#cardNoise)" />
         </svg>
 
-        <h2 class="card__title">Intelligent Connections<br>Cross-Source Context</h2>
+        <h2 class="card__title">Bilingual Parity<br>Bidirectional Flow</h2>
 
-        <!-- Connections Map SVG -->
+        <!-- Connections Map SVG (RTL & LTR Flow Network) -->
         <div class="connections-map">
           <svg viewBox="0 0 429 238" preserveAspectRatio="none" aria-hidden="true">
             <!-- White stroke network -->
@@ -966,7 +985,7 @@
             <path opacity=".16" d="M0 228h120c17 0 25-5 28-18 4-15 10-20 28-20h81c18 0 25 6 28 20 4 13 11 18 28 18h116" fill="none" stroke="#ffffff" stroke-width="1" />
             <path opacity=".26" d="M0 5H429M0 61H429M0 117H429" fill="none" stroke="#ffffff" stroke-width="1" />
             <path opacity=".09" d="M0 173H429" fill="none" stroke="#ffffff" stroke-width="1" />
-            <!-- Warm strokes -->
+            <!-- Warm copper strokes -->
             <path opacity=".52" d="M0 61h95c14 0 22-6 27-20 4-13 12-20 27-20h115c15 0 23 6 27 20 5 14 13 20 28 20h110" fill="none" stroke="#fff8dd" stroke-width="1.15" />
             <path opacity=".94" d="M0 117h88c15 0 22-8 25-25 4-24 12-31 31-31h129c20 0 27 7 31 31 3 17 10 25 26 25h99" fill="none" stroke="#fff8dd" stroke-width="1.15" />
             <!-- Glowing Nodes -->
@@ -979,12 +998,12 @@
         </div>
 
         <div class="metric metric--connections">
-          <span class="dot-number" data-dots="16"></span>
-          <span class="metric__unit">K</span>
+          <span class="dot-number" data-dots="100"></span>
+          <span class="metric__unit">%</span>
         </div>
 
-        <div class="caption">Connected data<br>sources</div>
-        <button type="button" class="learn-more">Learn More</button>
+        <div class="caption">Full Arabic and English<br>design parity</div>
+        <a href="/#/basics" class="learn-more">Explore System</a>
       </article>
 
     </section>
@@ -992,10 +1011,10 @@
 
   <!-- ==================================================
        VANILLA JS: LED DOT TYPE & GAUGE TICKS
-       ================================================== -->
+       ================================================== */ -->
   <script>
     (function () {
-      // 7-row bitmap glyph definitions
+      // 7-row bitmap glyph definitions (Expanded for UI Design vocabulary)
       var GLYPHS = {
         "0": ["01110", "10001", "10011", "10101", "11001", "10001", "01110"],
         "1": ["010", "110", "010", "010", "010", "010", "111"],
@@ -1009,14 +1028,24 @@
         "9": ["01110", "10001", "10001", "01111", "00001", "00001", "01110"],
         ".": ["0", "0", "0", "0", "0", "0", "1"],
         "I": ["111", "010", "010", "010", "010", "010", "111"],
+        "S": ["01111", "10000", "10000", "01110", "00001", "00001", "11110"],
+        "P": ["11110", "10001", "10001", "11110", "10000", "10000", "10000"],
         "a": ["00000", "00000", "01110", "00001", "01111", "10001", "01111"],
+        "c": ["00000", "00000", "01111", "10000", "10000", "10000", "01111"],
+        "d": ["00001", "00001", "01101", "10011", "10001", "10001", "01111"],
         "e": ["00000", "00000", "01110", "10001", "11111", "10000", "01110"],
         "g": ["00000", "00000", "01111", "10001", "01111", "00001", "01110"],
         "i": ["1", "0", "1", "1", "1", "1", "1"],
         "l": ["10", "10", "10", "10", "10", "10", "01"],
+        "m": ["00000", "00000", "11011", "10101", "10101", "10101", "10101"],
         "n": ["00000", "00000", "11110", "10001", "10001", "10001", "10001"],
+        "o": ["00000", "00000", "01110", "10001", "10001", "10001", "01110"],
+        "p": ["00000", "00000", "11110", "10001", "11110", "10000", "10000"],
+        "r": ["00000", "00000", "10110", "11001", "10000", "10000", "10000"],
+        "s": ["00000", "00000", "01111", "10000", "01110", "00001", "11110"],
         "t": ["010", "010", "111", "010", "010", "010", "001"],
-        "r": ["00000", "00000", "10110", "11001", "10000", "10000", "10000"]
+        "u": ["00000", "00000", "10001", "10001", "10001", "10011", "01101"],
+        "y": ["00000", "00000", "10001", "10001", "01111", "00001", "01110"]
       };
 
       // Render dot SVG glyphs for any container with [data-dots]
@@ -1029,7 +1058,7 @@
         var pitchX = isWord ? 4 : 5;
         var pitchY = 4;
         var gap = 1;
-        var dotRadius = isWord ? 1.8 : (isContext ? 2.32 : 1.55);
+        var dotRadius = isWord ? 1.75 : (isContext ? 2.32 : 1.95);
 
         var circles = [];
         var curX = 0;
@@ -1048,7 +1077,7 @@
               if (row[c] === '1') {
                 var cx = curX + c * pitchX + 1.55;
                 var cy = r * pitchY + 1.55;
-                circles.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + dotRadius + '"/>');
+                circles.push('<circle cx="' + cx.toFixed(2) + '" cy="' + cy.toFixed(2) + '" r="' + dotRadius + '"/>');
               }
             }
           }
@@ -1061,15 +1090,15 @@
         container.innerHTML = svgHtml;
       });
 
-      // Render Speed Gauge Ticks (i=0..22; angle=(190 + i*5)*PI/180; center 163,163)
+      // Render Spatial Gauge Ticks (8pt rhythm markers)
       var ticksGroup = document.getElementById("gaugeTicks");
       if (ticksGroup) {
         var tickElements = [];
         for (var i = 0; i <= 22; i++) {
           var angle = (190 + i * 5) * Math.PI / 180;
           var outer = 142;
-          var inner = (i % 5 === 0) ? 129 : 133;
-          var strokeWidth = (i % 5 === 0) ? 1.5 : 1.0;
+          var inner = (i % 5 === 0) ? 128 : 133;
+          var strokeWidth = (i % 5 === 0) ? 1.75 : 1.0;
 
           var x1 = 163 + inner * Math.cos(angle);
           var y1 = 163 + inner * Math.sin(angle);
