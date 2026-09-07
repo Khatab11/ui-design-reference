@@ -46,6 +46,15 @@
       "body": {
         "en": "Visual elements systematically shape personality tiers:\n\n1. **The Playful Archetype:** Vibrant saturated colors, rounded Sans-Serif fonts, generous border radius, colorful illustrations, and casual microcopy. (Ideal for youth apps, gamified ed-tech, Duolingo).\n2. **The Serious / Prestigious Archetype:** De-saturated neutrals, high-contrast serif headlines, sharp or subtle radii, authentic editorial photography, and formal tone of voice. (Essential for private wealth, enterprise security, healthcare).\n3. **The Neutral / Functional Archetype:** Muted greys, standard system sans fonts, functional layout without decorative flourishes. Safe and universally readable (B2B workflow tools, Jira, linear spreadsheets).",
         "ar": "الشخصية بتتشكل من توليفة متناغمة:\n\n1. **الشخصية المرحة (Playful):** ألوان حيوية مشبعة، خطوط مستديرة، زوايا ناعمة بـ Radius عالي، رسوم مبهجة، ولغة كاجوال ودودة (زي تطبيقات الأطفال وتعليم اللغات).\n2. **الشخصية الجدية/الفخمة (Serious):** ألوان وقورة هادية، خطوط رصينة، زوايا حادة أو مدروسة، صور فوتوغرافية واقعية، ولغة فصحى رسمية (بنوك، استثمار، وماركات فاخرة).\n3. **الشخصية المحايدة (Neutral):** تصميم وظيفي بحت خالي من البهرجة، لغة مباشرة، تركيز كامل على سرعة الإنجاز (أدوات إدارة المشاريع والسحابية B2B)."
+      },
+      "asset": {
+        "file": "three-personality-archetypes.png",
+        "alt": {
+          "en": "Three UI personality archetypes applied to the same banking card: Playful, Serious, and Neutral",
+          "ar": "ثلاث شخصيات بصرية لنفس بطاقة الحساب المصرفي: مرحة، رسمية، وحيادية وظيفية"
+        },
+        "ratio": "16:9",
+        "brief": "Three versions of a finance balance widget: (1) Playful: candy pastel tones, 20px rounded pill corners, conversational greeting, and cartoon avatar; (2) Serious / Enterprise: deep navy/charcoal, 6px tight radius, crisp serif numerals, tabular font; (3) Modern Utility: high contrast monochrome, 10px radius, clean Swiss typography."
       }
     },
     {
@@ -73,6 +82,15 @@
       "body": {
         "en": "Mixing conflicting visual signals (e.g. serious traditional serif typography coupled with silly bouncy cartoon characters) creates a jarring, schizophrenic design that repels users.\n\n| Design Token | Playful Archetype | Serious / Prestigious Archetype |\n|---|---|---|\n| **Palette** | Saturated, vibrant accents | Low-saturation neutrals, deep navy, gold |\n| **Typography** | Rounded soft Sans-Serif | High-contrast Serif or stately geometry |\n| **Corners** | Pill & generous radius (16–24pt) | Crisp, subtle radius (4–8pt) |\n| **Icons** | Rounded strokes & filled bulbs | Sharp, delicate hairline strokes |\n| **Imagery** | Stylized 2D/3D illustrations | Crisp authentic human photography |\n| **Tone of Voice** | Friendly, witty, conversational | Concise, reassuring, formal |",
         "ar": "خلط إشارات متناقضة (زي خط رسمي جاد جداً مع رسوم كرتونية بهلوانية) بيصنع واجهة مشوهة ومريبة للمستخدم.\n\n| العنصر | شخصية مرحة | شخصية رسمية / فخمة |\n|---|---|---|\n| **الألوان** | مشبعة ونابضة | ألوان وقورة، كحلي، ذهبي رمادي |\n| **الخطوط** | Sans-Serif دائرية ناعمة | خطوط رصينة أو كوفية هندسية |\n| **الانحناءات** | زوايا مستديرة ناعمة (16-24pt) | زوايا حادة أو خفيفة (4-8pt) |\n| **الأيقونات** | حواف مستديرة ومصمتة | خطوط دقيقة وحادة |\n| **الصور** | رسوم توضيحية مرحة | صور فوتوغرافية حقيقية عالية الجودة |\n| **اللغة** | كاجوال وودودة | فصحى هادئة ومحترمة |"
+      },
+      "asset": {
+        "file": "visual-consistency-cheatsheet.png",
+        "alt": {
+          "en": "Visual consistency matrix showing aligned radii, typography, and color weights",
+          "ar": "مصفوفة التناسق البصري توضح انسجام زوايا الانحناء والخطوط والألوان"
+        },
+        "ratio": "16:9",
+        "brief": "Side-by-side screen audit: Left shows a \"Frankenstein\" UI with mismatched corner radii (sharp, 8px, and 24px on the same card) and clashing colors; Right shows systematic consistency where every card uses 12px radius, controls use 8px, and colors follow unified token roles."
       }
     }
   ]
