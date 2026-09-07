@@ -4,7 +4,15 @@ import { t } from '../lib/ui.js'
 import { site } from '../config.js'
 import { CloseIcon, PrintIcon } from './Icons.jsx'
 
-export default function Sidebar({ lang, activeChapterId, activeSectionId, open, onClose }) {
+export default function Sidebar({
+  lang,
+  activeChapterId,
+  activeSectionId,
+  open,
+  onClose,
+  gamifiedChapterIds = ['introduction', 'basics', 'grid-layout'],
+  completedSections = [],
+}) {
   return (
     <>
       {/* Mobile overlay with blur and #1A1A1A tinted backdrop */}
@@ -63,6 +71,7 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
           <ol className="space-y-1">
             {chapters.map((chapter, i) => {
               const active = chapter.id === activeChapterId
+              const isGamified = gamifiedChapterIds.includes(chapter.id)
               return (
                 <li key={chapter.id} className="group/item">
                   <a
@@ -83,7 +92,12 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
                     >
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span className="truncate">{chapter.title[lang]}</span>
+                    <span className="truncate flex-1">{chapter.title[lang]}</span>
+                    {isGamified && (
+                      <span className="text-[11px] font-bold text-action" title={lang === 'ar' ? 'فصل تفاعلي لنقاط الخبرة' : 'Interactive XP chapter'}>
+                        ⚡
+                      </span>
+                    )}
                   </a>
 
                   {/* Subsections under active chapter */}
@@ -91,18 +105,24 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
                     <ol className="ms-3 mt-1 space-y-0.5 border-s border-line ps-2.5">
                       {chapter.sections.map((section) => {
                         const current = section.id === activeSectionId
+                        const done = completedSections.includes(`${chapter.id}--${section.id}`)
                         return (
                           <li key={section.id}>
                             <a
                               href={hrefFor(chapter.id, section.id)}
                               aria-current={current ? 'location' : undefined}
-                              className={`-ms-px block border-s-2 py-1.5 pe-1.5 ps-2 text-xs leading-relaxed transition-all rounded-e no-underline ${
+                              className={`-ms-px flex items-center justify-between border-s-2 py-1.5 pe-1.5 ps-2 text-xs leading-relaxed transition-all rounded-e no-underline ${
                                 current
                                   ? 'border-action font-semibold text-action bg-action-tint/50'
                                   : 'border-transparent text-muted hover:border-line-strong hover:bg-ground hover:text-ink'
                               }`}
                             >
-                              {section.title[lang]}
+                              <span className="truncate">{section.title[lang]}</span>
+                              {done && (
+                                <span className="ms-2 font-bold text-success text-[11px]" title={lang === 'ar' ? 'مكتمل' : 'Completed'}>
+                                  ✓
+                                </span>
+                              )}
                             </a>
                           </li>
                         )

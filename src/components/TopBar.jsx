@@ -1,10 +1,23 @@
 import { t } from '../lib/ui.js'
 import { site } from '../config.js'
 import { MenuIcon, MoonIcon, SearchIcon, SunIcon } from './Icons.jsx'
+import StreakBadge from './gamification/StreakBadge.jsx'
+import XpCounter from './gamification/XpCounter.jsx'
 
 const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform)
 
-export default function TopBar({ lang, theme, onToggleLang, onToggleTheme, onOpenSearch, onOpenMenu }) {
+export default function TopBar({
+  lang,
+  theme,
+  onToggleLang,
+  onToggleTheme,
+  onOpenSearch,
+  onOpenMenu,
+  gamificationState,
+  onOpenHub,
+  user,
+  onOpenAuth,
+}) {
   return (
     <header className="print-hidden sticky top-0 z-30 h-[64px] border-b border-line bg-ground/90 backdrop-blur-md transition-colors">
       <div className="flex h-full min-w-0 items-center gap-2 px-2 sm:gap-3 sm:px-4 md:px-6">
@@ -46,7 +59,7 @@ export default function TopBar({ lang, theme, onToggleLang, onToggleTheme, onOpe
           </a>
         </div>
 
-        {/* Center / Search Trigger — strictly pill shaped per §5 */}
+        {/* Center / Search Trigger */}
         <div className="flex min-w-0 flex-1 justify-end sm:justify-center md:mx-2 md:max-w-[360px]">
           <button
             type="button"
@@ -63,7 +76,62 @@ export default function TopBar({ lang, theme, onToggleLang, onToggleTheme, onOpe
         </div>
 
         {/* Right / Controls Area */}
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          {gamificationState && (
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <StreakBadge
+                streak={gamificationState.streak}
+                weeklyHistory={gamificationState.weeklyHistory}
+                streakFreeze={gamificationState.streakFreezeAvailable}
+                lang={lang}
+              />
+              <XpCounter
+                xp={gamificationState.xp}
+                lang={lang}
+                onClick={onOpenHub}
+              />
+            </div>
+          )}
+
+          {/* Gamification Hub Trigger */}
+          <button
+            type="button"
+            onClick={onOpenHub}
+            className="btn btn--primary btn--sm !min-h-[44px] !px-3 !gap-1.5 font-bold text-xs !rounded-full shadow-xs active:scale-[0.96]"
+            title={lang === 'ar' ? 'فتح مركز التحفيز والإنجازات' : 'Open Gamification Hub'}
+          >
+            <span>🏆</span>
+            <span className="hidden lg:inline">{lang === 'ar' ? 'المركز' : 'Hub'}</span>
+          </button>
+
+          {/* Auth Button / Profile */}
+          <button
+            type="button"
+            onClick={onOpenAuth}
+            className="btn btn--secondary btn--sm h-11 min-h-[44px] px-2.5 sm:px-3 gap-1.5 active:scale-[0.96]"
+            title={user ? user.email : (lang === 'ar' ? 'تسجيل الدخول' : 'Sign in')}
+            aria-label={user ? user.email : (lang === 'ar' ? 'تسجيل الدخول' : 'Sign in')}
+          >
+            {user ? (
+              <>
+                <span className="w-5 h-5 rounded-full bg-action text-white flex items-center justify-center text-[10px] font-bold uppercase">
+                  {user.email.charAt(0)}
+                </span>
+                <span className="hidden text-xs font-semibold max-w-[100px] truncate sm:inline">
+                  {user.email.split('@')[0]}
+                </span>
+              </>
+            ) : (
+              <>
+                <svg className="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                <span className="hidden text-xs font-semibold sm:inline">{lang === 'ar' ? 'دخول' : 'Login'}</span>
+              </>
+            )}
+          </button>
+
           {/* Language Switch */}
           <button
             type="button"
@@ -81,16 +149,6 @@ export default function TopBar({ lang, theme, onToggleLang, onToggleTheme, onOpe
             <span className="text-[11px] font-bold uppercase sm:hidden">{lang === 'en' ? 'AR' : 'EN'}</span>
             <span className="hidden text-xs font-semibold sm:inline">{t(lang, 'switchLang')}</span>
           </button>
-
-          {/* Gamification Demo Shortcut */}
-          <a
-            href="#/gamification"
-            className="btn btn--primary btn--sm !min-h-[44px] !px-3 !gap-1.5 font-bold text-xs !rounded-full shadow-xs active:scale-[0.96]"
-            title={lang === 'ar' ? 'استعراض نظام التلعيب التفاعلي' : 'View Gamification Showcase'}
-          >
-            <span>🏆</span>
-            <span className="hidden sm:inline">{lang === 'ar' ? 'نظام التلعيب' : 'Gamification'}</span>
-          </a>
 
           <div className="hidden h-5 w-px bg-line sm:block" />
 

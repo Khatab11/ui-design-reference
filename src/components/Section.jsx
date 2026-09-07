@@ -5,12 +5,22 @@ import Callout from './Callout.jsx'
 import Markdown from './Markdown.jsx'
 import { LinkIcon } from './Icons.jsx'
 import { motion, useReducedMotion } from 'framer-motion'
+import SectionAction from './gamification/SectionAction.jsx'
 
 export function sectionDomId(chapterId, sectionId) {
   return `${chapterId}--${sectionId}`
 }
 
-export default function Section({ chapter, section, lang, eagerAssets = false, liveAssets = true }) {
+export default function Section({
+  chapter,
+  section,
+  lang,
+  eagerAssets = false,
+  liveAssets = true,
+  isGamified = false,
+  isCompleted = false,
+  onComplete,
+}) {
   const domId = sectionDomId(chapter.id, section.id)
   const shouldReduceMotion = useReducedMotion()
 
@@ -41,6 +51,15 @@ export default function Section({ chapter, section, lang, eagerAssets = false, l
         <Asset chapterId={chapter.id} asset={section.asset} lang={lang} eager={eagerAssets} live={liveAssets} />
       )}
       {section.callout && <Callout callout={section.callout} lang={lang} />}
+
+      {isGamified && (
+        <SectionAction
+          sectionId={`${chapter.id}--${section.id}`}
+          isCompleted={isCompleted}
+          lang={lang}
+          onComplete={onComplete}
+        />
+      )}
     </motion.section>
   )
 }
