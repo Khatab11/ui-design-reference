@@ -10,6 +10,7 @@ import Sidebar from './components/Sidebar.jsx'
 import Chapter from './components/Chapter.jsx'
 import Search from './components/Search.jsx'
 import PrintView from './components/PrintView.jsx'
+import GamificationDemo from './components/gamification/GamificationDemo.jsx'
 
 function setMetaTag(attrName, attrValue, content) {
   if (content === undefined || content === null) return
@@ -47,6 +48,7 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false)
 
   const isPrint = route.chapter === 'print'
+  const isGamification = route.chapter === 'gamification'
   const chapter = chapterById.get(route.chapter) ?? chapters[0]
 
   // <html lang dir> + theme class
@@ -67,19 +69,23 @@ export default function App() {
 
     const pageTitle = isPrint
       ? `${t(lang, 'printView')} · ${site.title[lang]}`
-      : section
-        ? `${section.title[lang]} · ${chapter?.title[lang]} · ${site.title[lang]}`
-        : chapter
-          ? `${chapter.title[lang]} · ${site.title[lang]}`
-          : site.title[lang]
+      : isGamification
+        ? `${lang === 'ar' ? 'نظام التلعيب التفاعلي' : 'Gamification Showcase'} · ${site.title[lang]}`
+        : section
+          ? `${section.title[lang]} · ${chapter?.title[lang]} · ${site.title[lang]}`
+          : chapter
+            ? `${chapter.title[lang]} · ${site.title[lang]}`
+            : site.title[lang]
 
     document.title = pageTitle
 
     const rawDesc = isPrint
       ? t(lang, 'printViewNote')
-      : section
-        ? section.body[lang]
-        : chapter?.intro?.[lang] || site.description?.[lang]
+      : isGamification
+        ? (lang === 'ar' ? 'عرض تجريبي لنظام التحفيز والتلعيب' : 'Interactive Gamification Showcase')
+        : section
+          ? section.body[lang]
+          : chapter?.intro?.[lang] || site.description?.[lang]
 
     const pageDesc = truncate(stripMarkdown(rawDesc || ''))
 
@@ -129,7 +135,10 @@ export default function App() {
   // navigation, including repeats of the same hash.
   useEffect(() => {
     setMenuOpen(false)
-    if (isPrint || !chapter) return
+    if (isPrint || isGamification || !chapter) {
+      window.scrollTo({ top: 0 })
+      return
+    }
     if (route.section) {
       const el = document.getElementById(sectionDomId(chapter.id, route.section))
       if (el) {
@@ -139,7 +148,7 @@ export default function App() {
       }
     }
     window.scrollTo({ top: 0 })
-  }, [route.chapter, route.section, route.n, isPrint, chapter])
+  }, [route.chapter, route.section, route.n, isPrint, isGamification, chapter])
 
   // Cmd/Ctrl+K opens search
   useEffect(() => {
@@ -187,6 +196,10 @@ export default function App() {
       {isPrint ? (
         <main>
           <PrintView lang={lang} />
+        </main>
+      ) : isGamification ? (
+        <main className="min-w-0">
+          <GamificationDemo lang={lang} />
         </main>
       ) : (
         <>

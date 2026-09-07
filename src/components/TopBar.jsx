@@ -82,6 +82,16 @@ export default function TopBar({ lang, theme, onToggleLang, onToggleTheme, onOpe
             <span className="hidden text-xs font-semibold sm:inline">{t(lang, 'switchLang')}</span>
           </button>
 
+          {/* Gamification Demo Shortcut */}
+          <a
+            href="#/gamification"
+            className="btn btn--primary btn--sm !min-h-[44px] !px-3 !gap-1.5 font-bold text-xs !rounded-full shadow-xs active:scale-[0.96]"
+            title={lang === 'ar' ? 'استعراض نظام التلعيب التفاعلي' : 'View Gamification Showcase'}
+          >
+            <span>🏆</span>
+            <span className="hidden sm:inline">{lang === 'ar' ? 'نظام التلعيب' : 'Gamification'}</span>
+          </a>
+
           <div className="hidden h-5 w-px bg-line sm:block" />
 
           {/* Theme Toggle */}
