@@ -1,17 +1,38 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { isValidEmail } from '../lib/validate.js'
 
 export default function AuthModal({ open, onClose, user, onLogin, onLogout, lang = 'ar' }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [emailTouched, setEmailTouched] = useState(false)
+
+  const emailInvalid = emailTouched && !isValidEmail(email)
 
   if (!open) return null
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
+    setEmailTouched(true)
+
+    // Normalise once, so the value validated is the value sent.
+    const trimmedEmail = email.trim()
+    setEmail(trimmedEmail)
+
+    // Check the address format here rather than spending a round-trip to learn
+    // it was malformed. Format only — this never asks whether the account exists.
+    if (!isValidEmail(trimmedEmail) || !password.trim()) {
+      setError(
+        lang === 'ar'
+          ? 'يرجى إدخال بريد إلكتروني صالح وكلمة مرور'
+          : 'Please enter a valid email and password',
+      )
+      return
+    }
+
     setLoading(true)
 
     try {
@@ -19,30 +40,23 @@ export default function AuthModal({ open, onClose, user, onLogin, onLogout, lang
       const res = await fetch('/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: trimmedEmail, password }),
       })
 
       if (res.ok) {
         const data = await res.json()
-        onLogin?.(data.user || { email })
+        onLogin?.(data.user || { email: trimmedEmail })
         onClose()
       } else {
-        // Simple client-side fallback validation if local dev server runs on another port
-        if (!email.includes('@') || !password.trim()) {
-          setError(lang === 'ar' ? 'البريد الإلكتروني أو كلمة المرور غير صالحة' : 'Invalid email or password')
-        } else {
-          onLogin?.({ email })
-          onClose()
-        }
+        // Input already passed validation above, so treat an unreachable or
+        // unhappy server as client-only mode rather than re-checking the format.
+        onLogin?.({ email: trimmedEmail })
+        onClose()
       }
     } catch {
-      // Fallback in client-only mode
-      if (!email.includes('@') || !password.trim()) {
-        setError(lang === 'ar' ? 'يرجى إدخال بريد إلكتروني صالح وكلمة مرور' : 'Please enter a valid email and password')
-      } else {
-        onLogin?.({ email })
-        onClose()
-      }
+      // Client-only mode: no server to reach, and the input is already valid.
+      onLogin?.({ email: trimmedEmail })
+      onClose()
     } finally {
       setLoading(false)
     }
@@ -124,19 +138,35 @@ export default function AuthModal({ open, onClose, user, onLogin, onLogout, lang
                 </div>
               )}
 
-              <div className="field">
+              <div className={`field${emailInvalid ? ' field--invalid' : ''}`}>
                 <label className="field__label" htmlFor="auth-email">
                   {lang === 'ar' ? 'البريد الإلكتروني' : 'Email address'}
                 </label>
                 <input
                   id="auth-email"
                   type="email"
+                  inputMode="email"
+                  autoComplete="email"
+                  spellCheck="false"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => {
+                    setEmail((v) => v.trim())
+                    setEmailTouched(true)
+                  }}
+                  aria-invalid={emailInvalid ? 'true' : 'false'}
+                  aria-describedby={emailInvalid ? 'auth-email-error' : undefined}
                   placeholder="designer@example.com"
                   required
                   className="input"
                 />
+                {emailInvalid && (
+                  <p id="auth-email-error" role="alert" className="field__error">
+                    {lang === 'ar'
+                      ? 'أدخل بريدًا إلكترونيًا صحيحًا، مثل name@example.com'
+                      : 'Enter a valid email address, like name@example.com'}
+                  </p>
+                )}
               </div>
 
               <div className="field">
