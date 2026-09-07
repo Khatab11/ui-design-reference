@@ -1,0 +1,247 @@
+{
+  "id": "typography",
+  "order": 3,
+  "title": { "en": "Typography", "ar": "التايبوجرافي" },
+  "intro": {
+    "en": "Typography is the technique of arranging type so that written language is legible, readable and appealing. Many designers believe text is just text. It isn't — and this is the longest, most rule-dense chapter in the book for that reason.",
+    "ar": "التايبوجرافي هو فن ترتيب الحروف بحيث اللغة المكتوبة تبقى واضحة ومقروءة وجذّابة. في مصمّمين كتير معتقدين إن «النص هو نص وخلاص». وده مش صحيح — وعشان كده ده أطول فصل في الكتاب وأكتره قواعد."
+  },
+  "sections": [
+    {
+      "id": "font-vs-typeface",
+      "title": { "en": "Font and typeface", "ar": "الفرق بين Font و Typeface" },
+      "body": {
+        "en": "There is a lot of confusion around these two words, so start here.\n\nA **typeface** is a collection of related fonts. *Roboto* is a typeface — it contains Roboto Regular, Roboto Medium, Roboto Bold and others.\n\nA **font** is one specific style within that typeface. *Roboto Bold* is a font.\n\nTypography's principles are not exclusive to UI Design — they apply across graphic design, print and anywhere else type appears.",
+        "ar": "فيه لبس كبير حوالين الكلمتين دول، فابدأ من هنا.\n\nالـ **typeface** هو مجموعة خطوط مترابطة. *Roboto* دي typeface — جواها Roboto Regular و Roboto Medium و Roboto Bold وغيرهم.\n\nالـ **font** هو ستايل واحد محدّد جوه الـ typeface دي. *Roboto Bold* دي font.\n\nومبادئ التايبوجرافي مش حكر على الـ UI Design — بتنطبق على الجرافيك ديزاين والمطبوعات وأي مكان بيظهر فيه نص."
+      }
+    },
+    {
+      "id": "type-anatomy",
+      "title": { "en": "The anatomy of type", "ar": "تشريح الحرف" },
+      "body": {
+        "en": "You won't be creating typefaces as a UI Designer, but you will be selecting them — and you need the vocabulary to do it.\n\n- **Baseline** — the invisible line the letters sit on\n- **Cap height** — the height of a capital letter, measured from the baseline\n- **x-height** — the height of a lowercase `x`, measured from the baseline. A large x-height generally reads better at small sizes.\n- **Ascender** — the part of a letter rising above the x-height, as in `b`, `d`, `h`\n- **Descender** — the part dropping below the baseline, as in `p`, `g`, `y`",
+        "ar": "كـ UI Designer إنت مش هتصمّم typefaces، لكنك هتختارها — ومحتاج المفردات دي عشان تعرف تختار.\n\n- **Baseline** — الخط الوهمي اللي الحروف قاعدة عليه\n- **Cap height** — ارتفاع الحرف الكابيتال، مقاس من الـ baseline\n- **x-height** — ارتفاع حرف الـ `x` الصغير، مقاس من الـ baseline. والـ x-height الكبير عمومًا بيتقري أحسن في الأحجام الصغيرة.\n- **Ascender** — الجزء من الحرف اللي بيطلع فوق الـ x-height، زي `b` و `d` و `h`\n- **Descender** — الجزء اللي بينزل تحت الـ baseline، زي `p` و `g` و `y`"
+      },
+      "asset": {
+        "file": "type-anatomy.png",
+        "alt": {
+          "en": "The word Typography annotated with baseline, cap height, x-height, ascender and descender",
+          "ar": "كلمة Typography معلّم عليها الـ baseline و cap height و x-height و ascender و descender"
+        },
+        "ratio": "16:9",
+        "brief": "The word 'Typography' set very large in a clean sans-serif, with horizontal guide lines drawn across it marking Cap height, x-height, Baseline and the descender line. Leader lines from each guide to a label on the right. Also mark the ascender on the 'h' and the descender on the 'y' and 'p' with short labels. Guides in the accent colour, letterform in near-black."
+      },
+      "callout": {
+        "type": "note",
+        "en": "Arabic type does not have cap height, x-height, ascenders or descenders in this sense — it has a baseline, a body height, and marks that sit above and below it. When you evaluate an Arabic typeface, the useful measures are the height of the body relative to the ascending strokes, and how much vertical room the diacritics need. Applying Latin anatomy to Arabic will mislead you.",
+        "ar": "الخط العربي مالوش cap height ولا x-height ولا ascenders ولا descenders بالمعنى ده — عنده baseline، وارتفاع جسم الحرف، وعلامات بتقعد فوقه وتحته. ولما تقيّم خط عربي، المقاييس المفيدة هي ارتفاع الجسم بالنسبة للحروف الطالعة، وقد إيه التشكيل محتاج مساحة رأسية. تطبيق تشريح الحرف اللاتيني على العربي هيضلّلك."
+      }
+    },
+    {
+      "id": "know-your-selection",
+      "title": { "en": "Know your selection", "ar": "اعرف اختياراتك" },
+      "body": {
+        "en": "A typeface should not be selected because you or your client like it. It should be selected because it is designed properly and fits the brand personality.\n\nThe two categories used in UI Design are:\n\n**Sans Serif** — the default and most common option today. Almost always a safe fit.\n\n**Serif** — a good choice for very long chunks of text, such as articles on blog pages. It should not be your primary typeface unless it genuinely fits the brand personality.\n\n**Script, calligraphy and handwritten** typefaces are very hard to read and should almost never be used as a primary typeface.",
+        "ar": "الـ typeface مبيتختارش لأنك إنت أو عميلك عاجبكم. بيتختار لأنه مصمّم صح وبيناسب شخصية البراند.\n\nالفئتين المستخدمتين في الـ UI Design هما:\n\n**Sans Serif** — الخيار الافتراضي والأكتر شيوعًا دلوقتي. وتقريبًا دايمًا اختيار آمن.\n\n**Serif** — اختيار كويس للكتل النصية الطويلة جدًا، زي مقالات المدوّنات. ومش المفروض يبقى الخط الأساسي عندك إلا لو بيناسب شخصية البراند فعلًا.\n\nخطوط **الـ Script والخط اليدوي والكاليجرافي** صعبة القراية جدًا وتقريبًا مينفعش تستخدمها كخط أساسي أبدًا."
+      },
+      "asset": {
+        "file": "typeface-categories.png",
+        "alt": {
+          "en": "Sans Serif, Serif and Script samples compared",
+          "ar": "عينات Sans Serif و Serif و Script للمقارنة"
+        },
+        "ratio": "16:9",
+        "brief": "Three stacked rows. Each row: a large specimen word on the left ('Sans Serif', 'Serif', 'Script' set in a typeface of that category) and two lines of small explanatory text on the right. Mark the Script row with a subtle warning treatment — a muted red dot or strikethrough accent — to signal 'avoid as primary'."
+      }
+    },
+    {
+      "id": "pick-readable-scalable",
+      "title": { "en": "Pick a readable, scalable typeface", "ar": "اختار خط مقروء وقابل للتحجيم" },
+      "body": {
+        "en": "**Readable** — pick a typeface that is simple in the way it is built. It shouldn't look fancy. The written content is the main focus, not how pretty your typeface is. Compare *Paprika*, which is too decorative to read comfortably, against *Inter*, which is simple and gets out of the way.\n\n**Scalable** — pick a typeface that stays readable at very small sizes *and* still looks good at very large ones. If it is too complex to read when small, it is the wrong fit. If it falls apart when large, same answer.\n\n**Plenty of weights** — some foundries release typefaces with only one or two weights, which is not enough to build a type scale. **4 to 5 weights is the minimum**; more variety is better.\n\n**Fits the brand personality** — this may not be your call; it may belong to the client or the brand designer. Geometric sans serifs are trending, and for good reason: legible and modern. Serifs are used less and less in digital product design.",
+        "ar": "**مقروء** — اختار خط بسيط في تكوينه. مش المفروض يبقى شكله متفنّن. المحتوى المكتوب هو محور التركيز، مش إن خطك جميل قد إيه. قارن *Paprika*، اللي زخرفته كتير لدرجة إنه مش مريح في القراية، بـ *Inter*، البسيط اللي بيبعد عن السكة.\n\n**قابل للتحجيم** — اختار خط بيفضل مقروء في الأحجام الصغيرة جدًا **وكمان** شكله كويس في الأحجام الكبيرة جدًا. لو معقّد لدرجة إنه صعب القراية وهو صغير، يبقى مش مناسب. ولو بيتفكك وهو كبير، نفس الإجابة.\n\n**أوزان كتير** — بعض المسابك بتطلق خطوط بوزن أو اتنين بس، وده مش كفاية لبناء type scale. **من 4 لـ 5 أوزان هو الحد الأدنى**؛ وكل ما التنوّع زاد كل ما كان أحسن.\n\n**يناسب شخصية البراند** — ده ممكن ميكونش قرارك؛ ممكن يكون قرار العميل أو الـ brand designer. الخطوط الـ geometric sans serif ترند دلوقتي، ولسبب وجيه: واضحة وعصرية. والـ serifs بتستخدم أقل وأقل في تصميم المنتجات الرقمية."
+      },
+      "asset": {
+        "file": "typeface-selection.png",
+        "alt": {
+          "en": "Decorative versus simple typeface, and small-size legibility test",
+          "ar": "خط مزخرف مقابل خط بسيط، واختبار وضوح في الأحجام الصغيرة"
+        },
+        "ratio": "16:9",
+        "brief": "Two panels. Left panel 'Readable': the phrase 'Paprika is too fancy and hard to read' set in a decorative display face, above 'Inter is simple and easy to read' set in Inter. Right panel 'Scalable': the phrase 'This is readable' repeated four times at 8pt, 12pt, 24pt and 48pt in a clean sans, then the same phrase at 8pt in an over-decorated face labelled 'This is hard to read'."
+      },
+      "callout": {
+        "type": "note",
+        "en": "The weights rule is where Arabic gets hard. Most Arabic typefaces ship with two or three weights, and many free ones have only one. Before committing to an Arabic face, count the weights — if there are fewer than four you will not be able to build a proper weight hierarchy later. Faces worth checking: IBM Plex Sans Arabic, Cairo, Almarai, Tajawal, Rubik. For Turkish, verify the face includes `ı`, `İ`, `ğ`, `ş` — plenty of otherwise good typefaces don't.",
+        "ar": "قاعدة الأوزان هي أصعب نقطة في العربي. معظم الخطوط العربية بتيجي بوزنين أو تلاتة، وكتير من المجانية بوزن واحد بس. قبل ما تلتزم بخط عربي، عُدّ الأوزان — لو أقل من أربعة مش هتقدر تبني weight hierarchy مظبوط بعدين. خطوط تستاهل التجربة: IBM Plex Sans Arabic و Cairo و Almarai و Tajawal و Rubik. وللتركي، اتأكد إن الخط فيه `ı` و `İ` و `ğ` و `ş` — خطوط كتير كويسة مش موجود فيها الحروف دي."
+      }
+    },
+    {
+      "id": "how-many-typefaces",
+      "title": { "en": "How many typefaces?", "ar": "كام خط؟" },
+      "body": {
+        "en": "In most cases **one typeface is enough**. Building a typographic system with two is significantly harder — you have to decide not just what size and weight, but which family, on every single element.\n\nStick with one if you possibly can.",
+        "ar": "في معظم الحالات **خط واحد يكفي**. بناء نظام تايبوجرافي بخطين أصعب بكتير — لأنك بتبقى مضطر تقرر مش بس الحجم والوزن، لكن كمان أنهي عيلة خط، في كل عنصر لوحده.\n\nالتزم بخط واحد لو ينفع بأي شكل."
+      }
+    },
+    {
+      "id": "base-size",
+      "title": { "en": "Start with the body text size", "ar": "ابدأ بحجم نص المتن" },
+      "body": {
+        "en": "If readability is the goal, you cannot skip choosing a readable font size. Start by selecting the **base size** — the size of body text in your design, also used inside inputs.\n\n| Platform | Minimum recommended base size |\n|---|---|\n| Apple | 16 pt |\n| Google (Android) | 17 pt |\n\nThese apply mostly to mobile interfaces. You can use lower values for other things, but stick to at least **16 pt for body copy and input fields**.\n\nDeliberately shrinking font size to fit more content on the screen is not the right move. Readability suffers badly, and you lose more than you gain.",
+        "ar": "لو القراية هي الهدف، مينفعش تتخطى اختيار حجم خط مقروء. ابدأ باختيار **الحجم الأساسي (base size)** — حجم نص المتن في تصميمك، واللي بيستخدم كمان جوه حقول الإدخال.\n\n| المنصة | أقل حجم أساسي موصى به |\n|---|---|\n| Apple | 16 pt |\n| Google (Android) | 17 pt |\n\nودي بتنطبق أساسًا على واجهات الموبايل. تقدر تستخدم قيم أقل لحاجات تانية، لكن التزم بـ **16 pt على الأقل لنص المتن وحقول الإدخال**.\n\nوإنك تصغّر حجم الخط عن قصد عشان تحشر محتوى أكتر في الشاشة مش الحركة الصح. القراية بتتضرب بشكل كبير، وبتخسر أكتر ما بتكسب."
+      },
+      "callout": {
+        "type": "note",
+        "en": "16pt is a Latin baseline. Arabic letterforms carry more detail in the same vertical space and lose legibility faster as they shrink, so 16pt Arabic reads smaller than 16pt Latin. For Arabic body copy start at 17–18pt and test on a real device before going lower.",
+        "ar": "الـ 16pt دي قاعدة لاتينية. الحروف العربية بتحمل تفاصيل أكتر في نفس المساحة الرأسية وبتفقد وضوحها أسرع لما تصغر، فالـ 16pt بالعربي بتتقري أصغر من 16pt باللاتيني. لنص المتن العربي ابدأ من 17–18pt واختبر على جهاز حقيقي قبل ما تنزل أقل."
+      }
+    },
+    {
+      "id": "type-scale-ratios",
+      "title": { "en": "Type scales: the problem with ratios", "ar": "سلالم الخطوط: مشكلة النِسَب" },
+      "body": {
+        "en": "One size isn't enough, so you use the base size as an entry point and derive more. Many designers use a ratio — the Golden Ratio, Major Third — to build a scale quickly. The author does not recommend it, and here is why.\n\nTake a base of `16pt` and apply the Golden Ratio, `1.618`:\n\n- `16 ÷ 1.618 = 10pt`\n- `16 pt`\n- `16 × 1.618 = 26pt`\n\nThe problem is already visible: **the gap between 16 and 26 is enormous.** What happens when your design needs 18pt, 20pt or 22pt?\n\nKeep going and it gets worse. Divide the smallest and multiply the largest again and you get `6pt`, `10pt`, `16pt`, `26pt`, `42pt`. The gaps between sizes are huge, and real UI work constantly needs sizes close together — 10, 12, 15, 18. A ratio scale simply doesn't produce them, and switching to a different ratio doesn't fix it.",
+        "ar": "حجم واحد مش كفاية، فبتستخدم الحجم الأساسي كنقطة انطلاق وبتشتق منه أحجام تانية. ومصمّمين كتير بيستخدموا نسبة — النسبة الذهبية، أو Major Third — عشان يبنوا سلّم بسرعة. الكاتب مش بينصح بده، وده السبب.\n\nخد قاعدة `16pt` وطبّق النسبة الذهبية `1.618`:\n\n- `16 ÷ 1.618 = 10pt`\n- `16 pt`\n- `16 × 1.618 = 26pt`\n\nالمشكلة باينة من دلوقتي: **الفجوة بين 16 و 26 ضخمة.** يحصل إيه لما تصميمك يحتاج 18pt أو 20pt أو 22pt؟\n\nوكمّل، هتلاقيها بتسوء. اقسم الأصغر واضرب الأكبر تاني هتطلع بـ `6pt` و `10pt` و `16pt` و `26pt` و `42pt`. الفجوات بين الأحجام هايلة، وشغل الـ UI الحقيقي بيحتاج باستمرار أحجام قريبة من بعض — 10، 12، 15، 18. وسلّم النسب ببساطة مش بينتجهم، وتغيير النسبة مش بيحل المشكلة."
+      },
+      "asset": {
+        "file": "ratio-scale-gaps.png",
+        "alt": {
+          "en": "A golden-ratio type scale showing large gaps between sizes",
+          "ar": "سلّم خطوط بالنسبة الذهبية بيوضّح الفجوات الكبيرة بين الأحجام"
+        },
+        "ratio": "16:9",
+        "brief": "A vertical stack of the sentence 'This text has a size of X' set at 6pt, 10pt, 16pt, 26pt and 42pt, each labelled. To the right of the stack, a bracket spanning the 16pt-to-26pt gap labelled 'no sizes available here' in the accent colour. The visual point is the emptiness between steps."
+      }
+    },
+    {
+      "id": "manual-type-scale",
+      "title": { "en": "Build a type scale by hand", "ar": "ابني type scale بإيدك" },
+      "body": {
+        "en": "The objective of a type scale is a consistent set of text sizes ready to use. Building it manually takes a bit more work and gives better results.\n\n**Step 1** — select your base size. Example: `16pt`.\n\n**Step 2** — add and subtract `2pt` to create sizes around it:\n\n`10 · 12 · 14 · 16 · 18 · 20`\n\nThe author doesn't expect to need anything below 10pt, so the scale stops there.\n\n**Step 3** — from the top of that range, start adding `4pt` increments, because larger sizes don't need that level of detail:\n\n`10 · 12 · 14 · 16 · 18 · 20 · 24 · 28 · 32`\n\n32pt makes a great header size. If you need bigger, add `8pt` a few times.\n\nThat is a consistent, hand-crafted type scale ready to use — with sizes exactly where UI work actually needs them.",
+        "ar": "الهدف من الـ type scale هو مجموعة أحجام نص متسقة وجاهزة للاستخدام. وبناؤه بالإيد بياخد شوية شغل زيادة وبيدّي نتيجة أحسن.\n\n**الخطوة 1** — اختار حجمك الأساسي. مثال: `16pt`.\n\n**الخطوة 2** — زوّد واطرح `2pt` عشان تعمل أحجام حواليه:\n\n`10 · 12 · 14 · 16 · 18 · 20`\n\nالكاتب مش متوقع إنه يحتاج أي حاجة أقل من 10pt، فالسلّم بيقف عندها.\n\n**الخطوة 3** — من أعلى المدى ده، ابدأ زوّد بقفزات `4pt`، لأن الأحجام الأكبر مش محتاجة نفس مستوى التفصيل ده:\n\n`10 · 12 · 14 · 16 · 18 · 20 · 24 · 28 · 32`\n\nالـ 32pt حجم ممتاز للعناوين. ولو محتاج أكبر، زوّد `8pt` كام مرة.\n\nوده type scale متسق ومصنوع بالإيد وجاهز للاستخدام — بأحجام موجودة بالظبط في الأماكن اللي شغل الـ UI بيحتاجها فيها فعلًا."
+      },
+      "asset": {
+        "file": "manual-type-scale.png",
+        "alt": {
+          "en": "A hand-built type scale from 10pt to 32pt",
+          "ar": "type scale مبني بالإيد من 10pt لـ 32pt"
+        },
+        "ratio": "16:9",
+        "brief": "A vertical list of the sentence 'This text has a size of Xpt' rendered at each of these sizes in order: 10, 12, 14, 16, 18, 20, 24, 28, 32. Sizes must be accurate relative to each other. To the left, a thin bracket marking 10–20 labelled '+2pt steps' and a second bracket marking 20–32 labelled '+4pt steps', both in the accent colour."
+      }
+    },
+    {
+      "id": "line-height",
+      "title": { "en": "Line height", "ar": "ارتفاع السطر (Line height)" },
+      "body": {
+        "en": "Line height is the vertical distance between lines of text. Higher line height is generally more readable — especially for body text, less so for headers.\n\n**The formula:** multiply the font size by `1.6`, then round to the nearest whole number.\n\n**The parity rule:** if the font size is even, make the line height even. If it's odd, make it odd. Otherwise the text is distributed unevenly inside its bounding box.\n\nExample: `12pt × 1.6 = 19.2` → round to `20pt`, the nearest even number. A 12pt text with 15pt line height feels cramped; the same text at 20pt line height breathes.\n\n**Large text needs lower ratios.** 1.6 on a header is far too loose. For headers use around `1.3`. For very large sizes like 32pt you can go to `1.1`, or even `1.0`.\n\n**Optimal line length** is considered to be 50 to 60 characters per line. Using significantly more or fewer hurts readability — 70 characters per line already reads noticeably worse than 50.",
+        "ar": "الـ line height هو المسافة الرأسية بين سطور النص. والـ line height الأعلى عمومًا أسهل في القراية — خصوصًا لنص المتن، وأقل أهمية للعناوين.\n\n**المعادلة:** اضرب حجم الخط في `1.6`، وقرّب الناتج لأقرب رقم صحيح.\n\n**قاعدة الزوجية:** لو حجم الخط زوجي، خلّي الـ line height زوجي. ولو فردي، خلّيه فردي. غير كده النص هيتوزّع بشكل غير متساوٍ جوه الـ bounding box بتاعه.\n\nمثال: `12pt × 1.6 = 19.2` ← قرّب لـ `20pt`، أقرب رقم زوجي. نص 12pt بـ line height 15pt بيبقى متزنق؛ ونفس النص بـ line height 20pt بيتنفّس.\n\n**النص الكبير محتاج نسب أقل.** الـ 1.6 على عنوان واسعة أوي. للعناوين استخدم حوالي `1.3`. وللأحجام الكبيرة جدًا زي 32pt تقدر تنزل لـ `1.1`، أو حتى `1.0`.\n\n**الطول الأمثل للسطر** بيعتبر من 50 لـ 60 حرف في السطر. واستخدام أكتر أو أقل من كده بشكل ملحوظ بيضر القراية — سطر بـ 70 حرف بيتقري أوحش بشكل واضح من سطر بـ 50."
+      },
+      "asset": {
+        "file": "line-height.png",
+        "alt": {
+          "en": "Line height comparison for body text and headers, plus line length",
+          "ar": "مقارنة ارتفاع السطر لنص المتن والعناوين، وطول السطر"
+        },
+        "ratio": "16:9",
+        "brief": "Three labelled comparisons. (1) The same 12pt paragraph twice: left with 15pt line height labelled 'too tight', right with 20pt labelled '12 × 1.6 = 20'. (2) The same two-line header twice: left at ratio 1.6 labelled 'too loose', right at 1.3 labelled 'correct'. (3) Two paragraphs: one at ~70 characters per line, one at ~50, labelled with their character counts. Render the line heights accurately — the comparison is the lesson."
+      },
+      "callout": {
+        "type": "note",
+        "en": "The 1.6 ratio is tuned for Latin type. Arabic needs more vertical room: the letterforms have deeper descenders and, if you set any text with diacritics, marks stacking above and below. Start Arabic body text around 1.7–1.8 and check that no mark collides with the line above. The parity rule still applies.",
+        "ar": "نسبة الـ 1.6 معايرة على الخط اللاتيني. العربي محتاج مساحة رأسية أكتر: الحروف ليها نزول أعمق، ولو حطيت أي نص فيه تشكيل، هتبقى فيه علامات مركّبة فوق وتحت. ابدأ نص المتن العربي من 1.7–1.8 واتأكد إن مفيش علامة بتصطدم بالسطر اللي فوقها. وقاعدة الزوجية لسه سارية."
+      }
+    },
+    {
+      "id": "letter-spacing",
+      "title": { "en": "Letter spacing", "ar": "المسافة بين الحروف (Letter spacing)" },
+      "body": {
+        "en": "Letter spacing — also called tracking — is a consistent change in the spacing between all letters in a piece of text. Don't confuse it with **kerning**, which adjusts the space between one specific pair of letters, and which UI Designers rarely touch.\n\n**The default is 0%, and in most cases you should leave it alone.** Spacing that is too narrow or too wide creates serious readability problems. `-10%` is too tight, `0%` is right, `+10%` is too loose.\n\nThere are two situations where changing it is worth it:\n\n**Decrease it slightly for headers.** Around `-3%` on a large header tightens it up. 0% is not wrong — this is a small detail that makes a design a little better.\n\n**Increase it for all-caps text.** The gaps in capital letters are naturally smaller, so adding around `+5%` makes all-caps text noticeably more readable.\n\nBoth are minor tweaks. Sticking to 0% is completely fine.",
+        "ar": "الـ letter spacing — واللي بيتسمّى كمان tracking — هو تغيير ثابت في المسافة بين كل حروف قطعة نص. ومتخلطش بينه وبين الـ **kerning**، اللي بيظبط المسافة بين زوج حروف محدّد، وده مصمّمين الـ UI نادرًا ما بيلمسوه.\n\n**القيمة الافتراضية 0%، وفي معظم الحالات سيبها زي ما هي.** المسافة الضيقة أوي أو الواسعة أوي بتخلق مشاكل قراية خطيرة. `-10%` ضيقة أوي، `0%` مظبوطة، `+10%` واسعة أوي.\n\nفيه حالتين بس تغييرها فيهم يستاهل:\n\n**قلّلها شوية في العناوين.** حوالي `-3%` على عنوان كبير بتشدّه. والـ 0% مش غلط — دي تفصيلة صغيرة بتخلّي التصميم أحسن شوية.\n\n**زوّدها في النص الـ all-caps.** الفجوات في الحروف الكابيتال أصغر بطبيعتها، فإضافة حوالي `+5%` بتخلّي النص الـ all-caps أوضح بشكل ملحوظ.\n\nالاتنين تعديلات بسيطة. والالتزام بـ 0% كويس تمامًا."
+      },
+      "callout": {
+        "type": "note",
+        "en": "Neither of these two exceptions applies to Arabic. There is no uppercase, so the all-caps rule is simply void. And negative tracking on Arabic is actively dangerous — the letters are connected, so reducing spacing can break the joins and make the word illegible. Leave Arabic tracking at 0% unless you have a very specific reason and have tested it.",
+        "ar": "ولا واحد من الاستثناءين دول بينطبق على العربي. مفيش حروف كابيتال، فقاعدة الـ all-caps ملغية أصلًا. والـ tracking السالب على العربي خطر فعلًا — الحروف متصلة، فتقليل المسافة ممكن يكسر الوصلات ويخلّي الكلمة غير مقروءة. سيب الـ tracking العربي على 0% إلا لو عندك سبب محدّد جدًا واختبرته."
+      }
+    },
+    {
+      "id": "text-alignment",
+      "title": { "en": "How to align text", "ar": "إزاي تحاذي النص" },
+      "body": {
+        "en": "Alignment is not only about how it looks. **Text alignment is a cultural thing** — most Western countries read left to right, so they align left.\n\n- **Left** — always the safest choice, easiest to read for most people\n- **Center** — harder to read; use only for short text\n- **Right** — use only when cultural reasons call for it\n\nCentering is tempting because it's symmetrical, but it is genuinely hard to read for large chunks of text. The reason is rags.",
+        "ar": "المحاذاة مش بس موضوع شكل. **محاذاة النص حاجة ثقافية** — معظم الدول الغربية بتقرا من الشمال لليمين، فبتحاذي شمال.\n\n- **شمال** — دايمًا الاختيار الأأمن، والأسهل في القراية لمعظم الناس\n- **وسط** — أصعب في القراية؛ استخدمه للنصوص القصيرة بس\n- **يمين** — استخدمه بس لما تكون فيه أسباب ثقافية تستدعي كده\n\nالتوسيط مغري لأنه متماثل، لكنه فعلًا صعب في القراية للكتل النصية الكبيرة. والسبب هو الـ rags."
+      },
+      "callout": {
+        "type": "note",
+        "en": "Read that list from the other side: for Arabic, right alignment is not the cultural exception — it is the default and safest choice, and left alignment is the one that needs a reason. This is the single most common mistake in Arabic interfaces built from Latin-first design systems: a component library where alignment is hardcoded left, flipped visually but never semantically.",
+        "ar": "اقرا القايمة دي من الناحية التانية: في العربي، المحاذاة لليمين مش هي الاستثناء الثقافي — دي الافتراضي والاختيار الأأمن، والمحاذاة للشمال هي اللي محتاجة سبب. وده أشيع خطأ واحد في الواجهات العربية المبنية على design systems لاتينية الأصل: مكتبة كومبوننتس المحاذاة فيها مثبّتة شمال، اتقلبت بصريًا لكن عمرها ما اتقلبت دلاليًا."
+      }
+    },
+    {
+      "id": "rags",
+      "title": { "en": "Avoid rags", "ar": "تجنّب الـ Rags" },
+      "body": {
+        "en": "When one line of text ends with a long word and the next ends with a short one, that uneven right edge is called a **rag**. If the rag is large, the user's eyes have to travel a long way to jump from the end of one line to the start of the next.\n\nIt becomes a real concern with long chunks of text. Adjusting the text box width so the lines end more evenly fixes it.\n\nYou obviously don't control every piece of text — if you're designing a blog platform you can't control the rags inside every article, and that's fine.\n\nThis is also the concrete reason centered text is harder to read: **centered text has rags on both sides**, so the eye has no reliable starting point for the next line.",
+        "ar": "لما سطر ينتهي بكلمة طويلة والسطر اللي بعده ينتهي بكلمة قصيرة، الحافة غير المستوية دي اسمها **rag**. ولو الـ rag كبير، عين المستخدم بتضطر تسافر مسافة طويلة عشان تنطّ من آخر سطر لأول اللي بعده.\n\nوده بيبقى مشكلة حقيقية في الكتل النصية الطويلة. وظبط عرض صندوق النص بحيث السطور تنتهي بشكل أكثر تساويًا بيحلها.\n\nطبعًا إنت مش متحكّم في كل قطعة نص — لو بتصمّم منصة مدوّنات مش هتقدر تتحكّم في الـ rags جوه كل مقال، وده عادي.\n\nودي كمان السبب الملموس لكون النص الموسّط أصعب في القراية: **النص الموسّط عنده rags على الناحيتين**، فالعين مالهاش نقطة بداية موثوقة للسطر اللي بعده."
+      },
+      "asset": {
+        "file": "rags.png",
+        "alt": {
+          "en": "A paragraph with a large rag versus an even one, and a centered example",
+          "ar": "فقرة برَاج كبير مقابل فقرة متساوية، ومثال موسّط"
+        },
+        "ratio": "16:9",
+        "brief": "Three paragraphs of the same text. (1) Left-aligned with a very uneven right edge — draw a jagged accent-coloured line tracing the ragged edge. (2) Left-aligned in a narrower box so lines end evenly — trace a much straighter line. (3) Centered — trace jagged lines down BOTH edges. Label them 'Large rag', 'Even', 'Rags on both sides'."
+      }
+    },
+    {
+      "id": "baseline-alignment",
+      "title": { "en": "Align different text sizes to the baseline", "ar": "حاذي أحجام النص المختلفة على الـ baseline" },
+      "body": {
+        "en": "When you align something with a line of text, align it to the **baseline**, not to the centre. This feels counter-intuitive, but it is correct.\n\nTake a large heading like *Your products* next to a smaller link like *Add a product*. Centre-aligned they look roughly acceptable — until you draw the baselines and see they are completely misaligned. Aligned on a shared baseline, the pair immediately looks resolved.\n\nIt is a minor detail that might go consciously unnoticed. Details like this are what separate careful work from approximate work.",
+        "ar": "لما تحاذي حاجة مع سطر نص، حاذيها على الـ **baseline**، مش على المنتصف. الإحساس ده عكس البديهة، لكنه الصح.\n\nخد عنوان كبير زي *Your products* جنب لينك أصغر زي *Add a product*. لو محاذيين على المنتصف هيبانوا مقبولين تقريبًا — لحد ما ترسم الـ baselines وتشوف إنهم مش متحاذيين خالص. ولما تحاذيهم على baseline مشترك، الاتنين بيبانوا مظبوطين على طول.\n\nدي تفصيلة صغيرة ممكن متتلاحظش بوعي. وتفاصيل زي دي هي اللي بتفرق بين الشغل المتقن والشغل التقريبي."
+      },
+      "asset": {
+        "file": "baseline-alignment.png",
+        "alt": {
+          "en": "Two text sizes aligned by centre versus aligned by baseline",
+          "ar": "حجمين نص محاذيين بالمنتصف مقابل محاذيين بالـ baseline"
+        },
+        "ratio": "16:9",
+        "brief": "Two rows, each containing a large heading 'Your products' on the left and a smaller link 'Add a product' on the right. Row 1: centre-aligned, with two separate baselines drawn as accent-coloured lines that clearly do not match. Row 2: baseline-aligned, with a single shared baseline running through both. Label 'Centre-aligned' and 'Baseline-aligned'."
+      }
+    },
+    {
+      "id": "weights-hierarchy",
+      "title": { "en": "Use font weights for hierarchy", "ar": "استخدم أوزان الخط للهيراركي" },
+      "body": {
+        "en": "Size is not the only way to build hierarchy. Weight does the same job and often does it better.\n\nCompare a large regular-weight header above regular body text, against a **smaller bold header** above the same body. Both produce correct reading order — but the second takes less vertical space to do it. On a phone screen that space matters.\n\nApply weights to the type scale you built. Larger sizes take higher weights, smaller sizes take lower ones:\n\n| Size | Weight |\n|---|---|\n| 12 pt | Regular |\n| 14 pt | Regular |\n| 16 pt | Medium |\n| 18 pt | SemiBold |\n| 20 pt | Bold |\n\n**Don't use Light weights for small text.** It seems elegant and it makes the text very hard to read. Stick to at least Regular. Experiment with Light at large sizes if you want.\n\nDefine your sizes and weights **before** starting the project. Then you never have to wonder mid-design whether this is Medium or SemiBold, 24pt or 28pt.",
+        "ar": "الحجم مش الطريقة الوحيدة لبناء الهيراركي. الوزن بيعمل نفس الشغلانة وغالبًا بيعملها أحسن.\n\nقارن بين عنوان كبير بوزن regular فوق نص متن regular، وبين **عنوان أصغر بوزن bold** فوق نفس النص. الاتنين بينتجوا ترتيب قراية صح — لكن التاني بياخد مساحة رأسية أقل عشان يعمل كده. وعلى شاشة موبايل المساحة دي فارقة.\n\nطبّق الأوزان على الـ type scale اللي بنيته. الأحجام الأكبر بتاخد أوزان أعلى، والأصغر بتاخد أوزان أقل:\n\n| الحجم | الوزن |\n|---|---|\n| 12 pt | Regular |\n| 14 pt | Regular |\n| 16 pt | Medium |\n| 18 pt | SemiBold |\n| 20 pt | Bold |\n\n**متستخدمش أوزان Light للنص الصغير.** شكلها أنيق وبتخلّي النص صعب القراية جدًا. التزم بـ Regular على الأقل. وجرّب الـ Light في الأحجام الكبيرة لو حابب.\n\nحدّد أحجامك وأوزانك **قبل** ما تبدأ المشروع. وساعتها عمرك ما هتقف في نص التصميم تفكّر هي دي Medium ولا SemiBold، 24pt ولا 28pt."
+      }
+    },
+    {
+      "id": "pairing",
+      "title": { "en": "Pairing weights and typefaces", "ar": "إقران الأوزان والخطوط" },
+      "body": {
+        "en": "**When pairing weights, skip one or two.** To keep proper contrast between a header and body text, don't use adjacent weights. Body in Regular → skip Medium and SemiBold → header in Bold. Body in Medium → skip SemiBold and Bold → header in ExtraBold.\n\nMedium + Regular doesn't have enough contrast to read as a hierarchy. Bold + Regular does.\n\n**When pairing typefaces, avoid similar ones.** Pairing two typefaces that look alike produces an inconsistent look with no contrast — the reader can't tell whether it's intentional. *Raleway + Poppins* is a bad pair; they're too close. *Inter + Gelasio* works, because they're clearly different.\n\nAnd again: **try to stick with one typeface.** It's far easier, and you never have to decide which family a given element belongs to. If you must use two, at least pick two that are genuinely different.",
+        "ar": "**لما تقرن أوزان، تخطّى واحد أو اتنين.** عشان تحافظ على كونتراست مظبوط بين العنوان ونص المتن، متستخدمش أوزان متجاورة. المتن Regular ← تخطّى Medium و SemiBold ← العنوان Bold. المتن Medium ← تخطّى SemiBold و Bold ← العنوان ExtraBold.\n\nالـ Medium + Regular مفيهاش كونتراست كفاية عشان تتقري كهيراركي. الـ Bold + Regular فيها.\n\n**ولما تقرن خطوط، ابعد عن المتشابهة.** إقران خطين شبه بعض بينتج شكل غير متسق ومفيهوش كونتراست — القارئ مش عارف ده مقصود ولا لأ. *Raleway + Poppins* إقران وحش؛ قريبين أوي من بعض. *Inter + Gelasio* بيشتغل، لأنهم مختلفين بشكل واضح.\n\nوتاني: **حاول تلتزم بخط واحد.** أسهل بكتير، وعمرك ما هتضطر تقرر عنصر معيّن تابع لأنهي عيلة. ولو مضطر تستخدم اتنين، على الأقل اختار اتنين مختلفين فعلًا."
+      },
+      "asset": {
+        "file": "pairing.png",
+        "alt": {
+          "en": "Weight pairing and typeface pairing compared",
+          "ar": "مقارنة إقران الأوزان وإقران الخطوط"
+        },
+        "ratio": "16:9",
+        "brief": "Two labelled panels, each with two examples of the same content — a header reading 'Header' and three lines of body text. Panel 1 'Weights': left shows Medium header + Regular body labelled 'not enough contrast', right shows Bold header + Regular body labelled 'works'. Panel 2 'Typefaces': left shows two very similar geometric sans faces labelled 'too similar', right shows a clean sans paired with a serif labelled 'clear contrast'."
+      },
+      "callout": {
+        "type": "note",
+        "en": "Pairing an Arabic face with a Latin one is a real constraint you will hit, because most projects need both. Match them on x-height-to-body proportion and stroke weight rather than on style, and check the two at the same point size — an Arabic face frequently renders visually smaller than its Latin partner at the same value, so you may need to set Arabic 1–2pt larger to make the pair look balanced.",
+        "ar": "إقران خط عربي بخط لاتيني قيد حقيقي هتقابله، لأن معظم المشاريع بتحتاج الاتنين. طابقهم على نسبة ارتفاع الجسم وسُمك القلم مش على الستايل، واختبر الاتنين بنفس الـ point size — الخط العربي غالبًا بيتعرض أصغر بصريًا من شريكه اللاتيني بنفس القيمة، فممكن تحتاج تكبّر العربي 1–2pt عشان الإقران يبان متوازن."
+      }
+    }
+  ]
+}

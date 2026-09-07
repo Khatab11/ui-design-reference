@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Palette: one warm neutral ramp + one accent ---------- */
+:root {
+  --c-bg: 250 249 247;         /* page */
+  --c-surface: 255 255 255;    /* sidebar, cards */
+  --c-raised: 243 241 237;     /* code blocks, hover */
+  --c-line: 229 226 220;
+  --c-line-strong: 204 200 192;
+  --c-ink: 28 27 25;
+  --c-ink-2: 92 89 83;
+  --c-ink-3: 138 134 126;
+  --c-accent: 163 81 43;       /* copper */
+  --c-accent-ink: 128 61 29;
+  --c-accent-soft: 248 236 228;
+  --c-warn: 146 96 16;
+  --c-warn-soft: 250 240 218;
+  --c-note: 38 98 122;         /* teal-blue: course-author additions, not from the book */
+  --c-note-soft: 228 238 242;
+  color-scheme: light;
+}
+
+.dark {
+  --c-bg: 23 22 21;
+  --c-surface: 30 29 27;
+  --c-raised: 40 39 36;
+  --c-line: 55 53 49;
+  --c-line-strong: 82 79 73;
+  --c-ink: 236 233 227;
+  --c-ink-2: 176 172 163;
+  --c-ink-3: 128 124 116;
+  --c-accent: 224 144 106;
+  --c-accent-ink: 236 168 136;
+  --c-accent-soft: 54 39 31;
+  --c-warn: 222 176 92;
+  --c-warn-soft: 51 42 25;
+  --c-note: 120 184 208;
+  --c-note-soft: 27 42 50;
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  body {
+    @apply bg-bg text-ink font-sans text-base antialiased;
+    font-feature-settings: 'cv11', 'ss01', 'calt';
+  }
+  html[lang='ar'] body {
+    @apply font-arabic;
+    font-feature-settings: normal;
+  }
+  ::selection {
+    background: rgb(var(--c-accent) / 0.22);
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-accent));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  /* Code, hex values and Latin design terms stay LTR + Latin in Arabic mode. */
+  code, kbd, pre, samp {
+    @apply font-mono;
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+}
+
+/* ---------- Prose (markdown output) ---------- */
+@layer components {
+  .prose {
+    @apply text-ink;
+  }
+  .prose > * + * { margin-top: 16px; }
+  .prose p { @apply text-base; }
+  .prose strong { @apply font-semibold text-ink; }
+  .prose em { font-style: italic; }
+  .prose a {
+    @apply text-accent-ink underline decoration-accent/40 underline-offset-4;
+  }
+  .prose a:hover { @apply decoration-accent; }
+  .prose ul, .prose ol {
+    @apply ps-3;
+  }
+  .prose ul { list-style: disc; }
+  .prose ol { list-style: decimal; }
+  .prose li { padding-inline-start: 4px; }
+  .prose li + li { margin-top: 4px; }
+  .prose li > p { margin: 0; }
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    @apply font-semibold text-ink tracking-tight;
+    margin-top: 32px;
+  }
+  .prose h1 { @apply text-2xl; }
+  .prose h2 { @apply text-xl; }
+  .prose h3 { @apply text-lg; }
+  .prose h4 { @apply text-base; }
+  .prose blockquote {
+    @apply border-s-2 border-line-strong ps-2 text-ink-2;
+  }
+  .prose hr { @apply border-line my-4; }
+  .prose code {
+    @apply text-sm bg-raised rounded-sm px-0.5 text-ink;
+    white-space: nowrap;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  .prose pre {
+    @apply bg-raised border border-line rounded-lg p-2 text-sm overflow-x-auto;
+    line-height: 22px;
+    text-align: left;
+  }
+  .prose pre code {
+    @apply bg-transparent p-0 text-sm;
+  }
+  .prose table {
+    @apply w-full text-sm border-collapse;
+    display: block;
+    overflow-x: auto;
+  }
+  .prose thead { @apply text-ink-2 text-xs uppercase tracking-wide; }
+  .prose th, .prose td {
+    @apply border-b border-line py-1 pe-2 align-top;
+    text-align: start;
+  }
+  .prose th { @apply font-medium; }
+  .prose tbody tr:last-child td { border-bottom: 0; }
+  .prose img { @apply rounded-lg; }
+}
+
+.print-only { display: none; }
+
+/* ---------- Print ---------- */
+@media print {
+  .print-only { display: block !important; }
+  /* Printing from the dark theme: fall back to the light palette on paper. */
+  .dark {
+    --c-bg: 250 249 247;
+    --c-surface: 255 255 255;
+    --c-raised: 243 241 237;
+    --c-line: 229 226 220;
+    --c-line-strong: 204 200 192;
+    --c-ink: 28 27 25;
+    --c-ink-2: 92 89 83;
+    --c-ink-3: 138 134 126;
+    --c-accent: 163 81 43;
+    --c-accent-ink: 128 61 29;
+    --c-accent-soft: 248 236 228;
+    --c-warn: 146 96 16;
+    --c-warn-soft: 250 240 218;
+    --c-note: 38 98 122;
+    --c-note-soft: 228 238 242;
+    color-scheme: light;
+  }
+  @page { margin: 18mm 16mm; }
+  html { scroll-behavior: auto; }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+  .print-hidden { display: none !important; }
+  .print-block { display: block !important; }
+  main, .print-main {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+  article { max-width: 100% !important; }
+  .print-break { break-before: page; }
+  h1, h2, h3 { break-after: avoid; }
+  figure, pre, table, .callout { break-inside: avoid; }
+  a { color: inherit; text-decoration: none; }
+  a[href^='http']::after { content: ' (' attr(href) ')'; font-size: 9pt; color: #555; }
+  pre, code, .placeholder, .callout {
+    border-color: #999 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .placeholder { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
