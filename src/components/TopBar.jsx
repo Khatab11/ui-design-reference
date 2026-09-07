@@ -17,6 +17,7 @@ export default function TopBar({
   onOpenHub,
   user,
   onOpenAuth,
+  onOpenReader,
 }) {
   return (
     <header className="print-hidden sticky top-0 z-30 h-[64px] border-b border-line bg-ground/90 backdrop-blur-md transition-colors">
@@ -30,6 +31,9 @@ export default function TopBar({
             className="btn btn--secondary btn--sm flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center p-0 md:hidden"
           >
             <MenuIcon width="18" height="18" />
+          </button>
+          <button type="button" onClick={onOpenReader} className="btn btn--secondary btn--sm h-11 min-h-[44px] px-3 text-xs" aria-label={lang === 'ar' ? 'إعدادات القراءة' : 'Reading settings'}>
+            <span aria-hidden="true">Aᴀ</span><span className="hidden xl:inline">{lang === 'ar' ? 'القراءة' : 'Reading'}</span>
           </button>
 
           {/* Breadcrumbs (Desktop) */}

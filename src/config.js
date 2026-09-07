@@ -14,4 +14,6 @@ export const DEFAULT_THEME = 'light'
 export const STORAGE_KEYS = {
   lang: 'uiref:lang',
   theme: 'uiref:theme',
+  readerSize: 'uiref:reader-size',
+  savedChapters: 'uiref:saved-chapters',
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BADGES_CATALOG, getCurrentRank } from '../../lib/gamification.js'
 import Leaderboard from './Leaderboard.jsx'
@@ -14,6 +14,18 @@ export default function GamificationHub({
 }) {
   const [tab, setTab] = useState('overview') // 'overview' | 'quests' | 'leaderboard' | 'badges'
   const { rank, nextRank, progressInLevel, xpNeeded } = getCurrentRank(state.xp)
+
+  useEffect(() => {
+    if (!open) return
+    const previousOverflow = document.body.style.overflow
+    const onKeyDown = (event) => event.key === 'Escape' && onClose()
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [open, onClose])
 
   if (!open) return null
 
@@ -46,13 +58,16 @@ export default function GamificationHub({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 lg:p-8 bg-ink/50 backdrop-blur-sm">
+      <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-ink/50 p-0 pt-16 backdrop-blur-sm sm:items-center sm:p-6" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
-          className="bg-surface rounded-2xl border border-line shadow-overlay w-full max-w-5xl xl:max-w-6xl h-[90vh] max-h-[920px] flex flex-col overflow-hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="gamification-hub-title"
+          className="flex min-h-[calc(100dvh-4rem)] w-full max-w-5xl flex-col overflow-hidden rounded-t-2xl border border-line bg-surface shadow-overlay sm:min-h-0 sm:max-w-6xl sm:rounded-2xl sm:h-[90vh] sm:max-h-[920px]"
           dir={lang === 'ar' ? 'rtl' : 'ltr'}
         >
           {/* Header */}
@@ -62,7 +77,7 @@ export default function GamificationHub({
                 ⚡
               </div>
               <div>
-                <h2 className="text-xl font-bold text-ink leading-tight flex items-center gap-2">
+                <h2 id="gamification-hub-title" className="text-xl font-bold text-ink leading-tight flex items-center gap-2">
                   <span>{lang === 'ar' ? 'مركز التحفيز والإنجازات' : 'Gamification Hub'}</span>
                   <span className="tag tag--info text-[11px] font-mono uppercase">Mastery</span>
                 </h2>

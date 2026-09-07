@@ -12,6 +12,8 @@ export default function Sidebar({
   onClose,
   gamifiedChapterIds = [],
   completedSections = [],
+  savedChapterIds = [],
+  onOpenReader,
 }) {
   return (
     <>
@@ -77,14 +79,14 @@ export default function Sidebar({
             <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.99 8.99a.75.75 0 1 1-1.06 1.06L20 13.432V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6.568l-.46.46a.75.75 0 1 1-1.06-1.06l8.99-8.99Z"/></svg>
             <span>{lang === 'ar' ? 'نظرة عامة' : 'Overview'}</span>
           </a>
-          <a href="#/gamification" className="flex items-center gap-3 px-3 py-2 text-muted hover:bg-ground hover:text-ink rounded-lg transition-colors font-medium no-underline">
+          <a href="#/saved" className="flex items-center gap-3 px-3 py-2 text-muted hover:bg-ground hover:text-ink rounded-lg transition-colors font-medium no-underline">
             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l-7-3.5L5 21V5Z"/></svg>
-            <span>{lang === 'ar' ? 'مركز التحفيز' : 'Gamification hub'}</span>
+            <span>{lang === 'ar' ? `الفصول المحفوظة (${savedChapterIds.length})` : `Saved chapters (${savedChapterIds.length})`}</span>
           </a>
-          <a href="#/" className="flex items-center gap-3 px-3 py-2 text-muted hover:bg-ground hover:text-ink rounded-lg transition-colors font-medium no-underline">
+          <button type="button" onClick={onOpenReader} className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-start font-medium text-muted transition-colors hover:bg-ground hover:text-ink">
             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
             <span>{lang === 'ar' ? 'إعدادات القراءة' : 'Reading settings'}</span>
-          </a>
+          </button>
 
           <div className="mt-8 mb-2 px-3 text-[11px] font-semibold text-muted uppercase tracking-wider">
             {lang === 'ar' ? 'الفصول' : 'Chapters'}

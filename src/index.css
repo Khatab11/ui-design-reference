@@ -35,7 +35,7 @@
   --color-error-hover:       #A11F16;
 
   /* Type */
-  --font-sans: 'Public Sans', 'IBM Plex Sans Arabic', 'Cairo', Helvetica, Arial, sans-serif;
+  --font-sans: 'Cairo', 'Public Sans', Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --text-display: 56px;  --lh-display: 1.02;  --ls-display: -0.03em;  --fw-display: 700;
@@ -256,9 +256,17 @@ html[lang='ar'] {
 }
 
 html[lang='ar'] body {
-  font-family: 'IBM Plex Sans Arabic', 'Cairo', var(--font-sans);
+  font-family: 'Cairo', var(--font-sans);
   line-height: 1.75;
 }
+
+.reader-size-small { --reader-scale: 0.88; }
+.reader-size-medium { --reader-scale: 1; }
+.reader-size-large { --reader-scale: 1.18; }
+.reader-size-small .prose p, .reader-size-small .prose li { font-size: calc(17px * var(--reader-scale)); }
+.reader-size-large .prose p, .reader-size-large .prose li { font-size: calc(17px * var(--reader-scale)); }
+.reader-size-small .prose h1, .reader-size-small .prose h2, .reader-size-small .prose h3 { font-size: calc(1em * var(--reader-scale)); }
+.reader-size-large .prose h1, .reader-size-large .prose h2, .reader-size-large .prose h3 { font-size: calc(1em * var(--reader-scale)); }
 
 html[lang='ar'] p {
   line-height: 1.75;

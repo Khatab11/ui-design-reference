@@ -63,8 +63,8 @@ export default {
       display: ['56px', { lineHeight: '1.02', letterSpacing: '-0.03em' }],
     },
     fontFamily: {
-      sans: ['"Public Sans"', '"IBM Plex Sans Arabic"', 'Cairo', 'Helvetica', 'Arial', 'sans-serif'],
-      arabic: ['"IBM Plex Sans Arabic"', 'Cairo', '"Public Sans"', 'Helvetica', 'Arial', 'sans-serif'],
+      sans: ['Cairo', '"Public Sans"', 'Helvetica', 'Arial', 'sans-serif'],
+      arabic: ['Cairo', '"Public Sans"', 'Helvetica', 'Arial', 'sans-serif'],
       cairo: ['Cairo', 'sans-serif'],
       'ibm-plex': ['"IBM Plex Sans Arabic"', 'sans-serif'],
       mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],

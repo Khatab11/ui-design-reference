@@ -18,6 +18,8 @@ import AuthModal from './components/AuthModal.jsx'
 import { getCurrentRank, loadGamificationState, saveGamificationState } from './lib/gamification.js'
 import AudioPlayer from './components/AudioPlayer.jsx'
 import { SpeechProvider } from './context/SpeechContext.jsx'
+import ReaderSettings from './components/ReaderSettings.jsx'
+import SavedChapters from './components/SavedChapters.jsx'
 
 function setMetaTag(attrName, attrValue, content) {
   if (content === undefined || content === null) return
@@ -58,9 +60,13 @@ export default function App() {
   const [gamificationState, setGamificationState] = useState(() => loadGamificationState())
   const [hubOpen, setHubOpen] = useState(false)
   const [celebrationEvent, setCelebrationEvent] = useState(null)
+  const [readerSize, setReaderSize] = useLocalStorage(STORAGE_KEYS.readerSize, 'medium')
+  const [readerOpen, setReaderOpen] = useState(false)
+  const [savedChapterIds, setSavedChapterIds] = useLocalStorage(STORAGE_KEYS.savedChapters, [])
 
   const isPrint = route.chapter === 'print'
   const isGamification = route.chapter === 'gamification'
+  const isSavedChapters = route.chapter === 'saved'
   const chapter = route.chapter ? chapterById.get(route.chapter) : null
 
   useEffect(() => {
@@ -115,6 +121,12 @@ export default function App() {
         ),
       }
     })
+  }
+
+  const toggleSavedChapter = (chapterId) => {
+    setSavedChapterIds((previous) => previous.includes(chapterId)
+      ? previous.filter((id) => id !== chapterId)
+      : [...previous, chapterId])
   }
 
   // <html lang dir> + theme class
@@ -248,7 +260,7 @@ export default function App() {
 
   return (
     <SpeechProvider lang={lang} activeChapterId={chapter?.id}>
-    <div className="min-h-screen" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    <div className={`min-h-screen reader-size-${readerSize}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       <TopBar
         lang={lang}
         theme={theme}
@@ -260,6 +272,7 @@ export default function App() {
         onOpenHub={() => setHubOpen(true)}
         user={user}
         onOpenAuth={() => setAuthModalOpen(true)}
+        onOpenReader={() => setReaderOpen(true)}
       />
 
       {isPrint ? (
@@ -270,6 +283,8 @@ export default function App() {
         <main className="min-w-0">
           <GamificationDemo lang={lang} />
         </main>
+      ) : isSavedChapters ? (
+        <main className="min-w-0 md:ms-[284px]"><div className="px-4 pb-16 pt-6 sm:px-6 md:px-8"><SavedChapters savedChapterIds={savedChapterIds} lang={lang} /></div></main>
       ) : (
         <>
           <Sidebar
@@ -280,6 +295,8 @@ export default function App() {
             onClose={() => setMenuOpen(false)}
             gamifiedChapterIds={chapters.map((item) => item.id)}
             completedSections={gamificationState.completedSections}
+            savedChapterIds={savedChapterIds}
+            onOpenReader={() => setReaderOpen(true)}
           />
           <main className="min-w-0 md:ms-[284px]">
             <div className="px-4 pb-16 pt-6 sm:px-6 md:px-8">
@@ -292,6 +309,8 @@ export default function App() {
                   isGamified
                   completedSections={gamificationState.completedSections}
                   onCompleteSection={handleCompleteSection}
+                  isSaved={savedChapterIds.includes(chapter.id)}
+                  onToggleSaved={() => toggleSavedChapter(chapter.id)}
                 />
               ) : (
                 <Overview lang={lang} />
@@ -323,6 +342,7 @@ export default function App() {
         onLogout={() => setUser(null)}
         lang={lang}
       />
+      <ReaderSettings open={readerOpen} onClose={() => setReaderOpen(false)} size={readerSize} onChange={setReaderSize} lang={lang} />
     </div>
     </SpeechProvider>
   )

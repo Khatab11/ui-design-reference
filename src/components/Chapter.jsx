@@ -7,7 +7,7 @@ import { VolumeIcon, PauseIcon, PlayIcon } from './Icons.jsx'
 import Section from './Section.jsx'
 import PrevNext from './PrevNext.jsx'
 
-export function ChapterHeader({ chapter, lang, isGamified = false }) {
+export function ChapterHeader({ chapter, lang, isGamified = false, isSaved = false, onToggleSaved }) {
   const number = String(chapterIndex(chapter.id) + 1).padStart(2, '0')
   const shouldReduceMotion = useReducedMotion()
   const { supported, status, isPlaying, isPaused, mode, currentChapter, playChapter, pause, resume } = useSpeech()
@@ -29,6 +29,7 @@ export function ChapterHeader({ chapter, lang, isGamified = false }) {
         <p className="label text-muted">{t(lang, 'chapter')} {number}</p>
         <div className="flex items-center gap-2">
           {isGamified && <span className="tag tag--info text-xs font-bold">⚡ +15 XP</span>}
+          <button type="button" onClick={onToggleSaved} className="btn btn--secondary btn--sm" aria-pressed={isSaved}>{isSaved ? (lang === 'ar' ? '★ محفوظ' : '★ Saved') : (lang === 'ar' ? '☆ حفظ الفصل' : '☆ Save chapter')}</button>
           {supported && (
             <button
               type="button"
@@ -52,7 +53,7 @@ export function ChapterHeader({ chapter, lang, isGamified = false }) {
   )
 }
 
-export default function Chapter({ chapter, lang, onActiveSection, isGamified, completedSections = [], onCompleteSection }) {
+export default function Chapter({ chapter, lang, onActiveSection, isGamified, completedSections = [], onCompleteSection, isSaved, onToggleSaved }) {
   const ref = useRef(null)
   const shouldReduceMotion = useReducedMotion()
 
@@ -91,7 +92,7 @@ export default function Chapter({ chapter, lang, onActiveSection, isGamified, co
       transition={{ duration: 0.35, ease: 'easeOut' }}
       className="mx-auto w-full max-w-prose"
     >
-      <ChapterHeader chapter={chapter} lang={lang} isGamified={isGamified} />
+      <ChapterHeader chapter={chapter} lang={lang} isGamified={isGamified} isSaved={isSaved} onToggleSaved={onToggleSaved} />
       {chapter.sections.map((section) => (
         <Section
           key={section.id}
