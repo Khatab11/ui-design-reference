@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Design Reference - Prototype</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Cairo', 'sans-serif'],
+          },
+          colors: {
+            primary: '#1d4ed8', // Tailoring to the screenshot's vibrant blue
+            surface: '#FFFFFF',
+            ground: '#f8fafc', // Very subtle blue-gray background
+          }
+        }
+      }
+    }
+
+    function toggleDirection() {
+      const html = document.documentElement;
+      if (html.dir === 'ltr') {
+        html.dir = 'rtl';
+        html.lang = 'ar';
+      } else {
+        html.dir = 'ltr';
+        html.lang = 'en';
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar to look sleek */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
+</head>
+<body class="bg-ground text-slate-900 font-sans antialiased h-screen flex overflow-hidden selection:bg-primary/20">
+  
+  <!-- SIDEBAR -->
+  <aside class="w-64 bg-surface border-e border-slate-200 flex flex-col h-full shrink-0 z-10 hidden md:flex">
+    <!-- Header / Logo -->
+    <div class="p-6">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-primary text-white rounded-xl grid grid-cols-2 gap-0.5 p-1.5 shadow-sm">
+            <div class="bg-white/90 rounded-sm"></div>
+            <div class="bg-white rounded-sm"></div>
+            <div class="border-1.5 border-white/60 rounded-sm"></div>
+            <div class="border-1.5 border-white/60 rounded-sm"></div>
+        </div>
+        <div>
+          <h1 class="font-bold text-[17px] leading-tight tracking-tight">UI Design<br>Reference</h1>
+          <div class="flex items-center mt-1">
+            <span class="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Course companion</span>
+            <span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded-md ms-2 font-medium">v1.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="flex-1 overflow-y-auto px-4 pb-6 space-y-1">
+      <a href="#" class="flex items-center gap-3 px-3 py-2 bg-[#edf2fe] text-primary font-semibold rounded-lg">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.99 8.99a.75.75 0 1 1-1.06 1.06L20 13.432V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6.568l-.46.46a.75.75 0 1 1-1.06-1.06l8.99-8.99Z"/></svg>
+        <span class="en-text">Overview</span>
+        <span class="ar-text hidden">نظرة عامة</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors font-medium">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l-7-3.5L5 21V5Z"/></svg>
+        <span class="en-text">Saved chapters</span>
+        <span class="ar-text hidden">الفصول المحفوظة</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors font-medium">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+        <span class="en-text">Reading settings</span>
+        <span class="ar-text hidden">إعدادات القراءة</span>
+      </a>
+
+      <div class="mt-8 mb-3 px-3 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Chapters</div>
+      
+      <!-- List Items -->
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+        <span class="en-text">Introduction</span><span class="ar-text hidden">المقدمة</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6zm10 0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V6zM4 16a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2zm10 0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-2z"/></svg>
+        <span class="en-text">The Basics</span><span class="ar-text hidden">الأساسيات</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+        <span class="en-text">Grid and layout</span><span class="ar-text hidden">الشبكات والتخطيط</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+        <span class="w-5 h-5 flex items-center justify-center font-serif text-lg font-bold text-slate-400">T</span>
+        <span class="en-text">Typography</span><span class="ar-text hidden">التايبوجرافي</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+        <span class="en-text">Color</span><span class="ar-text hidden">الألوان</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.121 15.536c-1.171 1.952-3.07 1.952-4.242 0-1.172-1.953-1.172-5.119 0-7.072 1.171-1.952 3.07-1.952 4.242 0 1.172 1.953 1.172 5.119 0 7.072z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+        <span class="en-text">Shadows</span><span class="ar-text hidden">الظلال</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+        <div class="w-5 h-3.5 border-2 border-slate-400 rounded-sm"></div>
+        <span class="en-text">Buttons</span><span class="ar-text hidden">الأزرار</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+        <span class="en-text">Forms</span><span class="ar-text hidden">النماذج</span>
+      </a>
+    </nav>
+    
+    <!-- Footer links -->
+    <div class="p-4 border-t border-slate-200 bg-slate-50/50">
+      <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
+        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        <span class="en-text text-sm">Print the whole reference</span>
+        <span class="ar-text text-sm hidden">طباعة المرجع كاملاً</span>
+      </a>
+      <div class="mt-6 px-3">
+        <p class="text-xs text-slate-400">Better UI<br>brighter products.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN AREA -->
+  <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+    
+    <!-- TOP NAVIGATION -->
+    <header class="h-16 flex items-center justify-between px-8 border-b border-slate-200 bg-surface/80 backdrop-blur-sm sticky top-0 z-20">
+      
+      <!-- Breadcrumb -->
+      <div class="flex items-center gap-2 text-sm text-slate-500">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+        <span class="en-text">Home <span class="mx-1 text-slate-300">/</span> <span class="text-primary font-medium">Overview</span></span>
+        <span class="ar-text hidden">الرئيسية <span class="mx-1 text-slate-300">/</span> <span class="text-primary font-medium">نظرة عامة</span></span>
+      </div>
+
+      <!-- Search & Actions -->
+      <div class="flex items-center gap-6">
+        <!-- Search -->
+        <div class="relative hidden sm:block">
+          <svg class="w-4 h-4 text-slate-400 absolute start-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <input type="text" placeholder="Search any design principle..." class="w-72 bg-slate-50 border border-slate-200 rounded-lg py-1.5 ps-9 pe-10 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-shadow placeholder:text-slate-400 en-text">
+          <input type="text" placeholder="ابحث في مبادئ التصميم..." class="w-72 bg-slate-50 border border-slate-200 rounded-lg py-1.5 ps-9 pe-10 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-shadow placeholder:text-slate-400 ar-text hidden">
+          <div class="absolute end-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+             <kbd class="px-1.5 py-0.5 bg-white border border-slate-200 rounded text-[10px] text-slate-500 font-sans shadow-sm">⌘K</kbd>
+          </div>
+        </div>
+
+        <div class="w-px h-5 bg-slate-200 hidden sm:block"></div>
+
+        <!-- Language & Theme -->
+        <div class="flex items-center gap-4">
+          <button onclick="toggleDirection()" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">
+            <span class="en-text">العربية</span>
+            <span class="ar-text hidden">English</span>
+          </button>
+          <button class="text-slate-400 hover:text-slate-600 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <div class="flex-1 overflow-y-auto p-8 lg:p-12 pb-24">
+      <div class="max-w-6xl mx-auto space-y-12">
+        
+        <!-- Header Text -->
+        <div>
+          <h2 class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-3"><span class="en-text">COURSE COMPANION</span><span class="ar-text hidden">مرجع الدورة</span></h2>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4"><span class="en-text">UI Design Reference</span><span class="ar-text hidden">مرجع تصميم الواجهات</span></h1>
+          <p class="text-lg text-slate-600 max-w-2xl"><span class="en-text">A comprehensive bilingual reference for UI design principles, layout, typography, and visual hierarchy.</span><span class="ar-text hidden">مرجع شامل ومفصل لمبادئ وأساسيات تصميم واجهات المستخدم، التخطيط، والتايبوجرافي، والهيراركي البصري.</span></p>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="flex items-center justify-between border-b border-slate-200">
+          <div class="flex gap-6 -mb-px">
+            <button class="flex items-center gap-2 pb-4 border-b-2 border-primary text-primary font-semibold">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              <span class="en-text">All chapters</span><span class="ar-text hidden">كل الفصول</span>
+            </button>
+            <button class="flex items-center gap-2 pb-4 text-slate-500 hover:text-slate-800 transition-colors font-medium border-b-2 border-transparent hover:border-slate-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+              <span class="en-text">Saved chapters</span><span class="ar-text hidden">الفصول المحفوظة</span>
+            </button>
+          </div>
+          <div class="hidden sm:flex items-center gap-6 pb-4">
+             <button class="flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium">
+               <span class="font-serif text-lg leading-none">Aa</span> <span class="en-text">Text size</span><span class="ar-text hidden">حجم الخط</span>
+             </button>
+             <div class="w-px h-4 bg-slate-200"></div>
+             <button class="flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium">
+               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+               <span class="en-text">Reading settings</span><span class="ar-text hidden">إعدادات القراءة</span>
+             </button>
+          </div>
+        </div>
+
+        <!-- Featured Card -->
+        <div class="bg-[#edf2fe] rounded-3xl p-8 md:p-12 flex flex-col lg:flex-row gap-10 items-center border border-[#dbeafe]">
+          
+          <div class="flex-1 order-2 lg:order-1">
+             <!-- Graphic placeholder -->
+             <div class="bg-white rounded-xl shadow-sm border border-slate-200/60 p-4 aspect-video relative max-w-[400px]">
+                <div class="absolute top-4 left-4 flex gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                </div>
+                <div class="mt-8 flex gap-4 h-[calc(100%-2rem)]">
+                   <div class="w-1/3 flex flex-col gap-3">
+                     <div class="h-3 bg-slate-100 rounded-sm w-3/4"></div>
+                     <div class="h-3 bg-slate-100 rounded-sm w-1/2"></div>
+                     <div class="h-3 bg-slate-100 rounded-sm w-full mt-4"></div>
+                     <div class="h-3 bg-slate-100 rounded-sm w-full"></div>
+                     <div class="h-8 bg-slate-100 rounded border border-slate-200 mt-auto flex items-center justify-center">
+                        <div class="h-1 w-4 bg-slate-300 rounded-full"></div>
+                     </div>
+                   </div>
+                   <div class="w-2/3 grid grid-cols-2 gap-3">
+                     <div class="bg-[#93c5fd] rounded-lg opacity-60"></div>
+                     <div class="bg-[#93c5fd] rounded-lg opacity-60"></div>
+                     <div class="bg-[#93c5fd] rounded-lg opacity-60"></div>
+                     <div class="bg-[#93c5fd] rounded-lg opacity-60"></div>
+                     <div class="bg-[#93c5fd] rounded-lg opacity-60"></div>
+                     <div class="bg-[#93c5fd] rounded-lg opacity-60"></div>
+                   </div>
+                </div>
+                <!-- Decorative dots -->
+                <div class="absolute -left-6 top-1/2 -translate-y-1/2 grid grid-cols-2 gap-2">
+                  <div class="w-1 h-1 bg-slate-300 rounded-full"></div><div class="w-1 h-1 bg-slate-300 rounded-full"></div>
+                  <div class="w-1 h-1 bg-slate-300 rounded-full"></div><div class="w-1 h-1 bg-slate-300 rounded-full"></div>
+                  <div class="w-1 h-1 bg-slate-300 rounded-full"></div><div class="w-1 h-1 bg-slate-300 rounded-full"></div>
+                </div>
+             </div>
+          </div>
+
+          <div class="flex-1 order-1 lg:order-2 space-y-4">
+            <div class="text-sm font-semibold text-primary tracking-wide"><span class="en-text">CHAPTER 01</span><span class="ar-text hidden">الفصل ٠١</span></div>
+            <h3 class="text-3xl md:text-4xl font-bold text-slate-900"><span class="en-text">Introduction</span><span class="ar-text hidden">المقدمة</span></h3>
+            <p class="text-slate-600 text-lg leading-relaxed"><span class="en-text">Before the principles, some framing: what this book is, where UI Design sits next to UX and Branding, and the mindset you need before you open a design tool.</span><span class="ar-text hidden">قبل المبادئ، لازم نظبط الإطار: الكتاب ده بيتكلم عن إيه، وفين موقع ال UI Design من ال UX وال Branding، وأنهي عقلية لازم تمشي بيها قبل ما تفتح أي أداة تصميم.</span></p>
+            <button class="mt-4 bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-xl flex items-center gap-2 transition-transform hover:-translate-y-0.5 shadow-sm">
+              <span class="en-text">Start reading</span><span class="ar-text hidden">ابدأ القراءة</span>
+              <svg class="w-4 h-4 rtl:-scale-x-100" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Browse by chapter -->
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-slate-900"><span class="en-text">Browse by chapter</span><span class="ar-text hidden">تصفح الفصول</span></h3>
+            <a href="#" class="text-primary font-medium flex items-center gap-1 hover:underline">
+               <span class="en-text">View all chapters</span><span class="ar-text hidden">عرض كل الفصول</span>
+               <svg class="w-4 h-4 rtl:-scale-x-100" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Card 3 -->
+            <a href="#" class="group bg-surface border border-slate-200 rounded-2xl p-6 hover:shadow-md transition-all duration-300 flex flex-col">
+              <div class="flex justify-between items-start mb-4">
+                 <div class="w-20 h-20 bg-blue-50 rounded-xl grid grid-cols-3 gap-1 p-2">
+                    <div class="bg-blue-200 rounded-sm"></div><div class="bg-blue-200 rounded-sm"></div><div class="bg-blue-200 rounded-sm"></div>
+                    <div class="bg-blue-200 rounded-sm"></div><div class="bg-blue-200 rounded-sm"></div><div class="bg-blue-200 rounded-sm"></div>
+                    <div class="bg-blue-200 rounded-sm"></div><div class="bg-blue-200 rounded-sm"></div><div class="bg-blue-200 rounded-sm"></div>
+                 </div>
+                 <button class="text-slate-400 hover:text-primary"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg></button>
+              </div>
+              <div class="text-xs font-semibold text-slate-400 tracking-wide mb-1"><span class="en-text">CHAPTER 03</span><span class="ar-text hidden">الفصل ٠٣</span></div>
+              <h4 class="text-lg font-bold text-slate-900 mb-2"><span class="en-text">Grid and layout</span><span class="ar-text hidden">الشبكات والتخطيط</span></h4>
+              <p class="text-sm text-slate-500 leading-relaxed mb-4 flex-1"><span class="en-text">Structure content, create hierarchy, and build flexible layouts that work across screens.</span><span class="ar-text hidden">نظم المحتوى وابنِ تخطيطات واضحة ومتناسقة.</span></p>
+              <div class="flex justify-end text-slate-300 group-hover:text-primary transition-colors">
+                 <svg class="w-5 h-5 rtl:-scale-x-100" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="#" class="group bg-surface border border-slate-200 rounded-2xl p-6 hover:shadow-md transition-all duration-300 flex flex-col">
+              <div class="flex justify-between items-start mb-4">
+                 <div class="w-20 h-20 bg-slate-50 rounded-xl flex items-center justify-center">
+                    <span class="font-serif text-3xl font-bold text-slate-800"><span class="en-text">Aa</span><span class="ar-text hidden">أب</span></span>
+                 </div>
+                 <button class="text-slate-400 hover:text-primary"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg></button>
+              </div>
+              <div class="text-xs font-semibold text-slate-400 tracking-wide mb-1"><span class="en-text">CHAPTER 04</span><span class="ar-text hidden">الفصل ٠٤</span></div>
+              <h4 class="text-lg font-bold text-slate-900 mb-2"><span class="en-text">Typography</span><span class="ar-text hidden">التايبوجرافي</span></h4>
+              <p class="text-sm text-slate-500 leading-relaxed mb-4 flex-1"><span class="en-text">Choose and use type effectively to create clear, readable and expressive interfaces.</span><span class="ar-text hidden">اختر الخطوط لبناء تسلسل بصري واضح وسهل القراءة.</span></p>
+              <div class="flex justify-end text-slate-300 group-hover:text-primary transition-colors">
+                 <svg class="w-5 h-5 rtl:-scale-x-100" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </a>
+
+            <!-- Card 5 -->
+            <a href="#" class="group bg-surface border border-slate-200 rounded-2xl p-6 hover:shadow-md transition-all duration-300 flex flex-col">
+              <div class="flex justify-between items-start mb-4">
+                 <div class="w-20 h-20 bg-slate-50 rounded-xl grid grid-cols-3 gap-1.5 p-2.5 items-center justify-items-center">
+                    <div class="w-4 h-4 rounded-full bg-blue-500"></div><div class="w-4 h-4 rounded-full bg-sky-400"></div><div class="w-4 h-4 rounded-full bg-rose-400"></div>
+                    <div class="w-4 h-4 rounded-full bg-amber-500"></div><div class="w-4 h-4 rounded-full bg-emerald-400"></div><div class="w-4 h-4 rounded-full bg-indigo-500"></div>
+                 </div>
+                 <button class="text-slate-400 hover:text-primary"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg></button>
+              </div>
+              <div class="text-xs font-semibold text-slate-400 tracking-wide mb-1"><span class="en-text">CHAPTER 05</span><span class="ar-text hidden">الفصل ٠٥</span></div>
+              <h4 class="text-lg font-bold text-slate-900 mb-2"><span class="en-text">Color</span><span class="ar-text hidden">الألوان</span></h4>
+              <p class="text-sm text-slate-500 leading-relaxed mb-4 flex-1"><span class="en-text">Use color with purpose to create hierarchy, convey meaning, and build accessible interfaces.</span><span class="ar-text hidden">استخدم الألوان لتوضيح المعنى وبناء واجهات سهلة الاستخدام.</span></p>
+              <div class="flex justify-end text-slate-300 group-hover:text-primary transition-colors">
+                 <svg class="w-5 h-5 rtl:-scale-x-100" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </a>
+
+            <!-- Card 8 -->
+            <a href="#" class="group bg-surface border border-slate-200 rounded-2xl p-6 hover:shadow-md transition-all duration-300 flex flex-col">
+              <div class="flex justify-between items-start mb-4">
+                 <div class="w-24 h-20 rounded-xl flex flex-col gap-2 justify-center">
+                    <div class="h-5 bg-primary rounded px-2 flex items-center justify-center text-[8px] text-white font-medium">Primary</div>
+                    <div class="h-5 bg-white border border-slate-300 rounded px-2 flex items-center justify-center text-[8px] text-primary font-medium">Secondary</div>
+                    <div class="h-5 bg-slate-100 rounded px-2 flex items-center justify-center text-[8px] text-slate-400 font-medium">Disabled</div>
+                 </div>
+                 <button class="text-slate-400 hover:text-primary"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg></button>
+              </div>
+              <div class="text-xs font-semibold text-slate-400 tracking-wide mb-1"><span class="en-text">CHAPTER 08</span><span class="ar-text hidden">الفصل ٠٨</span></div>
+              <h4 class="text-lg font-bold text-slate-900 mb-2"><span class="en-text">Buttons</span><span class="ar-text hidden">الأزرار</span></h4>
+              <p class="text-sm text-slate-500 leading-relaxed mb-4 flex-1"><span class="en-text">Design buttons that are clear, consistent, and communicate action effectively.</span><span class="ar-text hidden">صمم أزراراً واضحة تساعد المستخدم على اتخاذ الإجراء.</span></p>
+              <div class="flex justify-end text-slate-300 group-hover:text-primary transition-colors">
+                 <svg class="w-5 h-5 rtl:-scale-x-100" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </a>
+
+            <!-- Card 9 -->
+            <a href="#" class="group bg-surface border border-slate-200 rounded-2xl p-6 hover:shadow-md transition-all duration-300 flex flex-col">
+              <div class="flex justify-between items-start mb-4">
+                 <div class="w-24 h-20 rounded-xl flex flex-col gap-1.5 justify-center">
+                    <div class="h-4 bg-white border border-slate-200 rounded px-1 flex items-center text-[7px] text-slate-400">Name</div>
+                    <div class="h-4 bg-white border border-slate-200 rounded px-1 flex items-center text-[7px] text-slate-400">Email</div>
+                    <div class="h-5 bg-primary rounded flex items-center justify-center text-[8px] text-white mt-1">Submit</div>
+                 </div>
+                 <button class="text-slate-400 hover:text-primary"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg></button>
+              </div>
+              <div class="text-xs font-semibold text-slate-400 tracking-wide mb-1"><span class="en-text">CHAPTER 09</span><span class="ar-text hidden">الفصل ٠٩</span></div>
+              <h4 class="text-lg font-bold text-slate-900 mb-2"><span class="en-text">Forms</span><span class="ar-text hidden">النماذج</span></h4>
+              <p class="text-sm text-slate-500 leading-relaxed mb-4 flex-1"><span class="en-text">Create forms that are simple, helpful, and easy to complete for everyone.</span><span class="ar-text hidden">أنشئ نماذج بسيطة وواضحة وسهلة الإكمال.</span></p>
+              <div class="flex justify-end text-slate-300 group-hover:text-primary transition-colors">
+                 <svg class="w-5 h-5 rtl:-scale-x-100" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </a>
+
+            <!-- Card 14 -->
+            <a href="#" class="group bg-surface border border-slate-200 rounded-2xl p-6 hover:shadow-md transition-all duration-300 flex flex-col">
+              <div class="flex justify-between items-start mb-4">
+                 <div class="w-20 h-20 bg-slate-50 rounded-xl p-2 flex gap-1 items-end relative overflow-hidden">
+                    <div class="w-1/2 h-14 bg-white rounded shadow-sm border border-slate-100"></div>
+                    <div class="w-1/2 h-10 bg-white rounded shadow-sm border border-slate-100"></div>
+                    <!-- decorative dots -->
+                    <div class="absolute top-2 right-2 grid grid-cols-3 gap-0.5">
+                      <div class="w-0.5 h-0.5 bg-slate-300"></div><div class="w-0.5 h-0.5 bg-slate-300"></div><div class="w-0.5 h-0.5 bg-slate-300"></div>
+                      <div class="w-0.5 h-0.5 bg-slate-300"></div><div class="w-0.5 h-0.5 bg-slate-300"></div><div class="w-0.5 h-0.5 bg-slate-300"></div>
+                    </div>
+                 </div>
+                 <button class="text-slate-400 hover:text-primary"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg></button>
+              </div>
+              <div class="text-xs font-semibold text-slate-400 tracking-wide mb-1"><span class="en-text">CHAPTER 14</span><span class="ar-text hidden">الفصل ١٤</span></div>
+              <h4 class="text-lg font-bold text-slate-900 mb-2"><span class="en-text">White space</span><span class="ar-text hidden">المساحات البيضاء</span></h4>
+              <p class="text-sm text-slate-500 leading-relaxed mb-4 flex-1"><span class="en-text">Use white space to reduce clutter, improve focus, and create a more comfortable experience.</span><span class="ar-text hidden">امنح المحتوى مساحة لتحسين التركيز وسهولة القراءة.</span></p>
+              <div class="flex justify-end text-slate-300 group-hover:text-primary transition-colors">
+                 <svg class="w-5 h-5 rtl:-scale-x-100" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="pt-12 pb-6 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+          <div>
+            <span class="en-text">Based on UI Design Principles by Michael Filipink</span>
+            <span class="ar-text hidden">مبني على كتاب UI Design Principles لمايكل فيليبيوك</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="#" class="hover:text-slate-800 transition-colors">About</a>
+            <span>&bull;</span>
+            <a href="#" class="hover:text-slate-800 transition-colors">Contact</a>
+            <span>&bull;</span>
+            <button onclick="toggleDirection()" class="hover:text-slate-800 transition-colors font-medium text-slate-700">
+              <span class="en-text">العربية</span>
+              <span class="ar-text hidden">English</span>
+            </button>
+          </div>
+        </footer>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Toggle Logic Styling -->
+  <style>
+    html[dir="rtl"] .en-text { display: none; }
+    html[dir="ltr"] .ar-text { display: none; }
+    html[dir="rtl"] .ar-text { display: inline-block; }
+    
+    html[dir="rtl"] {
+      font-family: 'Cairo', sans-serif;
+    }
+  </style>
+</body>
+</html>
