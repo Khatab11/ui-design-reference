@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { t } from '../lib/ui.js'
+import { emailError } from '../lib/validate.js'
 import {
   Mail,
   Lock,
@@ -16,6 +17,7 @@ import {
   Moon,
   Globe,
   CheckCircle2,
+  AlertCircle,
 } from 'lucide-react'
 
 // Simple password strength calculator
@@ -42,6 +44,16 @@ const STRENGTH_COLORS = [
   'bg-success',
 ]
 
+function FieldError({ id, message }) {
+  if (!message) return null
+  return (
+    <p id={id} role="alert" className="flex items-center gap-1.5 pt-0.5 text-[11px] font-medium text-error">
+      <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+      <span>{message}</span>
+    </p>
+  )
+}
+
 export default function Auth({
   initialMode = 'login',
   lang = 'en',
@@ -62,11 +74,38 @@ export default function Auth({
   const [rememberMe, setRememberMe] = useState(true)
   const [agreeTerms, setAgreeTerms] = useState(true)
 
+  const [touched, setTouched] = useState({})
+
   const strength = getPasswordStrength(password)
   const isRtl = lang === 'ar'
 
+  // Format checks only. Nothing here asks a server whether the address exists
+  // or whether the account is real — that is deliberately not this page's job.
+  // Key order matches DOM order, so the submit guard focuses the first field
+  // the reader can actually see rather than the first one declared.
+  const errors = {
+    ...(mode === 'signup' ? { fullName: fullName.trim() ? '' : 'fullNameRequired' } : null),
+    email: emailError(email),
+    password: password ? '' : 'passwordRequired',
+    ...(mode === 'signup' ? { agreeTerms: agreeTerms ? '' : 'agreeTermsRequired' } : null),
+  }
+  const fields = Object.keys(errors)
+  const errorFor = (field) => (touched[field] && errors[field] ? t(lang, errors[field]) : '')
+  const markTouched = (field) => setTouched((prev) => ({ ...prev, [field]: true }))
+
+  const switchMode = (next) => {
+    setMode(next)
+    setTouched({})
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    const firstInvalid = fields.find((f) => errors[f])
+    if (firstInvalid) {
+      setTouched(Object.fromEntries(fields.map((f) => [f, true])))
+      document.getElementById(`auth-${firstInvalid}`)?.focus()
+      return
+    }
     setSubmitted(true)
     setTimeout(() => setSubmitted(false), 3000)
   }
@@ -260,7 +299,7 @@ export default function Auth({
             <div className="mt-6 flex rounded-xl border border-line bg-surface-sunken p-1 relative">
               <button
                 type="button"
-                onClick={() => setMode('login')}
+                onClick={() => switchMode('login')}
                 className={`relative flex-1 py-2 text-xs font-semibold transition-colors duration-150 z-10 min-h-[40px] flex items-center justify-center ${
                   mode === 'login' ? 'text-ink' : 'text-muted hover:text-ink'
                 }`}
@@ -277,7 +316,7 @@ export default function Auth({
 
               <button
                 type="button"
-                onClick={() => setMode('signup')}
+                onClick={() => switchMode('signup')}
                 className={`relative flex-1 py-2 text-xs font-semibold transition-colors duration-150 z-10 min-h-[40px] flex items-center justify-center ${
                   mode === 'signup' ? 'text-ink' : 'text-muted hover:text-ink'
                 }`}
@@ -313,7 +352,7 @@ export default function Auth({
             </AnimatePresence>
 
             {/* Authentication Form */}
-            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+            <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-4">
               {/* Full Name field for Sign Up */}
               {mode === 'signup' && (
                 <motion.div
@@ -322,45 +361,63 @@ export default function Auth({
                   exit={{ opacity: 0, height: 0 }}
                   className="space-y-1.5"
                 >
-                  <label className="block text-xs font-semibold text-ink">
+                  <label htmlFor="auth-fullName" className="block text-xs font-semibold text-ink">
                     {t(lang, 'fullName')}
                   </label>
                   <div className="relative">
                     <User className="pointer-events-none absolute start-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted" />
                     <input
+                      id="auth-fullName"
                       type="text"
+                      autoComplete="name"
                       required
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
+                      onBlur={() => markTouched('fullName')}
+                      aria-invalid={errorFor('fullName') ? 'true' : 'false'}
+                      aria-describedby={errorFor('fullName') ? 'auth-fullName-error' : undefined}
                       placeholder={t(lang, 'fullNamePlaceholder')}
-                      className="h-12 w-full rounded-xl border border-line-strong/80 bg-surface pe-3.5 ps-10 text-sm text-ink placeholder:text-muted transition-all hover:border-line-hover focus:border-action focus:outline-none focus:ring-2 focus:ring-action/20"
+                      className={`h-12 w-full rounded-xl bg-surface text-sm text-ink placeholder:text-muted transition-all focus:outline-none focus:ring-2 border pe-3.5 ps-10 ${
+                        errorFor('fullName') ? 'border-error hover:border-error focus:border-error focus:ring-error' : 'border-line-strong/80 hover:border-line-hover focus:border-action focus:ring-action/20'
+                      }`}
                     />
                   </div>
+                  <FieldError id="auth-fullName-error" message={errorFor('fullName')} />
                 </motion.div>
               )}
 
               {/* Email / Username field */}
               <div className="space-y-1.5">
-                <label className="block text-xs font-semibold text-ink">
+                <label htmlFor="auth-email" className="block text-xs font-semibold text-ink">
                   {t(lang, 'email')}
                 </label>
                 <div className="relative">
                   <Mail className="pointer-events-none absolute start-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted" />
                   <input
+                    id="auth-email"
                     type="email"
+                    inputMode="email"
+                    autoComplete="email"
+                    spellCheck="false"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    onBlur={() => markTouched('email')}
+                    aria-invalid={errorFor('email') ? 'true' : 'false'}
+                    aria-describedby={errorFor('email') ? 'auth-email-error' : undefined}
                     placeholder={t(lang, 'emailPlaceholder')}
-                    className="h-12 w-full rounded-xl border border-line-strong/80 bg-surface pe-3.5 ps-10 text-sm text-ink placeholder:text-muted transition-all hover:border-line-hover focus:border-action focus:outline-none focus:ring-2 focus:ring-action/20"
+                    className={`h-12 w-full rounded-xl bg-surface text-sm text-ink placeholder:text-muted transition-all focus:outline-none focus:ring-2 border pe-3.5 ps-10 ${
+                      errorFor('email') ? 'border-error hover:border-error focus:border-error focus:ring-error' : 'border-line-strong/80 hover:border-line-hover focus:border-action focus:ring-action/20'
+                    }`}
                   />
                 </div>
+                <FieldError id="auth-email-error" message={errorFor('email')} />
               </div>
 
               {/* Password field */}
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <label className="block text-xs font-semibold text-ink">
+                  <label htmlFor="auth-password" className="block text-xs font-semibold text-ink">
                     {t(lang, 'password')}
                   </label>
                   {mode === 'login' && (
@@ -379,12 +436,19 @@ export default function Auth({
                 <div className="relative">
                   <Lock className="pointer-events-none absolute start-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted" />
                   <input
+                    id="auth-password"
                     type={showPassword ? 'text' : 'password'}
+                    autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    onBlur={() => markTouched('password')}
+                    aria-invalid={errorFor('password') ? 'true' : 'false'}
+                    aria-describedby={errorFor('password') ? 'auth-password-error' : undefined}
                     placeholder={t(lang, 'passwordPlaceholder')}
-                    className="h-12 w-full rounded-xl border border-line-strong/80 bg-surface pe-10 ps-10 text-sm text-ink placeholder:text-muted transition-all hover:border-line-hover focus:border-action focus:outline-none focus:ring-2 focus:ring-action/20"
+                    className={`h-12 w-full rounded-xl bg-surface text-sm text-ink placeholder:text-muted transition-all focus:outline-none focus:ring-2 border pe-10 ps-10 ${
+                      errorFor('password') ? 'border-error hover:border-error focus:border-error focus:ring-error' : 'border-line-strong/80 hover:border-line-hover focus:border-action focus:ring-action/20'
+                    }`}
                   />
                   <button
                     type="button"
@@ -395,6 +459,8 @@ export default function Auth({
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
                 </div>
+
+                <FieldError id="auth-password-error" message={errorFor('password')} />
 
                 {/* Real-time Password Strength Meter for Sign Up */}
                 {mode === 'signup' && (
@@ -432,18 +498,27 @@ export default function Auth({
                     <span className="text-xs text-body font-medium">{t(lang, 'rememberMe')}</span>
                   </label>
                 ) : (
-                  <label className="flex items-start gap-2 cursor-pointer select-none">
-                    <input
-                      type="checkbox"
-                      required
-                      checked={agreeTerms}
-                      onChange={(e) => setAgreeTerms(e.target.checked)}
-                      className="mt-0.5 h-4 w-4 rounded-md border-line-strong text-action focus:ring-action/20 accent-action"
-                    />
-                    <span className="text-xs text-body leading-relaxed font-medium">
-                      {t(lang, 'agreeTerms')}
-                    </span>
-                  </label>
+                  <>
+                    <label className="flex items-start gap-2 cursor-pointer select-none">
+                      <input
+                        id="auth-agreeTerms"
+                        type="checkbox"
+                        required
+                        checked={agreeTerms}
+                        onChange={(e) => {
+                          setAgreeTerms(e.target.checked)
+                          markTouched('agreeTerms')
+                        }}
+                        aria-invalid={errorFor('agreeTerms') ? 'true' : 'false'}
+                        aria-describedby={errorFor('agreeTerms') ? 'auth-agreeTerms-error' : undefined}
+                        className="mt-0.5 h-4 w-4 rounded-md border-line-strong text-action focus:ring-action/20 accent-action"
+                      />
+                      <span className="text-xs text-body leading-relaxed font-medium">
+                        {t(lang, 'agreeTerms')}
+                      </span>
+                    </label>
+                    <FieldError id="auth-agreeTerms-error" message={errorFor('agreeTerms')} />
+                  </>
                 )}
               </div>
 
@@ -518,7 +593,7 @@ export default function Auth({
                   {t(lang, 'dontHaveAccount')}{' '}
                   <button
                     type="button"
-                    onClick={() => setMode('signup')}
+                    onClick={() => switchMode('signup')}
                     className="font-semibold text-action hover:text-action-hover transition-colors cursor-pointer"
                   >
                     {t(lang, 'signUp')}
@@ -529,7 +604,7 @@ export default function Auth({
                   {t(lang, 'alreadyHaveAccount')}{' '}
                   <button
                     type="button"
-                    onClick={() => setMode('login')}
+                    onClick={() => switchMode('login')}
                     className="font-semibold text-action hover:text-action-hover transition-colors cursor-pointer"
                   >
                     {t(lang, 'logIn')}
