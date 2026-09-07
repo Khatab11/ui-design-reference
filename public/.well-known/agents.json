@@ -1,0 +1,8 @@
+{
+  "$schema": "https://agents.json.dev/v1/schema.json",
+  "name": "ui-design-reference",
+  "description": "Arabic UI Design Reference and Heuristics Engine",
+  "url": "https://ui-design-reference.netlify.app",
+  "llms_txt": "https://ui-design-reference.netlify.app/llms.txt",
+  "mcp_server": "https://ui-design-reference.netlify.app/.well-known/mcp/server-card.json"
+}

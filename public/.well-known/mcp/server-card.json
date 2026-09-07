@@ -1,0 +1,127 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schema/server-card.json",
+  "name": "ui-design-reference",
+  "displayName": "UI Design Reference (ما ليس على المصمّم جهله)",
+  "version": "1.0.0",
+  "description": "Comprehensive Arabic UI/UX design knowledge base, design system rules, WCAG accessibility benchmarks, and RTL interface heuristics.",
+  "vendor": {
+    "name": "UI Design Reference Open Source Community",
+    "url": "https://ui-design-reference.netlify.app"
+  },
+  "capabilities": {
+    "tools": [
+      {
+        "name": "get_design_rule",
+        "description": "Retrieve design rules and heuristics for a specific UI domain (e.g., typography, colors, grid-layout, buttons, forms, shadows, arabic-rtl).",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": "string",
+              "enum": [
+                "basics",
+                "grid-layout",
+                "typography",
+                "colors",
+                "gradients",
+                "shadows",
+                "buttons",
+                "forms",
+                "icons",
+                "photos",
+                "illustrations",
+                "cards",
+                "white-space",
+                "personality",
+                "language",
+                "navigation",
+                "microinteractions",
+                "arabic-rtl"
+              ],
+              "description": "The design topic to query."
+            },
+            "lang": {
+              "type": "string",
+              "enum": [
+                "ar",
+                "en"
+              ],
+              "default": "ar",
+              "description": "Language of output rules."
+            }
+          },
+          "required": [
+            "topic"
+          ]
+        }
+      },
+      {
+        "name": "list_chapters",
+        "description": "List all 22 chapters of the UI Design Reference with titles, order, summaries, and URLs.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "lang": {
+              "type": "string",
+              "enum": [
+                "ar",
+                "en"
+              ],
+              "default": "ar"
+            }
+          }
+        }
+      },
+      {
+        "name": "get_chapter_content",
+        "description": "Fetch complete text, section breakdown, and practical design principles for any chapter.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "chapterId": {
+              "type": "string",
+              "description": "Chapter identifier, e.g. '03-typography', 'grid-layout', 'colors', 'buttons'."
+            },
+            "lang": {
+              "type": "string",
+              "enum": [
+                "ar",
+                "en"
+              ],
+              "default": "ar"
+            }
+          },
+          "required": [
+            "chapterId"
+          ]
+        }
+      }
+    ],
+    "resources": [
+      {
+        "uri": "https://ui-design-reference.netlify.app/llms.txt",
+        "name": "LLMs Context Manifest",
+        "mimeType": "text/markdown",
+        "description": "Compact overview and quick reference for AI agents."
+      },
+      {
+        "uri": "https://ui-design-reference.netlify.app/llms-full.txt",
+        "name": "Full Knowledge Base Markdown",
+        "mimeType": "text/markdown",
+        "description": "Complete text of all 22 chapters compiled in a single machine-readable document."
+      },
+      {
+        "uri": "https://ui-design-reference.netlify.app/api/rules.json",
+        "name": "Structured Design Rules Index",
+        "mimeType": "application/json",
+        "description": "JSON catalogue of design principles, WCAG criteria, and token guidelines."
+      }
+    ]
+  },
+  "transports": [
+    {
+      "type": "http",
+      "endpoint": "https://ui-design-reference.netlify.app/api/agent/rules"
+    }
+  ]
+}

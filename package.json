@@ -8,11 +8,13 @@
   },
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm run generate:agent",
     "build": "vite build",
     "preview": "vite preview",
     "start": "node server/app.js",
     "test": "node --test",
     "validate": "ajv validate --spec=draft7 -s schema/chapter.schema.json -d \"content/*.json\"",
+    "generate:agent": "node scripts/generate-agent-files.mjs",
     "diagrams": "node scripts/sync-diagrams.mjs && node scripts/export-diagrams.mjs",
     "diagrams:sync": "node scripts/sync-diagrams.mjs",
     "diagrams:export": "node scripts/export-diagrams.mjs"
