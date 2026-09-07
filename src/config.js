@@ -9,6 +9,7 @@ export const site = {
 }
 
 export const DEFAULT_LANG = 'ar'
+export const DEFAULT_THEME = 'light'
 
 export const STORAGE_KEYS = {
   lang: 'uiref:lang',

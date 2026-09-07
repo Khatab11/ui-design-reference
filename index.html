@@ -15,12 +15,9 @@
       // Apply persisted theme + language before first paint to avoid flashes.
       (function () {
         try {
-          var theme = localStorage.getItem('uiref:theme');
-          if (!theme) {
-            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          }
+          var theme = localStorage.getItem('uiref:theme') || 'light';
           if (theme === 'dark') document.documentElement.classList.add('dark');
-          var lang = localStorage.getItem('uiref:lang') || 'en';
+          var lang = localStorage.getItem('uiref:lang') || 'ar';
           document.documentElement.lang = lang;
           document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         } catch (e) {}
