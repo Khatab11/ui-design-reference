@@ -197,8 +197,8 @@ export default function App() {
             open={menuOpen}
             onClose={() => setMenuOpen(false)}
           />
-          <main className="min-w-0 md:ms-[284px]">
-            <div className="px-3 pb-12 pt-5 min-[360px]:px-4 sm:px-6 sm:pb-16 sm:pt-6 md:px-8">
+          <main className="min-w-0 md:ms-[272px]">
+            <div className="px-3 pb-12 pt-5 min-[360px]:px-4 sm:px-6 sm:pb-16 sm:pt-6 md:pe-8 md:ps-[150px]">
               <Chapter key={chapter.id} chapter={chapter} lang={lang} onActiveSection={onActiveSection} />
             </div>
           </main>
