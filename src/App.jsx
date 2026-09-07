@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { chapters, chapterById } from './lib/content.js'
 import { useHashRoute, useLocalStorage } from './lib/hooks.js'
-import { STORAGE_KEYS, site } from './config.js'
+import { STORAGE_KEYS, site, DEFAULT_LANG } from './config.js'
 import { t } from './lib/ui.js'
+import { stripMarkdown } from './lib/search.js'
 import { sectionDomId } from './components/Section.jsx'
 import TopBar from './components/TopBar.jsx'
 import Sidebar from './components/Sidebar.jsx'
@@ -14,8 +15,35 @@ function prefersDark() {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
+function setMetaTag(attrName, attrValue, content) {
+  if (content === undefined || content === null) return
+  let el = document.querySelector(`meta[${attrName}="${attrValue}"]`)
+  if (!el) {
+    el = document.createElement('meta')
+    el.setAttribute(attrName, attrValue)
+    document.head.appendChild(el)
+  }
+  el.setAttribute('content', content)
+}
+
+function setLinkTag(rel, href) {
+  if (!href) return
+  let el = document.querySelector(`link[rel="${rel}"]`)
+  if (!el) {
+    el = document.createElement('link')
+    el.setAttribute('rel', rel)
+    document.head.appendChild(el)
+  }
+  el.setAttribute('href', href)
+}
+
+function truncate(text = '', max = 160) {
+  const clean = text.replace(/\s+/g, ' ').trim()
+  return clean.length > max ? clean.slice(0, max - 1) + '…' : clean
+}
+
 export default function App() {
-  const [lang, setLang] = useLocalStorage(STORAGE_KEYS.lang, 'en')
+  const [lang, setLang] = useLocalStorage(STORAGE_KEYS.lang, DEFAULT_LANG)
   const [theme, setTheme] = useLocalStorage(STORAGE_KEYS.theme, prefersDark)
   const route = useHashRoute()
   const [activeSection, setActiveSection] = useState('')
@@ -26,7 +54,7 @@ export default function App() {
   const chapter = chapterById.get(route.chapter) ?? chapters[0]
 
   // <html lang dir> + theme class
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = document.documentElement
     el.lang = lang
     el.dir = lang === 'ar' ? 'rtl' : 'ltr'
@@ -35,11 +63,71 @@ export default function App() {
     document.documentElement.classList.toggle('dark', theme === 'dark')
   }, [theme])
 
-  // Document title
+  // Document title and dynamic SEO & Open Graph Meta Tags
   useEffect(() => {
-    const page = isPrint ? t(lang, 'printView') : chapter?.title[lang]
-    document.title = page ? `${page} · ${site.title[lang]}` : site.title[lang]
-  }, [lang, chapter, isPrint])
+    const section = route.section
+      ? chapter?.sections?.find((s) => s.id === route.section)
+      : null
+
+    const pageTitle = isPrint
+      ? `${t(lang, 'printView')} · ${site.title[lang]}`
+      : section
+        ? `${section.title[lang]} · ${chapter?.title[lang]} · ${site.title[lang]}`
+        : chapter
+          ? `${chapter.title[lang]} · ${site.title[lang]}`
+          : site.title[lang]
+
+    document.title = pageTitle
+
+    const rawDesc = isPrint
+      ? t(lang, 'printViewNote')
+      : section
+        ? section.body[lang]
+        : chapter?.intro?.[lang] || site.description?.[lang]
+
+    const pageDesc = truncate(stripMarkdown(rawDesc || ''))
+
+    // Image resolution: section asset -> first chapter asset
+    const assetObj = section?.asset?.file
+      ? section.asset
+      : chapter?.sections?.find((s) => s.asset?.file)?.asset
+
+    const imgUrl = assetObj?.file
+      ? new URL(`/assets/${chapter.id}/${assetObj.file}`, window.location.origin).href
+      : ''
+    const imgAlt = assetObj?.alt?.[lang] || section?.title?.[lang] || chapter?.title?.[lang] || ''
+
+    const currentUrl = window.location.href
+
+    // Standard Meta
+    setMetaTag('name', 'description', pageDesc)
+
+    // Open Graph
+    setMetaTag('property', 'og:site_name', site.title[lang])
+    setMetaTag('property', 'og:title', pageTitle)
+    setMetaTag('property', 'og:description', pageDesc)
+    setMetaTag('property', 'og:type', isPrint ? 'website' : 'article')
+    setMetaTag('property', 'og:url', currentUrl)
+    setMetaTag('property', 'og:locale', lang === 'ar' ? 'ar_AR' : 'en_US')
+    setMetaTag('property', 'og:locale:alternate', lang === 'ar' ? 'en_US' : 'ar_AR')
+
+    if (imgUrl) {
+      setMetaTag('property', 'og:image', imgUrl)
+      setMetaTag('property', 'og:image:alt', imgAlt)
+    }
+
+    // Twitter Card
+    setMetaTag('name', 'twitter:card', imgUrl ? 'summary_large_image' : 'summary')
+    setMetaTag('name', 'twitter:title', pageTitle)
+    setMetaTag('name', 'twitter:description', pageDesc)
+    if (imgUrl) {
+      setMetaTag('name', 'twitter:image', imgUrl)
+      setMetaTag('name', 'twitter:image:alt', imgAlt)
+    }
+
+    // Canonical link
+    setLinkTag('canonical', currentUrl)
+  }, [lang, chapter, route.section, isPrint])
 
   // Scroll on navigation (chapter or section). route.n changes on every
   // navigation, including repeats of the same hash.
@@ -90,7 +178,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       <TopBar
         lang={lang}
         theme={theme}
@@ -113,8 +201,8 @@ export default function App() {
             open={menuOpen}
             onClose={() => setMenuOpen(false)}
           />
-          <main className="md:ms-[280px]">
-            <div className="px-2 pb-12 pt-4 sm:px-3 sm:pt-6 md:px-6 md:pt-8">
+          <main className="min-w-0 md:ms-[284px]">
+            <div className="px-4 pb-16 pt-6 sm:px-6 md:px-8">
               <Chapter key={chapter.id} chapter={chapter} lang={lang} onActiveSection={onActiveSection} />
             </div>
           </main>

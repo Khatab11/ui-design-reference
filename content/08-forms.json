@@ -1,0 +1,93 @@
+{
+  "id": "forms",
+  "order": 8,
+  "title": {
+    "en": "Forms",
+    "ar": "النماذج"
+  },
+  "intro": {
+    "en": "Forms bridge the gap between user intent and server action. Learn how to craft high-converting forms with optimal field types, intuitive grouping, real-time validation, and effortless RTL layout.",
+    "ar": "النماذج هي وسيلة التواصل الحقيقية بين المستخدم والسيستم. اتعلم إزاي تصمم نماذج بمعدل إتمام عالي، تختار عناصر الإدخال الصح، تنظم الحقول منطقياً، وتوفر تحقق فوري في الواجهات العربية."
+  },
+  "sections": [
+    {
+      "id": "what-are-forms",
+      "title": {
+        "en": "What Are Forms & Conversion Rates",
+        "ar": "إيه هي النماذج ومعدل الإتمام؟"
+      },
+      "body": {
+        "en": "A form is the digital equivalent of administrative paperwork — the primary vehicle for sign-ups, checkouts, profile edits, and searches. Every unnecessary field is an obstacle that tempts the user to abandon the process.\n\nYour primary metric as a product designer is the **conversion rate** (the percentage of visitors who complete and submit the form). Every layout decision, label, and micro-interaction must exist to push that completion number higher.",
+        "ar": "النموذج (Form) هو الطريقة اللي المستخدم بيبعت بيها معلومات للسيرفر — تسجيل دخول، عنوان شحن، أو بيانات دفع. تخيل إنه المعادل الرقمي لورقة حكومية بتملاها؛ لو النموذج طويل أو معقد المستخدم هيزهق ويسيبه في النص.\n\nهدفك الأساسي كمصمم هو **معدل الإتمام (Conversion Rate)**: النسبة المئوية للناس اللي كملت النموذج بنجاح من إجمالي اللي فتحوه. كل تفصيلة في التصميم موجودة عشان تسهل الرحلة وترفع النسبة دي."
+      }
+    },
+    {
+      "id": "form-elements",
+      "title": {
+        "en": "Core Form Elements & Selection Controls",
+        "ar": "عناصر النماذج وأدوات الاختيار"
+      },
+      "body": {
+        "en": "Pick the right control for the right data:\n\n- **Text Field:** General inputs (names, emails, passwords, numbers).\n- **Dropdown:** Reserved for **long lists** (e.g. countries, regions). If you have 4 options or fewer, **never use a dropdown — use Radio Buttons instead**.\n- **Radio Buttons:** For short, mutually exclusive option lists (2–4 items), presenting all choices simultaneously.\n- **Checkboxes:** For selecting one or multiple independent options.\n- **Switches (Toggles):** For immediate-effect binary settings that take effect without a \"Save\" button.\n- **Sliders:** For approximate numerical ranges (e.g. price budget). Always accompany sliders with manual numeric inputs.",
+        "ar": "كل عنصر في النموذج ليه وظيفة محددة:\n\n- **حقل النص (Text Field):** للمدخلات الحرة زي الاسم والإيميل وكلمة السر.\n- **القائمة المنسدلة (Dropdown):** للقوائم الطويلة جداً (زي الدول أو المحافظات). **لو عندك ٤ اختيارات أو أقل، إياك تستخدم dropdown — استخدم أزرار Radio.**\n- **أزرار الاختيار (Radio Buttons):** للقوائم القصيرة واختيار واحد بس؛ بتعرض كل الخيارات بنظرة واحدة.\n- **صناديق التأشير (Checkboxes):** لاختيار عنصر أو أكتر معاً.\n- **المفاتيح (Switches):** للإعدادات اللحظية اللي مش محتاجة زرار حفظ (زي تشغيل الإشعارات).\n- **شريط التمرير (Slider):** للقيم التقريبية زي نطاقات الأسعار، ولازم يرافقه حقل كتابة يدوي."
+      },
+      "callout": {
+        "type": "tip",
+        "en": "Never hide 4 or fewer options behind a dropdown. Use visible Radio Buttons to eliminate friction and extra clicks.",
+        "ar": "لا تخفي ٤ اختيارات أو أقل داخل قائمة منسدلة؛ استخدم أزرار Radio لعرض الخيارات أمام المستخدم بنقرة واحدة."
+      },
+      "asset": {
+        "file": "form-controls.png",
+        "alt": {
+          "en": "Comparison of text fields, dropdowns, radio buttons, and checkboxes",
+          "ar": "مقارنة بين حقول النص والقوائم المنسدلة وأزرار الراديو وصناديق التأشير"
+        },
+        "ratio": "16:9",
+        "brief": "Visual comparison showcasing clean form components: a text field, an open vs closed dropdown, a radio button group, and a checkbox group."
+      }
+    },
+    {
+      "id": "field-design-principles",
+      "title": {
+        "en": "Principles of Great Field Design",
+        "ar": "مبادئ تصميم الحقول الاحترافية"
+      },
+      "body": {
+        "en": "Follow these battle-tested field patterns:\n\n1. **Keep Inputs Plain & Uncluttered:** Avoid heavy shadows or glowing backgrounds that make fields look like clickable buttons or cards.\n2. **Never Rely Solely on Placeholders:** Placeholder text vanishes as soon as the user begins typing. Use persistent or floating labels (as seen in Google Material Design).\n3. **Match Field Width to Content:** A 3-digit CVC field should not stretch across the entire screen width. Field width offers immediate cognitive guidance about the expected input.\n4. **Explain Sensitive Requests:** When requesting phone numbers or identity numbers, add a concise caption or info tooltip (e.g. \"Used only for two-factor verification code\").",
+        "ar": "اتبع القواعد دي لتصميم حقول سهلة ومريحة:\n\n1. **خلّي الحقول بسيطة:** تجنب الظلال البارزة أو الخلفيات اللي بتخلّي حقل الإدخال يشبه زرار أو كارت.\n2. **الـ Label لازم يفضل ظاهر:** النص الإرشادي (Placeholder) بيختفي أول ما المستخدم يبدأ يكتب. استخدم التسميات الثابتة أو المتحركة (Floating Labels).\n3. **عرض الحقل يناسب المحتوى:** حقل كود الأمان (CVC) المكون من ٣ أرقام مينفعش ياخد نفس عرض حقل رقم البطاقة الكامل؛ العرض بيدي إشارة لنوع البيانات.\n4. **وضح سبب طلب البيانات الحساسة:** لو بتطلب رقم الموبايل، اكتب تحته توضيح مباشر: \"هنستخدمه فقط لإرسال كود التأكيد\"."
+      },
+      "callout": {
+        "type": "note",
+        "en": "Mark optional fields explicitly with \"(Optional)\" instead of littering required fields with confusing asterisks (*).",
+        "ar": "اكتب كلمة \"(اختياري)\" بوضوح بجانب الحقول غير الإلزامية بدلاً من وضع نجمة (*) غير مفهومة للجميع."
+      }
+    },
+    {
+      "id": "single-column-flow",
+      "title": {
+        "en": "Single-Column Flow & Progressive Disclosure",
+        "ar": "التدفق في عمود واحد والتقسيم لخطوات"
+      },
+      "body": {
+        "en": "Multi-column forms force the eye to zig-zag unpredictably, doubling completion time. Keep forms strictly in a single vertical column for seamless downward progression.\n\n**Break Long Forms into Steps:** If a form requires 5 or more required fields, split it across clear, logical steps with an active progress bar. Grouping related fields (e.g. Personal Information, Delivery Address, Payment Details) substantially reduces perceived cognitive friction.",
+        "ar": "النماذج متعددة الأعمدة بتشتت حركة العين في مسارات متعرجة. رتّب الحقول دايمًا في **عمود واحد رأسي** عشان تضمن حركة عين طبيعية ومباشرة من فوق لتحت.\n\n**قسّم النماذج الطويلة لخطوات:** لو عندك ٥ حقول مطلوبة أو أكتر، وزّعهم على شاشات متتالية مع شريط تقدم (Progress Bar). تجميع الحقول المترابطة مع بعض بيدي إحساس بالراحة والسهولة."
+      }
+    },
+    {
+      "id": "realtime-validation-and-states",
+      "title": {
+        "en": "Real-Time Validation & Input States",
+        "ar": "التحقق الفوري وحالات الإدخال"
+      },
+      "body": {
+        "en": "The absolute worst UX failure is allowing a user to fill out 10 fields, hit Submit, and refresh the entire page with a generic red error message while clearing their entered data.\n\nProvide **real-time inline validation** as the user shifts focus away from each field. Support all six core input states:\n- Inactive (Resting)\n- Focused (Active cursor)\n- Writing (Content populated)\n- Success (Green checkmark confirmation)\n- Error (Inline explanation directly under the input)\n- Disabled (Muted affordance).",
+        "ar": "أسوأ كابوس في تجربة المستخدم: إنك تخليه يملا ١٠ حقول، يدوس \"إرسال\"، الصفحة تتحمل من الأول، وكل البيانات اللي كتبها تتمسح مع رسالة خطأ عامة!\n\nوفّر **تحقق فوري (Real-Time Validation)** بمجرد ما المستخدم ينتقل للحقل اللي بعده. ولازم تصمم الحالات الستة لأي حقل:\n- غير نشط (Inactive)\n- مركز عليه (Focused)\n- جاري الكتابة (Writing)\n- مكتمل بنجاح (Success)\n- خطأ محدد (Error مع نص توضيحي تحته مباشرة)\n- معطّل (Disabled)."
+      },
+      "callout": {
+        "type": "warning",
+        "en": "Never wipe out user form inputs upon server errors. Preserve their data and highlight precisely which field needs attention.",
+        "ar": "إياك تمسح بيانات كتبها المستخدم عند حدوث خطأ؛ حافظ على كل المدخلات وحدد الحقل المطلوب تعديله بدقة."
+      }
+    }
+  ]
+}

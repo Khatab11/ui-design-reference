@@ -1,0 +1,79 @@
+{
+  "id": "photos",
+  "order": 10,
+  "title": {
+    "en": "Photos",
+    "ar": "الصور"
+  },
+  "intro": {
+    "en": "Photos anchor digital products to tangible reality. Discover how to choose authentic contextual photography, apply accessible text overlays, guide attention with directional gaze, and curate culturally attuned imagery.",
+    "ar": "الصور هي اللي بتربط المنتج الرقمي بالواقع الملموس. اكتشف إزاي تختار صور طبيعية ومقنعة، تضمن وضوح النصوص فوق الصور بالـ Overlays، توجّه عين المستخدم باتجاه النظر، وتراعي الخصوصية الثقافية العربية."
+  },
+  "sections": [
+    {
+      "id": "power-of-photography",
+      "title": {
+        "en": "The Emotional Power of Real Photography",
+        "ar": "قوة التصوير الواقعي في بناء الثقة"
+      },
+      "body": {
+        "en": "While shapes, type, and color systems are abstract, photography depicts physical reality. Authentic imagery evokes empathy, demonstrates tangible value, and establishes instantaneous credibility.\n\nAvoid cheesy, staged stock photos with unnaturally jubilant models in artificial corporate poses. Candid, authentic photography showcasing real emotions fosters genuine trust.",
+        "ar": "في حين إن الخطوط والألوان عناصر مجردة، الصور الفوتوغرافية هي اللي بتمثل العالم الحقيقي الملموس. الصورة الطبيعية بتثير التعاطف وبتعكس قيمة المنتج وتبني الثقة في ثواني.\n\nتجنب صور الستوك المبتذلة اللي فيها ابتسامات مصطنعة ومبالغة تمثيلية في بيئات عمل مزيفة؛ الصور الحقيقية الطبيعية هي اللي بتصنع مصداقية دائمة."
+      }
+    },
+    {
+      "id": "cultural-context-and-relevance",
+      "title": {
+        "en": "Contextual Fit & Arabic Cultural Relevance",
+        "ar": "ملاءمة السياق والخصوصية الثقافية العربية"
+      },
+      "body": {
+        "en": "A photo is only as good as its contextual relevance. An immaculate, high-resolution supermarket image is a complete failure if placed on a luxury travel destination card.\n\n**Arabic Context Nuance:** When designing for Arab audiences, prioritize visual representation that mirrors regional culture, clothing, food, and family values. A photo of an authentic local family dinner resonates far more deeply with regional customers than generic Scandinavian stock imagery.",
+        "ar": "الصورة الممتازة تقنياً ممكن تكون كارثية لو كانت **مش مناسبة للسياق**. صورة سوبر ماركت عالية الجودة هتكون فاشلة جداً لو حطيتها في كارت حجز رحلات سياحية.\n\n**خصوصية الجمهور العربي:** لما تصمم لجمهور في الشرق الأوسط أو شمال إفريقيا، احرص على اختيار صور بتمثل ملامح وثقافة وعادات المنطقة. صورة عائلة عربية بتتناول وجبة طعام هتحرك مشاعر المستخدمين وتلامس واقعهم أكتر بكتير من صور مستوردة بعيدة عنهم."
+      },
+      "callout": {
+        "type": "note",
+        "en": "Authentic regional representation creates immediate emotional resonance with Arab users. Avoid mismatched Western stock tropes.",
+        "ar": "التمثيل الثقافي الأصيل في الصور يصنع ارتباطاً عاطفياً وثقة فورية مع المستخدم العربي؛ ابتعد عن صور الستوك الغربية غير الملائمة."
+      }
+    },
+    {
+      "id": "overlays-and-text-contrast",
+      "title": {
+        "en": "Overlays & Text Readability",
+        "ar": "الطبقات الشفافة ووضوح النص"
+      },
+      "body": {
+        "en": "Placing plain text directly over unedited photos is a recipe for unreadable typography. Variable image highlights and shadows inevitably destroy contrast.\n\nAlways introduce a **semi-transparent scrim or gradient overlay** (black, white, or brand-tinted). A brand-colored overlay simultaneously guarantees WCAG text contrast and ties disparate photography into your visual design system.",
+        "ar": "وضع نص عادي فوق صورة مباشرة من غير معالجة بيدمر إمكانية القراءة تماماً، لأن تباين الصورة بيتغير بين الأماكن الفاتحة والغامقة.\n\nالحل الأساسي: حط دايمًا **طبقة شفافة (Overlay)** بلون أسود أو أبيض أو بتدرج ناعم. استخدام طبقة ملوّنة بلون البراند بيحل مشكلة وضوح النص وبيربط كل الصور المتنوعة بهوية بصرية موحدة."
+      },
+      "callout": {
+        "type": "tip",
+        "en": "Always apply a semi-transparent dark overlay (e.g. 40%–60% black) when overlaying white text on photography to preserve contrast.",
+        "ar": "استخدم دائماً طبقة شفافة داكنة (من 40% إلى 60%) أسفل النصوص البيضاء فوق الصور لضمان سهولة القراءة."
+      }
+    },
+    {
+      "id": "focal-point-and-directional-gaze",
+      "title": {
+        "en": "Single Focal Point & Directional Gaze",
+        "ar": "نقطة التركيز البؤرية واتجاه النظر"
+      },
+      "body": {
+        "en": "Select photography featuring one clear, unambiguous focal point. If the viewer must search around to decipher the subject, the photo dilutes focus.\n\n**Directional Gaze:** Eye-tracking studies prove that human viewers naturally follow the gaze of people depicted in photos. If a person in the hero image looks towards your Call-to-Action button or value proposition, user eyes naturally follow their line of sight.\n\n**RTL Adaptation:** In Arabic interfaces where headlines and CTAs sit on the right, ensure the subject looks **towards the right**, reinforcing attention toward your primary conversion goal.",
+        "ar": "اختار صور ليها نقطة تركيز بؤرية واحدة واضحة؛ المستخدم مش المفروض يدور جوه الصورة عشان يفهمها.\n\n**اتجاه النظر (Directional Gaze):** أبحاث تتبع حركة العين أثبتت إن الناس بطبيعتهم بيتبعوا اتجاه نظرات الأشخاص في الصور. لو الشخص اللي في الصورة باصص ناحية زرار الـ CTA أو العنوان الرئيسي، عين المستخدم هتروح معاه تلقائياً.\n\n**قاعدة الـ RTL:** في الواجهات العربية، العنوان والأزرار غالباً على اليمين؛ احرص إن اتجاه نظر الشخص في الصورة يكون متجه ناحية اليمين مش الشمال."
+      }
+    },
+    {
+      "id": "storytelling-and-aspect-ratios",
+      "title": {
+        "en": "Storytelling & Responsive Aspect Ratios",
+        "ar": "القصة البصرية ونسب الأبعاد المتجاوبة"
+      },
+      "body": {
+        "en": "Photos must tell an aspirational story rather than merely cataloging raw objects. A flat photo of kitchen utensils conveys cold data; a happy family laughing while cooking dinner conveys aspiration, belonging, and joy. Remember: **people buy on emotion and justify with logic**.\n\nAlways test and crop your images across standard responsive aspect ratios (`16:9`, `4:3`, `1:1`, `4:5`) to prevent awkward cropping on mobile screens.",
+        "ar": "الصور لازم تحكي قصة ملهمة مش بس تعرض بضاعة جامدة. صورة شوك وسكاكين على خلفية بيضاء بتديك معلومة ميتة؛ لكن صورة عيلة بتطبخ مع بعض بتديك دفء وأمل وقصة حب. الناس بتشتري بالعاطفة وتبرر بالمنطق.\n\nاختبر دايمًا قص وتجاوب صورك بنسب الأبعاد المختلفة (16:9, 4:3, 1:1) على كل الشاشات عشان تتفادى قص الرؤوس أو التفاصيل المهمة على الموبايل."
+      }
+    }
+  ]
+}

@@ -7,57 +7,88 @@ import { CloseIcon, PrintIcon } from './Icons.jsx'
 export default function Sidebar({ lang, activeChapterId, activeSectionId, open, onClose }) {
   return (
     <>
-      {/* Mobile overlay */}
+      {/* Mobile overlay with blur and #1A1A1A tinted backdrop */}
       <div
         aria-hidden
         onClick={onClose}
-        className={`print-hidden fixed inset-0 z-40 bg-ink/40 transition-opacity md:hidden ${
-          open ? 'opacity-100' : 'pointer-events-none opacity-0'
+        className={`print-hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-200 md:hidden ${
+          open ? 'opacity-100 pointer-events-auto' : 'pointer-events-none opacity-0'
         }`}
       />
+
+      {/* Floating Sidebar adhering to 260px width in DESIGN_SYSTEM.md §8 */}
       <aside
         aria-label={t(lang, 'contents')}
-        className={`print-hidden fixed inset-y-0 start-0 z-50 flex w-[280px] flex-col border-e border-line bg-surface transition-transform duration-200 ease-out md:top-[64px] md:z-20 ${
-          open ? 'translate-x-0' : 'max-md:ltr:-translate-x-full max-md:rtl:translate-x-full'
-        }`}
+        className={`print-hidden fixed z-50 flex flex-col transition-all duration-200 ease-out
+          /* Mobile: floating sheet */
+          max-md:top-2 max-md:bottom-2 max-md:start-2 max-md:w-[min(280px,calc(100vw-16px))] max-md:rounded-card
+          ${open ? 'max-md:translate-x-0 max-md:opacity-100' : 'max-md:ltr:-translate-x-[calc(100%+24px)] max-md:rtl:translate-x-[calc(100%+24px)] max-md:opacity-0 max-md:pointer-events-none'}
+          /* Desktop: 260px sidebar */
+          md:top-[76px] md:bottom-3 md:start-3 md:w-[260px] md:z-20 md:rounded-card
+          bg-surface border border-line shadow-overlay`}
       >
-        <div className="flex h-[64px] shrink-0 items-center justify-between px-3 md:hidden">
-          <span className="text-base font-semibold text-ink">{site.title[lang]}</span>
+        {/* Mobile Header */}
+        <div className="flex h-[56px] shrink-0 items-center justify-between border-b border-line px-3 md:hidden">
+          <div className="flex items-center gap-2">
+            <div className="flex h-7 w-7 items-center justify-center rounded-[6px] bg-action text-white font-semibold text-xs">
+              UI
+            </div>
+            <span className="text-sm font-semibold text-ink">{site.title[lang]}</span>
+          </div>
           <button
             type="button"
             onClick={onClose}
             aria-label={t(lang, 'closeMenu')}
-            className="-me-1 rounded p-1 text-ink-2 hover:bg-raised hover:text-ink"
+            className="btn btn--secondary btn--sm flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center p-0"
           >
-            <CloseIcon />
+            <CloseIcon width="16" height="16" />
           </button>
         </div>
 
-        <nav className="flex-1 overflow-y-auto px-2 py-3 md:py-4">
-          <p className="px-1.5 text-xs font-medium uppercase tracking-wide text-ink-3">
-            {t(lang, 'contents')}
-          </p>
-          <ol className="mt-1.5">
+        {/* Desktop Header Badge */}
+        <div className="hidden shrink-0 items-center justify-between border-b border-line px-3 py-3 md:flex">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-action" />
+            <span className="label text-muted">
+              {t(lang, 'contents')}
+            </span>
+          </div>
+          <span className="tag tag--neutral py-0 px-1.5 font-mono text-[10px]">
+            {chapters.length} {lang === 'ar' ? 'فصل' : 'chapters'}
+          </span>
+        </div>
+
+        {/* Navigation Content */}
+        <nav className="flex-1 overflow-y-auto px-2 py-2">
+          <ol className="space-y-1">
             {chapters.map((chapter, i) => {
               const active = chapter.id === activeChapterId
               return (
-                <li key={chapter.id} className="mt-0.5">
+                <li key={chapter.id} className="group/item">
                   <a
                     href={hrefFor(chapter.id)}
                     aria-current={active ? 'page' : undefined}
-                    className={`flex items-baseline gap-1.5 rounded px-1.5 py-1 text-sm transition-colors ${
+                    className={`flex items-center gap-2 rounded-control px-2.5 py-2 text-sm font-medium transition-all no-underline ${
                       active
-                        ? 'bg-accent-soft font-medium text-accent-ink'
-                        : 'text-ink-2 hover:bg-raised hover:text-ink'
+                        ? 'bg-action-tint text-action font-semibold border border-action-tint-line'
+                        : 'text-body hover:bg-ground hover:text-ink border border-transparent'
                     }`}
                   >
-                    <span className="w-2 shrink-0 font-mono text-xs text-ink-3">
+                    <span
+                      className={`flex h-5 w-5 shrink-0 items-center justify-center rounded font-mono text-[11px] font-semibold transition-colors ${
+                        active
+                          ? 'bg-action text-white'
+                          : 'bg-surface-sunken text-muted group-hover/item:text-body'
+                      }`}
+                    >
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span>{chapter.title[lang]}</span>
+                    <span className="truncate">{chapter.title[lang]}</span>
                   </a>
+
+                  {/* Subsections under active chapter */}
                   {active && (
-                    <ol className="ms-2 mt-0.5 border-s border-line">
+                    <ol className="ms-3 mt-1 space-y-0.5 border-s border-line ps-2.5">
                       {chapter.sections.map((section) => {
                         const current = section.id === activeSectionId
                         return (
@@ -65,10 +96,10 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
                             <a
                               href={hrefFor(chapter.id, section.id)}
                               aria-current={current ? 'location' : undefined}
-                              className={`-ms-px block border-s-2 py-0.5 pe-1 ps-2 text-sm transition-colors ${
+                              className={`-ms-px block border-s-2 py-1.5 pe-1.5 ps-2 text-xs leading-relaxed transition-all rounded-e no-underline ${
                                 current
-                                  ? 'border-accent text-ink'
-                                  : 'border-transparent text-ink-2 hover:border-line-strong hover:text-ink'
+                                  ? 'border-action font-semibold text-action bg-action-tint/50'
+                                  : 'border-transparent text-muted hover:border-line-strong hover:bg-ground hover:text-ink'
                               }`}
                             >
                               {section.title[lang]}
@@ -84,12 +115,13 @@ export default function Sidebar({ lang, activeChapterId, activeSectionId, open, 
           </ol>
         </nav>
 
+        {/* Footer / Print Option */}
         <div className="shrink-0 border-t border-line p-2">
           <a
             href="#/print"
-            className="flex items-center gap-1 rounded px-1.5 py-1 text-sm text-ink-2 hover:bg-raised hover:text-ink"
+            className="btn btn--secondary btn--sm w-full gap-2 text-xs"
           >
-            <PrintIcon width="18" height="18" />
+            <PrintIcon width="16" height="16" className="text-muted" />
             <span>{t(lang, 'printAll')}</span>
           </a>
         </div>

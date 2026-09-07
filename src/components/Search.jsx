@@ -58,18 +58,18 @@ export default function Search({ lang, open, onClose }) {
 
   return (
     <div
-      className="print-hidden fixed inset-0 z-[60] flex items-start justify-center bg-ink/40 p-2 pt-[10vh] sm:p-3 sm:pt-[12vh]"
+      className="print-hidden fixed inset-0 z-[60] flex items-start justify-center bg-black/40 backdrop-blur-xs p-2 pt-[10vh] sm:p-3 sm:pt-[12vh]"
       onMouseDown={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
         role="dialog"
         aria-modal="true"
         aria-label={t(lang, 'search')}
-        className="flex max-h-[70vh] w-full max-w-[640px] flex-col overflow-hidden rounded-lg border border-line bg-surface shadow-xl"
+        className="modal flex max-h-[70vh] w-full max-w-[640px] flex-col overflow-hidden"
         onKeyDown={onKeyDown}
       >
-        <div className="flex items-center gap-1.5 border-b border-line px-2">
-          <SearchIcon className="shrink-0 text-ink-3" />
+        <div className="flex items-center gap-2 border-b border-line px-3 focus-within:border-action focus-within:ring-2 focus-within:ring-action">
+          <SearchIcon className="shrink-0 text-muted" width="20" height="20" />
           <input
             ref={inputRef}
             type="search"
@@ -79,12 +79,12 @@ export default function Search({ lang, open, onClose }) {
             aria-label={t(lang, 'search')}
             autoComplete="off"
             spellCheck={false}
-            className="h-[56px] w-full bg-transparent text-base text-ink placeholder:text-ink-3 focus:outline-none"
+            className="h-[56px] w-full bg-transparent text-[17px] text-ink placeholder:text-muted focus:outline-none"
           />
           <button
             type="button"
             onClick={onClose}
-            className="hidden rounded-sm border border-line px-0.5 text-xs text-ink-3 sm:block"
+            className="hidden tag tag--neutral sm:inline-flex cursor-pointer"
           >
             Esc
           </button>
@@ -92,13 +92,13 @@ export default function Search({ lang, open, onClose }) {
 
         <div className="overflow-y-auto">
           {query.trim() === '' && (
-            <p className="px-2 py-3 text-sm text-ink-3">{t(lang, 'searchHint')}</p>
+            <p className="px-4 py-4 text-sm text-muted">{t(lang, 'searchHint')}</p>
           )}
           {query.trim() !== '' && results.length === 0 && (
-            <p className="px-2 py-3 text-sm text-ink-3">{t(lang, 'noResults')}</p>
+            <p className="px-4 py-4 text-sm text-muted">{t(lang, 'noResults')}</p>
           )}
           {results.length > 0 && (
-            <ul ref={listRef} role="listbox" className="py-1">
+            <ul ref={listRef} role="listbox" className="py-2">
               {results.map((r, i) => (
                 <li
                   key={`${r.item.chapterId}/${r.item.sectionId}`}
@@ -107,29 +107,29 @@ export default function Search({ lang, open, onClose }) {
                   onMouseEnter={() => setCursor(i)}
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => go(r)}
-                  className={`cursor-pointer border-s-2 px-2 py-1 ${
-                    i === cursor ? 'border-accent bg-raised' : 'border-transparent'
+                  className={`cursor-pointer border-s-2 px-4 py-2 transition-colors ${
+                    i === cursor ? 'border-action bg-action-tint text-ink' : 'border-transparent text-body hover:bg-ground hover:text-ink'
                   }`}
                 >
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-base font-medium text-ink">{r.item.title}</span>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-[15px] font-semibold text-ink">{r.item.title}</span>
                     {r.item.sectionId && (
-                      <span className="truncate text-xs text-ink-3">
+                      <span className="truncate text-xs text-muted">
                         {t(lang, 'inChapter')} {r.item.chapterTitle}
                       </span>
                     )}
                   </div>
-                  <p className="mt-0.5 line-clamp-2 text-sm leading-[22px] text-ink-2">{excerpt(r)}</p>
+                  <p className="mt-1 line-clamp-2 text-sm leading-[22px] text-body">{excerpt(r)}</p>
                 </li>
               ))}
             </ul>
           )}
         </div>
 
-        <div className="hidden items-center gap-2 border-t border-line px-2 py-1 text-xs text-ink-3 sm:flex">
-          <span><kbd className="font-sans">↑↓</kbd> {t(lang, 'keyboardHint')}</span>
-          <span><kbd className="font-sans">↵</kbd> {t(lang, 'keyboardSelect')}</span>
-          <span><kbd className="font-sans">Esc</kbd> {t(lang, 'keyboardClose')}</span>
+        <div className="hidden items-center gap-3 border-t border-line px-4 py-2 text-xs text-muted sm:flex">
+          <span><kbd className="font-sans font-semibold">↑↓</kbd> {t(lang, 'keyboardHint')}</span>
+          <span><kbd className="font-sans font-semibold">↵</kbd> {t(lang, 'keyboardSelect')}</span>
+          <span><kbd className="font-sans font-semibold">Esc</kbd> {t(lang, 'keyboardClose')}</span>
         </div>
       </div>
     </div>

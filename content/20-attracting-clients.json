@@ -1,0 +1,79 @@
+{
+  "id": "attracting-clients",
+  "order": 20,
+  "title": {
+    "en": "Attracting Clients",
+    "ar": "جذب العملاء والمتابعين"
+  },
+  "intro": {
+    "en": "Talent alone does not guarantee commercial success. Discover how to leverage social platforms, maintain daily publishing consistency, build relevant industry portfolios, and bridge the gap between social concepts and production reality.",
+    "ar": "المهارة وحدها مش كفاية للنجاح التجاري. اكتشف إزاي تستغل منصات السوشيال ميديا، تبني عادة النشر اليومي، تستهدف نوعية العملاء المناسبة، وتسد الفجوة بين استعراضات المعارض ومتطلبات الشغل الحقيقي."
+  },
+  "sections": [
+    {
+      "id": "the-social-media-reality",
+      "title": {
+        "en": "The Reality of Social Media Algorithms",
+        "ar": "حقيقة خوارزميات السوشيال ميديا"
+      },
+      "body": {
+        "en": "On social media platforms (Instagram, Dribbble, X, LinkedIn), visually flashy, highly stylized concept work regularly outperforms sensible, quiet, accessible production layouts. That is the nature of algorithmic feeds.\n\nEmbrace this reality pragmatically: use polished presentation aesthetics to capture top-of-funnel attention, while delivering rigorous usability and rock-solid systems in your paid client engagements.",
+        "ar": "في منصات السوشيال ميديا (إنستجرام، دريبل، لينكدإن)، الشغل المبهر بصرياً بيوصل لناس أكتر بكتير من الشغل الهادئ العملي المبني على قواعد صارمة. دي طبيعة خوارزميات المنصات ولازم تتقبلها بذكاء.\n\nاستغل الجاذبية البصرية وطرق العرض الفخمة عشان تجذب انتباه الجمهور والمتابعين، وفي نفس الوقت حافظ على أعلى معايير الاستخدام في شغلك الحقيقي للعملاء."
+      }
+    },
+    {
+      "id": "daily-output-and-consistency",
+      "title": {
+        "en": "The Habit of Daily Output",
+        "ar": "عادة الإنتاج اليومي المستمر"
+      },
+      "body": {
+        "en": "The single most potent growth habit for a designer is daily creative production. Publishing daily builds technical velocity and amasses an audience simultaneously.\n\n**Arabic Regional Dynamic:** The Arabic design ecosystem is booming. Creating educational Arabic design breakdowns on LinkedIn and Instagram positions you as a leading authority across Saudi Arabia, the UAE, Egypt, and the wider MENA region.",
+        "ar": "أقوى نصيحة في النمو المهني: الإنتاج المستمر والنشر المنتظم. لما تعمل وتنشر حاجة كل يوم، مهاراتك بتتضاعف وجمهورك بيكبر في نفس الوقت.\n\n**ديناميكية السوق العربي:** المحتوى التعليمي العربي المتخصص في تصميم الواجهات لسه قليل ومطلوب جداً؛ صناعة محتوى تحليلي بالعربي على لينكدإن وإنستجرام بيبنيك كمرجع وخبير موثوق في مصر ودول الخليج."
+      },
+      "callout": {
+        "type": "tip",
+        "en": "Consistent posting compounds both craft and inbound client reach. Daily production is the greatest competitive advantage.",
+        "ar": "الاستمرارية في النشر تبني المهارة وتجلب العملاء بشكل تلقائي؛ الإنتاج اليومي هو أكبر ميزة تنافسية للمصمم."
+      }
+    },
+    {
+      "id": "multi-platform-distribution",
+      "title": {
+        "en": "Multi-Platform Distribution & Explicit Availability",
+        "ar": "النشر متعدد المنصات وإعلان الجاهزية للعمل"
+      },
+      "body": {
+        "en": "Once you finish a piece of work, distribute it across multiple channels: Instagram, Behance, LinkedIn, X, and Dribbble. Repurposing one asset across five networks multiplies your client surface area for zero extra cost.\n\n**Broadcast Your Availability:** Many designers on portfolio sites have full-time agency jobs and cannot take client work. If you are freelancing, state it explicitly in your bio and caption: *\"Available for select product design projects: contact@example.com\"*.",
+        "ar": "أول ما تخلص تصميم اعرضه في كل مكان: لينكدإن، بيهانس، إنستجرام، ودريبل؛ إعادة نشر نفس العمل على منصات متعددة بيضاعف فرص اكتشافك بدون مجهود إضافي.\n\n**أعلن بوضوح إنك متاح للشغل:** مصممين كتير عندهم وظائف ثابتة ومش متاحين؛ عشان كده لو إنت فري لانسر اكتب في البايو بوضوح: *\"متاح لمشاريع تصميم واجهات جديدة — تواصل معي: email@example.com\"*."
+      }
+    },
+    {
+      "id": "target-client-relevance",
+      "title": {
+        "en": "Designing for Your Desired Client Tier",
+        "ar": "صمم للمجال اللي عايز تجذب عملاؤه"
+      },
+      "body": {
+        "en": "Clients search portfolios by industry keyword (e.g. \"fintech banking app\", \"food delivery checkout\"). If your portfolio consists exclusively of crypto dashboards, e-commerce fashion brands won't hire you.\n\n**MENA High-Demand Sectors:** In the Arab market, the most active hiring sectors are:\n1. Fast-Commerce & On-Demand Delivery\n2. FinTech & Digital Wallets\n3. HealthTech & Telemedicine\n4. Digital Government Services\nCurate your public case studies around these sectors to maximize regional contract opportunities.",
+        "ar": "العملاء بيبحثوا في البورتفوليو حسب مجال البيزنس (تطبيق بنكي، متجر أزياء، تطبيق حجز). لو كل معرض أعمالك تطبيقات ألعاب، مش هيجيلك عملاء استثمار وبنوك.\n\n**أكثر القطاعات طلباً في السوق العربي:**\n1. تطبيقات التوصيل والتجارة السريعة\n2. التكنولوجيا المالية (FinTech) والمحافظ الرقمية\n3. الصحة وحجز العيادات\n4. المنصات الحكومية الرقمية\nركز مشاريعك على المجالات دي عشان تفتح لنفسك أكبر فرص تعاقد في المنطقة."
+      }
+    },
+    {
+      "id": "social-vs-production-gap",
+      "title": {
+        "en": "Navigating the Social vs. Production Gap",
+        "ar": "الفجوة بين استعراضات السوشيال والمنتجات الحقيقية"
+      },
+      "body": {
+        "en": "Never blur the line between stylized concept mockups and deliverable production UI. If a client falls in love with an unbuildable fantasy concept, they will be disappointed when edge cases, performance budgets, and backend data force real-world compromises.\n\nEducate your clients clearly on the difference between creative visual moodboards and production-ready component systems.",
+        "ar": "حافظ دايمًا على خط فاصل وواضح بين الموك أب الاستعراضي لوسائل التواصل، وبين التصميم القابل للبرمجة والإنتاج الفعلي. لو العميل انبهر بفكرة خيالية مستحيلة التنفيذ برمجياً، هيتصدم لما تضطروا تعدلوها لتناسب قيود الواقع.\n\nوضّح للعميل دايمًا الفرق بين اللوحات الإلهامية وبين نظام التصميم الهندسي الجاهز للتسليم."
+      },
+      "callout": {
+        "type": "warning",
+        "en": "Do not promise unbuildable conceptual aesthetics to clients. Bridge client expectations with realistic, production-viable architectures.",
+        "ar": "لا تعد العملاء بتصميمات استعراضية يستحيل تنفيذها برمجياً؛ وفّق بين الإبهار البصري وقابلية التطبيق الواقعية."
+      }
+    }
+  ]
+}
