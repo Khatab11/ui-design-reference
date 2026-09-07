@@ -7,7 +7,7 @@
   },
   "intro": {
     "en": "A transparent walkthrough of an end-to-end product design workflow from deep discovery and rapid ugly sketches to wireframing, token assembly, and client presentation.",
-    "ar": "رحلة عمل متكاملة وشاملة لمصمم واجهات محترف من أول فهم المشكلة الحقيقية والاسكتشات السريعة، لحد الوايرفريمز واختيار الأصول وفن عرض التصميم على العميل."
+    "ar": "جولة إرشادية شفافة لسير عمل تصميم منتج شامل من الاكتشاف العميق والرسومات الأولية السريعة إلى التخطيط الهيكلي (Wireframing)، وتجميع الأصول (Tokens)، وعرضه للعميل."
   },
   "sections": [
     {
@@ -18,12 +18,12 @@
       },
       "body": {
         "en": "This is the single most critical phase of product design. You can build the most visually breathtaking interface on earth, but if it solves the wrong problem — or solves a non-existent problem — it is fundamentally worthless.\n\nFreelance clients often believe hiring a UI designer just means \"making it look modern\". You must champion UX discovery: interviewing stakeholders, mapping core user flows, and defining true success metrics before opening your design canvas.",
-        "ar": "دي أهم خطوة على الإطلاق في دورة حياة أي منتج. ممكن تصمم أحلى واجهة شافتهم عين في العالم، لكن لو بتحل المشكلة الغلط أو المستخدمين مش محتاجينها، قيمتها الحقيقية صفر.\n\nالعملاء في الغالب بيفكروا إن مصمم الواجهات شغلته \"يجمّل الشكل وبس\". دورك كمحترف إنك تغوص في بحث تجربة المستخدم، تفهم رحلة المستخدم، وتحدد المشكلة بدقة قبل ما تلمس أي زرار تصميم."
+        "ar": "هذه هي المرحلة الأكثر أهمية في تصميم المنتج. يمكنك بناء الواجهة الأكثر إبهارًا بصريًا على وجه الأرض، ولكن إذا كانت تحل المشكلة الخاطئة - أو تحل مشكلة غير موجودة - فهي بلا قيمة في الأساس.\n\nغالبًا ما يعتقد العملاء المستقلون أن توظيف مصمم واجهة مستخدم (UI designer) يعني فقط \"جعل التصميم يبدو حديثًا\". يجب أن تدافع عن اكتشاف تجربة المستخدم (UX discovery): إجراء مقابلات مع أصحاب المصلحة، ورسم خرائط لتدفقات المستخدم الأساسية (Core user flows)، وتحديد مقاييس النجاح الحقيقية قبل فتح لوحة التصميم الخاصة بك."
       },
       "callout": {
         "type": "quote",
         "en": "Good UX is the indispensable foundation of good UI. A gorgeous screen that solves the wrong problem is a failure.",
-        "ar": "تجربة المستخدم السليمة هي الأساس الحقيقي لأي واجهة؛ الواجهة المبهرة التي تحل مشكلة وهمية هي تصميم فاشل."
+        "ar": "تجربة المستخدم الجيدة (Good UX) هي الأساس الذي لا غنى عنه لواجهة المستخدم الجيدة (Good UI). الشاشة الرائعة التي تحل المشكلة الخاطئة هي فشل."
       }
     },
     {
@@ -34,7 +34,7 @@
       },
       "body": {
         "en": "The goal of early ideation is transferring concepts from your brain onto paper as quickly and cheaply as possible.\n\n**The Rule:** Quantity trumps beauty. Ten rough, messy sketches exploring distinct layout structures are infinitely more valuable than one polished drawing. Do not think about fonts, colors, or shadows. Uncoupling structural exploration from visual styling liberates rapid experimentation.",
-        "ar": "الهدف هنا إنك تفرّغ الأفكار من دماغك على الورق بأسرع وأرخص طريقة ممكنة.\n\n**القاعدة الأساسية: الكمية أهم من الجمال في المرحلة دي.** ١٠ رسومات سريعة وخشنة بتستكشف ١٠ طرق مختلفة لحل الشاشة أحسن بكتير من رسمة واحدة متزوقة. افصل التفكير في الهيكل تماماً عن التفكير في الخطوط والألوان."
+        "ar": "الهدف من التفكير المبكر هو نقل المفاهيم من عقلك إلى الورق بأسرع وأرخص طريقة ممكنة.\n\n**القاعدة:** الكمية تتفوق على الجمال. عشرة رسومات تخطيطية خشنة وفوضوية تستكشف هياكل تخطيط متميزة هي أكثر قيمة بكثير من رسمة واحدة مصقولة. لا تفكر في الخطوط أو الألوان أو الظلال. إن فصل الاستكشاف الهيكلي عن التصميم المرئي يحرر التجريب السريع."
       }
     },
     {
@@ -45,13 +45,13 @@
       },
       "body": {
         "en": "Translate your strongest paper concepts into digital low-fidelity wireframes in Figma. Wireframes represent the foundational agreement point between you and the client.\n\nReviewing wireframes in greyscale ensures stakeholders focus exclusively on content placement, navigation hierarchy, and user journey flow before getting distracted by personal color debates.",
-        "ar": "حوّل أفضل الاسكتشات الورقية لهياكل رقمية سريعة (Wireframes) بالأبيض والأسود في فيجما. الوايرفريم هو نقطة الاتفاق والوضوح المشترك بينك وبين العميل.\n\nمراجعة الهيكل بدون ألوان بتجبر العميل يركز على تدفق الرحلة، سهولة التصفح، وأماكن المعلومات المهمة، بعيداً عن الجدل العاطفي في الألوان."
+        "ar": "ترجم أقوى مفاهيمك الورقية إلى إطارات سلكية (Wireframes) رقمية منخفضة الدقة في Figma. تمثل الإطارات السلكية نقطة الاتفاق التأسيسية بينك وبين العميل.\n\nتضمن مراجعة الإطارات السلكية بتدرج الرمادي تركيز أصحاب المصلحة حصريًا على وضع المحتوى، والتسلسل الهرمي للتنقل (Navigation hierarchy)، وتدفق رحلة المستخدم (User journey flow) قبل التشتت بسبب النقاشات الشخصية حول الألوان."
       },
       "asset": {
         "file": "wireframe-to-ui.png",
         "alt": {
           "en": "Progression from rough sketch to wireframe to high fidelity UI",
-          "ar": "مراحل تطور التصميم: من اسكتش ورقي إلى وايرفريم ثم واجهة نهائية"
+          "ar": "التقدم من الرسم التخطيطي الأولي إلى الإطار السلكي (Wireframe) ثم واجهة المستخدم عالية الدقة"
         },
         "ratio": "16:9",
         "brief": "Three frames side-by-side: a hand-drawn napkin sketch on the left, a clean greyscale wireframe in the center, and the finished high-fidelity colored UI on the right."
@@ -65,7 +65,7 @@
       },
       "body": {
         "en": "Only after the wireframe structure is locked should you choose your design tokens: font pairings, color palettes, icon weights, and component styling.\n\nLocking design tokens in collaboration with the client prevents endless revisions later. Once the typography scale and color system are ratified, applying them to the validated wireframe flows smoothly and predictably.",
-        "ar": "بعد ما الهيكل والوايرفريم يتثبت ويتوافق عليه، تبدأ مرحلة اختيار الأصول البصرية: الخطوط، باليتة الألوان، وحزمة الأيقونات.\n\nالاتفاق على الهوية البصرية مع العميل قبل البدء في تلوين الشاشات بيمنع أي سوء تفاهم لاحق. تطبيق الأصول على هيكل جاهز ومدروس بيخلي مرحلة الإنتاج سلسة جداً."
+        "ar": "فقط بعد تأمين بنية الإطار السلكي (Wireframe) يجب عليك اختيار رموز التصميم الخاصة بك: أزواج الخطوط، ولوحات الألوان، وأوزان الأيقونات، وتصميم المكونات.\n\nيمنع قفل أصول التصميم بالتعاون مع العميل المراجعات التي لا نهاية لها لاحقًا. بمجرد التصديق على مقياس الطباعة ونظام الألوان، فإن تطبيقها على الإطار السلكي المعتمد يتدفق بسلاسة وبشكل متوقع."
       }
     },
     {
@@ -76,12 +76,12 @@
       },
       "body": {
         "en": "Never send raw Figma links or silent export zip files to a client. Clients lack your domain training and will evaluate work purely on subjective whims.\n\n**Present via Live Walkthrough or Loom Video:** Walk through your screens systematically, articulating **why** each design choice was made, which user problems it solves, and how it drives business objectives. Explaining your rationale cuts revision cycles in half and establishes you as an authoritative strategic partner.",
-        "ar": "إياك تبعت لينكات فيجما أو ملفات صور صامتة في إيميل وتقول للعميل \"شوف وقولي رأيك\". العميل مش متخصص ودايمًا هيحكم بذوقه الشخصي السطحي.\n\n**اعرض الشغل في مكالمة أو فيديو Loom مسجل:** اشرح الشاشات خطوة بخطوة ووضّح **ليه** أخدت كل قرار، وازاي التصميم ده بيخدم أهداف البيزنس ويسهل حياة المستخدم. شرح الأسباب بيختصر 50% من طلبات التعديل العشوائية ويرسخ مكانتك كمستشار خبير مش مجرد رسام."
+        "ar": "لا ترسل أبدًا روابط Figma خام أو ملفات تصدير مضغوطة صامتة إلى عميل. يفتقر العملاء إلى تدريبك في المجال وسيقيمون العمل بناءً على أهواء شخصية بحتة.\n\n**اعرض من خلال جولة حية (Live Walkthrough) أو مقطع فيديو Loom:** تجول عبر شاشاتك بشكل منهجي، موضحًا سبب اتخاذ كل خيار تصميم، ومشاكل المستخدم التي يحلها، وكيف يدفع أهداف العمل. يؤدي شرح الأسباب الكامنة وراء قراراتك إلى تقليص دورات المراجعة إلى النصف ويؤسس لك كشريك استراتيجي موثوق."
       },
       "callout": {
         "type": "tip",
         "en": "Never deliver designs without explaining the strategic rationale behind key decisions. Walking clients through solutions prevents random feedback loops.",
-        "ar": "لا تسلم ملفات التصميم بدون شرح منطق القرارات؛ تقديم الأسباب الاستراتيجية يحمي التصميم من طلبات التعديل غير المدروسة."
+        "ar": "لا تقدم تصميمات أبدًا دون شرح الأسباب الاستراتيجية وراء القرارات الرئيسية. توجيه العملاء عبر الحلول يمنع حلقات التغذية الراجعة العشوائية."
       }
     }
   ]

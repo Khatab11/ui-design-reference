@@ -1,53 +1,68 @@
 {
   "id": "basics",
   "order": 1,
-  "title": { "en": "The Basics", "ar": "الأساسيات" },
+  "title": {
+    "en": "The Basics",
+    "ar": "الأساسيات"
+  },
   "intro": {
     "en": "What UI Design is, what makes it good, what it is physically made of — screens, objects and their properties — and how human perception creates hierarchy before you do.",
-    "ar": "إيه هو الـ UI Design، وإيه اللي بيخلّيه كويس، ومن إيه هو متكوّن فعليًا — شاشات وعناصر وخصائصها — وإزاي إدراك المستخدم بيصنع هيراركي قبل ما إنت تصنعه."
+    "ar": "ما هو الـ UI Design، وما الذي يجعله جيدًا، ومم يتكون فعليًا — من شاشات وعناصر وخصائصها — وكيف يخلق الإدراك البشري التسلسل الهرمي (Hierarchy) قبل أن تفعل أنت ذلك."
   },
   "sections": [
     {
       "id": "what-is-ui",
-      "title": { "en": "What is UI Design?", "ar": "إيه هو الـ UI Design؟" },
+      "title": {
+        "en": "What is UI Design?",
+        "ar": "ما هو الـ UI Design؟"
+      },
       "body": {
         "en": "User Interface Design refers to the visual elements of a digital product. It focuses on looks and style rather than the overall experience. Think of it as the *surface* of a digital product — a surface that has a large impact on the experience underneath it.\n\n**What makes a user interface good?** Two things, together:\n\n1. **Usable** — the user can complete their goal.\n2. **Delightful** — the interface is likeable and enjoyable to use.\n\nDon't treat this as a definitive checklist. UI Design is too broad to reduce to a few simple steps.",
-        "ar": "الـ User Interface Design بيشير للعناصر البصرية في المنتج الرقمي. بيركّز على الشكل والستايل، مش على التجربة الكاملة. اعتبره **سطح** المنتج الرقمي — سطح ليه تأثير كبير على التجربة اللي تحته.\n\n**إيه اللي بيخلّي الواجهة كويسة؟** حاجتين مع بعض:\n\n1. **Usable** — المستخدم يقدر يحقق هدفه.\n2. **Delightful** — الواجهة محبَّبة وممتعة في الاستخدام.\n\nمتاخدش ده على إنه تشيك ليست نهائية. الـ UI Design أوسع من إنه يتلخّص في كام خطوة بسيطة."
+        "ar": "يشير الـ User Interface Design إلى العناصر المرئية في المنتج الرقمي. يركز على المظهر والأسلوب، وليس على التجربة الشاملة. اعتبره بمثابة سطح المنتج الرقمي — سطح له تأثير كبير على التجربة التي تكمن تحته.\n\n**ما الذي يجعل واجهة المستخدم جيدة؟** شيئان معًا:\n\n1. **قابلة للاستخدام (Usable)** — يمكن للمستخدم تحقيق هدفه.\n2. **ممتعة (Delightful)** — الواجهة محببة وممتعة في الاستخدام.\n\nلا تتعامل مع هذا كقائمة مرجعية نهائية. إن الـ UI Design أوسع بكثير من أن يتم اختزاله في بضع خطوات بسيطة."
       }
     },
     {
       "id": "usability",
-      "title": { "en": "Usability", "ar": "سهولة الاستخدام (Usability)" },
+      "title": {
+        "en": "Usability",
+        "ar": "سهولة الاستخدام (Usability)"
+      },
       "body": {
         "en": "> Usability is a measure of how well a specific user in a specific context can use a product or design to achieve a defined goal effectively, efficiently and satisfactorily.\n> — Interaction Design Foundation\n\nAsk yourself why you use any digital product. Because it has fantastic design, or because it helps you complete a task? It's the second one.\n\nA common opinion says usability belongs to UX and delightfulness belongs to UI. The author calls that bullshit — a poorly designed interface damages the user experience, full stop. The confusion comes from job titles: UI Designer, UX Designer, Product Designer.\n\nWhat *is* true is that usability depends heavily on the people who conduct research. They find out what the user needs and expects, and better design decisions follow from that knowledge.",
-        "ar": "> سهولة الاستخدام هي مقياس لقدرة مستخدم معيّن، في سياق معيّن، على استعمال منتج أو تصميم لتحقيق هدف محدّد بفعالية وكفاءة ورضا.\n> — Interaction Design Foundation\n\nاسأل نفسك: بتستعمل أي منتج رقمي ليه؟ عشان تصميمه رائع، ولا عشان بيساعدك تخلّص حاجة؟ الإجابة هي التانية.\n\nفيه رأي شايع بيقول إن الـ usability بتخص الـ UX وإن الـ delightfulness بتخص الـ UI. الكاتب بيعتبر ده كلام فاضي — الواجهة السيئة بتضر تجربة المستخدم، نقطة. واللبس ده جاي أصلًا من المسميات الوظيفية: UI Designer، UX Designer، Product Designer.\n\nاللي **صح** فعلًا إن سهولة الاستخدام بتعتمد بشكل كبير على اللي بيعملوا البحث. هما اللي بيعرفوا المستخدم محتاج إيه وبيتوقّع إيه، ومن المعرفة دي بتيجي قرارات تصميم أحسن."
+        "ar": "> سهولة الاستخدام هي مقياس لمدى قدرة مستخدم معين، في سياق معين، على استخدام منتج أو تصميم لتحقيق هدف محدد بفعالية وكفاءة ورضا.\n> — Interaction Design Foundation\n\nاسأل نفسك: لماذا تستخدم أي منتج رقمي؟ هل لأن تصميمه رائع، أم لأنه يساعدك على إنجاز مهمة؟ الإجابة هي الثانية.\n\nهناك رأي شائع يقول إن الـ Usability تتبع للـ UX وإن الـ Delightfulness تتبع للـ UI. يرى الكاتب أن هذا هراء — الواجهة المصممة بشكل سيء تضر بتجربة المستخدم، نقطة انتهى. ينبع هذا الارتباك من المسميات الوظيفية: UI Designer، UX Designer، Product Designer.\n\nالشيء الصحيح حقًا هو أن سهولة الاستخدام تعتمد بشكل كبير على الأشخاص الذين يجرون الأبحاث. فهم من يكتشفون احتياجات المستخدم وتوقعاته، وبناءً على تلك المعرفة تُتخذ قرارات تصميم أفضل."
       }
     },
     {
       "id": "delightfulness",
-      "title": { "en": "Delightfulness", "ar": "المتعة (Delightfulness)" },
+      "title": {
+        "en": "Delightfulness",
+        "ar": "المتعة (Delightfulness)"
+      },
       "body": {
         "en": "Usability is the priority, but making the interface fun and engaging matters too. We all define fun differently — which is exactly why research matters.\n\nUsers judge your design fast. The smallest usability issue can put them off. The same applies to looks: if they hate how it looks, they won't use it, or they'll struggle to come back.\n\nIt is often said that **the best interface is no interface**, and the simpler a UI is the better. Domino's Zero Click app is the clearest example. You set up your favourite pizza, payment method and delivery address once on the website. After that, opening the app ordered the pizza. No gradient buttons with drop shadows. No animated 3D illustrations. Extremely usable.\n\n**Good design should carry brand assets.** Design is a communication channel — a place for brand colours, typefaces and tone of voice. A good experience inside a product is memorable, and the user will associate it with what they saw. This works in reverse too: a bad experience makes the user dislike the brand.",
-        "ar": "سهولة الاستخدام هي الأولوية، بس إن الواجهة تبقى ممتعة وجذّابة برضه مهم. وكلنا بنعرّف «الممتع» بشكل مختلف — وده بالظبط سبب أهمية البحث.\n\nالمستخدم بيحكم على تصميمك بسرعة. أصغر مشكلة في الاستخدام ممكن تنفّره. ونفس الكلام على الشكل: لو كره شكل الواجهة، مش هيستعملها، أو هيتعب لما يحاول يرجعلها.\n\nبيتقال كتير إن **أحسن واجهة هي إن مفيش واجهة**، وإنه كل ما الـ UI يبقى أبسط كل ما كان أحسن. أوضح مثال هو تطبيق Zero Click بتاع دومينوز. بتظبط البيتزا المفضلة ووسيلة الدفع وعنوان التوصيل مرة واحدة على الموقع. بعد كده، مجرد ما تفتح التطبيق، الأوردر بيتبعت. مفيش أزرار جراديينت بظلال. مفيش رسومات 3D متحركة. سهل الاستخدام لأقصى درجة.\n\n**التصميم الكويس لازم يحمل أصول البراند.** التصميم قناة تواصل — مكان لألوان البراند وخطوطه ونبرة صوته. التجربة الحلوة جوه المنتج بتفضل في ذاكرة المستخدم، وهيربطها باللي شافه. والعكس صحيح: التجربة الوحشة بتخلّي المستخدم يكره البراند."
+        "ar": "سهولة الاستخدام هي الأولوية، ولكن جعل الواجهة ممتعة وجذابة أمر مهم أيضًا. نعرّف جميعًا «المتعة» بشكل مختلف — وهذا بالضبط سبب أهمية الأبحاث.\n\nيحكم المستخدمون على تصميمك بسرعة. فدفعهم بعيدًا قد يحدث بسبب أصغر مشكلة في سهولة الاستخدام. وينطبق نفس الشيء على المظهر: إذا كرهوا كيف يبدو، فلن يستخدموه، أو سيعانون في العودة إليه.\n\nيُقال غالبًا إن **أفضل واجهة هي الـ \"لا واجهة\"**، وكلما كانت واجهة المستخدم أبسط كان ذلك أفضل. تطبيق Zero Click من دومينوز هو أوضح مثال. تقوم بإعداد البيتزا المفضلة لديك وطريقة الدفع وعنوان التوصيل مرة واحدة على الموقع الإلكتروني. بعد ذلك، بمجرد فتح التطبيق، يتم إرسال الطلب. لا توجد أزرار متدرجة الألوان مع ظلال، ولا رسوميات متحركة ثلاثية الأبعاد. واجهة سهلة الاستخدام إلى أقصى حد.\n\n**يجب أن يحمل التصميم الجيد أصول العلامة التجارية.** التصميم هو قناة اتصال — مساحة لألوان العلامة التجارية، والخطوط، ونبرة الصوت. التجربة الجيدة داخل المنتج تبقى في الذاكرة، وسيربطها المستخدم بما رآه. والعكس صحيح أيضًا: التجربة السيئة تجعل المستخدم يكره العلامة التجارية."
       },
       "callout": {
         "type": "tip",
         "en": "Being able to complete the goal by just opening the app is the pinnacle of user experience.",
-        "ar": "إن المستخدم يحقق هدفه بمجرد فتح التطبيق — دي قمة تجربة المستخدم."
+        "ar": "أن يتمكن المستخدم من تحقيق هدفه بمجرد فتح التطبيق — هذه هي قمة تجربة المستخدم."
       }
     },
     {
       "id": "screens",
-      "title": { "en": "Screens", "ar": "الشاشات" },
+      "title": {
+        "en": "Screens",
+        "ar": "الشاشات"
+      },
       "body": {
         "en": "Every UI Design lives on a screen, and every screen has a resolution, usually expressed in **pixels (px)**.\n\nBut we don't design at those real resolutions. We design at lower resolutions expressed in **points (pt)**, keeping the same aspect ratio.\n\n| Device | Real resolution | Design resolution |\n|---|---|---|\n| iPhone X | 1125 × 2436 px | 375 × 812 pt |\n| MacBook Pro 13\" | 1600 × 2560 px | 900 × 1440 pt |\n\nYou don't need to memorise these — they exist as presets in every design tool. Designing at a smaller resolution while maintaining the aspect ratio makes the work easier and faster.",
-        "ar": "كل UI Design بيعيش على شاشة، وكل شاشة ليها resolution، بيتقاس عادةً بالـ **بكسل (px)**.\n\nلكن إحنا مش بنصمّم على الـ resolutions الحقيقية دي. بنصمّم على resolutions أقل بتتقاس بالـ **بوينت (pt)**، مع الحفاظ على نفس الـ aspect ratio.\n\n| الجهاز | الـ resolution الحقيقي | resolution التصميم |\n|---|---|---|\n| iPhone X | 1125 × 2436 px | 375 × 812 pt |\n| MacBook Pro 13\" | 1600 × 2560 px | 900 × 1440 pt |\n\nمش مطلوب منك تحفظ الأرقام دي — موجودة كـ presets في كل أدوات التصميم. التصميم على resolution أصغر مع الحفاظ على النسبة بيخلّي الشغل أسهل وأسرع."
+        "ar": "يعيش كل تصميم UI على شاشة، ولكل شاشة دقة عرض (Resolution)، يُعبَّر عنها عادةً بـ البكسل (px).\n\nلكننا لا نصمم بتلك الدقة الحقيقية. نحن نصمم بدقة أقل يُعبَّر عنها بـ النقاط (pt)، مع الحفاظ على نفس نسبة العرض إلى الارتفاع (Aspect ratio).\n\n| الجهاز | الدقة الحقيقية | دقة التصميم |\n|---|---|---|\n| iPhone X | 1125 × 2436 px | 375 × 812 pt |\n| MacBook Pro 13\" | 1600 × 2560 px | 900 × 1440 pt |\n\nلا تحتاج إلى حفظ هذه الأرقام — فهي موجودة كإعدادات مسبقة في كل أدوات التصميم. التصميم بدقة أصغر مع الحفاظ على النسبة يجعل العمل أسهل وأسرع."
       },
       "asset": {
         "file": "px-vs-pt.png",
         "alt": {
           "en": "iPhone and MacBook frames labelled with pixel and point resolutions",
-          "ar": "إطارات آيفون وماك بوك متعلّمة بالـ resolution بالبكسل والبوينت"
+          "ar": "إطارات لهاتف iPhone وجهاز MacBook محددة بالدقة بوحدة البكسل والنقطة"
         },
         "ratio": "16:9",
         "brief": "Left column: an iPhone outline labelled 1125 × 2436 px and a MacBook outline labelled 1600 × 2560 px. Right column: the same two outlines drawn smaller, labelled 375 × 812 pt and 900 × 1440 pt. An arrow between the columns. Outlines only, no screen content."
@@ -55,24 +70,30 @@
     },
     {
       "id": "objects",
-      "title": { "en": "Objects", "ar": "العناصر (Objects)" },
+      "title": {
+        "en": "Objects",
+        "ar": "العناصر (Objects)"
+      },
       "body": {
         "en": "If the screen is the canvas, the design itself is made of objects. **Every object is a vector shape**, so it can be resized without losing quality.\n\nThe author's brother once looked at his work and asked: \"isn't this whole UI Design thing just moving shapes around?\" The honest answer, after some annoyance, was — yes, he's right.\n\nEvery UI Design is made of rectangles, ovals, other shapes and text, placed on a screen. Every element has properties: width, height, X and Y position, fill, border, and more. The next sections walk through each one.",
-        "ar": "لو الشاشة هي الكانفس، فالتصميم نفسه متكوّن من عناصر. **كل عنصر هو شكل فيكتور**، يعني ينفع تكبّره وتصغّره من غير ما تفقد الجودة.\n\nأخو الكاتب بصّ على شغله مرة وسأله: «مش ده كله في الآخر تحريك أشكال؟» والإجابة الأمينة، بعد شوية غيظ، كانت — أيوة، هو صح.\n\nكل UI Design متكوّن من مستطيلات ودواير وأشكال ونصوص متحطّة على شاشة. وكل عنصر ليه خصائص: العرض، الارتفاع، موقع X و Y، الـ fill، الـ border، وغيرها. الأقسام الجاية بتمشي على كل واحدة فيهم."
+        "ar": "إذا كانت الشاشة هي لوحة الرسم، فإن التصميم نفسه يتكون من عناصر (Objects). **كل عنصر هو شكل متجه (Vector)**، مما يعني أنه يمكن تغيير حجمه دون فقدان الجودة.\n\nفي إحدى المرات، نظر شقيق المؤلف إلى عمله وسأله: «أليس تصميم واجهة المستخدم بالكامل مجرد تحريك للأشكال؟» كانت الإجابة الصريحة، بعد بعض الانزعاج — نعم، هو محق.\n\nكل UI Design يتكون من مستطيلات، ودوائر، وأشكال أخرى ونصوص موضوعة على شاشة. وكل عنصر له خصائص: العرض، الارتفاع، الموضع X و Y، التعبئة (Fill)، والحدود (Border)، وغيرها. ستستعرض الأقسام التالية كل واحدة منها بالتفصيل."
       }
     },
     {
       "id": "size-position",
-      "title": { "en": "Size and position", "ar": "الحجم والموقع" },
+      "title": {
+        "en": "Size and position",
+        "ar": "الحجم والموقع"
+      },
       "body": {
         "en": "**Size** — every element has a width and a height, expressed in points. `W: 64 pt, H: 64 pt` is a square; `W: 128 pt, H: 64 pt` is a wide rectangle.\n\n**Position** — every element has X and Y values. **X** is how far the element sits from the left edge of the screen. **Y** is how far it sits from the top edge. Both in points.",
-        "ar": "**الحجم** — كل عنصر ليه عرض وارتفاع بالبوينت. `W: 64 pt, H: 64 pt` يعني مربع؛ و `W: 128 pt, H: 64 pt` يعني مستطيل عريض.\n\n**الموقع** — كل عنصر ليه قيمة X و Y. الـ **X** هي بُعد العنصر عن الحافة الشمال للشاشة. والـ **Y** هي بُعده عن الحافة العليا. الاتنين بالبوينت."
+        "ar": "**الحجم** — لكل عنصر عرض وارتفاع، يُعبَّر عنهما بالنقاط. `W: 64 pt, H: 64 pt` يمثل مربعًا؛ و `W: 128 pt, H: 64 pt` يمثل مستطيلًا عريضًا.\n\n**الموضع** — كل عنصر له قيمتي X و Y. الـ X هي المسافة التي يبعدها العنصر عن الحافة اليسرى للشاشة. والـ Y هي المسافة التي يبعدها عن الحافة العلوية. وكلاهما بالنقاط."
       },
       "asset": {
         "file": "size-position.png",
         "alt": {
           "en": "Two shapes annotated with width, height, X and Y values",
-          "ar": "شكلين معلّمين بقيم العرض والارتفاع و X و Y"
+          "ar": "شكلان موسومان بقيم العرض، الارتفاع، X و Y"
         },
         "ratio": "16:9",
         "brief": "A screen frame containing a square (W 64 / H 64) and a wide rectangle (W 128 / H 64), each with dimension lines. Dashed measurement lines from the left edge showing X: 56 pt and X: 282 pt, and from the top edge showing Y: 56 pt and Y: 142 pt. Technical drawing style, thin lines, one accent colour for annotations."
@@ -80,16 +101,19 @@
     },
     {
       "id": "rotation-fill",
-      "title": { "en": "Rotation and fill", "ar": "الدوران والتعبئة" },
+      "title": {
+        "en": "Rotation and fill",
+        "ar": "الدوران والتعبئة"
+      },
       "body": {
         "en": "**Rotation** — every element can be rotated. Values run from 0° to 360°, and negative values such as -120° are also valid.\n\n**Fill** — every element can be filled with a colour, a gradient (covered in the Gradients chapter), or an image. Fills can also be combined: an image with a gradient overlay on top is a common and useful result.",
-        "ar": "**الدوران (Rotation)** — كل عنصر ينفع يتلفّ. القيم من 0° لـ 360°، والقيم السالبة زي -120° صحيحة برضه.\n\n**التعبئة (Fill)** — كل عنصر ينفع يتملي بلون، أو جراديينت (فيه فصل كامل عنه)، أو صورة. وينفع تدمج أكتر من fill مع بعض: صورة فوقها gradient overlay نتيجة شائعة ومفيدة جدًا."
+        "ar": "**الدوران (Rotation)** — يمكن تدوير أي عنصر. تتراوح القيم من 0° إلى 360°، وتعتبر القيم السالبة مثل -120° صحيحة أيضًا.\n\n**التعبئة (Fill)** — يمكن تعبئة أي عنصر بلون، أو تدرج لوني (مغطى في فصل التدرجات)، أو صورة. كما يمكن دمج أنواع التعبئة: صورة تعلوها طبقة تدرج لوني (Gradient Overlay) هي نتيجة شائعة ومفيدة للغاية."
       },
       "asset": {
         "file": "rotation-fill.png",
         "alt": {
           "en": "Rotation examples and four fill types",
-          "ar": "أمثلة الدوران وأربع أنواع من التعبئة"
+          "ar": "أمثلة على الدوران وأربعة أنواع من التعبئة"
         },
         "ratio": "16:9",
         "brief": "Top row: the same square shown three times at 0°, 45° and 60°, each labelled. Bottom row: four squares showing fill types — solid colour, gradient, image, image with gradient overlay — each labelled underneath."
@@ -97,16 +121,19 @@
     },
     {
       "id": "border",
-      "title": { "en": "Border", "ar": "الحدود (Border)" },
+      "title": {
+        "en": "Border",
+        "ar": "الحدود (Border)"
+      },
       "body": {
         "en": "A border — also called a stroke — can be added to any element, and its thickness can be adjusted. There are three types:\n\n- **Inner stroke** — drawn inside the shape's bounds\n- **Centered stroke** — drawn half in, half out\n- **Outer stroke** — drawn outside the shape's bounds\n\n**Inner stroke is used most often in UI Design**, because it does not change the element's size. A 64 × 64 pt element with a 2 pt outer stroke becomes 68 × 68 pt. With an inner stroke it stays 64 × 64 pt.",
-        "ar": "الـ border — واللي بيتسمّى كمان stroke — ينفع يتضاف لأي عنصر، وسُمكه ينفع يتظبط. وفيه منه تلات أنواع:\n\n- **Inner stroke** — مرسوم جوه حدود الشكل\n- **Centered stroke** — نصه جوه ونصه بره\n- **Outer stroke** — مرسوم بره حدود الشكل\n\n**الـ inner stroke هو الأكتر استخدامًا في الـ UI Design**، لأنه مش بيغيّر حجم العنصر. عنصر 64 × 64 pt لو حطيت عليه outer stroke بسُمك 2 هيبقى 68 × 68 pt. أما بالـ inner stroke هيفضل 64 × 64 pt."
+        "ar": "الحدود (Border) — والتي تُسمى أيضًا الإطار (Stroke) — يمكن إضافتها لأي عنصر، ويمكن تعديل سُمكها. هناك ثلاثة أنواع:\n\n- **Inner stroke** — يُرسم داخل حدود الشكل\n- **Centered stroke** — يُرسم نصفه بالداخل ونصفه بالخارج\n- **Outer stroke** — يُرسم خارج حدود الشكل\n\n**الـ Inner stroke هو الأكثر استخدامًا في الـ UI Design**، لأنه لا يغير من حجم العنصر. عنصر بأبعاد 64 × 64 pt إذا تمت إضافة Outer stroke له بسُمك 2 pt سيصبح 68 × 68 pt. أما مع الـ Inner stroke، فيبقى 64 × 64 pt كما هو."
       },
       "asset": {
         "file": "stroke-types.png",
         "alt": {
           "en": "Inner, centered and outer stroke compared, plus a size comparison",
-          "ar": "مقارنة بين الـ inner و centered و outer stroke، مع مقارنة حجم"
+          "ar": "مقارنة بين الـ Inner والـ Centered والـ Outer stroke، بالإضافة إلى مقارنة الحجم"
         },
         "ratio": "16:9",
         "brief": "Three identical squares labelled Inner stroke, Centered stroke, Outer stroke, each showing the stroke position relative to a faint guide outline. Below, two squares side by side labelled 'No stroke: 64×64 pt' and 'Outer stroke: 68×68 pt' with dimension lines making the size difference visible."
@@ -114,21 +141,24 @@
       "callout": {
         "type": "warning",
         "en": "Outer and centered strokes silently change your element's dimensions and will break your spacing system. Default to inner.",
-        "ar": "الـ outer والـ centered stroke بيغيّروا أبعاد العنصر من ورا ضهرك وبيكسّروا نظام المسافات بتاعك. خليك على الـ inner كإعداد افتراضي."
+        "ar": "يغير كل من الـ Outer والـ Centered stroke أبعاد العنصر بشكل خفي مما قد يؤدي إلى كسر نظام المسافات الخاص بك. اجعل الـ Inner خيارك الافتراضي."
       }
     },
     {
       "id": "border-radius",
-      "title": { "en": "Border radius", "ar": "استدارة الحواف (Border radius)" },
+      "title": {
+        "en": "Border radius",
+        "ar": "استدارة الحواف (Border radius)"
+      },
       "body": {
         "en": "This property applies to shapes only, not to text. Border radius defines how rounded a shape's corners are — `0 pt`, `10 pt`, `20 pt` and so on.\n\nA border radius of 0 pt is rare. Elements are usually rounded at least slightly, because it gives the design a friendlier feel — especially on buttons.\n\n**Corner smoothing** is a related property that smooths the corner curve itself. It ranges from 0% to 100% and is used by Apple in their software.",
-        "ar": "الخاصية دي بتنطبق على الأشكال بس، مش على النص. الـ border radius بيحدّد استدارة أركان الشكل — `0 pt`، `10 pt`، `20 pt` وهكذا.\n\nاستخدام border radius بقيمة 0 pt نادر. العناصر عادةً بتبقى مستديرة ولو بشوية بسيطة، لأن ده بيدّي إحساس أوّدَع للتصميم — خصوصًا في الأزرار.\n\nوفيه خاصية مرتبطة بيها اسمها **Corner smoothing**، وظيفتها إنها تنعّم انحناءة الركن نفسها. قيمها من 0% لـ 100%، وأبل بتستخدمها في السوفتوير بتاعها."
+        "ar": "تُطبق هذه الخاصية على الأشكال فقط، وليس على النصوص. يحدد الـ Border radius مدى استدارة زوايا الشكل — `0 pt`، `10 pt`، `20 pt` وهكذا.\n\nاستخدام Border radius بقيمة 0 pt أمر نادر. فعادةً ما يتم تدوير العناصر ولو قليلًا، لأن ذلك يضفي على التصميم طابعًا أكثر ودية — خاصة في الأزرار.\n\n**Corner smoothing (تنعيم الزوايا)** هي خاصية مرتبطة تقوم بتنعيم منحنى الزاوية نفسه. تتراوح قيمها بين 0% و 100%، وتستخدمها شركة Apple في برامجها."
       },
       "asset": {
         "file": "border-radius.png",
         "alt": {
           "en": "Border radius and corner smoothing comparisons",
-          "ar": "مقارنات استدارة الحواف ونعومة الأركان"
+          "ar": "مقارنات بين استدارة الحواف (Border radius) وتنعيم الزوايا (Corner smoothing)"
         },
         "ratio": "16:9",
         "brief": "Top row: three squares labelled Border radius 0 pt, 10 pt, 20 pt. Bottom row: three squares with the same radius but labelled Corner smoothing 0%, 60%, 100%, drawn large enough that the squircle difference is visible."
@@ -136,16 +166,19 @@
     },
     {
       "id": "shadows-basics",
-      "title": { "en": "Shadows", "ar": "الظلال" },
+      "title": {
+        "en": "Shadows",
+        "ar": "الظلال"
+      },
       "body": {
         "en": "Every element can cast a shadow. Think of a shadow as a separate layer positioned relative to the element that casts it.\n\nEvery shadow has four values: **X**, **Y**, **Blur** and **Opacity**. Changing X moves the shadow horizontally, Y vertically, Blur controls its softness, Opacity its strength.\n\nShadows are important enough that they get their own chapter later.",
-        "ar": "كل عنصر ينفع يعمل ظل. اعتبر الظل ليير منفصل متموضع بالنسبة للعنصر اللي طالع منه.\n\nكل ظل ليه أربع قيم: **X**، **Y**، **Blur**، **Opacity**. تغيير الـ X بيحرّك الظل أفقيًا، والـ Y رأسيًا، والـ Blur بيتحكّم في نعومته، والـ Opacity في قوته.\n\nالظلال مهمة لدرجة إن ليها فصل كامل لوحدها بعدين."
+        "ar": "يمكن لأي عنصر أن يُلقي ظلًا. اعتبر الظل كطبقة منفصلة متمركزة بالنسبة للعنصر الذي يُلقيها.\n\nيحتوي كل ظل على أربع قيم: X، Y، Blur، و Opacity. تغيير الـ X يحرك الظل أفقيًا، والـ Y رأسيًا، بينما يتحكم الـ Blur في نعومته، والـ Opacity في قوته.\n\nالظلال مهمة لدرجة أنه قد تم تخصيص فصل كامل لها لاحقًا."
       },
       "asset": {
         "file": "shadow-values.png",
         "alt": {
           "en": "Six shapes showing different X, Y, blur and opacity shadow values",
-          "ar": "ست أشكال بتوضّح قيم X و Y و blur و opacity مختلفة للظل"
+          "ar": "ستة أشكال توضح قيمًا مختلفة لـ X، Y، Blur، و Opacity للظل"
         },
         "ratio": "16:9",
         "brief": "Two rows of three rounded squares. Row 1 varies X: (X 0, Y 4, Blur 4, 25%), (X -4, Y 4, Blur 4, 25%), (X 4, Y 4, Blur 4, 25%). Row 2 varies Y and blur: (X 0, Y 30, Blur 15, 25%), (X 0, Y 35, Blur 60, 25%), (X 0, Y 0, Blur 30, 25%). Print the values under each shape. Light neutral background so shadows read clearly."
@@ -153,16 +186,19 @@
     },
     {
       "id": "blur",
-      "title": { "en": "Layer blur and background blur", "ar": "ضبابية الليير والخلفية" },
+      "title": {
+        "en": "Layer blur and background blur",
+        "ar": "ضبابية الطبقة والخلفية"
+      },
       "body": {
         "en": "**Layer blur** blurs the element itself, reducing its level of detail. In most design tools the value ranges from 0 to 250.\n\n**Background blur** works the other way: the element stays sharp, but everything underneath it becomes blurred. This is what produces frosted-glass panels and iOS-style overlays.\n\nOther blur types exist, such as motion blur, but they are rarely if ever used in UI Design.",
-        "ar": "**Layer blur** بيعمل بلَر للعنصر نفسه، فبيقلّل تفاصيله. في معظم أدوات التصميم القيمة بتتراوح من 0 لـ 250.\n\n**Background blur** بيشتغل بالعكس: العنصر نفسه بيفضل واضح، لكن كل اللي تحته بيبقى مضبّب. ده اللي بينتج ألواح الزجاج المثلّج والـ overlays بستايل iOS.\n\nفيه أنواع بلَر تانية زي الـ motion blur، لكنها نادرًا ما بتستخدم في الـ UI Design، لو استُخدمت أصلًا."
+        "ar": "**Layer blur** يقوم بتشويش العنصر نفسه، مما يقلل من مستوى تفاصيله. في معظم أدوات التصميم، تتراوح القيمة من 0 إلى 250.\n\n**Background blur** يعمل بطريقة عكسية: يظل العنصر نفسه واضحًا، لكن كل ما تحته يصبح ضبابيًا. هذا ما ينتج الألواح الزجاجية المصنفرة وطبقات التراكب على طراز iOS.\n\nهناك أنواع أخرى من الضبابية مثل ضبابية الحركة (Motion blur)، ولكنها نادرًا ما تستخدم في الـ UI Design، إن لم تكن معدومة الاستخدام."
       },
       "asset": {
         "file": "blur-types.png",
         "alt": {
           "en": "Layer blur levels and a background blur panel example",
-          "ar": "مستويات الـ layer blur ومثال للـ background blur"
+          "ar": "مستويات Layer blur ومثال على لوحة Background blur"
         },
         "ratio": "16:9",
         "brief": "Top: the same photo-filled square three times, labelled Layer blur 0, 20, 40. Bottom: a colourful photo background with a semi-transparent white rounded rectangle over it, labelled 'Background blur: 12', with the content behind the rectangle visibly blurred."
@@ -170,24 +206,30 @@
     },
     {
       "id": "hierarchy-intro",
-      "title": { "en": "Perception and visual hierarchy", "ar": "الإدراك والهيراركي البصري" },
+      "title": {
+        "en": "Perception and visual hierarchy",
+        "ar": "الإدراك والهيراركي البصري"
+      },
       "body": {
         "en": "As a designer you should be able to make the user focus on particular elements. Visual hierarchy makes certain elements seem more important and prominent, and it works by changing element properties.\n\nMost of what follows comes from the **Gestalt principles of visual perception**, which describe how our brains create structure and hierarchy by default. The most important ones are covered here — the wider topic is worth reading about separately.",
-        "ar": "كمصمّم، لازم تقدر توجّه تركيز المستخدم لعناصر معيّنة. الهيراركي البصري بيخلّي عناصر معيّنة تبان أهم وأبرز، وبيشتغل عن طريق تغيير خصائص العناصر.\n\nمعظم اللي جاي جاي من **مبادئ الجشطالت للإدراك البصري (Gestalt)**، اللي بتوصف إزاي مخنا بيصنع بنية وهيراركي بشكل تلقائي. هنغطّي أهمها هنا — والموضوع نفسه يستاهل قراية منفصلة."
+        "ar": "بصفتك مصممًا، يجب أن تكون قادرًا على جعل المستخدم يركز على عناصر معينة. التسلسل الهرمي المرئي يجعل بعض العناصر تبدو أكثر أهمية وبروزًا، وهو يعمل عن طريق تغيير خصائص العناصر.\n\nينبع معظم ما يلي من مبادئ جشطالت (Gestalt) للإدراك البصري، والتي تصف كيف تقوم أدمغتنا بإنشاء بنية وتسلسل هرمي بشكل افتراضي. سنغطي أهمها هنا — ويستحق هذا الموضوع الأوسع نطاقًا القراءة عنه بشكل منفصل."
       }
     },
     {
       "id": "hierarchy-size",
-      "title": { "en": "Hierarchy: size", "ar": "الهيراركي: الحجم" },
+      "title": {
+        "en": "Hierarchy: size",
+        "ar": "الهيراركي: الحجم"
+      },
       "body": {
         "en": "It is natural for humans to perceive larger things as more important, especially in contrast to something smaller. A large button seems more important than a small one. Large text seems more important than small text.",
-        "ar": "من طبيعة البشر إنهم يدركوا الحاجات الكبيرة على إنها أهم، خصوصًا لما تتحط جنب حاجة أصغر. الزرار الكبير بيبان أهم من الصغير. والنص الكبير بيبان أهم من النص الصغير."
+        "ar": "من الطبيعي أن يدرك البشر الأشياء الأكبر على أنها أكثر أهمية، خاصة عند مقارنتها بشيء أصغر. فالزر الكبير يبدو أكثر أهمية من الزر الصغير. والنص الكبير يبدو أكثر أهمية من النص الصغير."
       },
       "asset": {
         "file": "hierarchy-size.png",
         "alt": {
           "en": "Two lines of text at different sizes demonstrating reading order",
-          "ar": "سطرين بأحجام مختلفة بيوضّحوا ترتيب القراية"
+          "ar": "سطران بأحجام مختلفة يوضحان ترتيب القراءة"
         },
         "ratio": "16:9",
         "brief": "Two stacked lines of text on a plain background: a large bold line reading 'You will read this first' and below it a much smaller line reading 'And you will read this text second'. Nothing else in the frame."
@@ -195,16 +237,19 @@
     },
     {
       "id": "hierarchy-color",
-      "title": { "en": "Hierarchy: colour", "ar": "الهيراركي: اللون" },
+      "title": {
+        "en": "Hierarchy: colour",
+        "ar": "الهيراركي: اللون"
+      },
       "body": {
         "en": "Bold colours such as blue, red or green draw attention easily. Light colours such as white, light grey or cream work better as backgrounds. Giving a bold, visible colour to an element makes it stand out.\n\n**When everything is supposed to stand out, nothing stands out.** Be careful applying colour — if every element is bold, there is no hierarchy at all.",
-        "ar": "الألوان القوية زي الأزرق والأحمر والأخضر بتشدّ الانتباه بسهولة. والألوان الفاتحة زي الأبيض والرمادي الفاتح والكريمي بتشتغل أحسن كخلفيات. وإنك تدّي لعنصر لون قوي وواضح بيخلّيه يبرز.\n\n**لما يبقى المفروض إن كل حاجة تبرز، مفيش حاجة بتبرز.** خلّي بالك وإنت بتحط لون — لو كل عنصر قوي، مفيش هيراركي أصلًا."
+        "ar": "الألوان البارزة مثل الأزرق، الأحمر، أو الأخضر تجذب الانتباه بسهولة. وتعمل الألوان الفاتحة مثل الأبيض، الرمادي الفاتح، أو الكريمي بشكل أفضل كخلفيات. إعطاء لون بارز وواضح لعنصر ما يجعله يبرز.\n\n**عندما يُفترض أن يبرز كل شيء، فلا شيء يبرز.** كن حذرًا عند تطبيق الألوان — إذا كان كل عنصر بارزًا، فلن يكون هناك أي تسلسل هرمي على الإطلاق."
       },
       "asset": {
         "file": "hierarchy-color.png",
         "alt": {
           "en": "A layout where every element is a bold colour, showing no hierarchy",
-          "ar": "تخطيط كل عناصره بألوان قوية، فمفيش هيراركي"
+          "ar": "تخطيط حيث كل عنصر يحمل لونًا بارزًا، مما يدل على انعدام التسلسل الهرمي"
         },
         "ratio": "16:9",
         "brief": "Two versions of the same simple card layout. Left: every element (heading, body, two buttons, tag) is a different saturated colour — visually noisy, no clear focus. Right: neutral background and text with one saturated primary button. Label them 'No hierarchy' and 'Clear hierarchy'."
@@ -212,29 +257,35 @@
     },
     {
       "id": "hierarchy-position",
-      "title": { "en": "Hierarchy: position", "ar": "الهيراركي: الموقع" },
+      "title": {
+        "en": "Hierarchy: position",
+        "ar": "الهيراركي: الموقع"
+      },
       "body": {
         "en": "Most people read left to right, top to bottom. Content on the left is read before content on the right. Content at the top is read before content below it.\n\nTake advantage of this by placing more important elements higher on the screen and less important ones lower.\n\n**This is cultural.** In some cultures — Arabic among them — people read right to left, and the hierarchy flips with them.",
-        "ar": "معظم الناس بتقرا من الشمال لليمين ومن فوق لتحت. المحتوى اللي على الشمال بيتقري قبل اللي على اليمين. واللي فوق بيتقري قبل اللي تحته.\n\nاستغل ده وحط العناصر الأهم أعلى في الشاشة والأقل أهمية تحت.\n\n**دي حاجة ثقافية.** في ثقافات — والعربية منها — الناس بتقرا من اليمين للشمال، والهيراركي بيتقلب معاهم."
+        "ar": "يقرأ معظم الناس من اليسار إلى اليمين، ومن أعلى إلى أسفل. يُقرأ المحتوى الموجود على اليسار قبل المحتوى الموجود على اليمين. ويُقرأ المحتوى الموجود في الأعلى قبل المحتوى الموجود تحته.\n\nاستفد من ذلك بوضع العناصر الأكثر أهمية في مكان أعلى على الشاشة، والعناصر الأقل أهمية في مكان أسفل.\n\nهذا أمر ثقافي. ففي بعض الثقافات — ومن بينها الثقافة العربية — يقرأ الناس من اليمين إلى اليسار، وينقلب التسلسل الهرمي معهم بناءً على ذلك."
       },
       "callout": {
         "type": "tip",
         "en": "Designing in Arabic? The reading order flips, so your visual hierarchy has to flip with it — not just the text alignment.",
-        "ar": "بتصمّم بالعربي؟ ترتيب القراية بيتقلب، يبقى الهيراركي البصري لازم يتقلب معاه — مش بس محاذاة النص."
+        "ar": "هل تصمم باللغة العربية؟ ترتيب القراءة ينعكس، لذلك يجب أن ينعكس التسلسل الهرمي المرئي معه — وليس مجرد محاذاة النص."
       }
     },
     {
       "id": "proximity-alignment",
-      "title": { "en": "Proximity and alignment", "ar": "التقارب والمحاذاة" },
+      "title": {
+        "en": "Proximity and alignment",
+        "ar": "التقارب والمحاذاة"
+      },
       "body": {
         "en": "**Proximity** — elements close to each other are perceived as a group, so elements placed near one another seem related. The inverse is also true: an element that clearly belongs to no group breaks the layout and stands out.\n\n**Alignment** — elements aligned with each other seem related, so an element placed asymmetrically stands out.\n\nSymmetrical layouts are perceived as more beautiful, so be careful when you deliberately break symmetry or alignment.",
-        "ar": "**التقارب (Proximity)** — العناصر القريبة من بعض بتتدرك كمجموعة، فالعناصر المتحطة جنب بعض بتبان مترابطة. والعكس صحيح: العنصر اللي واضح إنه مش تابع لأي مجموعة بيكسر التخطيط وبيبرز.\n\n**المحاذاة (Alignment)** — العناصر المتحاذية مع بعض بتبان مترابطة، فالعنصر اللي متحط بشكل غير متماثل بيبرز.\n\nوالتخطيطات المتماثلة بتتدرك على إنها أجمل، فخلّي بالك لما تكسر التماثل أو المحاذاة عن قصد."
+        "ar": "**التقارب (Proximity)** — تُدرك العناصر القريبة من بعضها على أنها مجموعة، وبالتالي تبدو العناصر الموضوعة بالقرب من بعضها البعض مرتبطة ببعضها. والعكس صحيح أيضًا: العنصر الذي لا ينتمي بوضوح إلى أي مجموعة يكسر التخطيط ويبرز.\n\n**المحاذاة (Alignment)** — تبدو العناصر المحاذية لبعضها مرتبطة ببعضها، لذا فإن العنصر الموضوع بشكل غير متماثل يبرز.\n\nتُدرك التخطيطات المتماثلة على أنها أكثر جمالًا، لذا كن حذرًا عند كسر التماثل أو المحاذاة عمدًا."
       },
       "asset": {
         "file": "proximity-alignment.png",
         "alt": {
           "en": "Dot grids demonstrating proximity grouping and alignment",
-          "ar": "شبكات نقاط بتوضّح التجميع بالتقارب والمحاذاة"
+          "ar": "شبكات نقطية توضح التجميع بناءً على التقارب والمحاذاة"
         },
         "ratio": "16:9",
         "brief": "Left half: a field of identical dots where two clusters sit close together and one dot sits far apart — proximity. Right half: a row of dots on a shared baseline with one dot pushed off the line — alignment. Monochrome except the odd-one-out dot in the accent colour."
@@ -242,16 +293,19 @@
     },
     {
       "id": "common-region",
-      "title": { "en": "Common region", "ar": "المنطقة المشتركة" },
+      "title": {
+        "en": "Common region",
+        "ar": "المنطقة المشتركة"
+      },
       "body": {
         "en": "When elements sit within a closed region, they are perceived as part of one group. In UI Design this is exactly what makes cards work — a heading and a body that share a box read as one unit, where the same heading and body loose on the page read as two separate things.",
-        "ar": "لما العناصر تكون جوه منطقة مقفولة، بتتدرك على إنها مجموعة واحدة. وده بالظبط اللي بيخلّي الـ cards شغّالة في الـ UI Design — عنوان ونص بيشاركوا نفس البوكس بيتقروا كوحدة واحدة، بينما نفس العنوان والنص سايبين على الصفحة بيتقروا كحاجتين منفصلين."
+        "ar": "عندما تتواجد العناصر داخل منطقة مغلقة، يتم إدراكها كجزء من مجموعة واحدة. في مجال الـ UI Design، هذا هو بالضبط ما يجعل البطاقات (Cards) فعالة — فعندما يشترك عنوان ونص في صندوق واحد، يتم قراءتهما كوحدة واحدة، بينما إذا كان نفس العنوان والنص متروكين بحرية على الصفحة، فإنهما يقرأان كشيئين منفصلين."
       },
       "asset": {
         "file": "common-region.png",
         "alt": {
           "en": "The same heading and text, once loose and once inside a card",
-          "ar": "نفس العنوان والنص، مرة سايبين ومرة جوه كارد"
+          "ar": "نفس العنوان والنص، مرة حرة ومرة داخل بطاقة (Card)"
         },
         "ratio": "16:9",
         "brief": "Two versions side by side of the same content: heading 'Healthy lifestyle:' and subheading 'The Basics'. Left version floats on the plain background. Right version sits inside a bordered rounded rectangle. Everything else identical."
@@ -259,16 +313,19 @@
     },
     {
       "id": "figure-ground",
-      "title": { "en": "Figure-ground principle", "ar": "مبدأ الشكل والأرضية" },
+      "title": {
+        "en": "Figure-ground principle",
+        "ar": "مبدأ الشكل والأرضية"
+      },
       "body": {
         "en": "People quickly sort objects into background or foreground. Objects in the foreground seem closer to the user, and are therefore read as more important and more interactive.\n\nBackgrounds should generally use soft, light colours. They are not supposed to stand out — they are the foundation for everything else. Using a strong, bold colour, or an image with no overlay, as a background can make people confuse background with foreground, which causes real confusion.",
-        "ar": "الناس بتصنّف العناصر بسرعة: خلفية ولا مقدّمة. العناصر اللي في المقدّمة بتبان أقرب للمستخدم، وعشان كده بتتقري على إنها أهم وأكتر تفاعلية.\n\nالخلفيات المفروض تستخدم ألوان هادية وفاتحة. مش المفروض تبرز — دي أساس لكل اللي فوقها. استخدام لون قوي جدًا، أو صورة من غير overlay، كخلفية ممكن يخلّي الناس تلخبط بين الخلفية والمقدّمة، وده بيسبّب حيرة حقيقية."
+        "ar": "يصنف الناس العناصر بسرعة إلى خلفية (Background) أو واجهة أمامية (Foreground). تبدو العناصر في الواجهة الأمامية أقرب للمستخدم، ولذلك تُفهم على أنها أكثر أهمية وأكثر تفاعلية.\n\nبشكل عام، يجب أن تستخدم الخلفيات ألوانًا هادئة وفاتحة. لا يُفترض بها أن تبرز — فهي الأساس لكل شيء آخر. استخدام لون قوي وجريء، أو صورة بدون طبقة تراكب (Overlay)، كخلفية يمكن أن يجعل الناس يخلطون بين الخلفية والواجهة الأمامية، مما يسبب ارتباكًا حقيقيًا."
       },
       "asset": {
         "file": "figure-ground.png",
         "alt": {
           "en": "A card on a soft background versus the same card on a busy photo",
-          "ar": "كارد على خلفية هادية مقابل نفس الكارد على صورة مزدحمة"
+          "ar": "بطاقة على خلفية هادئة مقابل نفس البطاقة على صورة مزدحمة"
         },
         "ratio": "16:9",
         "brief": "Two mobile screens. Left: a white card floating on a soft light-grey background — the card clearly reads as foreground. Right: the same card on a busy, high-contrast photo background with no overlay — the card competes with the background. Label them 'Clear' and 'Confusing'."

@@ -7,7 +7,7 @@
   },
   "intro": {
     "en": "Creating natural elevation and depth in UI. Master drop shadows, atmospheric lighting, dark mode elevation, and why inner shadows must be avoided.",
-    "ar": "صناعة العمق والارتفاع الطبيعي في الواجهات. احتراف الظلال الخارجية، الإضاءة المحيطية، الارتفاع في الوضع الداكن، وليه لازم تتجنب الظلال الداخلية تماماً."
+    "ar": "صناعة العمق والارتفاع الطبيعي في واجهات المستخدم (UI). احترف الظلال الخارجية، الإضاءة المحيطية، الارتفاع في الوضع الداكن، ولماذا يجب تجنب الظلال الداخلية تمامًا."
   },
   "sections": [
     {
@@ -18,18 +18,18 @@
       },
       "body": {
         "en": "There are two foundational types of shadows:\n\n- **Drop Shadow (Outer):** Cast underneath an object, visually lifting it off the canvas toward the user.\n- **Inner Shadow (Inset):** Cast inside the boundaries of an object, making it appear carved or sunken into the surface.\n\nModern UI design relies almost exclusively on subtle drop shadows to convey actionable elevation.",
-        "ar": "فيه نوعين أساسيين من الظلال:\n\n- **ظل خارجي (Drop Shadow):** بيظهر تحت العنصر وبيرفعه بصرياً لفوق عن الخلفية.\n- **ظل داخلي (Inner Shadow):** بيظهر جوه حدود العنصر وبيخليه يبان \"غايص\" أو محفور في السطح.\n\nالتصميم الحديث بيعتمد بنسبة 99% على الظلال الخارجية الناعمة لتوضيح القابلية للتفاعل."
+        "ar": "يوجد نوعان أساسيان من الظلال:\n\n- **ظل خارجي (Drop Shadow):** يُلقى تحت العنصر، ليرفعه بصريًا عن السطح باتجاه المستخدم.\n- **ظل داخلي (Inner Shadow):** يُلقى داخل حدود العنصر، مما يجعله يبدو محفورًا أو غائرًا في السطح.\n\nيعتمد تصميم واجهة المستخدم الحديثة بشكل شبه حصري على الظلال الخارجية الناعمة لتوضيح الارتفاع القابل للتفاعل."
       }
     },
     {
       "id": "why-shadows-matter",
       "title": {
         "en": "Why Shadows Matter: Elevation & Affordance",
-        "ar": "ليه بنستخدم الظلال؟"
+        "ar": "لماذا تهم الظلال: الارتفاع وقابلية الاستخدام"
       },
       "body": {
         "en": "Shadows simulate a third dimension (Z-axis). An element with a shadow appears closer to the user's fingertips, signaling that it is clickable, interactive, or currently floating over content (modals, dropdown menus, cards).",
-        "ar": "الظلال بتضيف البُعد التالت (محور العمق Z). العنصر اللي ليه ظل بيبان أقرب لإيد المستخدم، وده بيدي إشارة بصرية واضحة إنه عنصر تفاعلي أو عائم فوق الصفحة (زي الكروت، النوافذ المنبثقة، والقوائم المنسدلة)."
+        "ar": "تحاكي الظلال البعد الثالث (المحور Z). فالعنصر ذو الظل يبدو أقرب إلى أطراف أصابع المستخدم، مما يعطي إشارة بصرية بأنه قابل للنقر، أو تفاعلي، أو يطفو حاليًا فوق المحتوى (النوافذ المنبثقة، القوائم المنسدلة، البطاقات)."
       }
     },
     {
@@ -40,7 +40,7 @@
       },
       "body": {
         "en": "Every shadow is defined by four core parameters:\n\n- **X Offset:** Horizontal displacement (typically 0 in UI for balanced overhead light).\n- **Y Offset:** Vertical drop representing light coming from above.\n- **Blur:** Softness of the shadow edges.\n- **Opacity / Alpha:** The transparency level of the shadow color.",
-        "ar": "أي ظل في أدوات التصميم بيتكون من ٤ خصائص رئيسية:\n\n- **الإزاحة الأفقية (X):** بنخليها غالباً صفر عشان الإضاءة تبان نازلة من فوق بانتظام.\n- **الإزاحة الرأسية (Y):** مسافة سقوط الظل لأسفل.\n- **التمويه (Blur):** مدى نعومة وتشتت حواف الظل.\n- **الشفافية (Opacity):** درجة شفافية ولون الظل."
+        "ar": "يتم تعريف كل ظل بأربعة معايير أساسية:\n\n- **الإزاحة الأفقية (X Offset):** الإزاحة الأفقية (تكون عادةً 0 في واجهة المستخدم لإضاءة علوية متوازنة).\n- **الإزاحة الرأسية (Y Offset):** الإسقاط الرأسي الذي يمثل الضوء القادم من أعلى.\n- **التمويه (Blur):** نعومة حواف الظل وتشتتها.\n- **الشفافية (Opacity / Alpha):** مستوى شفافية لون الظل."
       },
       "asset": {
         "file": "shadow-values.png",
@@ -60,12 +60,12 @@
       },
       "body": {
         "en": "Default tool shadow presets usually look harsh and muddy. Master these guidelines for high-end elevation:\n\n1. **High Blur + Low Opacity:** Use large blur values (e.g. 24px–48px) paired with delicate opacity (4%–8%).\n2. **Avoid Pure Black (`#000000`):** Pure black creates dirty patches. Tint your shadow with an off-black or a subtle hint of your background/primary color.\n3. **Reserve Shadows for Interactive Elements:** Do not apply shadows to disabled buttons or static flat containers.",
-        "ar": "إعدادات الظل الافتراضية في أغلب البرامج بتبان قاسية ومزعجة. اتبع القواعد دي:\n\n1. **تمويه عالي + شفافية منخفضة:** استخدم Blur عالي (من 24 إلى 48 بكسل) مع Opacity ناعمة جداً (من 5% إلى 8%).\n2. **تجنب الأسود الصريح في الظلال:** الأسود النقي بيعمل بقعة غامقة مش طبيعية؛ استخدم رمادي داكن أو ظل مشبع بنسبة بسيطة من لون السطح.\n3. **الظل للعناصر التفاعلية فقط:** لا تضع ظلالاً على أزرار معطلة أو نصوص عادية."
+        "ar": "تبدو إعدادات الظل الافتراضية في الأدوات عادةً قاسية وباهتة. أتقن هذه الإرشادات للحصول على ارتفاعات احترافية وفخمة:\n\n1. **تمويه عالي + شفافية منخفضة:** استخدم قيم تمويه (Blur) كبيرة (مثل 24 بكسل - 48 بكسل) مقترنة بشفافية (Opacity) دقيقة (4% - 8%).\n2. **تجنب الأسود النقي (`#000000`):** يخلق الأسود النقي بقعًا داكنة غير طبيعية. لوِّن ظلك بالأسود الناعم أو بلمسة دقيقة من لون خلفيتك/لونك الأساسي.\n3. **خصص الظلال للعناصر التفاعلية فقط:** لا تقم بتطبيق الظلال على الأزرار المعطلة أو الحاويات المسطحة الثابتة."
       },
       "callout": {
         "type": "tip",
         "en": "Never use default Figma shadow settings (4px blur at 25% opacity). Multiply blur by 4x and drop opacity to 5% for an elegant, modern feel.",
-        "ar": "لا تستخدم أبداً إعدادات الظل الافتراضية (Blur 4px و 25% Opacity). ارفع التمويه إلى 24px وخفّض الشفافية إلى 5% لمظهر حديث وفخم."
+        "ar": "لا تستخدم أبدًا إعدادات ظل Figma الافتراضية (تمويه 4 بكسل بشفافية 25%). اضرب التمويه في 4 أضعاف وخفِّض الشفافية إلى 5% للحصول على مظهر عصري وأنيق."
       }
     },
     {
@@ -76,12 +76,12 @@
       },
       "body": {
         "en": "In dark mode, **never invert black shadows to white shadows**. White drop shadows look like strange radioactive halos and break physics.\n\nInstead, convey elevation in dark mode by lightening the surface background color (e.g. background `#121212`, card `#1E1E1E`, modal `#2A2A2A`). You can accompany this with a very subtle 1px border or a soft dark glow.",
-        "ar": "في الوضع الداكن (Dark Mode)، **إياك تحول الظل الأسود لظل أبيض**! الظلال البيضاء بتبان كأنها توهج غريب وغير منطقي فيزيائياً.\n\nالبديل الصحيح في الدارك مود: عبّر عن الارتفاع بتفتيح لون سطح العنصر تدريجياً (خلفية سوداء، الكارت رمادي غامق، النافذة المنبثقة رمادي أفتح)، مع حد رفيع جداً بـ Opacity منخفضة."
+        "ar": "في الوضع الداكن (Dark Mode)، **لا تعكس الظلال السوداء إلى بيضاء أبدًا**. تبدو الظلال الخارجية البيضاء مثل هالات مشعة غريبة وتكسر قوانين الفيزياء.\n\nبدلاً من ذلك، عبر عن الارتفاع في الوضع الداكن من خلال تفتيح لون خلفية السطح (مثل الخلفية `#121212`، البطاقة `#1E1E1E`، النافذة المنبثقة `#2A2A2A`). يمكنك إرفاق ذلك بحد رفيع جدًا (1 بكسل) أو توهج داكن ناعم."
       },
       "callout": {
         "type": "warning",
         "en": "Never use white drop shadows in dark mode. Indicate elevation through progressive surface lightness instead.",
-        "ar": "تجنب تماماً استخدام ظلال بيضاء في الوضع الداكن؛ اعتمد على تفتيح لون خلفية السطح لإظهار الارتفاع."
+        "ar": "لا تستخدم أبدًا الظلال الخارجية البيضاء في الوضع الداكن. أشر إلى الارتفاع من خلال تفتيح السطح التدريجي بدلاً من ذلك."
       }
     },
     {
@@ -92,7 +92,7 @@
       },
       "body": {
         "en": "Inner shadows create the visual impression of a hole or sunken pit. In modern mental models, users expect interactive components to be elevated above the plane, not carved into it. Inner shadows create confusion and make buttons appear disabled or pressed.",
-        "ar": "الظلال الداخلية بتدي إيحاء بـ \"حفرة\" غايصة في الصفحة. التوقعات الذهنية للمستخدم في الواجهات الحديثة بتربط قابلية الضغط بالارتفاع لفوق، مش الحفر لجوه. الظل الداخلي بيخلي الزرار يبان كأنه مضغوط أو معطل ومربك."
+        "ar": "تخلق الظلال الداخلية انطباعًا بصريًا بوجود ثقب أو حفرة غائرة. في النماذج العقلية الحديثة، يتوقع المستخدمون أن تكون المكونات التفاعلية مرتفعة فوق السطح، وليس محفورة فيه. تخلق الظلال الداخلية ارتباكًا وتجعل الأزرار تبدو معطلة أو مضغوطة."
       }
     }
   ]

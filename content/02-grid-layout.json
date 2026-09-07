@@ -1,24 +1,30 @@
 {
   "id": "grid-layout",
   "order": 2,
-  "title": { "en": "Grid and Layout", "ar": "الجريد والتخطيط" },
+  "title": {
+    "en": "Grid and Layout",
+    "ar": "الجريد والتخطيط"
+  },
   "intro": {
     "en": "A grid is a set of horizontal and vertical lines that divide a screen into columns and rows. It is one of the most important principles in UI Design, and one that beginners consistently find confusing. This chapter covers grid anatomy, why grids matter, the two grid types, the maths for building a column grid, and the 8pt system you will actually use day to day.",
-    "ar": "الجريد هو مجموعة خطوط أفقية ورأسية بتقسّم الشاشة لأعمدة وصفوف. ده من أهم المبادئ في الـ UI Design، وفي نفس الوقت من أكتر الحاجات اللي بتلخبط المبتدئين. الفصل ده بيغطّي تشريح الجريد، وليه هو مهم، ونوعيه، والحسبة بتاعة بناء الـ column grid، ونظام الـ 8pt اللي هتستخدمه فعليًا كل يوم."
+    "ar": "الشبكة (Grid) هي مجموعة من الخطوط الأفقية والرأسية التي تقسم الشاشة إلى أعمدة وصفوف. إنها واحدة من أهم المبادئ في الـ UI Design، ومن أكثر الأشياء التي تربك المبتدئين دائمًا. يغطي هذا الفصل تشريح الشبكة، وسبب أهميتها، ونوعي الشبكات، والحسابات الخاصة ببناء شبكة الأعمدة (Column grid)، ونظام الـ 8pt الذي ستستخدمه فعليًا كل يوم."
   },
   "sections": [
     {
       "id": "grid-anatomy",
-      "title": { "en": "Grid anatomy", "ar": "تشريح الجريد" },
+      "title": {
+        "en": "Grid anatomy",
+        "ar": "تشريح الشبكة (Grid)"
+      },
       "body": {
         "en": "A grid gives structure to a page or an app and ensures consistent spacing between elements. It is made of four parts.\n\n**Columns** — the vertical sections of a grid. The more columns, the more flexible the grid. Most web designs use 12.\n\n**Rows** — the horizontal sections. Used fairly rarely in web design; most grids are built on columns alone.\n\n**Gutters** — the empty spaces that divide columns and rows. The smaller the gutter, the tighter the content sits on screen.\n\n**Margins** — the space outside the columns, rows and gutters. Think of them as gutters on the outside of the grid. They can be set to 0, but a higher value produces more white space at the edges.\n\n**Modules** — where a column and a row intersect, that area is called a module.",
-        "ar": "الجريد بيدّي بنية للصفحة أو التطبيق وبيضمن مسافات متسقة بين العناصر. وهو متكوّن من أربع أجزاء.\n\n**الأعمدة (Columns)** — الأقسام الرأسية في الجريد. كل ما زادت الأعمدة، زادت مرونة الجريد. معظم تصميمات الويب بتستخدم 12 عمود.\n\n**الصفوف (Rows)** — الأقسام الأفقية. بتستخدم نادرًا نسبيًا في تصميم الويب؛ معظم الجريدات مبنية على الأعمدة بس.\n\n**الفواصل (Gutters)** — المسافات الفاضية اللي بتفصل بين الأعمدة والصفوف. كل ما الـ gutter صغر، كل ما المحتوى بقى متزنق أكتر على الشاشة.\n\n**الهوامش (Margins)** — المسافة اللي بره الأعمدة والصفوف والفواصل. اعتبرها gutters على أطراف الجريد من بره. ممكن تتظبط على 0، لكن القيمة الأكبر بتدّي مساحة بيضا أكتر على الأطراف.\n\n**الوحدات (Modules)** — المنطقة اللي بيتقاطع فيها عمود مع صف بتتسمّى module."
+        "ar": "تمنح الشبكة بنية للصفحة أو التطبيق وتضمن وجود مسافات متسقة بين العناصر. وهي تتكون من أربعة أجزاء.\n\n**الأعمدة (Columns)** — الأقسام الرأسية في الشبكة. كلما زادت الأعمدة، زادت مرونة الشبكة. تستخدم معظم تصميمات الويب 12 عمودًا.\n\n**الصفوف (Rows)** — الأقسام الأفقية. تُستخدم نادرًا في تصميم الويب؛ حيث تُبنى معظم الشبكات على الأعمدة فقط.\n\n**الفواصل (Gutters)** — المسافات الفارغة التي تفصل بين الأعمدة والصفوف. كلما صَغُر الفاصل، أصبح المحتوى أكثر تقاربًا على الشاشة.\n\n**الهوامش (Margins)** — المسافة الموجودة خارج الأعمدة والصفوف والفواصل. اعتبرها بمثابة فواصل على الأطراف الخارجية للشبكة. يمكن ضبطها على 0، ولكن القيمة الأعلى تُنتج مساحة بيضاء أكبر على الأطراف.\n\n**الوحدات (Modules)** — تسمى المنطقة التي يتقاطع فيها العمود مع الصف بالوحدة (Module)."
       },
       "asset": {
         "file": "grid-anatomy.png",
         "alt": {
           "en": "A grid diagram labelling columns, rows, gutters, margins and modules",
-          "ar": "رسم للجريد معلّم عليه الأعمدة والصفوف والفواصل والهوامش والوحدات"
+          "ar": "رسم تخطيطي للشبكة موضح عليه الأعمدة، الصفوف، الفواصل، الهوامش، والوحدات"
         },
         "ratio": "16:9",
         "brief": "A desktop screen frame containing a 12-column grid with visible rows. Label with leader lines: one column, one row, a gutter between two columns, the left margin, and one module where a column and row intersect. Columns filled in a translucent accent tint, gutters left empty."
@@ -26,29 +32,35 @@
       "callout": {
         "type": "warning",
         "en": "Margins that are too small make a design look worse — not because of the grid, but because you lose white space at the edges.",
-        "ar": "الهوامش الصغيرة أوي بتخلّي التصميم شكله أوحش — مش بسبب الجريد، لكن لأنك بتخسر المساحة البيضا على الأطراف."
+        "ar": "الهوامش الصغيرة جدًا تجعل التصميم يبدو أسوأ — ليس بسبب الشبكة، بل لأنك تفقد المساحة البيضاء عند الأطراف."
       }
     },
     {
       "id": "why-grids",
-      "title": { "en": "Why grids matter", "ar": "ليه الجريد مهم" },
+      "title": {
+        "en": "Why grids matter",
+        "ar": "لماذا تعتبر الشبكات مهمة"
+      },
       "body": {
         "en": "**1. Grids give structure and clarity.** Place elements on the screen at random and you end up with an unorganised mess very quickly. Following a grid guarantees that everything is aligned.\n\n**2. Grids make the product easier to use.** Elements closer to each other naturally seem more related. A grid helps you build that hierarchy deliberately instead of by accident.\n\n**3. Grids make collaboration easier.** A grid system is a plan for where elements go. When the whole team understands where to place things — and where not to — designs stay consistent across people.\n\n**4. Grids make design responsive.** People use products on everything from small phones to large TV screens. A grid takes the guesswork out of how elements should behave when the screen grows or shrinks.",
-        "ar": "**1. الجريد بيدّي بنية ووضوح.** لو حطيت العناصر على الشاشة عشوائي، هتوصل لفوضى غير منظّمة بسرعة جدًا. الالتزام بجريد بيضمنلك إن كل حاجة متحاذية.\n\n**2. الجريد بيخلّي المنتج أسهل في الاستخدام.** العناصر القريبة من بعض بتبان مترابطة بشكل طبيعي. والجريد بيساعدك تبني الهيراركي ده عن قصد بدل ما يحصل بالصدفة.\n\n**3. الجريد بيسهّل الشغل الجماعي.** نظام الجريد هو خطة بتحدّد العناصر بتتحط فين. ولما الفريق كله يفهم يحط فين ومايحطش فين، التصميمات بتفضل متسقة عبر أكتر من شخص.\n\n**4. الجريد بيخلّي التصميم responsive.** الناس بتستخدم المنتجات على كل حاجة من موبايل صغير لشاشة تلفزيون كبيرة. والجريد بيشيل التخمين من موضوع إن العناصر تتصرف إزاي لما الشاشة تكبر أو تصغر."
+        "ar": "**1. تمنح الشبكات بنية ووضوحًا.** إذا وضعت العناصر على الشاشة بشكل عشوائي، فسينتهي بك الأمر بفوضى غير منظمة بسرعة كبيرة. اتباع شبكة يضمن لك محاذاة كل شيء.\n\n**2. تجعل الشبكات المنتج أسهل في الاستخدام.** تبدو العناصر الأقرب إلى بعضها البعض أكثر ارتباطًا بشكل طبيعي. وتساعدك الشبكة على بناء هذا التسلسل الهرمي بشكل متعمد بدلًا من الصدفة.\n\n**3. تسهل الشبكات التعاون.** نظام الشبكة هو خطة تحدد أين توضع العناصر. عندما يفهم الفريق بأكمله أين يجب وضع الأشياء — وأين لا يجب وضعها — تظل التصميمات متسقة بين الأفراد.\n\n**4. تجعل الشبكات التصميم متجاوبًا (Responsive).** يستخدم الأشخاص المنتجات على كل شيء بدءًا من الهواتف الصغيرة وحتى شاشات التلفزيون الكبيرة. تزيل الشبكة التخمين حول كيفية تصرف العناصر عندما تكبر الشاشة أو تصغر."
       }
     },
     {
       "id": "fluid-grid",
-      "title": { "en": "Fluid grid", "ar": "الجريد المرن (Fluid)" },
+      "title": {
+        "en": "Fluid grid",
+        "ar": "الجريد المرن (Fluid)"
+      },
       "body": {
         "en": "In a fluid grid, **column width changes based on screen width**, while margin and gutter widths stay fixed.\n\nThis makes it ideal for responsive interfaces: the content resizes with the screen, but the distance from the screen edges never changes. Put an object on a fluid grid and its width will grow and shrink, while its margin from the edge stays identical on every device.\n\nFluid grids are used frequently, mostly because people now access digital products from a huge range of devices.",
-        "ar": "في الجريد المرن، **عرض العمود بيتغيّر حسب عرض الشاشة**، بينما الـ margins والـ gutters بيفضلوا ثابتين.\n\nوده اللي بيخلّيه مثالي للواجهات الـ responsive: المحتوى بيتمدّد ويتقلّص مع الشاشة، لكن المسافة من أطراف الشاشة مبتتغيّرش أبدًا. حط عنصر على جريد مرن، هتلاقي عرضه بيكبر ويصغر، بينما هامشه من الطرف يفضل زي ما هو على كل الأجهزة.\n\nالجريدات المرنة بتستخدم كتير، أساسًا لأن الناس دلوقتي بتوصل للمنتجات الرقمية من مجموعة أجهزة ضخمة."
+        "ar": "في الشبكة المرنة (Fluid grid)، يتغير عرض العمود بناءً على عرض الشاشة، بينما يظل عرض الهوامش والفواصل ثابتًا.\n\nهذا يجعلها مثالية للواجهات المتجاوبة (Responsive): يتغير حجم المحتوى مع الشاشة، لكن المسافة من حواف الشاشة لا تتغير أبدًا. ضع كائنًا على شبكة مرنة وسينمو عرضه ويتقلص، بينما يظل هامشه من الحافة متطابقًا على كل جهاز.\n\nتُستخدم الشبكات المرنة بكثرة، ويرجع ذلك أساسًا إلى أن الأشخاص يصلون الآن إلى المنتجات الرقمية من مجموعة كبيرة ومتنوعة من الأجهزة."
       },
       "asset": {
         "file": "fluid-grid.png",
         "alt": {
           "en": "The same content on a fluid grid at two screen widths",
-          "ar": "نفس المحتوى على جريد مرن بعرضين شاشة مختلفين"
+          "ar": "المحتوى نفسه على شبكة مرنة بعرضين مختلفين للشاشة"
         },
         "ratio": "16:9",
         "brief": "Two screen frames side by side, one wide and one narrow. Both show the same grid overlay and a card labelled 'Hello'. The card is visibly wider in the wide frame and narrower in the narrow frame, but the margin from each screen edge is dimensioned and identical in both. Annotate 'margins fixed, columns flex'."
@@ -56,16 +68,19 @@
     },
     {
       "id": "fixed-grid",
-      "title": { "en": "Fixed grid", "ar": "الجريد الثابت (Fixed)" },
+      "title": {
+        "en": "Fixed grid",
+        "ar": "الجريد الثابت (Fixed)"
+      },
       "body": {
         "en": "A fixed grid has **fixed column and gutter values**, with the margin width changing based on screen width. It is the exact inverse of a fluid grid.\n\nBecause the columns never change size, fixed grids work best for content that should look the same regardless of the screen. It may seem like they would be rare — the content isn't responsive, after all — but they are used constantly, particularly for **forms and articles**.\n\nStretching that kind of content makes no sense. A login form on a fluid grid would stretch across an entire desktop monitor, putting the label metres away from its input and destroying readability. On a fixed grid it stays a sensible width and the extra space becomes margin.",
-        "ar": "الجريد الثابت ليه **قيم ثابتة للأعمدة والفواصل**، والمتغيّر فيه هو عرض الهامش حسب عرض الشاشة. يعني هو العكس التام للجريد المرن.\n\nولأن الأعمدة مبتغيّرش حجمها أبدًا، الجريد الثابت بيشتغل أحسن مع المحتوى اللي المفروض يفضل بنفس الشكل مهما اتغيّرت الشاشة. وممكن تفتكر إنه نادر الاستخدام — المحتوى مش responsive أصلًا — لكنه بيستخدم باستمرار، خصوصًا في **الفورمات والمقالات**.\n\nتمديد النوع ده من المحتوى مالوش أي معنى. فورم تسجيل دخول على جريد مرن هيتمدّد على عرض شاشة الديسك توب كلها، فالليبل هيبقى بعيد أمتار عن الحقل بتاعه، والقراية تموت. أما على جريد ثابت فبيفضل بعرض معقول والمساحة الزيادة بتتحوّل لهامش."
+        "ar": "تحتوي الشبكة الثابتة (Fixed grid) على قيم ثابتة للأعمدة والفواصل، مع تغير عرض الهامش بناءً على عرض الشاشة. إنها العكس تمامًا للشبكة المرنة.\n\nنظرًا لأن الأعمدة لا تغير حجمها أبدًا، فإن الشبكات الثابتة تعمل بشكل أفضل مع المحتوى الذي يجب أن يبدو كما هو بغض النظر عن الشاشة. قد يبدو أنها نادرة الاستخدام — فالمحتوى ليس متجاوبًا في النهاية — لكنها تستخدم باستمرار، خاصة لـ النماذج (Forms) والمقالات.\n\nإن تمديد هذا النوع من المحتوى لا معنى له. فنموذج تسجيل الدخول على شبكة مرنة سيمتد عبر شاشة سطح المكتب بأكملها، مما يضع التسمية (Label) على بُعد أمتار من حقل الإدخال الخاص بها ويدمر سهولة القراءة. أما على شبكة ثابتة، فيبقى بعرض معقول وتتحول المساحة الإضافية إلى هامش."
       },
       "asset": {
         "file": "fixed-vs-fluid-form.png",
         "alt": {
           "en": "A login form on a fixed grid versus a fluid grid at desktop width",
-          "ar": "فورم تسجيل دخول على جريد ثابت مقابل جريد مرن بعرض ديسك توب"
+          "ar": "نموذج تسجيل الدخول على شبكة ثابتة مقابل شبكة مرنة بعرض شاشة سطح المكتب"
         },
         "ratio": "16:9",
         "brief": "Two wide desktop frames stacked or side by side, both containing the same login form: heading 'Log in', a Username field with 'tom_smith', a Password field with dots, and a 'Next step' button. Top/left version on a fixed grid — the form is a comfortable narrow column, centred, with large empty margins. Bottom/right version on a fluid grid — the same form stretched edge to edge, fields absurdly wide. Label 'Fixed' and 'Fluid'."
@@ -73,16 +88,19 @@
     },
     {
       "id": "building-column-grid",
-      "title": { "en": "How to build a column grid", "ar": "إزاي تبني column grid" },
+      "title": {
+        "en": "How to build a column grid",
+        "ar": "كيفية بناء شبكة أعمدة (Column grid)"
+      },
       "body": {
         "en": "The first question is always: how many columns? The common, safe answer is **12** — it divides cleanly by 12, 6, 4, 3, 2 and 1, which gives you a lot of layout flexibility.\n\n12 is not mandatory. Sometimes 8 is enough. But **avoid 5, 7 and 11** — they are only divisible by themselves, so you can never split them into evenly sized groups. If you are unsure, start with 12. Sketching the screen layout on paper first tells you how complex the page really is.\n\nThen the maths — five steps, all basic:\n\n1. **Find your screen width.** Example: `1440`\n2. **Set gutter and margin width.** No strict rules. The author uses `12`, `14` or `16 pt` for gutters and `160` or `180 pt` for margins on web. This example uses `20 pt` gutters and `160 pt` margins.\n3. **Find the number of gutters.** Always one less than the columns. 12 columns → 11 gutters.\n4. **Subtract gutters and margins from screen width.**\\\n   `1440 - (11 × 20) - (2 × 160) = 900`\n5. **Divide by the number of columns.**\\\n   `900 / 12 = 75`\n\nColumn width is 75 pt. If the result isn't a whole number, round up.\n\nMost design tools only ask for column count, margin and gutter — they calculate the rest. In Figma, the **Stretch** grid type sets column width automatically from screen width; **Center** asks you for the column width, which is the number you just calculated.",
-        "ar": "أول سؤال دايمًا: كام عمود؟ الإجابة الشائعة والآمنة هي **12** — لأنها بتتقسم بالظبط على 12 و 6 و 4 و 3 و 2 و 1، وده بيدّيك مرونة كبيرة في التخطيط.\n\nالـ 12 مش فرض. أحيانًا 8 بيكفوا. لكن **ابعد عن 5 و 7 و 11** — دي بتتقسم على نفسها بس، فمش هتقدر تقسّمها لمجموعات متساوية أبدًا. ولو مش متأكد، ابدأ بـ 12. ورسم تخطيط الشاشة على ورقة الأول بيقولك الصفحة معقّدة قد إيه فعلًا.\n\nوبعدين الحسبة — خمس خطوات، كلها في منتهى البساطة:\n\n1. **هات عرض الشاشة.** مثال: `1440`\n2. **حدّد عرض الـ gutter والـ margin.** مفيش قواعد صارمة. الكاتب بيستخدم `12` أو `14` أو `16 pt` للـ gutters و `160` أو `180 pt` للـ margins في الويب. المثال ده بيستخدم `20 pt` gutters و `160 pt` margins.\n3. **هات عدد الـ gutters.** دايمًا أقل من الأعمدة بواحد. 12 عمود ← 11 gutter.\n4. **اطرح الـ gutters والـ margins من عرض الشاشة.**\\\n   `1440 - (11 × 20) - (2 × 160) = 900`\n5. **اقسم على عدد الأعمدة.**\\\n   `900 / 12 = 75`\n\nعرض العمود 75 pt. ولو الناتج مش رقم صحيح، قرّبه لفوق.\n\nمعظم أدوات التصميم بتطلب منك عدد الأعمدة والـ margin والـ gutter بس — وهي بتحسب الباقي. في فيجما، نوع الجريد **Stretch** بيظبط عرض العمود أوتوماتيك من عرض الشاشة؛ و **Center** بيطلب منك عرض العمود، وهو الرقم اللي لسه حاسبه."
+        "ar": "السؤال الأول دائمًا هو: كم عدد الأعمدة؟ الإجابة الشائعة والآمنة هي 12 — فهي تقبل القسمة بشكل صحيح على 12 و 6 و 4 و 3 و 2 و 1، مما يمنحك مرونة كبيرة في التخطيط.\n\nالرقم 12 ليس إلزاميًا. في بعض الأحيان يكون 8 كافيًا. لكن **تجنب 5 و 7 و 11** — فهي لا تقبل القسمة إلا على نفسها، لذلك لن تتمكن أبدًا من تقسيمها إلى مجموعات متساوية الحجم. إذا كنت غير متأكد، ابدأ بـ 12. يساعدك رسم تخطيط الشاشة على الورق أولًا في معرفة مدى تعقيد الصفحة حقًا.\n\nثم تأتي العمليات الحسابية — خمس خطوات أساسية:\n\n1. **أوجد عرض شاشتك.** مثال: `1440`\n2. **حدد عرض الفاصل (Gutter) والهامش (Margin).** لا توجد قواعد صارمة. يستخدم المؤلف `12` أو `14` أو `16 pt` للفواصل و `160` أو `180 pt` للهوامش على الويب. يستخدم هذا المثال فواصل بعرض `20 pt` وهوامش بعرض `160 pt`.\n3. **أوجد عدد الفواصل.** دائمًا أقل من الأعمدة بواحد. 12 عمودًا → 11 فاصلًا.\n4. **اطرح الفواصل والهوامش من عرض الشاشة.**\\\n   `1440 - (11 × 20) - (2 × 160) = 900`\n5. **اقسم على عدد الأعمدة.**\\\n   `900 / 12 = 75`\n\nعرض العمود هو 75 pt. إذا لم تكن النتيجة رقمًا صحيحًا، قرّبه للأعلى.\n\nتطلب معظم أدوات التصميم فقط عدد الأعمدة، والهامش، والفاصل — وتقوم هي بحساب الباقي. في Figma، يضبط نوع الشبكة Stretch عرض العمود تلقائيًا من عرض الشاشة؛ أما Center فيطلب منك عرض العمود، وهو الرقم الذي حسبته للتو."
       },
       "asset": {
         "file": "column-grid-math.png",
         "alt": {
           "en": "A 1440pt screen broken down into margins, gutters and 12 columns",
-          "ar": "شاشة 1440pt مقسومة لهوامش وفواصل و12 عمود"
+          "ar": "شاشة بعرض 1440pt مقسمة إلى هوامش، فواصل، و12 عمودًا"
         },
         "ratio": "16:9",
         "brief": "A wide screen frame labelled 1440 pt across the top with a dimension line. Inside: two margin bands labelled 160 pt each, 12 columns labelled 75 pt, and gutters labelled 20 pt. Below the diagram, print the equation as two lines of monospace text: '1440 − (11 × 20) − (2 × 160) = 900' and '900 ÷ 12 = 75'. Margins in a light grey tint, columns in the accent tint."
@@ -90,21 +108,24 @@
       "callout": {
         "type": "tip",
         "en": "Before any high-fidelity work, sketch a rough content layout on paper. It takes a few minutes and often tells you the margins should be bigger or you need a different column count.",
-        "ar": "قبل أي شغل high-fidelity، ارسم تخطيط تقريبي للمحتوى على ورقة. بياخد دقايق ومعظم الوقت بيقولك إن الهوامش لازم تكبر أو إنك محتاج عدد أعمدة مختلف."
+        "ar": "قبل البدء في أي عمل عالي الدقة (High-fidelity)، ارسم تخطيطًا تقريبيًا للمحتوى على الورق. يستغرق الأمر بضع دقائق وغالبًا ما يخبرك ما إذا كانت الهوامش يجب أن تكون أكبر أو إذا كنت بحاجة إلى عدد أعمدة مختلف."
       }
     },
     {
       "id": "8pt-grid",
-      "title": { "en": "The 8pt grid", "ar": "جريد الـ 8pt" },
+      "title": {
+        "en": "The 8pt grid",
+        "ar": "شبكة الـ 8pt"
+      },
       "body": {
         "en": "Column grids organise content at a large scale — placing groups of elements and components inside sections. But you also need a grid for designing the **individual components** themselves: cards, buttons, inputs. That is what the 8pt grid is for.\n\nThe system is simple: use **multiples of 8** — 8, 16, 24, 32 and so on — for margins, padding, and sometimes element dimensions. Most screen sizes are divisible by 8, which is why the system caught on.\n\nIt sounds restrictive and it is absolutely worth doing. It guarantees consistent spacing and sizing across an entire interface, and it removes a hundred small decisions per screen.",
-        "ar": "الـ column grids بتنظّم المحتوى على نطاق واسع — بتحط مجموعات العناصر والكومبوننتس جوه الأقسام. لكنك كمان محتاج جريد لتصميم **الكومبوننتس نفسها**: الكروت، الأزرار، الحقول. وده اللي جريد الـ 8pt موجود عشانه.\n\nالنظام بسيط: استخدم **مضاعفات الـ 8** — 8، 16، 24، 32 وهكذا — للـ margins والـ padding، وأحيانًا لأبعاد العناصر نفسها. ومعظم مقاسات الشاشات بتتقسم على 8، وده سبب انتشار النظام.\n\nشكله مقيّد، وهو يستاهل التطبيق تمامًا. بيضمن مسافات وأحجام متسقة عبر الواجهة كلها، وبيشيل من دماغك مية قرار صغير في كل شاشة."
+        "ar": "تنظم شبكات الأعمدة المحتوى على نطاق واسع — حيث تضع مجموعات العناصر والمكونات داخل الأقسام. لكنك بحاجة أيضًا إلى شبكة لتصميم المكونات الفردية نفسها: البطاقات، الأزرار، حقول الإدخال. وهذا هو الغرض من شبكة الـ 8pt.\n\nالنظام بسيط: استخدم مضاعفات الرقم 8 — 8، 16، 24، 32 وهكذا — للهوامش (Margins)، والحشو (Padding)، وأحيانًا لأبعاد العناصر. تقبل معظم أحجام الشاشات القسمة على 8، ولهذا السبب اكتسب هذا النظام شعبية.\n\nقد يبدو الأمر مقيدًا، لكنه يستحق التنفيذ بكل تأكيد. فهو يضمن وجود مسافات وأحجام متسقة عبر الواجهة بأكملها، ويزيل عنك عبء اتخاذ مئات القرارات الصغيرة في كل شاشة."
       },
       "asset": {
         "file": "8pt-spacing.png",
         "alt": {
           "en": "A card with its internal padding annotated in 8pt multiples",
-          "ar": "كارد معلّم عليه الـ padding الداخلي بمضاعفات الـ 8pt"
+          "ar": "بطاقة مع توضيح الحشو (Padding) الداخلي بمضاعفات الـ 8pt"
         },
         "ratio": "16:9",
         "brief": "A single card component, drawn large: heading 'Learn anything from home', a line of body text, and a 'Get started' button. Annotate the internal spacing with dimension lines reading 16 pt between elements and 16 pt padding, and the card's total height as 88 pt. Thin accent-coloured dimension lines, values in small labels."
@@ -112,24 +133,30 @@
     },
     {
       "id": "hard-vs-soft-grid",
-      "title": { "en": "Hard grid vs soft grid", "ar": "الجريد الصارم مقابل المرن" },
+      "title": {
+        "en": "Hard grid vs soft grid",
+        "ar": "الشبكة الصارمة (Hard grid) مقابل الشبكة المرنة (Soft grid)"
+      },
       "body": {
         "en": "Once you commit to an 8pt grid, you pick one of two approaches.\n\n**Hard grid** — the dimensions *and* the spacing of every element are 8pt and its increments. Content snaps to the grid in 8pt steps. This is genuinely hard to design with.\n\n**Soft grid** — elements do not have to be *sized* at 8pt increments. You only use 8pt and its multiples to **space elements out**. They stay consistently spaced and responsive, without the rigidity.\n\nDesigners rarely use both in the same design — you pick one. The author, and many others, prefer the soft grid: you get all the benefits of a layout grid and it is genuinely easier to work with.",
-        "ar": "أول ما تلتزم بجريد 8pt، بتختار واحد من أسلوبين.\n\n**الجريد الصارم (Hard grid)** — أبعاد **و** مسافات كل عنصر بتبقى 8pt ومضاعفاتها. المحتوى بيتلزّق على الجريد بقفزات 8pt. والتصميم بيه صعب فعلًا.\n\n**الجريد المرن (Soft grid)** — العناصر مش لازم يكون **حجمها** بمضاعفات الـ 8pt. إنت بتستخدم الـ 8pt ومضاعفاتها في **المسافات بين العناصر** بس. فبتفضل المسافات متسقة والتصميم responsive، من غير التصلّب ده.\n\nنادرًا ما بيستخدم المصمّمين الاتنين في نفس التصميم — بتختار واحد. الكاتب، ومعاه كتير غيره، بيفضّلوا الـ soft grid: بتاخد كل فوايد جريد التخطيط والشغل بيه أسهل بجد."
+        "ar": "بمجرد التزامك بشبكة 8pt، فإنك تختار أحد نهجين.\n\n**الشبكة الصارمة (Hard grid)** — تكون أبعاد **و** مسافات كل عنصر بمضاعفات الـ 8pt. يلتصق المحتوى بالشبكة في خطوات مقدارها 8pt. والتصميم بهذا النهج صعب حقًا.\n\n**الشبكة المرنة (Soft grid)** — لا يجب أن يكون حجم العناصر بمضاعفات الـ 8pt. بل تستخدم الـ 8pt ومضاعفاتها للمسافات بين العناصر فقط. فتظل متباعدة بشكل متسق ومتجاوبة، دون أي تصلب.\n\nنادرًا ما يستخدم المصممون كلا النهجين في نفس التصميم — عليك اختيار أحدهما. يفضل المؤلف، والعديد من الآخرين، الشبكة المرنة: حيث تحصل على جميع فوائد شبكة التخطيط مع سهولة حقيقية في العمل."
       }
     },
     {
       "id": "spacing-scale",
-      "title": { "en": "Creating a soft grid", "ar": "إنشاء soft grid" },
+      "title": {
+        "en": "Creating a soft grid",
+        "ar": "إنشاء شبكة مرنة (Soft grid)"
+      },
       "body": {
         "en": "Start by choosing a **base value**. For the 8pt grid it is obviously 8. But for mobile designs, 8 points is a lot — the author prefers a **4pt grid** on mobile, which gives you twice as many spacing options.\n\nWhichever you pick, create multiples of it:\n\n`8 · 16 · 24 · 32 · 40 · 48 …`\n\nAnd that's the whole thing. Every element you place should now be spaced using a value from that scale. It is especially useful when designing components like cards and buttons.\n\nIf you find yourself constantly needing a value between two steps on the scale, that is a signal to **change the base value**, not to break the scale. The idea sounds limiting, but in practice it makes designs far more consistent and saves a large amount of time.",
-        "ar": "ابدأ باختيار **قيمة أساسية (base value)**. في جريد الـ 8pt هي بديهيًا 8. لكن في تصميمات الموبايل، الـ 8 بوينت رقم كبير — الكاتب بيفضّل **جريد 4pt** في الموبايل، وده بيدّيك ضعف خيارات المسافات.\n\nأيًا كان اللي هتختاره، اعمل مضاعفات منه:\n\n`8 · 16 · 24 · 32 · 40 · 48 …`\n\nوده هو كل الموضوع. كل عنصر بتحطه من دلوقتي المفروض تتحدّد مسافته بقيمة من السلّم ده. ومفيد بشكل خاص وإنت بتصمّم كومبوننتس زي الكروت والأزرار.\n\nولو لقيت نفسك محتاج باستمرار قيمة بين خطوتين على السلّم، دي إشارة إنك **تغيّر القيمة الأساسية**، مش إنك تكسر السلّم. الفكرة شكلها مقيّدة، لكنها عمليًا بتخلّي التصميمات أكتر اتساقًا بكتير وبتوفّر وقت كبير."
+        "ar": "ابدأ باختيار قيمة أساسية (Base value). بالنسبة لشبكة الـ 8pt فهي بطبيعة الحال 8. لكن بالنسبة لتصميمات الهواتف المحمولة، فإن 8 نقاط تعتبر كثيرة — يفضل المؤلف شبكة 4pt على الهواتف، مما يمنحك ضعف خيارات المسافات.\n\nأيًا كان اختيارك، قم بإنشاء مضاعفات له:\n\n`8 · 16 · 24 · 32 · 40 · 48 …`\n\nوهذا كل ما في الأمر. يجب الآن تباعد أي عنصر تضعه باستخدام قيمة من هذا المقياس (Scale). وهو مفيد بشكل خاص عند تصميم مكونات مثل البطاقات والأزرار.\n\nإذا وجدت نفسك دائمًا بحاجة إلى قيمة بين خطوتين على المقياس، فهذه إشارة إلى تغيير القيمة الأساسية، وليس لكسر المقياس. قد تبدو الفكرة مقيدة، ولكنها في الممارسة العملية تجعل التصميمات أكثر اتساقًا بشكل كبير وتوفر قدرًا كبيرًا من الوقت."
       },
       "asset": {
         "file": "spacing-scale.png",
         "alt": {
           "en": "A visual spacing scale from 4pt to 48pt",
-          "ar": "سلّم مسافات مرئي من 4pt لـ 48pt"
+          "ar": "مقياس مسافات مرئي من 4pt إلى 48pt"
         },
         "ratio": "16:9",
         "brief": "A row of vertical bars of increasing height, each labelled with its value. Show two scales stacked: the 8pt scale (8, 16, 24, 32, 40, 48) labelled 'Desktop — base 8' and the 4pt scale (4, 8, 12, 16, 20, 24, 28, 32) labelled 'Mobile — base 4'. Bars in the accent colour, values in small labels underneath. Bar heights must be proportional to their actual values."
@@ -137,24 +164,30 @@
     },
     {
       "id": "text-baseline-alignment",
-      "title": { "en": "What about text?", "ar": "والنص؟" },
+      "title": {
+        "en": "What about text?",
+        "ar": "ماذا عن النص؟"
+      },
       "body": {
         "en": "Text should be aligned on its **baseline** — the invisible line the letters sit on — rather than on its bounding box. This way the alignment holds regardless of font size.\n\nWhen you align two pieces of text with each other, align them on the baseline of their **first lines**. Two text blocks frequently have different line heights, and their bounding boxes will therefore never agree. Their first baselines always will.",
-        "ar": "النص المفروض يتحاذى على **الـ baseline** بتاعه — الخط الوهمي اللي الحروف قاعدة عليه — مش على الـ bounding box. وكده المحاذاة بتفضل صح مهما اتغيّر حجم الخط.\n\nولما تحاذي قطعتين نص مع بعض، حاذيهم على الـ baseline بتاع **أول سطر** في كل واحدة. غالبًا كتلتين النص بيبقى ليهم line heights مختلفة، فالـ bounding boxes بتاعتهم مش هيتفقوا أبدًا. لكن أول baseline فيهم دايمًا هيتفق."
+        "ar": "يجب أن يتم محاذاة النص على الـ baseline الخاص به — الخط غير المرئي الذي تستقر عليه الحروف — بدلاً من الـ bounding box (مربع الإحاطة). بهذه الطريقة، تظل المحاذاة صحيحة بغض النظر عن حجم الخط.\n\nعندما تقوم بمحاذاة قطعتين من النص مع بعضهما البعض، قم بمحاذاتهما على الـ baseline الخاص بـ أسطرها الأولى. غالبًا ما يكون لكتلتي النص ارتفاعات أسطر (Line heights) مختلفة، وبالتالي لن تتوافق مربعات الإحاطة (Bounding boxes) الخاصة بهما أبدًا. لكن الـ baseline الأول فيهما سيتوافق دائمًا."
       }
     },
     {
       "id": "mobile-grids",
-      "title": { "en": "Grids on mobile devices", "ar": "الجريد على الموبايل" },
+      "title": {
+        "en": "Grids on mobile devices",
+        "ar": "الشبكات على الأجهزة المحمولة"
+      },
       "body": {
         "en": "Phone screens are far narrower than desktop screens, so column grids are rarely used in mobile design. Two steps replace them.\n\n**1. Set margins.** Use either `20 pt` or `24 pt`. Larger values may look better but they cost you precious screen width. These margin areas are known as **safe space** — regions that stay completely free of content.\n\n**2. Set a base value for the soft grid.** 8pt works well on large screens, but on mobile start with `4 pt`. Build the spacing scale from there:\n\n`4 · 8 · 12 · 16 · 20 · 24 · 28 · 32 …`\n\nThat's it. When working on mobile screens, remember only two things: **never place elements inside the margin area**, and **space elements using values from your scale**. This two-step approach is far more useful than setting up a traditional column or row grid.\n\nIf you still want a column grid for overall page layout, the process is the same as for web — but mobile column grids have far fewer columns, usually **2, sometimes 4**.",
-        "ar": "شاشات الموبايل أضيق بكتير من شاشات الديسك توب، فالـ column grids نادرًا ما بتستخدم في تصميم الموبايل. وبيحل محلها خطوتين.\n\n**1. حدّد الهوامش.** استخدم `20 pt` أو `24 pt`. القيم الأكبر ممكن تبقى شكلها أحسن لكنها بتكلّفك عرض شاشة غالي. ومناطق الهوامش دي اسمها **المساحة الآمنة (safe space)** — مناطق بتفضل خالية تمامًا من أي محتوى.\n\n**2. حدّد قيمة أساسية للـ soft grid.** الـ 8pt بتشتغل كويس على الشاشات الكبيرة، لكن في الموبايل ابدأ بـ `4 pt`. وابني سلّم المسافات منها:\n\n`4 · 8 · 12 · 16 · 20 · 24 · 28 · 32 …`\n\nوخلاص. وإنت شغال على شاشات موبايل، افتكر حاجتين بس: **متحطش عناصر جوه منطقة الهامش**، و **حدّد المسافات بقيم من السلّم بتاعك**. الأسلوب ده من خطوتين أنفع بكتير من إنك تظبط column أو row grid تقليدي.\n\nولو لسه عايز column grid للتخطيط العام للصفحة، العملية زي الويب بالظبط — بس الـ column grids في الموبايل بيبقى فيها أعمدة أقل بكتير، عادةً **2، وأحيانًا 4**."
+        "ar": "شاشات الهواتف أضيق بكثير من شاشات سطح المكتب، لذلك نادرًا ما تُستخدم شبكات الأعمدة في تصميم الهواتف. وتحل محلهما خطوتان.\n\n**1. تحديد الهوامش.** استخدم إما `20 pt` أو `24 pt`. قد تبدو القيم الأكبر أفضل، لكنها تكلفك عرض شاشة ثمينًا. تُعرف مناطق الهوامش هذه بـ المساحة الآمنة (Safe space) — وهي مناطق تظل خالية تمامًا من المحتوى.\n\n**2. تحديد قيمة أساسية للشبكة المرنة (Soft grid).** يعمل نظام الـ 8pt بشكل جيد على الشاشات الكبيرة، لكن على الهاتف ابدأ بـ `4 pt`. ثم ابني مقياس المسافات بناءً عليه:\n\n`4 · 8 · 12 · 16 · 20 · 24 · 28 · 32 …`\n\nهذا كل شيء. عند العمل على شاشات الهواتف، تذكر شيئين فقط: **لا تضع أبدًا أي عناصر داخل منطقة الهامش**، و **باعد بين العناصر باستخدام قيم من مقياسك**. هذا النهج المكون من خطوتين أكثر فائدة بكثير من إعداد شبكة أعمدة أو صفوف تقليدية.\n\nإذا كنت لا تزال ترغب في استخدام شبكة أعمدة للتخطيط العام للصفحة، فالعملية هي نفسها كما في الويب — لكن شبكات أعمدة الهواتف تحتوي على عدد أعمدة أقل بكثير، عادةً 2، وأحيانًا 4."
       },
       "asset": {
         "file": "mobile-margins.png",
         "alt": {
           "en": "Two phone screens showing 20pt and 24pt margins as safe space",
-          "ar": "شاشتين موبايل بيوضّحوا هوامش 20pt و 24pt كمساحة آمنة"
+          "ar": "شاشتا هاتف توضحان هوامش 20pt و 24pt كمساحات آمنة"
         },
         "ratio": "16:9",
         "brief": "Two phone frames side by side with placeholder content inside (a heading, a card, a button). On each, shade the left and right margin bands in a translucent accent tint and dimension them: 'Margins: 20pt' on the left phone, 'Margins: 24pt' on the right. Label the shaded bands 'safe space'."
@@ -162,7 +195,7 @@
       "callout": {
         "type": "note",
         "en": "For Arabic and Turkish interfaces the mechanics are identical, but remember that margins mirror. If you hardcode a left margin instead of a start margin, your RTL layout will break the moment you flip it — so define spacing as start/end, not left/right, from the beginning.",
-        "ar": "في الواجهات العربية والتركية الميكانيكا نفسها بالظبط، بس افتكر إن الهوامش بتتعكس. لو ثبّتّ margin شمال بدل margin start، تخطيطك الـ RTL هيتكسر أول ما تقلبه — فعرّف المسافات كـ start/end مش left/right من البداية."
+        "ar": "في الواجهات العربية والتركية، تكون الآلية هي نفسها تمامًا، ولكن تذكر أن الهوامش تنعكس. إذا قمت بتثبيت الهامش الأيسر (Left margin) بدلاً من هامش البداية (Start margin)، فإن تخطيط الـ RTL الخاص بك سينكسر في اللحظة التي تعكسه فيها — لذا قم بتحديد المسافات كـ start/end، وليس left/right، منذ البداية."
       }
     }
   ]
