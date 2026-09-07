@@ -7,7 +7,7 @@
   },
   "intro": {
     "en": "Personality is the cohesive thread uniting typography, color, imagery, and language. Learn how to architect an intentional product persona, understand Arabic linguistic nuances, and build memorable brand character.",
-    "ar": "الشخصية هي الخيط الرابط لكل تفاصيل التصميم من خطوط وألوان ولغة وصور. اتعلم إزاي تبني شخصية متكاملة لمنتجك، تفهم تأثير اللهجة في الواجهات العربية، وتصنع انطباعاً لا يُنسى."
+    "ar": "الشخصية هي الخيط المتماسك الذي يوحد الطباعة والألوان والصور واللغة. تعلم كيفية بناء شخصية مقصودة للمنتج، وفهم الفروق الدقيقة في اللغة العربية، وبناء شخصية لا تُنسى للعلامة التجارية."
   },
   "sections": [
     {
@@ -18,7 +18,7 @@
       },
       "body": {
         "en": "This is arguably the most vital concept in UI design: **every visual decision you make ultimately serves a single goal: building a cohesive product personality.**\n\nBefore choosing typefaces, color tokens, or icon weights, you must answer:\n- What does this brand value most?\n- Who is the intended user demographic (age, profession, culture)?\n- What emotional posture should the interface convey (playful buddy vs. sober fiduciary advisor)?",
-        "ar": "ده يمكن أهم مبدأ في التصميم كله: **كل قرار بصري بتاخده بيخدم في النهاية هدف واحد بس: بناء شخصية متسقة ومميزة للمنتج.**\n\nقبل ما تختار خط أو لون أو أيقونة، لازم تسأل نفسك:\n- البراند ده هدفه وقيمه إيه؟\n- مين الجمهور المستهدف بالتحديد (أعمارهم، ثقافتهم، اهتماماتهم)؟\n- إيه الانطباع والشعور اللي الواجهة لازم تنقله (صديق مرح ولطيف ولا مستشار مالي رزين وصارم)؟"
+        "ar": "يُعد هذا بلا شك المفهوم الأكثر حيوية في تصميم واجهة المستخدم: **كل قرار بصري تتخذه يخدم في النهاية هدفًا واحدًا: بناء شخصية متماسكة للمنتج.**\n\nقبل اختيار الخطوط أو رموز الألوان أو أوزان الأيقونات، يجب أن تجيب على:\n- ما هو أكثر ما تقدره هذه العلامة التجارية؟\n- من هي الشريحة الديموغرافية المستهدفة (العمر، المهنة، الثقافة)؟\n- ما هو الموقف العاطفي الذي يجب أن تنقله الواجهة (صديق مرح مقابل مستشار مالي رزين)؟"
       }
     },
     {
@@ -29,12 +29,12 @@
       },
       "body": {
         "en": "> **\"Design is all about experience, feeling, and emotion.\"**\n\n- **A Good Designer:** Selects elements because they look pretty in isolation.\n- **A Great Designer:** Engineers every component to trigger the exact intended emotional response for the target audience.\n\nNever base UI choices on personal vanity or client whim. If you personally love bubblegum pink and bouncy illustrations, that does not make them appropriate for a wealth management banking portal.",
-        "ar": "> **\"التصميم كله عن التجربة والمشاعر والعواطف.\"**\n\n- **المصمم الكويس:** بيختار حاجات شكلها حلو وخلاص.\n- **المصمم العظيم:** بيختار كل تفصيلة عشان تثير المشاعر المحددة اللي الجمهور محتاجها للثقة في المنتج.\n\nإياك تبني قراراتك على ذوقك الشخصي أو ذوق العميل الفردي؛ لو إنت بتحب الرسوم الكرتونية والألوان الفاقعة ده ميعنيش إنها مناسبة لمنصة استثمار وبنوك."
+        "ar": "> **\"التصميم يتمحور حول التجربة، والإحساس، والعاطفة.\"**\n\n- **المصمم الجيد:** يختار العناصر لأنها تبدو جميلة بمعزل عن غيرها.\n- **المصمم العظيم:** يهندس كل مكون ليثير الاستجابة العاطفية المقصودة بدقة للجمهور المستهدف.\n\nلا تبني أبدًا خيارات واجهة المستخدم (UI) على الغرور الشخصي أو أهواء العميل. إذا كنت تحب شخصيًا اللون الوردي (Bubblegum pink) والرسوم التوضيحية المرتدة، فهذا لا يجعلها مناسبة لبوابة مصرفية لإدارة الثروات."
       },
       "callout": {
         "type": "quote",
         "en": "Never base a design decision on personal taste. Ground it strictly in target audience needs and the brand's desired emotional impact.",
-        "ar": "أبدًا متبني قرار تصميمي على ذوقك الشخصي؛ ابنيه دائمًا على احتياجات الجمهور المستهدف والأثر العاطفي المطلوب."
+        "ar": "لا تبني أبدًا قرارًا تصميميًا على الذوق الشخصي. بل أسسه بصرامة على احتياجات الجمهور المستهدف والأثر العاطفي المنشود للعلامة التجارية."
       }
     },
     {
@@ -65,12 +65,12 @@
       },
       "body": {
         "en": "In the Arab digital world, linguistic register (tone and dialect) is the single most potent lever of product personality:\n\n- **Colloquial (e.g. Egyptian / Gulf Ammiya):** Radiates instant warmth, approachable camaraderie, and effortless humor. Perfect for local lifestyle, food delivery, and youth products.\n- **Modern Standard Arabic (Fusha):** Conveys indisputable authority, institutional trust, and pan-Arab gravitas. Essential for fintech, legal tech, and enterprise software.\n\nThe gulf between spoken dialects and formal Arabic is far wider than English casual vs. formal registers. Choose deliberately and maintain strict linguistic consistency across your interface.",
-        "ar": "في العالم العربي، المستوى اللغوي واللهجة هما أقوى أداة لتحديد شخصية المنتج الرقمي:\n\n- **العامية المبسطة (مصرية أو خليجية):** بتعطي إحساس فوري بالقرب والصداقة والمرح، ومثالية لتطبيقات التوصيل والخدمات اليومية للشباب.\n- **الفصحى المعاصرة (فصحى مرنة):** بتعطي هيبة ومصداقية مؤسسية وأمان، وضرورية للتطبيقات المالية والاستثمارية والرسمية.\n\nالفرق بين الفصحى والعامية في العربية أعمق بكتير من الفرق بين الإنجليزية الرسمية والكاجوال؛ اختار لغتك بوعي والتزم بيها في كل الأزرار والرسائل."
+        "ar": "في العالم الرقمي العربي، يُعد المستوى اللغوي (النبرة واللهجة) الأداة الأقوى لتشكيل شخصية المنتج:\n\n- **العامية (مثل العامية المصرية / الخليجية):** تشع بدفء فوري، وصداقة يسهل التقرب منها، وروح دعابة سلسة. مثالية لأسلوب الحياة المحلي، وتوصيل الطعام، ومنتجات الشباب.\n- **اللغة العربية الفصحى المعاصرة (Fusha):** تنقل سلطة لا تقبل الجدل، وثقة مؤسسية، ووقارًا على مستوى الوطن العربي. ضرورية للتكنولوجيا المالية (Fintech)، والتكنولوجيا القانونية، وبرامج الشركات.\n\nإن الفجوة بين اللهجات المنطوقة واللغة العربية الفصحى أوسع بكثير من المستويات الإنجليزية غير الرسمية والرسمية. اختر بتأنٍ وحافظ على اتساق لغوي صارم عبر واجهتك."
       },
       "callout": {
         "type": "note",
         "en": "Arabic linguistic register fundamentally dictates brand perception. Match your dialect or Fusha register strictly to the emotional expectations of your audience.",
-        "ar": "اختيار اللهجة العامية أو الفصحى هو الركيزة الكبرى لشخصية التطبيق في الوطن العربي؛ حدده بناءً على ثقة وتوقعات المستخدمين."
+        "ar": "يملي المستوى اللغوي العربي بشكل أساسي تصور العلامة التجارية. طابق لهجتك أو مستوى الفصحى الخاص بك بصرامة مع التوقعات العاطفية لجمهورك."
       }
     },
     {

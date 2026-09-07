@@ -7,7 +7,7 @@
   },
   "intro": {
     "en": "Photos anchor digital products to tangible reality. Discover how to choose authentic contextual photography, apply accessible text overlays, guide attention with directional gaze, and curate culturally attuned imagery.",
-    "ar": "الصور هي اللي بتربط المنتج الرقمي بالواقع الملموس. اكتشف إزاي تختار صور طبيعية ومقنعة، تضمن وضوح النصوص فوق الصور بالـ Overlays، توجّه عين المستخدم باتجاه النظر، وتراعي الخصوصية الثقافية العربية."
+    "ar": "تربط الصور المنتجات الرقمية بالواقع الملموس. اكتشف كيفية اختيار التصوير السياقي الأصيل، وتطبيق طبقات النصوص (Overlays) لضمان سهولة القراءة، وتوجيه الانتباه من خلال اتجاه النظر، وانتقاء صور تراعي الخصوصية الثقافية."
   },
   "sections": [
     {
@@ -18,7 +18,7 @@
       },
       "body": {
         "en": "While shapes, type, and color systems are abstract, photography depicts physical reality. Authentic imagery evokes empathy, demonstrates tangible value, and establishes instantaneous credibility.\n\nAvoid cheesy, staged stock photos with unnaturally jubilant models in artificial corporate poses. Candid, authentic photography showcasing real emotions fosters genuine trust.",
-        "ar": "في حين إن الخطوط والألوان عناصر مجردة، الصور الفوتوغرافية هي اللي بتمثل العالم الحقيقي الملموس. الصورة الطبيعية بتثير التعاطف وبتعكس قيمة المنتج وتبني الثقة في ثواني.\n\nتجنب صور الستوك المبتذلة اللي فيها ابتسامات مصطنعة ومبالغة تمثيلية في بيئات عمل مزيفة؛ الصور الحقيقية الطبيعية هي اللي بتصنع مصداقية دائمة."
+        "ar": "في حين أن الأشكال والخطوط وأنظمة الألوان مجردة، فإن التصوير الفوتوغرافي يصور الواقع المادي. تثير الصور الأصيلة التعاطف، وتُظهر قيمة ملموسة، وترسخ مصداقية فورية.\n\nتجنب صور الستوك (Stock photos) المبتذلة والمفتعلة ذات العارضين المبتهجين بشكل غير طبيعي في وضعيات الشركات الاصطناعية. فالتصوير العفوي والأصيل الذي يعرض مشاعر حقيقية يعزز الثقة الحقيقية."
       }
     },
     {
@@ -29,12 +29,12 @@
       },
       "body": {
         "en": "A photo is only as good as its contextual relevance. An immaculate, high-resolution supermarket image is a complete failure if placed on a luxury travel destination card.\n\n**Arabic Context Nuance:** When designing for Arab audiences, prioritize visual representation that mirrors regional culture, clothing, food, and family values. A photo of an authentic local family dinner resonates far more deeply with regional customers than generic Scandinavian stock imagery.",
-        "ar": "الصورة الممتازة تقنياً ممكن تكون كارثية لو كانت **مش مناسبة للسياق**. صورة سوبر ماركت عالية الجودة هتكون فاشلة جداً لو حطيتها في كارت حجز رحلات سياحية.\n\n**خصوصية الجمهور العربي:** لما تصمم لجمهور في الشرق الأوسط أو شمال إفريقيا، احرص على اختيار صور بتمثل ملامح وثقافة وعادات المنطقة. صورة عائلة عربية بتتناول وجبة طعام هتحرك مشاعر المستخدمين وتلامس واقعهم أكتر بكتير من صور مستوردة بعيدة عنهم."
+        "ar": "تعتمد جودة الصورة على مدى ملاءمتها للسياق. فصورة السوبر ماركت الخالية من العيوب وعالية الدقة تُعد فشلاً ذريعًا إذا وُضعت على بطاقة وجهة سفر فاخرة.\n\n**خصوصية السياق العربي:** عند التصميم للجماهير العربية، أعطِ الأولوية للتمثيل البصري الذي يعكس الثقافة الإقليمية والملابس والطعام والقيم العائلية. فصورة عشاء عائلي محلي أصيل تترك أثرًا أعمق بكثير لدى العملاء الإقليميين مقارنة بصور الستوك الاسكندنافية العامة."
       },
       "callout": {
         "type": "note",
         "en": "Authentic regional representation creates immediate emotional resonance with Arab users. Avoid mismatched Western stock tropes.",
-        "ar": "التمثيل الثقافي الأصيل في الصور يصنع ارتباطاً عاطفياً وثقة فورية مع المستخدم العربي؛ ابتعد عن صور الستوك الغربية غير الملائمة."
+        "ar": "التمثيل الإقليمي الأصيل يصنع صدى عاطفيًا فوريًا مع المستخدمين العرب. تجنب الاستعارات البصرية الغربية غير المتطابقة في صور الستوك."
       }
     },
     {
@@ -45,7 +45,7 @@
       },
       "body": {
         "en": "Placing plain text directly over unedited photos is a recipe for unreadable typography. Variable image highlights and shadows inevitably destroy contrast.\n\nAlways introduce a **semi-transparent scrim or gradient overlay** (black, white, or brand-tinted). A brand-colored overlay simultaneously guarantees WCAG text contrast and ties disparate photography into your visual design system.",
-        "ar": "وضع نص عادي فوق صورة مباشرة من غير معالجة بيدمر إمكانية القراءة تماماً، لأن تباين الصورة بيتغير بين الأماكن الفاتحة والغامقة.\n\nالحل الأساسي: حط دايمًا **طبقة شفافة (Overlay)** بلون أسود أو أبيض أو بتدرج ناعم. استخدام طبقة ملوّنة بلون البراند بيحل مشكلة وضوح النص وبيربط كل الصور المتنوعة بهوية بصرية موحدة."
+        "ar": "وضع نص عادي مباشرة فوق الصور غير المعدلة هو وصفة لطباعة غير مقروءة (Unreadable typography). فالإبرازات (Highlights) والظلال المتغيرة في الصورة تدمر التباين حتمًا.\n\nقم دائمًا بتقديم طبقة شبه شفافة (Scrim) أو تدرج لوني (Gradient overlay) (باللون الأسود، أو الأبيض، أو بلون علامتك التجارية). فالطبقة الملونة بلون العلامة التجارية تضمن في الوقت نفسه تباين النص وفقًا لـ WCAG، وتربط الصور المتباينة ضمن نظام التصميم البصري الخاص بك."
       },
       "callout": {
         "type": "tip",

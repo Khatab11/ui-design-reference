@@ -7,7 +7,7 @@
   },
   "intro": {
     "en": "Color is one of the most powerful tools to evoke emotions and shape user perception. Learn color theory, contrast, psychology, and how to build a production-ready color palette.",
-    "ar": "اللون من أقوى الأدوات لإثارة المشاعر وتشكيل انطباع المستخدم. اتعلم نظريات الألوان، التباين، علم النفس اللوني، وإزاي تبني لوحة ألوان كاملة ومتقنة لمنتجك."
+    "ar": "يُعد اللون من أقوى الأدوات لإثارة المشاعر وتشكيل انطباع المستخدم. تعلم نظرية الألوان (Color theory)، والتباين (Contrast)، وعلم النفس اللوني، وكيفية بناء لوحة ألوان متكاملة وجاهزة للإنتاج لمنتجك."
   },
   "sections": [
     {
@@ -18,7 +18,7 @@
       },
       "body": {
         "en": "Color is among the strongest emotional triggers in digital design. Top brands like Spotify, Netflix, and Facebook can be recognized instantly by their signature palette alone. In UI design, color decisions must never be random — they should be grounded in psychology, accessibility data, and clear hierarchy.",
-        "ar": "اللون من أقوى الأدوات لإثارة المشاعر — وتجربة المستخدم مبنية بالأساس على المشاعر. العلامات التجارية الكبيرة (زي سبوتيفاي، نتفليكس، فيسبوك) بتتعرف بمجرد ما تشوف لونها — وده مش قرار عشوائي، ده مبني على أبحاث وبيانات دقيقة لترسيخ الهوية."
+        "ar": "يعد اللون من أقوى المحفزات العاطفية في التصميم الرقمي. فالعلامات التجارية الكبرى (مثل Spotify و Netflix و Facebook) يمكن التعرف عليها فورًا من خلال لوحة الألوان المميزة لها وحدها. وفي تصميم واجهات المستخدم (UI design)، يجب ألا تكون قرارات اختيار الألوان عشوائية أبدًا — بل يجب أن تستند إلى علم النفس، وبيانات إمكانية الوصول (Accessibility)، والتسلسل الهرمي الواضح."
       }
     },
     {
@@ -29,7 +29,7 @@
       },
       "body": {
         "en": "Understanding color requires mastering five fundamental terms:\n\n- **Hue:** The pure color itself (e.g. red vs. blue).\n- **Saturation:** The color intensity ranging from 100% (pure vibrant color) to 0% (neutral grey).\n- **Lightness:** How close the color is to white or black, independent of hue.\n- **Shade:** A hue mixed with black (reduced lightness).\n- **Tint:** A hue mixed with white (increased lightness).",
-        "ar": "عشان تتحكم في الألوان باحترافية، لازم تفهم خمس مصطلحات جوهرية:\n\n- **الصبغة (Hue):** اللون نفسه الصافي (أحمر مقابل أزرق أو أصفر).\n- **التشبع (Saturation):** كثافة اللون من النقاء الكامل (100%) للرمادي الميت (0%).\n- **الإضاءة (Lightness):** موقع اللون بين الأبيض والأسود.\n- **الظل (Shade):** صبغة مضاف ليها أسود (تقليل الإضاءة).\n- **الصبغة الفاتحة (Tint):** صبغة مضاف ليها أبيض (زيادة الإضاءة)."
+        "ar": "يتطلب فهم الألوان إتقان خمسة مصطلحات أساسية:\n\n- **الصبغة (Hue):** اللون النقي نفسه (مثل الأحمر مقابل الأزرق).\n- **التشبع (Saturation):** كثافة اللون بدءًا من 100% (لون نقي وحيوي) إلى 0% (رمادي محايد).\n- **الإضاءة (Lightness):** مدى قرب اللون من الأبيض أو الأسود، بغض النظر عن الصبغة.\n- **الظل (Shade):** صبغة مضاف إليها اللون الأسود (إضاءة منخفضة).\n- **الصبغة الفاتحة (Tint):** صبغة مضاف إليها اللون الأبيض (إضاءة متزايدة)."
       }
     },
     {
@@ -40,12 +40,12 @@
       },
       "body": {
         "en": "Black and white are used more frequently than all other colors combined. Black anchors typography and icons, while white or light tints provide surface backgrounds.\n\nHowever, **pure black (`#000000`) should almost never be used** against pure white backgrounds. The extreme contrast strains user eyes. Top product designers use soft dark greys such as `#1A1A1A` or `#1F1F1F` to preserve high contrast with comfortable readability.",
-        "ar": "الأسود والأبيض هما أكتر ألوان مستخدمة في أي واجهة (الأسود للنصوص والأيقونات، والأبيض للأسطح والخلفيات).\n\nلكن قاعدة الكتاب الذهبية: **الأسود النقي (`#000000`) نادرًا ما بيتستخدم** لأن التباين الصريح مع الأبيض الناصع بيجهد العين أثناء القراءة الطويلة. بنستبدله دايمًا بأسود ناعم مائل للرمادي الداكن زي `#1A1A1A` أو `#1F1F1F`."
+        "ar": "يُستخدم الأسود والأبيض بتكرار يفوق استخدام كل الألوان الأخرى مجتمعة. فَيُرسِّخ الأسود مواقع النصوص والأيقونات، بينما يوفر الأبيض أو الدرجات الفاتحة خلفيات للأسطح.\n\nومع ذلك، **يجب ألا يُستخدم الأسود النقي (`#000000`) تقريبًا أبدًا** مقابل الخلفيات البيضاء النقية. فالتباين الشديد يجهد عيون المستخدمين. يستخدم كبار مصممي المنتجات درجات رمادية داكنة ناعمة مثل `#1A1A1A` أو `#1F1F1F` للحفاظ على تباين عالٍ مع إمكانية قراءة مريحة."
       },
       "callout": {
         "type": "tip",
         "en": "Replace pure black (#000000) with off-black (#1A1A1A) to deliver crisp contrast without harsh visual vibration.",
-        "ar": "استبدل الأسود النقي (#000000) بدرجة أسود ناعمة (#1A1A1A) لراحة عين القارئ والحفاظ على التباين."
+        "ar": "استبدل الأسود النقي (#000000) بدرجة أسود ناعمة (#1A1A1A) لتوفير تباين نقي دون إحداث اهتزاز بصري قاسي."
       }
     },
     {
@@ -76,12 +76,12 @@
       },
       "body": {
         "en": "Colors trigger subconscious psychological associations:\n\n- **Blue:** The world's favorite color. Conveys calm, trust, and security (standard for banks and social media).\n- **Red:** Longest wavelength. Urgency, passion, caution, excitement (Netflix, YouTube, alerts).\n- **Yellow:** Warmth and optimism, highly eye-catching but easily overpowering if oversaturated.\n- **Green:** Nature, health, wealth, and positive validation (Spotify, Robinhood).\n- **Purple:** Luxury, mystery, and exclusivity.\n\n**Cultural Context in Arabic Markets:**\nColor meanings vary across cultures. In Arab and Islamic markets, **Green** carries profound religious and spiritual prestige; **White** symbolizes purity and formal peace; warm tones like **Gold** and deep reds signify royal hospitality, generosity, and luxury.",
-        "ar": "اختيار اللون لازم يكون مبني على دراسة لمعاني الألوان:\n\n- **الأزرق:** اللون المفضل عالميًا — بيوحي بالثقة، الأمان، والاحترافية (بنوك ومنصات تواصل).\n- **الأحمر:** طاقة، إثارة، وتنبيه للخطر — مثالي للتنبيهات والبراندات الحيوية (Netflix, YouTube).\n- **الأصفر:** تفاؤل ودفء وجذب للانتباه — لكنه مؤذي للعين لو كان ساطع بزيادة.\n- **الأخضر:** صحة، نمو، ورسائل نجاح وتأكيد.\n- **البنفسجي:** فخامة وندرة وتميز تكنولوجي.\n\n**خصوصية السياق العربي:** الألوان ليها دلالات ثقافية؛ فالأخضر بيحمل دلالة روحية وتراثية عميقة، والأبيض للنقاء، والألوان الدافئة والذهبية مرتبطة بالأصالة والكرم والضيافة."
+        "ar": "تثير الألوان ارتباطات نفسية في اللاوعي:\n\n- **الأزرق:** اللون المفضل في العالم. يوحي بالهدوء، والثقة، والأمان (معيار للبنوك ووسائل التواصل الاجتماعي).\n- **الأحمر:** الأطول من حيث الطول الموجي. يوحي بالإلحاح، والشغف، والحذر، والإثارة (Netflix، و YouTube، والتنبيهات).\n- **الأصفر:** الدفء والتفاؤل، يلفت الانتباه بشدة ولكنه قد يكون مزعجًا إذا كان شديد التشبع.\n- **الأخضر:** الطبيعة، والصحة، والثروة، والتأكيد الإيجابي (Spotify، و Robinhood).\n- **البنفسجي:** الفخامة، والغموض، والتفرد.\n\n**السياق الثقافي في الأسواق العربية:**\nتختلف معاني الألوان عبر الثقافات. ففي الأسواق العربية والإسلامية، يحمل اللون الأخضر مكانة دينية وروحية عميقة؛ ويرمز الأبيض إلى النقاء والسلام الرسمي؛ بينما تدل الدرجات الدافئة مثل الذهبي والأحمر الداكن على الضيافة الملكية، والكرم، والفخامة."
       },
       "callout": {
         "type": "note",
         "en": "Always tailor color semantics to your regional target audience. Arabic design often elevates warm golds and rich greens for trust and prestige.",
-        "ar": "راعي دلالات الألوان الثقافية؛ ففي العالم العربي يرتبط الأخضر بالهوية والروحانية والذهبي بالضيافة والفخامة."
+        "ar": "قم دائمًا بتخصيص دلالات الألوان لتناسب جمهورك المستهدف إقليميًا. فغالبًا ما يُبرز التصميم العربي الدرجات الذهبية الدافئة والخضراء الغنية للتعبير عن الثقة والفخامة."
       }
     },
     {
@@ -92,13 +92,13 @@
       },
       "body": {
         "en": "Selecting matching colors relies on classic geometric schemes on the color wheel:\n\n- **Complementary:** Opposites on the wheel (high contrast, bold dynamism).\n- **Analogous:** Three adjacent colors (harmonious, soothing, and natural).\n- **Triadic:** Three equidistant colors forming a triangle (balanced vibrancy).\n- **Monochromatic:** A single hue paired with its varied tints and shades.\n\n**The Monochromatic Advantage:** For most UI products, monochromatic systems are the easiest to manage and produce the cleanest visual consistency.",
-        "ar": "عجلة الألوان بتقدملك أنظمة هندسية لاختيار توليفات متناغمة:\n\n- **تكاملي (Complementary):** لونين متقابلين بيعملوا تباين عالي وحيوية.\n- **متجاور (Analogous):** ٣ ألوان جنب بعض، مريح ومتناسق مع الطبيعة.\n- **ثلاثي (Triadic):** ٣ ألوان متباعدة بالتساوي على العجلة، حيوي وموزون.\n- **أحادي اللون (Monochromatic):** لون واحد مع درجاته الفاتحة والغامقة — وده **الأسهل والأكثر تماسكاً** في واجهات المستخدم."
+        "ar": "يعتمد اختيار الألوان المتناسقة على أنظمة هندسية كلاسيكية على عجلة الألوان:\n\n- **التباين التكاملي (Complementary):** الألوان المتقابلة على العجلة (تباين عالٍ وديناميكية جريئة).\n- **الألوان المتجاورة (Analogous):** ثلاثة ألوان متجاورة (متناغمة، مهدئة، وطبيعية).\n- **النظام الثلاثي (Triadic):** ثلاثة ألوان متباعدة بمسافات متساوية تشكل مثلثًا (حيوية متوازنة).\n- **أحادي اللون (Monochromatic):** صبغة واحدة مقترنة بدرجاتها الفاتحة (Tints) والداكنة (Shades) المختلفة.\n\n**ميزة النظام أحادي اللون:** بالنسبة لمعظم منتجات واجهة المستخدم، تعد الأنظمة أحادية اللون هي الأسهل في الإدارة وتنتج التناسق البصري الأكثر نقاءً."
       },
       "asset": {
         "file": "color-wheel-schemes.png",
         "alt": {
           "en": "Diagram of monochromatic, complementary, and analogous color schemes",
-          "ar": "مخطط توضيحي لأنظمة دمج الألوان: الأحادي والتكاملي والمتجاور"
+          "ar": "مخطط يوضح الأنظمة اللونية: الأحادي (Monochromatic)، والتكاملي (Complementary)، والمتجاور (Analogous)"
         },
         "ratio": "16:9",
         "brief": "Visual color wheel showing three schemes side-by-side: Monochromatic ramp on the left, Complementary opposite hues in the center, and Analogous adjacent color palette on the right."
@@ -112,7 +112,7 @@
       },
       "body": {
         "en": "Never rely on random 4-color palette generators — real UI needs a robust, scalable system:\n\n1. **Primary Color:** Your brand anchor (for primary buttons, active tabs, highlights).\n2. **Secondary Color (Optional):** To accent specific auxiliary workflows.\n3. **Notification Colors:** Green (success), orange/amber (warning), red (danger/error).\n4. **Tints (+10% Lightness steps):** Ideal for subtle container backgrounds and soft badges.\n5. **Shades (-10% Lightness steps):** Perfect for high-contrast text and dark hover states.\n6. **Grayscale Ramp:** From 10% lightness (off-black) to 100% white with 5-10 precise stepping tokens.\n7. **Assign Purpose Explicitly:** Map each token to concrete components.\n8. **Store as Design Tokens:** Register every color style in Figma and code.",
-        "ar": "مولدات الألوان العشوائية بتديك ألوان شكلية مش نظام متكامل. اتبع الـ ٨ خطوات دي:\n\n1. **اللون الأساسي (Primary):** لون البراند للأزرار الرئيسية ومؤشرات التفعيل.\n2. **اللون الثانوي (Secondary):** اختياري للإجراءات المساعدة.\n3. **ألوان الإشعارات (Semantic):** أخضر للنجاح، برتقالي للتحذير، أحمر للخطأ.\n4. **الدرجات الفاتحة (Tints):** درجات إضاءة أعلى للخلفيات والبطاقات الناعمة.\n5. **الدرجات الداكنة (Shades):** درجات إضاءة أقل للنصوص وحالات الضغط (Active/Hover).\n6. **مقياس الرمادي (Grayscale):** من الأسود الناعم حتى الأبيض الصافي عبر درجات محسوبة.\n7. **تحديد الاستخدام يدويًا:** ربط كل رمز بلون وظيفي محدد في الواجهة.\n8. **حفظها كـ Color Tokens:** لتوحيدها بين التصميم والكود."
+        "ar": "لا تعتمد أبدًا على مولدات لوحات الألوان العشوائية المكونة من 4 ألوان — فواجهة المستخدم (UI) الحقيقية تحتاج إلى نظام قوي وقابل للتوسع:\n\n1. **اللون الأساسي (Primary Color):** ركيزة علامتك التجارية (للأزرار الأساسية، التبويبات النشطة، والتمييزات).\n2. **اللون الثانوي (Secondary Color) (اختياري):** لإبراز مسارات عمل مساعدة محددة.\n3. **ألوان الإشعارات (Notification Colors):** الأخضر (نجاح)، البرتقالي/الكهرماني (تحذير)، والأحمر (خطر/خطأ).\n4. **الدرجات الفاتحة (Tints) (+10% خطوات إضاءة):** مثالية لخلفيات الحاويات الدقيقة والشارات الناعمة.\n5. **الدرجات الداكنة (Shades) (-10% خطوات إضاءة):** مثالية للنصوص عالية التباين وحالات التمرير (Hover) الداكنة.\n6. **تدرج الرمادي (Grayscale Ramp):** من إضاءة 10% (شبه أسود) إلى 100% أبيض مع 5-10 متغيرات (Tokens) دقيقة التدريج.\n7. **تخصيص الغرض بوضوح:** اربط كل متغير بمكونات محددة.\n8. **تخزينها كمتغيرات تصميم (Design Tokens):** سجل كل نمط لوني في Figma وفي الكود."
       },
       "callout": {
         "type": "tip",
@@ -137,7 +137,7 @@
       },
       "body": {
         "en": "Aesthetically pleasing colors mean nothing if users cannot read them. Around 4.5% of people experience color blindness, and mobile devices are frequently viewed under harsh glare or reduced brightness.\n\nEnsure regular body text achieves at least a **4.5:1** contrast ratio against backgrounds (WCAG AA), and large text achieves at least **3:1**. Always verify contrast using automated accessibility checkers.",
-        "ar": "جمال الألوان ملوش أي قيمة لو المستخدم مش عارف يقرأ المحتوى. حوالي 4.5% من البشر عندهم درجات من عمى الألوان، وشاشات الموبايل بيتم استخدامها تحت أشعة الشمس المباشرة.\n\nلازم تتأكد دايمًا إن نسبة التباين بين النص وخلفيته لا تقل عن **4.5:1** للنصوص العادية، و **3:1** للعناوين الكبيرة حسب معايير (WCAG AA)."
+        "ar": "الألوان الجذابة جماليًا لا تعني شيئًا إذا لم يتمكن المستخدمون من قراءتها. حوالي 4.5% من الأشخاص يعانون من عمى الألوان، وكثيراً ما تُعرض الأجهزة المحمولة تحت وهج قوي أو سطوع منخفض.\n\nتأكد من أن نص المتن العادي يحقق نسبة تباين لا تقل عن 4.5:1 مع الخلفيات (حسب معيار WCAG AA)، وأن النص الكبير يحقق 3:1 على الأقل. قم دائمًا بالتحقق من التباين باستخدام أدوات فحص إمكانية الوصول الآلية."
       },
       "callout": {
         "type": "warning",

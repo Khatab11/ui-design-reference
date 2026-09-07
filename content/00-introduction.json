@@ -1,32 +1,41 @@
 {
   "id": "introduction",
   "order": 0,
-  "title": { "en": "Introduction", "ar": "المقدمة" },
+  "title": {
+    "en": "Introduction",
+    "ar": "المقدمة"
+  },
   "intro": {
     "en": "Before the principles, some framing: what this book is, where UI Design sits next to UX and Branding, and the mindset you need before you open a design tool.",
-    "ar": "قبل المبادئ، لازم نظبط الإطار: الكتاب ده بيتكلم عن إيه، وفين موقع الـ UI Design من الـ UX والـ Branding، وأنهي عقلية لازم تمشي بيها قبل ما تفتح أي أداة تصميم."
+    "ar": "قبل المبادئ، يجب وضع الإطار الصحيح: عما يتحدث هذا الكتاب، وأين يقع الـ UI Design مقارنة بالـ UX والـ Branding، وما هي العقلية التي يجب أن تتبناها قبل أن تفتح أي أداة تصميم."
   },
   "sections": [
     {
       "id": "why-this-book",
-      "title": { "en": "Why this book exists", "ar": "ليه الكتاب ده اتكتب" },
+      "title": {
+        "en": "Why this book exists",
+        "ar": "لماذا كُتب هذا الكتاب"
+      },
       "body": {
         "en": "Michael Filipiuk wrote this eBook because most UI courses are just videos of someone designing a landing page step by step. The creator shows you *how* he designs, but never explains *why*.\n\nThis book is built the other way around. The goal is not only that you can design a good interface, but that you understand the decision-making behind it — so you can defend a choice, not just repeat it.\n\nIt is written to work for beginners and for designers who are already a few years in and want to fill the gaps.",
-        "ar": "مايكل فيليبيوك كتب الإيبوك ده لأن معظم كورسات الـ UI عبارة عن فيديوهات لحد بيصمّم لاندنج بيدج خطوة بخطوة. بيوريك **إزاي** بيصمّم، لكن عمره ما بيشرح **ليه**.\n\nالكتاب ده معمول بالعكس. الهدف مش بس إنك تعرف تصمّم واجهة كويسة، لكن إنك تفهم القرار اللي وراها — عشان تقدر تدافع عن اختيارك، مش بس تقلّده.\n\nمكتوب بحيث يفيد المبتدئ، ويفيد كمان المصمّم اللي بقاله كام سنة وعايز يسدّ الفجوات."
+        "ar": "كتب مايكل فيليبيوك هذا الكتاب الإلكتروني لأن معظم دورات الـ UI عبارة عن مقاطع فيديو لشخص يصمم صفحة هبوط خطوة بخطوة. يوضح لك المنشئ كيف يصمم، لكنه لا يشرح أبدًا السبب.\n\nهذا الكتاب مبني بطريقة عكسية. الهدف ليس فقط أن تكون قادرًا على تصميم واجهة جيدة، بل أن تفهم عملية اتخاذ القرار وراءها — حتى تتمكن من الدفاع عن اختيارك، وليس مجرد تكراره.\n\nمكتوب بطريقة تفيد المبتدئين، وتفيد أيضًا المصممين الذين يمتلكون بعض سنوات من الخبرة ويرغبون في سد الفجوات."
       }
     },
     {
       "id": "ui-vs-ux",
-      "title": { "en": "UI vs UX", "ar": "الفرق بين UI و UX" },
+      "title": {
+        "en": "UI vs UX",
+        "ar": "الفرق بين UI و UX"
+      },
       "body": {
         "en": "**UI Design** refers to the visual elements of a digital product.\n\n**UX Design** refers to the overall experience the user has while interacting with the product — including their emotions, whether that is satisfaction or frustration.\n\nThey are two separate things, but you cannot talk about one without the other. A badly designed interface — poor contrast, type that is too small, illegible text — damages the experience. And badly done UX research damages the UI decisions that follow it.\n\nThere is a caveat about job titles. In practice, UX Designers often don't design interfaces and UI Designers often don't run research. So while UI *conceptually* sits inside UX, as job titles the two are not part of each other.",
-        "ar": "**UI Design** بيشير للعناصر البصرية في المنتج الرقمي.\n\n**UX Design** بيشير للتجربة الكاملة اللي بيعيشها المستخدم وهو بيستعمل المنتج — بما فيها مشاعره، سواء رضا أو إحباط.\n\nدول حاجتين منفصلين، بس مينفعش تتكلم عن واحد من غير التاني. الواجهة السيئة — كونتراست ضعيف، خط صغير أوي، نص مش مقروء — بتضرب التجربة في مقتل. وبالمثل، البحث الوحش في مرحلة الـ UX بيضرب قرارات الـ UI اللي بعده.\n\nفيه ملاحظة مهمة بخصوص المسميات الوظيفية: على أرض الواقع، الـ UX Designer غالبًا مش بيصمّم واجهات، والـ UI Designer غالبًا مش بيعمل بحث. فبينما الـ UI **مفاهيميًا** جزء من الـ UX، على مستوى المسمى الوظيفي الاتنين مش جزء من بعض."
+        "ar": "UI Design يشير إلى العناصر المرئية في المنتج الرقمي.\n\nUX Design يشير إلى التجربة الشاملة التي يمر بها المستخدم أثناء تفاعله مع المنتج — بما في ذلك مشاعره، سواء كانت الرضا أو الإحباط.\n\nهما شيئان منفصلان، لكن لا يمكنك التحدث عن أحدهما دون الآخر. الواجهة المصممة بشكل سيء — التباين الضعيف، الخط الصغير جدًا، النص غير المقروء — تدمر التجربة. وبالمثل، البحث السيء في مرحلة الـ UX يضر بقرارات الـ UI التي تتبعه.\n\nهناك ملاحظة هامة حول المسميات الوظيفية: من الناحية العملية، غالبًا ما لا يصمم الـ UX Designer واجهات، وغالبًا ما لا يجري الـ UI Designer أبحاثًا. لذلك، بينما يقع الـ UI مفاهيميًا داخل الـ UX، إلا أنهما على مستوى المسميات الوظيفية ليسا جزءًا من بعضهما."
       },
       "asset": {
         "file": "ui-inside-ux.png",
         "alt": {
           "en": "Diagram showing UI as a smaller circle nested inside a larger UX circle",
-          "ar": "رسم بياني بيوضّح الـ UI كدايرة صغيرة جوه دايرة الـ UX الأكبر"
+          "ar": "رسم بياني يوضح الـ UI كدائرة صغيرة داخل دائرة الـ UX الأكبر"
         },
         "ratio": "16:9",
         "brief": "Two concentric circles. The large outer circle labelled UX, a smaller circle nested inside it labelled UI. Flat, minimal, two tones of the accent colour. No icons, no gradients."
@@ -34,21 +43,24 @@
       "callout": {
         "type": "tip",
         "en": "Even if your title is \"just\" UI Designer, every visual decision you make lands on the user experience.",
-        "ar": "حتى لو مسمّاك «مجرد» UI Designer، كل قرار بصري بتاخده بينزل في الآخر على تجربة المستخدم."
+        "ar": "حتى لو كان مسماك الوظيفي «مجرد» UI Designer، فإن كل قرار مرئي تتخذه ينعكس في النهاية على تجربة المستخدم."
       }
     },
     {
       "id": "ui-vs-branding",
-      "title": { "en": "UI vs Branding", "ar": "الفرق بين UI و Branding" },
+      "title": {
+        "en": "UI vs Branding",
+        "ar": "الفرق بين UI و Branding"
+      },
       "body": {
         "en": "A **Brand Designer** researches the target audience of the product and, based on those findings, decides the visual appearance of the brand: logo, colours, typefaces, language and tone of voice, even stationery mockups. Some also produce UI mockups, but those are for presentation, not for shipping.\n\nA **UI Designer** typically selects typefaces, builds colour palettes and creates scalable design systems too — but those choices are usually driven by personal and stakeholder preference rather than real research. Going with blue for a banking app to signal trust is sensible, but it isn't research.\n\nThe correct order is Brand Design first, then UI Design. It makes the UI Designer's job easier, improves the odds of positive feedback from the audience, and makes the product more recognisable.\n\nWhen the client's budget is limited, the Brand Design stage often gets skipped — and that's fine. The UI Designer can select colours and typography alone. There is simply less confidence that they are the best fit.",
-        "ar": "الـ **Brand Designer** بيعمل بحث على الجمهور المستهدف للمنتج، وبناءً على نتايج البحث بيحدد الشكل البصري للبراند: اللوجو، الألوان، الخطوط، اللغة ونبرة الصوت، وحتى موك أب الأدوات المكتبية. وبعضهم بيعمل موك أب للـ UI كمان، بس دي للعرض مش للتنفيذ.\n\nالـ **UI Designer** كمان بيختار خطوط وبيبني color palettes و design systems قابلة للتوسّع — بس الاختيارات دي غالبًا بتبقى مبنية على تفضيل شخصي أو تفضيل صاحب المنتج، مش على بحث حقيقي. إنك تختار الأزرق لتطبيق بنكي عشان يوحي بالثقة قرار منطقي، لكنه مش «بحث».\n\nالترتيب الصح: Brand Design الأول، وبعده UI Design. ده بيسهّل شغل الـ UI Designer، وبيزوّد احتمال الفيدباك الإيجابي من الجمهور، وبيخلّي المنتج أسهل في التعرّف عليه.\n\nولما ميزانية العميل تكون محدودة، مرحلة الـ Brand Design بتتشال — وده عادي. الـ UI Designer يقدر يختار الألوان والخطوط لوحده. الفرق الوحيد إن الثقة في إن الاختيار ده هو الأنسب بتبقى أقل."
+        "ar": "يقوم الـ Brand Designer بالبحث عن الجمهور المستهدف للمنتج، وبناءً على تلك النتائج يحدد المظهر المرئي للعلامة التجارية: الشعار، الألوان، الخطوط، اللغة ونبرة الصوت، وحتى نماذج الأدوات المكتبية. وبعضهم ينتج أيضًا نماذج مبدئية لواجهة المستخدم (UI mockups)، لكنها تكون للعرض فقط وليس للتنفيذ.\n\nعادة ما يختار الـ UI Designer الخطوط ويبني لوحات الألوان وينشئ أنظمة تصميم قابلة للتوسع أيضًا — لكن هذه الاختيارات غالبًا ما تكون مدفوعة بالتفضيلات الشخصية وتفضيلات أصحاب المصلحة بدلاً من البحث الحقيقي. اختيار اللون الأزرق لتطبيق مصرفي للإيحاء بالثقة هو قرار منطقي، لكنه ليس بحثًا.\n\nالترتيب الصحيح هو تصميم العلامة التجارية (Brand Design) أولاً، ثم تصميم واجهة المستخدم (UI Design). هذا يجعل عمل مصمم الـ UI أسهل، ويزيد من فرص الحصول على ردود فعل إيجابية من الجمهور، ويجعل المنتج أسهل في التعرف عليه.\n\nعندما تكون ميزانية العميل محدودة، غالبًا ما يتم تخطي مرحلة الـ Brand Design — وهذا لا بأس به. يمكن لمصمم الـ UI اختيار الألوان والخطوط بمفرده. يكمن الفرق الوحيد في أن الثقة في كونها الاختيار الأنسب تكون أقل."
       },
       "asset": {
         "file": "brand-to-ui-flow.png",
         "alt": {
           "en": "Flow diagram: Research to Brand Design to UI Design",
-          "ar": "رسم تدفّق: بحث ثم Brand Design ثم UI Design"
+          "ar": "رسم تدفق: بحث ثم Brand Design ثم UI Design"
         },
         "ratio": "16:9",
         "brief": "A left-to-right three-step flow: Research → Brand Design → UI Design, with a dashed shortcut arrow labelled 'limited budget' skipping straight from Research to UI Design. Simple boxes and arrows, one accent colour."
@@ -56,16 +68,19 @@
     },
     {
       "id": "ui-design-mindset",
-      "title": { "en": "The UI Design mindset", "ar": "عقلية الـ UI Design" },
+      "title": {
+        "en": "The UI Design mindset",
+        "ar": "عقلية الـ UI Design"
+      },
       "body": {
         "en": "Search \"UI Design\" on Google or Pinterest and you will find stunning interfaces. They may make you jealous. Before you start, adopt a different mindset.\n\nIt is common to think UI Design is about making things \"look good\" — which is already deeply subjective. In reality it has a deeper purpose. **Users don't care how pretty your interface is. They care about getting their task done with minimal effort.**\n\nAim for a design that is *invisible*: non-intrusive, not demanding all the attention, but redirecting attention to the purpose of the app.\n\nThe salt analogy explains this well. When a meal doesn't taste right you ask someone to pass the salt. When it tastes good you don't say \"perfect, needs no salt\" — you just keep eating. Design works the same way: most users notice bad design, almost nobody notices great design.\n\nThose beautiful Dribbble shots have a place. Posting pretty work builds an audience and reaches clients. Just never confuse it with the most important aspect of a well-designed product.",
-        "ar": "دوّر على «UI Design» في جوجل أو بينترست وهتلاقي واجهات مبهرة. ممكن تخليك تغير منها. قبل ما تبدأ، لازم تمشي بعقلية مختلفة.\n\nالشايع إن الـ UI Design معناه إنك تخلّي الحاجة «شكلها حلو» — وده في حد ذاته حكم شخصي جدًا. الحقيقة إن ليه غرض أعمق. **المستخدم مش فارق معاه واجهتك جميلة قد إيه. فارق معاه إنه يخلّص اللي جاي عشانه بأقل مجهود.**\n\nاستهدف تصميم *غير مرئي*: مش متطفّل، مش شادّ كل الانتباه لنفسه، لكن بيوجّه الانتباه لغرض التطبيق.\n\nمثال الملح بيشرح الفكرة كويس. لما الأكل ميبقاش مظبوط بتقول «ناولني الملح». ولما يبقى مظبوط مبتقولش «ممتاز، مش محتاج ملح» — بتكمّل أكل وخلاص. التصميم نفس الحكاية: معظم الناس بتلاحظ التصميم الوحش، وتقريبًا محدش بيلاحظ التصميم الممتاز.\n\nشوتات دريبل الجميلة ليها مكانها. نشر شغل حلو بيبني جمهور وبيوصّلك لعملاء. بس متخلطش بينها وبين أهم عنصر في المنتج المصمَّم كويس."
+        "ar": "ابحث عن «UI Design» في جوجل أو بنترست وستجد واجهات مذهلة. قد تثير غيرتك. قبل أن تبدأ، يجب أن تتبنى عقلية مختلفة.\n\nمن الشائع الاعتقاد بأن الـ UI Design يتعلق بجعل الأشياء «تبدو جميلة» — وهو أمر شخصي للغاية في حد ذاته. في الواقع، له غرض أعمق. **لا يهتم المستخدمون بمدى جمال واجهتك. ما يهمهم هو إنجاز مهمتهم بأقل جهد ممكن.**\n\nاستهدف تصميمًا *غير مرئي*: غير متطفل، ولا يطالب بكل الانتباه، بل يوجه الانتباه إلى الغرض من التطبيق.\n\nيشرح تشبيه الملح هذه الفكرة جيدًا. عندما لا يكون مذاق الوجبة صحيحًا، تطلب من شخص ما تمرير الملح. وعندما يكون المذاق جيدًا، لا تقول «مثالي، لا يحتاج إلى ملح» — بل تستمر في الأكل وحسب. يعمل التصميم بنفس الطريقة: يلاحظ معظم المستخدمين التصميم السيئ، ولا يلاحظ أحد تقريبًا التصميم الرائع.\n\nتلك اللقطات الجميلة على Dribbble لها مكانها. نشر عمل جميل يبني جمهورًا ويصل إلى العملاء. لكن لا تخلط أبدًا بينها وبين الجانب الأهم في المنتج المصمم جيدًا."
       },
       "asset": {
         "file": "pretty-vs-usable.png",
         "alt": {
           "en": "Side-by-side comparison of a decorative screen and a usable screen",
-          "ar": "مقارنة جنب بعض بين شاشة مزخرفة وشاشة قابلة للاستخدام"
+          "ar": "مقارنة جنبًا إلى جنب بين شاشة مزخرفة وشاشة قابلة للاستخدام"
         },
         "ratio": "16:9",
         "brief": "Two mobile screens side by side, same content. Left: over-designed — heavy gradients, glow, low-contrast text, decorative button. Right: restrained, high contrast, clear hierarchy, obvious primary button. Label them 'Pretty' and 'Usable'."
@@ -78,16 +93,19 @@
     },
     {
       "id": "does-ugly-work",
-      "title": { "en": "So can I just design ugly things?", "ar": "يعني أصمّم حاجات وحشة وخلاص؟" },
+      "title": {
+        "en": "So can I just design ugly things?",
+        "ar": "إذًا، هل يمكنني تصميم أشياء قبيحة وحسب؟"
+      },
       "body": {
         "en": "No. Usability is the number one priority, but people also tend to trust products that look good. Even the most usable application with an outdated look can frustrate users into switching to a competitor.\n\nCompare two screens with identical content and identical function. On one, the text is hard to read and the button looks off. On the other, the hierarchy is clear and the button reads as a button. The second is better from the UI perspective *and* from the UX perspective — because legibility and clarity are usability.\n\nTrends come and go, and this has nothing to do with trends. This is about making sure your design both looks great and works.",
-        "ar": "لأ. سهولة الاستخدام هي الأولوية رقم واحد، بس الناس كمان بتميل تثق في المنتجات اللي شكلها كويس. حتى أكتر تطبيق سهل في الاستخدام لو شكله قديم ممكن يضايق المستخدم لدرجة إنه يسيبه ويروح للمنافس.\n\nقارن بين شاشتين نفس المحتوى ونفس الوظيفة. في واحدة النص صعب في القراية والزرار شكله غلط. وفي التانية الهيراركي واضح والزرار باين إنه زرار. التانية أحسن من ناحية الـ UI **وكمان** من ناحية الـ UX — لأن وضوح القراية جزء أصيل من سهولة الاستخدام.\n\nالترندات بتيجي وبتروح، والموضوع ده مالوش علاقة بالترندات. الموضوع إن تصميمك يبقى شكله حلو وشغّال في نفس الوقت."
+        "ar": "لا. سهولة الاستخدام هي الأولوية الأولى، ولكن الناس يميلون أيضًا إلى الثقة في المنتجات التي تبدو جيدة. حتى التطبيق الأكثر سهولة في الاستخدام، إذا كان بمظهر قديم، قد يحبط المستخدمين ويدفعهم للتحول إلى منافس.\n\nقارن بين شاشتين لهما نفس المحتوى ونفس الوظيفة. في إحداهما، يصعب قراءة النص ويبدو الزر في غير محله. وفي الأخرى، التسلسل الهرمي واضح ويبرز الزر بوضوح كزر. الثانية أفضل من منظور الـ UI وكذلك من منظور الـ UX — لأن سهولة القراءة والوضوح هما أساس سهولة الاستخدام.\n\nالاتجاهات (Trends) تأتي وتذهب، وهذا لا علاقة له بالاتجاهات. الأمر يتعلق بالتأكد من أن تصميمك يبدو رائعًا ويعمل بشكل جيد في نفس الوقت."
       },
       "asset": {
         "file": "delivery-screen-comparison.png",
         "alt": {
           "en": "Two versions of the same food-delivery hero section",
-          "ar": "نسختين من نفس الهيرو سكشن لتطبيق توصيل أكل"
+          "ar": "نسختان من نفس قسم الـ Hero لتطبيق توصيل طعام"
         },
         "ratio": "16:9",
         "brief": "Two versions of the same hero: headline 'We can deliver food everywhere' plus a button. Left version: low-contrast text over a busy background, awkward thin button. Right version: strong contrast, clear type scale, solid well-proportioned button. Same copy in both."
@@ -95,10 +113,13 @@
     },
     {
       "id": "disclaimer",
-      "title": { "en": "A note on the source", "ar": "ملاحظة عن المصدر" },
+      "title": {
+        "en": "A note on the source",
+        "ar": "ملاحظة عن المصدر"
+      },
       "body": {
         "en": "This reference is built from the first version of *UI Design Principles* by Michael Filipiuk. The author states the book contains very few opinions — mostly proven, frequently used principles and practices — and that it will keep receiving updates and corrections.\n\nWhere something in this reference reads as opinion rather than rule, it is flagged as such.",
-        "ar": "المرجع ده مبني على النسخة الأولى من كتاب *UI Design Principles* لمايكل فيليبيوك. الكاتب بيوضّح إن الكتاب فيه آراء قليلة جدًا — معظمه مبادئ وممارسات مثبتة ومستخدمة بكثرة — وإنه هيفضل يتحدّث ويتصحّح.\n\nوأي حاجة في المرجع ده بتيجي كرأي مش كقاعدة، بتكون متعلّمة كده."
+        "ar": "هذا المرجع مبني على الإصدار الأول من كتاب *UI Design Principles* للمؤلف مايكل فيليبيوك. يوضح المؤلف أن الكتاب يحتوي على عدد قليل جدًا من الآراء الشخصية — حيث أن معظمه مبادئ وممارسات مثبتة ومستخدمة بكثرة — وأنه سيستمر في تلقي التحديثات والتصحيحات.\n\nعندما يتم طرح شيء في هذا المرجع كرأي وليس كقاعدة، فسيتم الإشارة إليه على هذا النحو."
       }
     }
   ]

@@ -7,29 +7,29 @@
   },
   "intro": {
     "en": "How smooth transitions between hues add depth, realism, and distinct brand identity to user interfaces without introducing visual noise.",
-    "ar": "إزاي الانتقال التدريجي بين الألوان بيضيف عمق وواقعية وهوية بصرية مميزة للواجهة من غير ما يسبب فوضى بصرية."
+    "ar": "كيف يضيف الانتقال السلس بين الألوان عمقًا وواقعية وهوية بصرية مميزة لواجهات المستخدم دون إحداث فوضى بصرية."
   },
   "sections": [
     {
       "id": "what-is-a-gradient",
       "title": {
         "en": "What is a Gradient?",
-        "ar": "إيه هو التدرج اللوني؟"
+        "ar": "ما هو التدرج اللوني (Gradient)؟"
       },
       "body": {
         "en": "A gradient is a progressive, continuous transition from one color to another across a surface. Rather than presenting a flat, uniform fill, a gradient introduces optical direction, lighting nuance, and vibrancy.",
-        "ar": "التدرج اللوني هو انتقال تدريجي وناعم من لون للون تاني على سطح العنصر. بدل اللون المسطح الجامد، التدرج بيدي حركة، اتجاه إضاءة، وإحساس بالحيوية."
+        "ar": "التدرج اللوني هو انتقال تدريجي ومستمر من لون إلى آخر على سطح ما. وبدلاً من تقديم لون مسطح وموحد، فإن التدرج اللوني يضفي اتجاهًا بصريًا، وفروقًا دقيقة في الإضاءة، وحيوية."
       }
     },
     {
       "id": "why-use-gradients",
       "title": {
         "en": "Why Use Gradients?",
-        "ar": "ليه بنستخدم التدرجات؟"
+        "ar": "لماذا نستخدم التدرجات اللونية؟"
       },
       "body": {
         "en": "Gradients serve two primary UI goals:\n\n1. **Realism and Depth:** In nature, lighting rarely strikes an object with uniform flatness. Gradients simulate real-world light curvature and organic depth.\n2. **Brand Differentiation:** When solid hues are already claimed by competing products, a custom gradient creates an unmistakably memorable visual signature (such as Instagram's iconic sunset ramp).",
-        "ar": "بنستخدم التدرجات لسببين أساسيين:\n\n1. **الواقعية والعمق:** في الحياة الحقيقية، الضوء نادراً ما بيسقط على جسم بلون مسطح تماماً. التدرجات بتحاكي الانحناء الطبيعي للإضاءة وتضيف عمق مع الظلال.\n2. **التميز البصري:** لما تكون أغلب الألوان الصريحة محجوزة لبراندات تانية، دمج لونين في تدرج فريد بيصنع هوية لا تُنسى (زي أيقونة إنستجرام الشهيرة)."
+        "ar": "تخدم التدرجات اللونية هدفين أساسيين في واجهة المستخدم (UI):\n\n1. **الواقعية والعمق:** في الطبيعة، نادرًا ما يسقط الضوء على جسم بلون مسطح تمامًا. تحاكي التدرجات انحناء الضوء في العالم الحقيقي والعمق العضوي.\n2. **التميز البصري للعلامة التجارية:** عندما تكون الألوان الصريحة محجوزة بالفعل لمنتجات منافسة، فإن دمج لونين في تدرج مخصص يصنع هوية بصرية لا تُنسى (مثل تدرج الغروب الأيقوني الخاص بإنستجرام)."
       }
     },
     {
@@ -40,7 +40,7 @@
       },
       "body": {
         "en": "Modern design tools offer four main types of gradients:\n\n- **Linear:** A straight-line color progression between two or more points. The most common and versatile.\n- **Radial:** A circular or elliptical spread radiating outward from a central point. Ideal for simulating spheres and focal glows.\n- **Angular / Conic:** Colors rotated around an anchor point. Rare in core UI; useful for dials and experimental accents.\n- **Mesh:** Multi-point abstract color blending. Visually stunning for hero backgrounds, but must be used judiciously.",
-        "ar": "أدوات التصميم الحديثة بتقدملك أربعة أنواع من التدرجات:\n\n- **خطي (Linear):** انتقال مستقيم ومباشر بين لونين أو أكتر — وهو الأكثر شيوعاً وعملية.\n- **دائري (Radial):** بيبدأ من المركز وينتشر للأطراف — مثالي لإيحاء الإضاءة المركزة والأزرار الدائرية.\n- **زاوي / مخروطي (Angular):** دوران الألوان حول نقطة مركزية — نادر في الواجهات وبيستخدم أحياناً في العدادات.\n- **شبكي (Mesh):** مزج تجريدي لنقاط لونية متعددة — بيصنع خلفيات فنية فخمة مع الحذر من التشتيت."
+        "ar": "توفر أدوات التصميم الحديثة أربعة أنواع رئيسية من التدرجات اللونية:\n\n- **الخطي (Linear):** انتقال لوني في خط مستقيم بين نقطتين أو أكثر. وهو الأكثر شيوعًا وتنوعًا.\n- **الدائري (Radial):** انتشار دائري أو بيضاوي يشع للخارج من نقطة مركزية. مثالي لمحاكاة الأجسام الكروية والوهج المركزي.\n- **الزاوي / المخروطي (Angular / Conic):** ألوان تدور حول نقطة مركزية. نادر الاستخدام في الواجهات الأساسية؛ ومفيد في العدادات واللمسات التجريبية.\n- **الشبكي (Mesh):** مزج تجريدي لألوان متعددة النقاط. مذهل بصريًا لخلفيات الـ Hero الرئيسية، ولكن يجب استخدامه بحذر لتجنب التشتيت."
       },
       "asset": {
         "file": "gradient-types.png",
@@ -56,11 +56,11 @@
       "id": "crafting-smooth-gradients",
       "title": {
         "en": "Crafting Smooth, Natural Gradients",
-        "ar": "إزاي تختار ألوان لتدرج ناعم؟"
+        "ar": "تصميم تدرجات ناعمة وطبيعية"
       },
       "body": {
         "en": "To prevent dirty, muddy transitions, choose colors that sit reasonably close on the color wheel. If colors are too far apart (e.g. pure green to pure magenta), the midpoint often collapses into a dull grey \"dead zone\".\n\n**The Pro Formula:** Start with your primary color at one end, then duplicate it to the other end and shift its hue value by just **20° to 25°** while slightly tweaking lightness. This creates an organic, radiant shift without muddy artifacts.",
-        "ar": "عشان تمنع التدرج من إنه يقلب بلون رمادي مطفي في المنتصف (\"المنطقة الميتة\")، اختار ألوان قريبة من بعض على عجلة الألوان.\n\n**السر الاحترافي:** ابدأ بنفس اللون على الطرفين، وبعدين في أحد الطرفين غيّر قيمة الصبغة (Hue) بمقدار **٢٠ إلى ٢٥ درجة** بس مع تعديل بسيط في الإضاءة. النتيجة هتكون تدرج طبيعي مشرق ومريح للعين."
+        "ar": "لمنع الانتقالات اللونية الباهتة أو الرمادية المطفأة، اختر ألوانًا قريبة من بعضها بشكل معقول على عجلة الألوان. إذا كانت الألوان متباعدة جدًا (مثل الأخضر النقي إلى الأرجواني النقي)، فإن نقطة المنتصف غالبًا ما تتحول إلى \"منطقة ميتة\" رمادية باهتة.\n\n**التركيبة الاحترافية:** ابدأ بلونك الأساسي عند أحد الأطراف، ثم قم بنسخه إلى الطرف الآخر وقم بتغيير قيمة الصبغة (Hue) بمقدار 20 إلى 25 درجة فقط مع تعديل طفيف في الإضاءة. سيخلق هذا انتقالًا طبيعيًا ومشرقًا دون بقع داكنة."
       },
       "callout": {
         "type": "tip",
@@ -85,7 +85,7 @@
       },
       "body": {
         "en": "When every component screams for attention with vibrant gradients, nothing stands out. Overusing saturated gradients causes visual fatigue and collapses the hierarchy.\n\nReserve high-chroma gradients for key focal elements: hero headlines, primary CTAs, and featured celebration cards. Keep background and supporting containers calm and subtle.",
-        "ar": "لو كل كارت وزرار وايقونة استخدمت تدرجات فاقعة، النتيجة هتكون فوضى بصرية تفقد المستخدم تركيزه.\n\nخلّي التدرجات القوية مخصصة للنقاط المحورية بس: زرار الإجراء الأساسي (CTA)، كارت مميز، أو خلفية الهيرو الرئيسية. باقي الواجهة لازم تكون هادية ومتوازنة."
+        "ar": "عندما يصرخ كل مكون طالبًا الانتباه باستخدام تدرجات حيوية، فلن يبرز أي شيء. يؤدي الإفراط في استخدام التدرجات المشبعة إلى إرهاق بصري وانهيار في التسلسل الهرمي.\n\nاحتفظ بالتدرجات اللونية القوية للعناصر المحورية الرئيسية: عناوين الـ Hero، أزرار الإجراءات الأساسية (Primary CTAs)، وبطاقات التميز الخاصة. واجعل الخلفية والحاويات الداعمة هادئة ومتوازنة."
       },
       "callout": {
         "type": "warning",
