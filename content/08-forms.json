@@ -59,7 +59,16 @@
       "callout": {
         "type": "note",
         "en": "Mark optional fields explicitly with \"(Optional)\" instead of littering required fields with confusing asterisks (*).",
-        "ar": "حدد الحقول الاختيارية صراحةً بكلمة \"(اختياري)\" بدلاً من تشتيت الحقول المطلوبة بعلامات نجمية (*) قد تكون مربكة."
+        "ar": "اكتب كلمة \"(اختياري)\" بوضوح بجانب الحقول غير الإلزامية بدلاً من وضع نجمة (*) غير مفهومة للجميع."
+      },
+      "asset": {
+        "file": "field-label-placement.png",
+        "alt": {
+          "en": "Comparison of field label placements: top-aligned, floating, and placeholder-only",
+          "ar": "مقارنة مواضع تسميات الحقول: بالأعلى، العائمة، وداخل الحقل"
+        },
+        "ratio": "16:9",
+        "brief": "Three form input designs evaluated: (1) Top-aligned permanent label with helper text (Recommended: fastest eye tracking), (2) Floating animated label, and (3) Placeholder-as-label marked with red cross (disappears upon typing)."
       }
     },
     {
@@ -70,7 +79,16 @@
       },
       "body": {
         "en": "Multi-column forms force the eye to zig-zag unpredictably, doubling completion time. Keep forms strictly in a single vertical column for seamless downward progression.\n\n**Break Long Forms into Steps:** If a form requires 5 or more required fields, split it across clear, logical steps with an active progress bar. Grouping related fields (e.g. Personal Information, Delivery Address, Payment Details) substantially reduces perceived cognitive friction.",
-        "ar": "النماذج متعددة الأعمدة تجبر العين على التحرك بنمط متعرج (Zig-zag) غير متوقع، مما يضاعف وقت الإكمال. حافظ على النماذج بشكل صارم في عمود رأسي واحد لضمان تقدم سلس نحو الأسفل.\n\n**قسِّم النماذج الطويلة إلى خطوات:** إذا كان النموذج يتطلب 5 حقول إلزامية أو أكثر، فقسِّمه عبر خطوات واضحة ومنطقية مع توفير شريط تقدم نشط (Progress bar). يؤدي تجميع الحقول ذات الصلة (مثل المعلومات الشخصية، وعنوان التسليم، وتفاصيل الدفع) إلى تقليل العبء الإدراكي المتصور بشكل كبير."
+        "ar": "النماذج متعددة الأعمدة بتشتت حركة العين في مسارات متعرجة. رتّب الحقول دايمًا في **عمود واحد رأسي** عشان تضمن حركة عين طبيعية ومباشرة من فوق لتحت.\n\n**قسّم النماذج الطويلة لخطوات:** لو عندك ٥ حقول مطلوبة أو أكتر، وزّعهم على شاشات متتالية مع شريط تقدم (Progress Bar). تجميع الحقول المترابطة مع بعض بيدي إحساس بالراحة والسهولة."
+      },
+      "asset": {
+        "file": "single-column-flow.png",
+        "alt": {
+          "en": "Single-column form layout flow versus confusing multi-column form",
+          "ar": "تدفق النموذج أحادي العمود مقابل النماذج متعددة الأعمدة المشتتة"
+        },
+        "ratio": "16:9",
+        "brief": "Two form layouts with eye-tracking path overlays: Left multi-column form showing erratic Z-pattern eye jumps causing friction; Right single-column vertical stack showing a smooth, effortless straight downward eye tracking path."
       }
     },
     {
@@ -86,7 +104,16 @@
       "callout": {
         "type": "warning",
         "en": "Never wipe out user form inputs upon server errors. Preserve their data and highlight precisely which field needs attention.",
-        "ar": "لا تمسح أبدًا مدخلات نموذج المستخدم عند حدوث أخطاء في الخادم (Server errors). حافظ على بياناتهم وقم بتمييز الحقل الذي يحتاج إلى اهتمامهم بدقة."
+        "ar": "إياك تمسح بيانات كتبها المستخدم عند حدوث خطأ؛ حافظ على كل المدخلات وحدد الحقل المطلوب تعديله بدقة."
+      },
+      "asset": {
+        "file": "form-validation-states.png",
+        "alt": {
+          "en": "Form field validation lifecycle: empty, active, success, and inline error",
+          "ar": "دورة حياة التحقق من حقول الإدخال: فارغ، نشط، نجاح، وخطأ توضيحي"
+        },
+        "ratio": "16:9",
+        "brief": "Four-step input progression: (1) Empty default with example placeholder, (2) Active typing with 2px blue focus ring, (3) Validated state with green checkmark, and (4) Error state with red border, warning icon, and clear inline instructions."
       }
     }
   ]

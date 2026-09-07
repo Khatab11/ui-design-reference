@@ -29,7 +29,16 @@
       },
       "body": {
         "en": "Icons fulfill two primary roles:\n\n- **Clarifying Icons:** Informative markers placed next to categories or features (e.g. category listings for electronics, groceries, fashion). They are non-clickable visual aids.\n- **Interactive Icons:** Functional buttons that trigger immediate actions (e.g. search magnifying glass, favorite heart, navigation tab bar items). Interactive icons must be universally understood and possess an invisible tap target of at least **44x44 pt**.",
-        "ar": "تؤدي الأيقونات دورين أساسيين:\n\n- **الأيقونات التوضيحية (Clarifying Icons):** علامات إعلامية توضع بجوار الفئات أو الميزات (مثل قوائم الفئات للإلكترونيات والبقالة والأزياء). وهي وسائل مساعدة بصرية غير قابلة للنقر.\n- **الأيقونات التفاعلية (Interactive Icons):** أزرار وظيفية تؤدي إلى إجراءات فورية (مثل عدسة البحث المكبرة، قلب المفضلة، عناصر شريط علامات تبويب التنقل). يجب أن تكون الأيقونات التفاعلية مفهومة عالميًا وتمتلك مساحة نقر غير مرئية لا تقل عن 44×44 نقطة."
+        "ar": "الأيقونات بتنقسم لنوعين رئيسيين:\n\n- **أيقونات توضيحية (Clarifying):** بتشرح أو تصنف عناصر لكنها **مش قابلة للضغط** (زي أيقونات أقسام المتجر: إلكترونيات، أزياء، أطعمة).\n- **أيقونات تفاعلية (Interactive):** بتشتغل كأزرار فعلية (زي أيقونة القلب للإعجاب، أو شريط التنقل السفلي). الأيقونات دي لازم تكون مشهورة جداً ومساحة لمسها لا تقل عن **٤٤×٤٤ نقطة**."
+      },
+      "asset": {
+        "file": "clarifying-vs-interactive-icons.png",
+        "alt": {
+          "en": "Distinction between decorative clarifying icons and interactive icon buttons",
+          "ar": "الفرق بين الأيقونات التوضيحية البصرية وأزرار الأيقونات التفاعلية"
+        },
+        "ratio": "16:9",
+        "brief": "Side-by-side comparison: Left shows clarifying bullet icons beside benefit list items (passive, no hover); Right shows an interactive icon toolbar (Search, Filter, Bookmark) with 44px hit bounds and hover state pill backgrounds."
       }
     },
     {
@@ -65,7 +74,16 @@
       "callout": {
         "type": "tip",
         "en": "Always design icons within consistent square bounding boxes (e.g. 24x24 pt) to prevent alignment jumping in code.",
-        "ar": "قم دائمًا بتصميم الأيقونات داخل صناديق حدود مربعة متسقة (مثل 24×24 نقطة) لمنع قفز المحاذاة في الكود."
+        "ar": "احرص على تصميم الأيقونات دائماً داخل إطار مربع ثابت (مثل 24×24 نقطة) لضمان دقة المحاذاة التلقائية في الكود."
+      },
+      "asset": {
+        "file": "icon-bounding-box.png",
+        "alt": {
+          "en": "Uniform 24px icon bounding boxes with optical centering and consistent stroke weight",
+          "ar": "مربعات الاحتواء الموحدة 24 بكسل مع الموازنة البصرية وسُمك الخط المتناسق"
+        },
+        "ratio": "16:9",
+        "brief": "Three distinct icon shapes (Play triangle, Heart, Arrow) aligned within dashed 24×24px bounding boxes, showing optical weight balance (triangle nudged slightly right) and uniform 2px stroke thickness across all three."
       }
     },
     {
@@ -81,7 +99,16 @@
       "callout": {
         "type": "warning",
         "en": "Never sacrifice clarity for minimalist aesthetics. Ambiguous standalone icons frustrate users; add text labels.",
-        "ar": "لا تضحي أبدًا بالوضوح من أجل جماليات التبسيط (Minimalism). الأيقونات المستقلة الغامضة تحبط المستخدمين؛ أضف تسميات نصية."
+        "ar": "لا تضحي بالوضوح من أجل المظهر البسيط؛ الأيقونات الغامضة بدون نص توضيحي تزيد من حيرة المستخدمين."
+      },
+      "asset": {
+        "file": "icon-labels-and-clarity.png",
+        "alt": {
+          "en": "Ambiguous unlabeled icon navigation versus clear icon paired with text label",
+          "ar": "التنقل الغامض بالأيقونات وحدها مقابل الأيقونات المقترنة بنصوص واضحة"
+        },
+        "ratio": "16:9",
+        "brief": "Before/after navigation bar: Top shows mystery-meat unlabeled abstract icons forcing user guesswork; Bottom shows high-conversion navigation bar with icons paired directly with clear 13px text labels underneath."
       }
     }
   ]

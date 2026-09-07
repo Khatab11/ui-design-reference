@@ -18,7 +18,16 @@
       },
       "body": {
         "en": "UI design is not mystical magic — every world-class interface is assembled from basic geometric primitives (rectangles, ovals, vectors, and typographic strings) governed by laws of spacing, contrast, and visual hierarchy.\n\nOnce you master core components (buttons, text inputs, cards, navigation bars) and spatial hierarchy, you can design *any* digital product. This systemic foundation is vastly superior to following one-off tutorials that only teach how to clone a single specific screen.",
-        "ar": "تصميم واجهة المستخدم ليس سحرًا غامضًا — يتم تجميع كل واجهة ذات مستوى عالمي من أساسيات هندسية (مستطيلات، وأشكال بيضاوية، ومتجهات، وسلاسل مطبعية) تحكمها قوانين التباعد (Spacing)، والتباين (Contrast)، والتسلسل الهرمي المرئي (Visual hierarchy).\n\nبمجرد إتقان المكونات الأساسية (الأزرار، وإدخالات النص، والبطاقات، وأشرطة التنقل) والتسلسل الهرمي المكاني (Spatial hierarchy)، يمكنك تصميم *أي* منتج رقمي. هذا الأساس المنهجي يتفوق بكثير على اتباع البرامج التعليمية لمرة واحدة والتي تُعلّم فقط كيفية استنساخ شاشة واحدة محددة."
+        "ar": "تصميم الواجهات مش سحر غامض — أي تطبيق عالمي بيتكون في النهاية من أشكال هندسية أولية بسيطة (مستطيلات، دوائر، ونصوص) محكومة بقواعد المسافات، التباين، والتسلسل البصري.\n\nلما تفهم المكونات الجوهرية (أزرار، حقول إدخال، كروت، وتصفح) وقواعد الهيراركي، هتقدر تصمم أي شاشة تخطر على بالك. الأساس ده أقوى بكتير من إنك تتابع درس بيعلمك رسم شاشة واحدة بعينها."
+      },
+      "asset": {
+        "file": "assembled-primitives.png",
+        "alt": {
+          "en": "Exploded UI diagram showing complex interface built from simple geometric primitives",
+          "ar": "مخطط تفكيكي يوضح بناء واجهة متقدمة من أشكال هندسية بدائية بسيطة"
+        },
+        "ratio": "16:9",
+        "brief": "Exploded view of a modern crypto/banking analytics card showing its atomic decomposition: 3 rounded rectangles for surfaces, 2 circular avatar masks, 4 typographic text layers, and 1 vector icon curve, proving that all UI is assembled from simple primitives."
       }
     },
     {

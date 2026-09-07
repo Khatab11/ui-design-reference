@@ -34,7 +34,16 @@
       "callout": {
         "type": "quote",
         "en": "What truly defines you as a designer is applying these foundational principles every single day better than the day before.",
-        "ar": "ما يميزك حقًا كمصمم هو تطبيق هذه المبادئ التأسيسية كل يوم بشكل أفضل من اليوم السابق."
+        "ar": "ما يميزك حقاً كمصمم هو تطبيق هذه المبادئ في ممارستك اليومية بشكل أفضل في كل مرة."
+      },
+      "asset": {
+        "file": "theory-into-daily-craft.png",
+        "alt": {
+          "en": "The continuous UI design mastery loop: observe, deconstruct, recreate, and ship",
+          "ar": "حلقة إتقان التصميم المستمرة: الملاحظة، التفكيك والتحليل، إعادة البناء، ثم الإطلاق"
+        },
+        "ratio": "16:9",
+        "brief": "Circular flywheel diagram showing the 4-step daily design habit: (1) Observe real top-tier apps (Mobbin/App Store) → (2) Deconstruct mathematical rules (grid, typography scale, tokens) → (3) Rebuild pixel-for-pixel in Figma → (4) Ship production code."
       }
     },
     {

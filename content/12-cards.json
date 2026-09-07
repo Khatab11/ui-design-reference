@@ -34,7 +34,16 @@
       "callout": {
         "type": "tip",
         "en": "More information on a card is not better. Overloading cards slows decisions; prioritize ruthlessly.",
-        "ar": "المزيد من المعلومات على البطاقة لا يعني الأفضل. فإثقال البطاقات بالمعلومات يبطئ القرارات؛ رتب أولوياتك بصرامة."
+        "ar": "زيادة المعلومات داخل البطاقة لا تعني جودة أفضل؛ الإفراط يشتت انتباه المستخدم ويصعّب اتخاذ القرار."
+      },
+      "asset": {
+        "file": "card-content-prioritization.png",
+        "alt": {
+          "en": "Overcrowded card before editing versus clean prioritized card with strong hierarchy",
+          "ar": "بطاقة محتوى مزدحمة وغير منظمة مقابل بطاقة نقية بهرمية واضحة"
+        },
+        "ratio": "16:9",
+        "brief": "Before/after card design: Left card is cluttered with 9 competing elements, badges, duplicate buttons, and full paragraphs; Right card curates only the vital information: image thumbnail, category tag, strong title, price, and clean primary action."
       }
     },
     {
@@ -81,7 +90,16 @@
       },
       "body": {
         "en": "A card must communicate that it is interactive:\n- **Elevation Style:** Pick one consistent container style across your product: White surface with soft drop shadow, crisp 1px stroke outline, or subtle tonal surface fill. Never mix these randomly.\n- **Hover Affordance:** On desktop, lift the card slightly (-2px vertical translation) and expand the soft outer shadow on hover to provide tactile feedback.",
-        "ar": "يجب أن تُعلم البطاقة المستخدم بأنها تفاعلية:\n- **أسلوب الارتفاع (Elevation Style):** اختر نمط حاوية متسقًا واحدًا عبر منتجك: سطح أبيض مع ظل إسقاط ناعم، أو مخطط حدود واضح بسمك 1 بكسل، أو تعبئة سطح لونية دقيقة. لا تخلط بين هذه الأنماط بشكل عشوائي أبدًا.\n- **إيحاء التمرير (Hover Affordance):** على سطح المكتب، ارفع البطاقة قليلاً (إزاحة رأسية بمقدار -2 بكسل) وقم بتوسيع الظل الخارجي الناعم عند التمرير لتقديم استجابة لمسية (Tactile feedback)."
+        "ar": "البطاقة لازم تعلن عن نفسها كعنصر قابل للضغط:\n- **أسلوب الارتفاع:** اختار نمط واحد ثابت في كل منتجك: خلفية بيضاء مع ظل ناعم، حدود رفيعة (1px Stroke)، أو سطح ملون ناعم. إياك تخلط بينهم.\n- **تفاعل الـ Hover:** في الديسكتوب، لما الماوس يمر فوق البطاقة ارفعها لفوق درجة بسيطة وزوّد نعومة الظل لتقديم استجابة لمسية فخمة."
+      },
+      "asset": {
+        "file": "card-click-affordance.png",
+        "alt": {
+          "en": "Click affordance indicators on cards including hover elevation and chevron prompts",
+          "ar": "مؤشرات قابلية النقر على البطاقات تشمل الارتفاع عند التحويم والسهم التوجيهي"
+        },
+        "ratio": "16:9",
+        "brief": "Comparison of interactive card affordances: Left shows a completely flat card that looks like a static banner; Right shows an interactive card with a subtle border, hover lift shadow, pointer cursor, and subtle right-aligned chevron icon."
       }
     }
   ]

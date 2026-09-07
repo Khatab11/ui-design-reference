@@ -34,7 +34,16 @@
       "callout": {
         "type": "tip",
         "en": "Keep microinteraction transitions between 200ms and 400ms. Motion should feel instantaneous, never sluggish.",
-        "ar": "حافظ على انتقالات التفاعل الدقيق بين 200 مللي ثانية و 400 مللي ثانية. يجب أن تشعر بالحركة وكأنها فورية، وليست بطيئة أبدًا."
+        "ar": "احرص على ألا تزيد مدة التفاعلات الدقيقة عن 200 إلى 400 مللي ثانية؛ يجب أن تبدو الاستجابة فورية بدون إبطاء."
+      },
+      "asset": {
+        "file": "microinteraction-feedback.png",
+        "alt": {
+          "en": "Three-stage microinteraction feedback cycle: resting, pressed, and confirmed state",
+          "ar": "دورة استجابة التفاعل الدقيق في ثلاث مراحل: السكون، الضغط، والتأكيد"
+        },
+        "ratio": "16:9",
+        "brief": "Sequential 3-frame animation storyboard for a \"Save to Bookmark\" button: Frame 1 resting outline icon; Frame 2 finger press causing scale(0.96) compression and blue radial highlight; Frame 3 smooth transition to filled bookmark icon with tiny particle burst confirming success."
       }
     },
     {
@@ -81,7 +90,16 @@
       "callout": {
         "type": "warning",
         "en": "Never sacrifice app speed for flashy animation. Users will abandon slow interfaces no matter how pretty the motion is.",
-        "ar": "لا تضحِ أبدًا بسرعة التطبيق من أجل الرسوم المتحركة المبهرجة. سيتخلى المستخدمون عن الواجهات البطيئة بغض النظر عن مدى جمال الحركة."
+        "ar": "لا تضحي أبداً بسرعة واستجابة التطبيق مقابل حركات بهلوانية؛ المستخدم سيغادر أي تطبيق بطيء مهما كان شكله مبهراً."
+      },
+      "asset": {
+        "file": "dribbble-vs-production-motion.png",
+        "alt": {
+          "en": "Production-ready 180ms ease-out motion versus flashy slow Dribbble concept animation",
+          "ar": "الحركة الإنتاجية السريعة 180ms مقابل حركات الاستعراض البطيئة المزعجة للمستخدم"
+        },
+        "ratio": "16:9",
+        "brief": "Timeline comparison: Top shows a 2.5-second flashy social media concept animation with spinning icons and excessive bounce (slow, nauseating); Bottom shows a production-grade 140ms ease-out dropdown menu opening (instant, snappy, purposeful)."
       }
     }
   ]

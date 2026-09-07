@@ -10,6 +10,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "start": "node server/app.js",
+    "test": "node --test",
     "validate": "ajv validate --spec=draft7 -s schema/chapter.schema.json -d \"content/*.json\"",
     "diagrams": "node scripts/sync-diagrams.mjs && node scripts/export-diagrams.mjs",
     "diagrams:sync": "node scripts/sync-diagrams.mjs",

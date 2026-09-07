@@ -58,14 +58,14 @@ export default function Search({ lang, open, onClose }) {
 
   return (
     <div
-      className="print-hidden fixed inset-0 z-[60] flex items-start justify-center bg-black/40 backdrop-blur-xs p-2 pt-[10vh] sm:p-3 sm:pt-[12vh]"
+      className="print-hidden fixed inset-0 z-[60] flex items-start justify-center bg-black/40 p-2 pt-2 backdrop-blur-xs sm:p-3 sm:pt-[12vh]"
       onMouseDown={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
         role="dialog"
         aria-modal="true"
         aria-label={t(lang, 'search')}
-        className="modal flex max-h-[70vh] w-full max-w-[640px] flex-col overflow-hidden"
+        className="modal flex max-h-[calc(100dvh-16px)] w-full max-w-[640px] flex-col overflow-hidden sm:max-h-[70vh]"
         onKeyDown={onKeyDown}
       >
         <div className="flex items-center gap-2 border-b border-line px-3 focus-within:border-action focus-within:ring-2 focus-within:ring-action">
@@ -111,8 +111,8 @@ export default function Search({ lang, open, onClose }) {
                     i === cursor ? 'border-action bg-action-tint text-ink' : 'border-transparent text-body hover:bg-ground hover:text-ink'
                   }`}
                 >
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-[15px] font-semibold text-ink">{r.item.title}</span>
+                  <div className="flex min-w-0 flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-2">
+                    <span className="min-w-0 break-words text-[15px] font-semibold text-ink">{r.item.title}</span>
                     {r.item.sectionId && (
                       <span className="truncate text-xs text-muted">
                         {t(lang, 'inChapter')} {r.item.chapterTitle}

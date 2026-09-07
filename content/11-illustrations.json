@@ -54,7 +54,16 @@
       "callout": {
         "type": "warning",
         "en": "Never use illustrations for physical e-commerce product listings. Customers demand real photography to evaluate purchases.",
-        "ar": "لا تستخدم الرسوم التوضيحية أبدًا لقوائم منتجات التجارة الإلكترونية المادية. يطلب العملاء تصويرًا فوتوغرافيًا حقيقيًا لتقييم المشتريات."
+        "ar": "لا تستخدم الرسوم التوضيحية أبداً كبديل لصور المنتجات المعروضة للبيع في المتاجر؛ العميل بحاجة لرؤية السلعة الحقيقية."
+      },
+      "asset": {
+        "file": "where-to-avoid-illustrations.png",
+        "alt": {
+          "en": "High-friction checkout with distracting illustrations versus clean utilitarian flow",
+          "ar": "مقارنة بين مسار دفع معقد برسومات مشتتة ومسار دفع وظيفي مركز"
+        },
+        "ratio": "16:9",
+        "brief": "Side-by-side checkout screens: Left shows checkout cluttered with decorative cartoon characters that distract from payment fields; Right shows a laser-focused, distraction-free utilitarian checkout screen optimized for speed."
       }
     },
     {
@@ -70,7 +79,16 @@
       "callout": {
         "type": "tip",
         "en": "Pick one illustration library and stick to it across your entire product to protect brand cohesion.",
-        "ar": "اختر مكتبة رسوم توضيحية واحدة والتزم بها في جميع أنحاء منتجك لحماية تماسك علامتك التجارية."
+        "ar": "اختر مكتبة رسوم توضيحية موحدة والتزم بها في كافة شاشات المنتج لحماية اتساق الهوية البصرية."
+      },
+      "asset": {
+        "file": "illustration-style-consistency.png",
+        "alt": {
+          "en": "Clashing mixed illustration styles versus unified cohesive illustration language",
+          "ar": "تضارب أساليب الرسم المختلفة مقابل لغة بصرية ورسومية متناغمة"
+        },
+        "ratio": "16:9",
+        "brief": "Two sets of feature cards: Left shows a messy clash of styles (flat outline icon, 3D glossy character, hand-drawn sketch); Right shows a harmonious illustration system with identical stroke weight, perspective, and brand palette."
       }
     }
   ]

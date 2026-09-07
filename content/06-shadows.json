@@ -29,7 +29,16 @@
       },
       "body": {
         "en": "Shadows simulate a third dimension (Z-axis). An element with a shadow appears closer to the user's fingertips, signaling that it is clickable, interactive, or currently floating over content (modals, dropdown menus, cards).",
-        "ar": "تحاكي الظلال البعد الثالث (المحور Z). فالعنصر ذو الظل يبدو أقرب إلى أطراف أصابع المستخدم، مما يعطي إشارة بصرية بأنه قابل للنقر، أو تفاعلي، أو يطفو حاليًا فوق المحتوى (النوافذ المنبثقة، القوائم المنسدلة، البطاقات)."
+        "ar": "الظلال بتضيف البُعد التالت (محور العمق Z). العنصر اللي ليه ظل بيبان أقرب لإيد المستخدم، وده بيدي إشارة بصرية واضحة إنه عنصر تفاعلي أو عائم فوق الصفحة (زي الكروت، النوافذ المنبثقة، والقوائم المنسدلة)."
+      },
+      "asset": {
+        "file": "elevation-levels.png",
+        "alt": {
+          "en": "Three-tier UI elevation scale demonstrating ground, raised, and overlay shadows",
+          "ar": "مقياس الارتفاع ثلاثي المستويات يوضح ظل السطح والبطاقات والنوافذ العائمة"
+        },
+        "ratio": "16:9",
+        "brief": "Isometric stack of three UI surfaces: Flat ground (0 elevation), Raised card (Y: 2px, Blur: 6px, Opacity: 7%), and Modal overlay (Y: 16px, Blur: 32px, Opacity: 14%), showing how light source and blur create natural spatial hierarchy."
       }
     },
     {
@@ -81,7 +90,16 @@
       "callout": {
         "type": "warning",
         "en": "Never use white drop shadows in dark mode. Indicate elevation through progressive surface lightness instead.",
-        "ar": "لا تستخدم أبدًا الظلال الخارجية البيضاء في الوضع الداكن. أشر إلى الارتفاع من خلال تفتيح السطح التدريجي بدلاً من ذلك."
+        "ar": "تجنب تماماً استخدام ظلال بيضاء في الوضع الداكن؛ اعتمد على تفتيح لون خلفية السطح لإظهار الارتفاع."
+      },
+      "asset": {
+        "file": "shadows-in-dark-mode.png",
+        "alt": {
+          "en": "Dark mode elevation achieved through surface lightening and subtle borders",
+          "ar": "التعبير عن الارتفاع في الوضع الداكن عبر تفتيح الأسطح والحدود الخفيفة"
+        },
+        "ratio": "16:9",
+        "brief": "Two dark mode UI frames: Left shows an ineffective black drop shadow that completely disappears against #121212 ground; Right shows correct dark elevation where the modal uses a lighter slate surface (#242424), a crisp 1px border (#383838), and soft black diffusion."
       }
     },
     {
@@ -92,7 +110,16 @@
       },
       "body": {
         "en": "Inner shadows create the visual impression of a hole or sunken pit. In modern mental models, users expect interactive components to be elevated above the plane, not carved into it. Inner shadows create confusion and make buttons appear disabled or pressed.",
-        "ar": "تخلق الظلال الداخلية انطباعًا بصريًا بوجود ثقب أو حفرة غائرة. في النماذج العقلية الحديثة، يتوقع المستخدمون أن تكون المكونات التفاعلية مرتفعة فوق السطح، وليس محفورة فيه. تخلق الظلال الداخلية ارتباكًا وتجعل الأزرار تبدو معطلة أو مضغوطة."
+        "ar": "الظلال الداخلية بتدي إيحاء بـ \"حفرة\" غايصة في الصفحة. التوقعات الذهنية للمستخدم في الواجهات الحديثة بتربط قابلية الضغط بالارتفاع لفوق، مش الحفر لجوه. الظل الداخلي بيخلي الزرار يبان كأنه مضغوط أو معطل ومربك."
+      },
+      "asset": {
+        "file": "avoid-inner-shadows.png",
+        "alt": {
+          "en": "Modern flat input with crisp border versus outdated heavy inner shadow",
+          "ar": "مقارنة بين حقل إدخال مسطح حديث وحقل كلاسيكي بظل داخلي مزعج"
+        },
+        "ratio": "16:9",
+        "brief": "Side-by-side comparison of input fields: Left shows an outdated 2000s skeuomorphic input with heavy inset inner shadow looking dirty; Right shows a modern clean input on white surface with 1px border and 2px focus ring."
       }
     }
   ]

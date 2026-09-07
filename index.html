@@ -42,6 +42,39 @@
         } catch (e) {}
       })();
     </script>
+    <script>
+      // Suppress and remove any platform-injected Netlify badges or feedback drawers
+      (function () {
+        function removeNetlifyElements() {
+          var elements = document.querySelectorAll(
+            'netlify-drawer, [data-netlify-deploy-id], #netlify-badge, .netlify-badge, [data-netlify-badge], #netlify-cdp-root, iframe[src*="netlify"]'
+          );
+          elements.forEach(function (el) { el.remove(); });
+
+          var links = document.querySelectorAll('a[href*="netlify.com"]');
+          links.forEach(function (a) {
+            var text = (a.textContent || '').toLowerCase();
+            if (text.includes('netlify') || text.includes('powered by') || a.querySelector('svg, img')) {
+              var pos = window.getComputedStyle(a).position;
+              if (pos === 'fixed' || pos === 'absolute' || a.closest('#netlify-badge, .netlify-badge')) {
+                a.remove();
+              }
+            }
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', removeNetlifyElements);
+        } else {
+          removeNetlifyElements();
+        }
+
+        if (typeof MutationObserver !== 'undefined') {
+          var observer = new MutationObserver(removeNetlifyElements);
+          observer.observe(document.documentElement, { childList: true, subtree: true });
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

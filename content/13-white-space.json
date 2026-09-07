@@ -18,7 +18,16 @@
       },
       "body": {
         "en": "White space is the breathing room between and around interface objects. Amateur designers frequently treat white space as an \"unfilled canvas\" waiting to be packed with clutter.\n\nIn reality, white space is like a film's supporting actor: its sole job is to make the hero content stand out brilliantly without demanding attention for itself.",
-        "ar": "المساحة البيضاء هي مساحة التنفس بين كائنات الواجهة وحولها. وكثيراً ما يعامل المصممون المبتدئون المساحة البيضاء باعتبارها \"لوحة فارغة\" تنتظر أن تمتلئ بالفوضى.\n\nفي الواقع، تشبه المساحة البيضاء الممثل المساعد في الفيلم: فوظيفتها الوحيدة هي إبراز محتوى البطل (Hero content) ببراعة دون المطالبة بالانتباه لنفسها."
+        "ar": "المساحة البيضاء (أو السلبية — Negative Space) هي الفراغ اللي بيفصل بين العناصر في الواجهة. كتير من المبتدئين بيعاملوها كأنها \"مساحة مهدرة\" لازم تتملي بأي حاجة.\n\nفي الحقيقة، المساحة البيضاء زي الممثل المساعد المبدع: شغلته الأساسية إنه يبرز البطل (المحتوى الأهم) ويخليه يتنفس من غير ما يلفت الانتباه لنفسه."
+      },
+      "asset": {
+        "file": "active-negative-space.png",
+        "alt": {
+          "en": "Separation using heavy borders versus elegant grouping with whitespace",
+          "ar": "الفصل بين العناصر بالخطوط الثقيلة مقابل التجميع الأنيق بالمساحات البيضاء"
+        },
+        "ratio": "16:9",
+        "brief": "Two identical profile cards: Left divides every label and stat with dark 1px lines creating visual noise; Right removes all internal dividers and relies solely on 16pt and 24pt spacing gaps to establish natural, clean visual groups."
       }
     },
     {
@@ -45,7 +54,16 @@
       },
       "body": {
         "en": "It is vastly easier to design with exaggerated, spacious margins and gently tighten them than to begin with a cramped, congested layout and attempt to insert space later. Crammed layouts condition designers to accept \"barely readable\" compromise rather than pristine elegance.",
-        "ar": "من الأسهل بكثير التصميم بهوامش واسعة ومبالغ فيها وتضييقها بلطف بدلاً من البدء بتخطيط مزدحم وضيق ومحاولة إدراج مساحة لاحقًا. تدفع التخطيطات المزدحمة المصممين إلى قبول حلول وسط \"بالكاد قابلة للقراءة\" بدلاً من الأناقة الأصلية."
+        "ar": "أسهل بكتير تبدأ تصميمك بمسافات وهوامش واسعة جداً وبعدين تضيّقها تدريجياً، من إنك تبدأ بتصميم مزحوم ومخنوق وتحاول تدور على مكان للفراغ؛ لأنك في الحالة التانية هترضى بالحد الأدنى المقبول بدل ما توصل للأفضل."
+      },
+      "asset": {
+        "file": "start-wide-tighten.png",
+        "alt": {
+          "en": "Three-stage layout spacing progression: exaggerated, production balanced, and cramped",
+          "ar": "تطور تباعد الواجهة عبر ثلاث مراحل: رحبة جداً، متزنة للإنتاج، ومزدحمة ضيقة"
+        },
+        "ratio": "16:9",
+        "brief": "Three-stage UI progression for a dashboard widget: (1) Exaggerated 48px padding (airy, easy to critique), (2) Production balanced 24px padding (optimal density and comfort), and (3) Cramped 8px padding showing how claustrophobic layouts suffocate text."
       }
     },
     {
