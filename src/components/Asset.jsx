@@ -65,7 +65,7 @@ function Placeholder({ chapterId, asset, lang, className = '' }) {
       role="img"
       aria-label={asset.alt?.[lang] || asset.brief}
       style={ratioStyle(asset.ratio)}
-      className={`placeholder flex w-full flex-col items-center justify-center gap-1.5 rounded-lg border-2 border-dashed border-line-strong bg-surface p-3 text-center ${className}`}
+      className={`placeholder flex w-full flex-col items-center justify-center gap-1.5 rounded-lg border-2 border-dashed border-line-strong bg-surface p-3 text-center shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] ${className}`}
     >
       <ImageIcon className="text-ink-3" width="28" height="28" />
       <p className="text-xs font-medium uppercase tracking-wide text-ink-3">
@@ -122,7 +122,7 @@ function Figure({ chapterId, asset, lang, eager, live }) {
     <div
       ref={ref}
       style={ratioStyle(asset.ratio)}
-      className="relative w-full overflow-hidden rounded-lg border border-line bg-raised"
+      className="relative w-full overflow-hidden rounded-lg border border-line bg-raised shadow-[0_4px_24px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25)] transition-shadow duration-200 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
     >
       {hasDiagram && (
         <iframe

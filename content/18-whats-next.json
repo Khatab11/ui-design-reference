@@ -1,0 +1,68 @@
+{
+  "id": "whats-next",
+  "order": 18,
+  "title": {
+    "en": "What's Next?",
+    "ar": "إيه اللي بعد كده؟"
+  },
+  "intro": {
+    "en": "You have mastered the foundational laws of UI components. Now transition from academic knowledge to instinctual muscle memory, targeted study from real-world apps, and landing your first client.",
+    "ar": "وصلت لهنا واستوعبت المبادئ الأساسية لمكونات الواجهة. دلوقتي جه وقت تحويل المعرفة النظرية لغريزة وذاكرة حركية، الممارسة بالدراسة من تطبيقات حقيقية، واقتناص أول فرصة عمل."
+  },
+  "sections": [
+    {
+      "id": "simple-primitives",
+      "title": {
+        "en": "UI Design as Assembled Primitives",
+        "ar": "تصميم الواجهات: تجميع عناصر بسيطة"
+      },
+      "body": {
+        "en": "UI design is not mystical magic — every world-class interface is assembled from basic geometric primitives (rectangles, ovals, vectors, and typographic strings) governed by laws of spacing, contrast, and visual hierarchy.\n\nOnce you master core components (buttons, text inputs, cards, navigation bars) and spatial hierarchy, you can design *any* digital product. This systemic foundation is vastly superior to following one-off tutorials that only teach how to clone a single specific screen.",
+        "ar": "تصميم الواجهات مش سحر غامض — أي تطبيق عالمي بيتكون في النهاية من أشكال هندسية أولية بسيطة (مستطيلات، دوائر، ونصوص) محكومة بقواعد المسافات، التباين، والتسلسل البصري.\n\nلما تفهم المكونات الجوهرية (أزرار، حقول إدخال، كروت، وتصفح) وقواعد الهيراركي، هتقدر تصمم أي شاشة تخطر على بالك. الأساس ده أقوى بكتير من إنك تتابع درس بيعلمك رسم شاشة واحدة بعينها."
+      }
+    },
+    {
+      "id": "developing-the-eye",
+      "title": {
+        "en": "Developing Your Design Eye",
+        "ar": "تطوير العين التصميمية مع الوقت"
+      },
+      "body": {
+        "en": "A seasoned \"design eye\" is earned through repetition. In your early months, deciding whether a headline needs 600 or 700 weight, or whether card borders look cleaner at `#E5E5E5` vs `#ECECEC`, feels deliberate and slow.\n\nWith consistent daily practice, these fine-grained micro-decisions become second nature. There are no shortcuts: visual intuition is the product of hundreds of hours spent nudging pixels.",
+        "ar": "\"العين التصميمية\" الحساسة بتتولد مع الوقت والتكرار. في البداية، قرار اختيار وزن الخط Bold ولا SemiBold، أو الفرق بين رمادي `#1A1A1A` و `#121212`، بياخد منك وقت وتفكير وتردد.\n\nمع الممارسة المستمرة، القرارات الدقيقة دي بتتحول لحاسة سريعة وحدس فوري بيميز الصح من الغلط في ثواني. مفيش طريق مختصر؛ الذوق البصري بيتراكم مع ساعات الشغل والتطبيق."
+      },
+      "callout": {
+        "type": "tip",
+        "en": "Visual intuition cannot be taught through passive reading alone; it develops through hundreds of hours of hands-on layout adjustments.",
+        "ar": "الحس التصميمي لا يُكتسب بالقراءة وحدها؛ بل يُصقل عبر مئات الساعات من الممارسة اليدوية الفعلية."
+      }
+    },
+    {
+      "id": "ethical-copying-practice",
+      "title": {
+        "en": "Copying as Legitimate Practice: Mobbin vs. Dribbble",
+        "ar": "التدريب بالنقل: دراسة تطبيقات حقيقية"
+      },
+      "body": {
+        "en": "Recreating existing interfaces pixel-for-pixel is one of the fastest ways to learn the hidden math behind production layouts.\n\n**Ethical Guidelines:**\n- **Private Practice Only:** Recreating screens in your private Figma workspace is powerful study. Publishing or claiming someone else's work as your own is intellectual property theft.\n- **Study Real Apps (Mobbin):** Practice by cloning production screens from **mobbin.com** rather than conceptual Dribbble shots. Mobbin catalogs battle-tested interfaces engineered for real users, edge cases, and technical constraints.",
+        "ar": "إعادة رسم ونقل تصميمات حقيقية بكسل ببكسل (Pixel-Perfect) هي أسرع طريقة لفهم النسب والمسافات الخفية في الشغل الاحترافي.\n\n**القواعد الأخلاقية والمهنية:**\n- **للتدريب الشخصي فقط:** انقل التصميمات في مساحة العمل الخاصة بيك عشان تتعلم؛ لكن إياك تنشر تصميم منقول وتنسبه لنفسك لأن دي سرقة صريحة.\n- **ادرس تطبيقات حقيقية (Mobbin):** اتدرب على شاشات حقيقية من **mobbin.com** بدل لقطات Dribbble الاستعراضية؛ شاشات موبين معمولة لمنتجات نزلت السوق فعلاً واختبرت مع ملايين المستخدمين."
+      },
+      "callout": {
+        "type": "warning",
+        "en": "Copying is for private skill calibration only. Never publish cloned designs as original portfolio work.",
+        "ar": "إعادة رسم التصميمات مخصصة للتدريب الشخصي المغلق فقط؛ لا تنشر أي عمل منقول في معرض أعمالك."
+      }
+    },
+    {
+      "id": "daily-challenges-and-freelancing",
+      "title": {
+        "en": "Daily Practice & Your First Freelance Gig",
+        "ar": "الممارسة اليومية وأول فرصة فري لانس"
+      },
+      "body": {
+        "en": "Commit to daily habit formation. Community initiatives like **Daily UI** provide 100 days of bite-sized prompts to keep your momentum steady.\n\n**When to Begin Freelancing:** Do not wait until you feel 100% \"ready\". The universal milestone is simple: **the moment an inbound inquiry approaches you organically on social media, accept it.** That is the market signaling that your visible output has crossed the commercial threshold.",
+        "ar": "التزم بروتين ممارسة يومي ثابت؛ مبادرات زي **Daily UI** بتقدملك تحديات صغيرة يومية بتضمن استمرارية شغفك ومحاسبة نفسك أمام الجمهور.\n\n**إمتى تبدأ شغل فري لانس حقيقي؟** متستناش لحد ما تحس إنك جاهز 100%. القاعدة الذهبية: **أول ما حد يبعتلك على إنستجرام أو لينكدإن يطلب شغل بشكل طبيعي، اقبل فوراً.** دي رسالة من السوق إن مستواك بقى مطلوب تجارياً."
+      }
+    }
+  ]
+}

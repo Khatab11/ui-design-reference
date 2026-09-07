@@ -1,0 +1,99 @@
+{
+  "id": "buttons",
+  "order": 7,
+  "title": {
+    "en": "Buttons",
+    "ar": "الأزرار"
+  },
+  "intro": {
+    "en": "The definitive guide to button hierarchy, actions, visual styles, states, sizing, tap targets, and RTL pairing rules.",
+    "ar": "الدليل الكامل لتسلسل الأزرار، تصنيف الإجراءات، الأنماط البصرية، الحالات، المقاسات، مساحات اللمس، وقواعد ترتيب الأزرار في الواجهات العربية."
+  },
+  "sections": [
+    {
+      "id": "what-is-a-button",
+      "title": {
+        "en": "What is a Button?",
+        "ar": "إيه هو الزرار؟"
+      },
+      "body": {
+        "en": "A button is an interactive trigger that executes a specific action upon tap or click. Buttons must communicate their relative importance instantly through visual hierarchy so users navigate forward with confidence.",
+        "ar": "الزرار هو عنصر تفاعلي بينفّذ إجراء محدد بمجرد الضغط عليه. لازم كل زرار يوضح وزنه وأهميته للمستخدم في جزء من الثانية من خلال التسلسل البصري."
+      }
+    },
+    {
+      "id": "buttons-by-action",
+      "title": {
+        "en": "Buttons Classified by Action",
+        "ar": "تصنيف الأزرار حسب الإجراء"
+      },
+      "body": {
+        "en": "Buttons fall into four tiers of action importance:\n\n1. **Call to Action (CTA):** The single primary business objective (e.g. \"Start Free Trial\", \"Buy Now\"). Maximum visual weight.\n2. **Primary:** The positive progression step in a flow (e.g. \"Next\", \"Save\", \"Submit\").\n3. **Secondary:** The safe alternative or non-destructive branch (e.g. \"Cancel\", \"Back\", \"Edit\").\n4. **Tertiary:** Infrequently needed auxiliary actions (e.g. \"Share\", \"Add to Wishlist\").",
+        "ar": "الأزرار بتتصنف حسب أهمية الإجراء لأربع مستويات:\n\n1. **الدعوة لاتخاذ إجراء (CTA):** الإجراء الأساسي للبيزنس (زي \"سجل حسابك مجاناً\"، \"اشتر الآن\"). لازم يكون أبرز عنصر.\n2. **أساسي (Primary):** للمضي قدماً في الخطوات (زي \"التالي\"، \"حفظ\"، \"إرسال\").\n3. **ثانوي (Secondary):** بديل آمن (زي \"إلغاء\"، \"رجوع\"، \"تعديل\").\n4. **ثالثي (Tertiary):** إجراءات إضافية موقفية (زي \"مشاركة\"، \"حفظ في المفضلة\")."
+      }
+    },
+    {
+      "id": "buttons-by-style",
+      "title": {
+        "en": "Buttons Classified by Visual Style",
+        "ar": "تصنيف الأزرار حسب الشكل"
+      },
+      "body": {
+        "en": "Visual styles must match action hierarchy:\n\n- **Filled:** Solid color or gradient background. Best for CTA and Primary.\n- **Outline / Line:** Border only with transparent background. Ideal for Secondary.\n- **Transparent / Ghost:** Subtle surface tint on hover. Great for Tertiary.\n- **Text Link:** Understated text with interactive affordance for inline navigation.\n- **Icon Buttons:** Quick-scan utilities for universally recognized symbols (Search, Close, Share).",
+        "ar": "الشكل البصري لازم يعكس الأهمية:\n\n- **مملوء (Filled):** لون صلب أو تدرج — ممتاز للـ CTA والأساسي.\n- **محدد (Outline):** حدود خارجية بدون تعبئة — مثالي للأزرار الثانوية.\n- **شفاف (Ghost / Subtle):** بدون حدود وخلفية ناعمة عند التمرير — ممتاز للثالثي.\n- **رابط نصي (Text Link):** نص ملوّن داخل الفقرات.\n- **أزرار الأيقونات:** للأيقونات العالمية المعروفة (بحث، إغلاق، مشاركة)."
+      },
+      "asset": {
+        "file": "button-styles.png",
+        "alt": {
+          "en": "Filled, Outline, Ghost, and Icon button styles displayed side by side",
+          "ar": "أنماط الأزرار المختلفة: مملوء، محدد، شفاف، وأيقونات"
+        },
+        "ratio": "16:9",
+        "brief": "A row showing a solid Primary button, an Outlined Secondary button, a Ghost Tertiary button, and a circular Icon button with clean labels."
+      }
+    },
+    {
+      "id": "touch-targets",
+      "title": {
+        "en": "Touch Targets & Mobile Usability",
+        "ar": "مساحة اللمس واستخدام الموبايل"
+      },
+      "body": {
+        "en": "On touchscreens, visual bounds and physical touch areas can differ. Even if an icon button appears small (e.g. 24x24 pt), its invisible tap target **must be at least 44x44 pt** to avoid frustrating misclicks.",
+        "ar": "على الموبايل، مساحة اللمس الفعلية لازم تكون أكبر من حجم الأيقونة المرئية. حتى لو الزرار مرسوم ٢٤×٢٤ نقطة، مساحة اللمس الخفية **لازم تكون ٤٤×٤٤ نقطة على الأقل** لتفادي الضغطات الخاطئة بالإبهام."
+      },
+      "callout": {
+        "type": "tip",
+        "en": "Maintain minimum 44x44 pt tap targets on mobile to guarantee smooth one-handed usability.",
+        "ar": "حافظ على مساحة لمس لا تقل عن 44×44 نقطة للأزرار على الموبايل لتسهيل الاستخدام بيد واحدة."
+      }
+    },
+    {
+      "id": "button-states",
+      "title": {
+        "en": "The Four Interactive Button States",
+        "ar": "حالات الزرار التفاعلية"
+      },
+      "body": {
+        "en": "Every production button must support all interactive states:\n\n- **Default:** The resting baseline appearance.\n- **Hover:** Visible feedback when hovered with a mouse cursor.\n- **Active / Pressed:** Physical compression feedback during a click.\n- **Disabled:** Dimmed, non-interactive state clearly indicating requirements are not yet met.",
+        "ar": "كل زرار جاهز للإنتاج لازم يغطي ٤ حالات تفاعلية كاملة:\n\n- **الافتراضية (Default):** شكل الزرار وهو في وضع الاستعداد.\n- **التمرير (Hover):** استجابة بصرية لما ماوس المستخدم يقف فوقه.\n- **الضغط (Active / Pressed):** إحساس انضغاط الزرار لحظة النقر.\n- **المعطّل (Disabled):** لون باهت يوضح إن متطلبات الضغط لسه مكملتش."
+      }
+    },
+    {
+      "id": "button-pairing-and-rtl",
+      "title": {
+        "en": "Button Pair Ordering & RTL Nuances",
+        "ar": "ترتيب أزواج الأزرار في الـ RTL"
+      },
+      "body": {
+        "en": "When placing paired action buttons (such as \"Back\" and \"Next\"):\n\nIn standard LTR designs, the primary forward action typically rests on the right. In Arabic **RTL interfaces**, natural eye reading begins from the right, making a right-aligned Primary button feel intuitive. However, consistency across your entire design system matters most — pick one logical pattern and maintain it throughout all forms.",
+        "ar": "في أزواج الأزرار (زي \"رجوع\" و \"التالي\"):\nفي واجهات الـ LTR الإنجليزية، الزرار الأساسي بيكون على اليمين. في **الواجهات العربية (RTL)**، العين بتبدأ قراءتها من اليمين، فوضع الزرار الأساسي في اليمين بيكون طبيعي ومريح. أهم قاعدة هي **الاتساق التام** في كل شاشات التطبيق بدون تذبذب."
+      },
+      "callout": {
+        "type": "note",
+        "en": "Consistency in RTL button ordering builds muscle memory for Arabic users. Never flip button positions unpredictably across screens.",
+        "ar": "الاتساق في ترتيب أزرار النماذج يبني ذاكرة حركية للمستخدمين العرب؛ لا تغير أماكن الأزرار بين الشاشات."
+      }
+    }
+  ]
+}

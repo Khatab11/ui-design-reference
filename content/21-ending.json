@@ -1,0 +1,57 @@
+{
+  "id": "ending",
+  "order": 21,
+  "title": {
+    "en": "Ending & Looking Forward",
+    "ar": "الخاتمة والانطلاق"
+  },
+  "intro": {
+    "en": "Congratulations on finishing the complete curriculum. UI design is a lifelong, evolving craft. Carry these principles into your daily work and help build the future of the Arabic digital experience.",
+    "ar": "ألف مبروك وصولك لنهاية هذا المرجع المتكامل. تصميم الواجهات رحلة تطور مستمرة مدى الحياة. خد المبادئ دي وطبقها في شغلك اليومي وساهم في بناء مستقبل التجربة الرقمية العربية."
+  },
+  "sections": [
+    {
+      "id": "a-living-body-of-knowledge",
+      "title": {
+        "en": "A Living, Evolving Craft",
+        "ar": "علم حي ومستمر في التطور"
+      },
+      "body": {
+        "en": "Congratulations on completing this comprehensive masterclass. The principles documented here are not fleeting fads — they represent decades of established human-computer interaction patterns, visual psychology, and ergonomic standards.\n\nThis reference site is engineered as a living document: as frameworks, responsive form factors, and spatial platforms evolve, this reference will continue to update with modern expansions.",
+        "ar": "ألف مبروك! لو وصلت لهنا فإنت قطعت رحلة كاملة واكتسبت أساس علمي صلب. القواعد اللي اتعلمتها هنا مش تقاليع عابرة، دي خلاصة عقود من أبحاث التفاعل البشري مع الحاسوب، علم النفس الإدراكي، ومعايير التصميم العالمية.\n\nالمرجع ده متصمم كوثيقة حية هتتحدث باستمرار مع ظهور أدوات وتقنيات وتحديات جديدة في عالم الواجهات."
+      }
+    },
+    {
+      "id": "theory-vs-daily-craft",
+      "title": {
+        "en": "Theory vs. Daily Craft",
+        "ar": "النظرية مقابل الممارسة اليومية"
+      },
+      "body": {
+        "en": "What separates an amateur who knows the rules from a master designer is deliberate, daily application.\n\n> **\"What truly defines you as a designer is not that you have memorized the principles, but that you apply them every single day slightly better than the day before.\"**\n\nSeek out new design challenges, embrace code constraints, participate in design critique, and test your work relentlessly with real humans.",
+        "ar": "اللي بيميز المصمم العادي عن المصمم الخبير مش إنه حافظ المبادئ النظرية — ده إنه بيطبقها كل يوم بوعي وإتقان.\n\n> **\"اللي بيميزك بجد كمصمم إنك مش بس عارف القواعد، إنك بتطبقها في كل مشروع وتفصيلة أحسن من اليوم اللي قبله.\"**\n\nابحث عن تحديات جديدة، اتعلم قيود البرمجة عشان تتكلم نفس لغة المطورين، واختبر تصميماتك دايمًا مع ناس حقيقيين."
+      },
+      "callout": {
+        "type": "quote",
+        "en": "What truly defines you as a designer is applying these foundational principles every single day better than the day before.",
+        "ar": "ما يميزك حقاً كمصمم هو تطبيق هذه المبادئ في ممارستك اليومية بشكل أفضل في كل مرة."
+      }
+    },
+    {
+      "id": "building-the-arabic-design-community",
+      "title": {
+        "en": "Building the Arabic Design Community",
+        "ar": "بناء مجتمع التصميم العربي"
+      },
+      "body": {
+        "en": "The Arabic digital ecosystem is undergoing a historic transformation. More than 400 million Arabic speakers deserve digital experiences tailored natively to their language, rich heritage, and cultural nuances — not crude, flipped machine translations.\n\nBy designing with deep respect for Arabic typography, natural RTL ergonomics, and cultural semantics, you aren't just shipping code — you are actively authoring the future of the Arabic digital world.",
+        "ar": "العالم الرقمي العربي بيعيش نقلة تاريخية غير مسبوقة. أكتر من ٤٠٠ مليون إنسان ناطق بالعربية يستحقوا تجارب ومنتجات رقمية مصممة بلغتهم وثقافتهم واحترام هويتهم — مش مجرد شاشات إنجليزية مقلوبة بترجمة آلية ركيكة.\n\nلما تصمم بوعي كامل للتايبوجرافي العربي، وقواعد الـ RTL، والخصوصية الثقافية، إنت مش بس بتصمم شاشات — إنت بتساهم في صياغة هوية ومستقبل المحتوى الرقمي العربي كله."
+      },
+      "callout": {
+        "type": "note",
+        "en": "Arabic digital experiences deserve native, culturally respectful craftsmanship. Build products that honor the language and elevate the community.",
+        "ar": "الواجهات العربية تستحق إتقاناً أصيلاً يحترم اللغة والهوية؛ ساهم في بناء منتجات تليق بالمستخدم العربي وترفع من شأن مجتمعنا."
+      }
+    }
+  ]
+}
