@@ -35,7 +35,7 @@
   --color-error-hover:       #A11F16;
 
   /* Type */
-  --font-sans: 'Public Sans', 'IBM Plex Sans Arabic', 'Cairo', Helvetica, Arial, sans-serif;
+  --font-sans: 'Public Sans', 'Tajawal', Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --text-display: 56px;  --lh-display: 1.02;  --ls-display: -0.03em;  --fw-display: 700;
@@ -257,7 +257,7 @@ html[lang='ar'] {
 }
 
 html[lang='ar'] body {
-  font-family: 'IBM Plex Sans Arabic', 'Cairo', var(--font-sans);
+  font-family: 'Tajawal', var(--font-sans);
   line-height: 1.75;
 }
 
