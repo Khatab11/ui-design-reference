@@ -3,16 +3,34 @@ import { t } from '../lib/ui.js'
 import Asset from './Asset.jsx'
 import Callout from './Callout.jsx'
 import Markdown from './Markdown.jsx'
-import { LinkIcon } from './Icons.jsx'
+import { LinkIcon, VolumeIcon, PauseIcon, PlayIcon } from './Icons.jsx'
 import { motion, useReducedMotion } from 'framer-motion'
+import SectionAction from './gamification/SectionAction.jsx'
+import { useSpeech } from '../context/SpeechContext.jsx'
 
 export function sectionDomId(chapterId, sectionId) {
   return `${chapterId}--${sectionId}`
 }
 
-export default function Section({ chapter, section, lang, eagerAssets = false, liveAssets = true }) {
+export default function Section({
+  chapter,
+  section,
+  lang,
+  eagerAssets = false,
+  liveAssets = true,
+  isGamified = false,
+  isCompleted = false,
+  onComplete,
+}) {
   const domId = sectionDomId(chapter.id, section.id)
   const shouldReduceMotion = useReducedMotion()
+  const { supported, status, isPlaying, isPaused, currentChapter, currentSectionId, playSection, pause, resume } = useSpeech()
+  const isCurrentSection = currentChapter?.id === chapter.id && currentSectionId === section.id && status !== 'idle'
+  const toggleSpeech = () => {
+    if (isCurrentSection && isPlaying) pause()
+    else if (isCurrentSection && isPaused) resume()
+    else playSection(chapter, section, lang)
+  }
 
   return (
     <motion.section
@@ -25,7 +43,17 @@ export default function Section({ chapter, section, lang, eagerAssets = false, l
       className="scroll-mt-[88px] pt-10"
     >
       <h2 className="group flex items-center gap-1.5 text-[22px] font-semibold leading-[1.25] tracking-[-0.01em] text-ink">
-        <span>{section.title[lang]}</span>
+        <span className="min-w-0 flex-1">{section.title[lang]}</span>
+        {supported && (
+          <button
+            type="button"
+            onClick={toggleSpeech}
+            aria-label={isCurrentSection && isPlaying ? t(lang, 'pause') : isCurrentSection && isPaused ? t(lang, 'resume') : t(lang, 'listenSection')}
+            className="print-hidden inline-flex h-9 w-9 min-h-[36px] min-w-[36px] shrink-0 items-center justify-center rounded-control text-muted transition-all hover:text-action sm:opacity-0 sm:focus-visible:opacity-100 sm:group-hover:opacity-100"
+          >
+            {isCurrentSection && isPlaying ? <PauseIcon width="16" height="16" /> : isCurrentSection && isPaused ? <PlayIcon width="16" height="16" /> : <VolumeIcon width="16" height="16" />}
+          </button>
+        )}
         <a
           href={hrefFor(chapter.id, section.id)}
           aria-label={t(lang, 'linkToSection')}
@@ -41,6 +69,14 @@ export default function Section({ chapter, section, lang, eagerAssets = false, l
         <Asset chapterId={chapter.id} asset={section.asset} lang={lang} eager={eagerAssets} live={liveAssets} />
       )}
       {section.callout && <Callout callout={section.callout} lang={lang} />}
+      {isGamified && (
+        <SectionAction
+          sectionId={`${chapter.id}--${section.id}`}
+          isCompleted={isCompleted}
+          lang={lang}
+          onComplete={onComplete}
+        />
+      )}
     </motion.section>
   )
 }

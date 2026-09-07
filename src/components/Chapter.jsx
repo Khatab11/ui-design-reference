@@ -2,12 +2,21 @@ import { useEffect, useRef } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { chapterIndex } from '../lib/content.js'
 import { t } from '../lib/ui.js'
+import { useSpeech } from '../context/SpeechContext.jsx'
+import { VolumeIcon, PauseIcon, PlayIcon } from './Icons.jsx'
 import Section from './Section.jsx'
 import PrevNext from './PrevNext.jsx'
 
-export function ChapterHeader({ chapter, lang }) {
+export function ChapterHeader({ chapter, lang, isGamified = false }) {
   const number = String(chapterIndex(chapter.id) + 1).padStart(2, '0')
   const shouldReduceMotion = useReducedMotion()
+  const { supported, status, isPlaying, isPaused, mode, currentChapter, playChapter, pause, resume } = useSpeech()
+  const isCurrentChapter = currentChapter?.id === chapter.id && mode === 'chapter' && status !== 'idle'
+  const toggleSpeech = () => {
+    if (isCurrentChapter && isPlaying) pause()
+    else if (isCurrentChapter && isPaused) resume()
+    else playChapter(chapter, lang)
+  }
 
   return (
     <motion.header
@@ -16,9 +25,23 @@ export function ChapterHeader({ chapter, lang }) {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="border-b border-line pb-6"
     >
-      <p className="label text-muted">
-        {t(lang, 'chapter')} {number}
-      </p>
+      <div className="flex items-center justify-between gap-3">
+        <p className="label text-muted">{t(lang, 'chapter')} {number}</p>
+        <div className="flex items-center gap-2">
+          {isGamified && <span className="tag tag--info text-xs font-bold">⚡ +15 XP</span>}
+          {supported && (
+            <button
+              type="button"
+              onClick={toggleSpeech}
+              className={`btn btn--sm ${isCurrentChapter ? 'btn--primary' : 'btn--secondary'}`}
+              aria-label={isCurrentChapter && isPlaying ? t(lang, 'pause') : isCurrentChapter && isPaused ? t(lang, 'resume') : t(lang, 'listenChapter')}
+            >
+              {isCurrentChapter && isPlaying ? <PauseIcon width="15" height="15" /> : isCurrentChapter && isPaused ? <PlayIcon width="15" height="15" /> : <VolumeIcon width="15" height="15" />}
+              <span>{isCurrentChapter && isPlaying ? t(lang, 'pause') : isCurrentChapter && isPaused ? t(lang, 'resume') : t(lang, 'listenChapter')}</span>
+            </button>
+          )}
+        </div>
+      </div>
       <h1 className="mt-2 text-[34px] font-semibold leading-[1.10] tracking-[-0.02em] text-ink">
         {chapter.title[lang]}
       </h1>
@@ -29,7 +52,7 @@ export function ChapterHeader({ chapter, lang }) {
   )
 }
 
-export default function Chapter({ chapter, lang, onActiveSection }) {
+export default function Chapter({ chapter, lang, onActiveSection, isGamified, completedSections = [], onCompleteSection }) {
   const ref = useRef(null)
   const shouldReduceMotion = useReducedMotion()
 
@@ -68,9 +91,17 @@ export default function Chapter({ chapter, lang, onActiveSection }) {
       transition={{ duration: 0.35, ease: 'easeOut' }}
       className="mx-auto w-full max-w-prose"
     >
-      <ChapterHeader chapter={chapter} lang={lang} />
+      <ChapterHeader chapter={chapter} lang={lang} isGamified={isGamified} />
       {chapter.sections.map((section) => (
-        <Section key={section.id} chapter={chapter} section={section} lang={lang} />
+        <Section
+          key={section.id}
+          chapter={chapter}
+          section={section}
+          lang={lang}
+          isGamified={isGamified}
+          isCompleted={completedSections.includes(`${chapter.id}--${section.id}`)}
+          onComplete={onCompleteSection}
+        />
       ))}
       <PrevNext chapter={chapter} lang={lang} />
     </motion.article>

@@ -62,3 +62,25 @@ export const PenIcon = (p) => (
     <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
   </svg>
 )
+export const VolumeIcon = (p) => (
+  <svg {...base} {...p}>
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+  </svg>
+)
+export const PlayIcon = (p) => (
+  <svg {...base} {...p}><polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none" /></svg>
+)
+export const PauseIcon = (p) => (
+  <svg {...base} {...p}>
+    <rect x="6" y="4" width="4" height="16" fill="currentColor" stroke="none" rx="1" />
+    <rect x="14" y="4" width="4" height="16" fill="currentColor" stroke="none" rx="1" />
+  </svg>
+)
+export const SkipBackIcon = (p) => (
+  <svg {...base} {...p}><polygon points="19 20 9 12 19 4 19 20" /><line x1="5" y1="19" x2="5" y2="5" /></svg>
+)
+export const SkipForwardIcon = (p) => (
+  <svg {...base} {...p}><polygon points="5 4 15 12 5 20 5 4" /><line x1="19" y1="5" x2="19" y2="19" /></svg>
+)

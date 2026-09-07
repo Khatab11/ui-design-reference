@@ -1,10 +1,23 @@
 import { t } from '../lib/ui.js'
 import { site } from '../config.js'
 import { MenuIcon, MoonIcon, SearchIcon, SunIcon } from './Icons.jsx'
+import StreakBadge from './gamification/StreakBadge.jsx'
+import XpCounter from './gamification/XpCounter.jsx'
 
 const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform)
 
-export default function TopBar({ lang, theme, onToggleLang, onToggleTheme, onOpenSearch, onOpenMenu }) {
+export default function TopBar({
+  lang,
+  theme,
+  onToggleLang,
+  onToggleTheme,
+  onOpenSearch,
+  onOpenMenu,
+  gamificationState,
+  onOpenHub,
+  user,
+  onOpenAuth,
+}) {
   return (
     <header className="print-hidden sticky top-0 z-30 h-[64px] border-b border-line bg-ground/90 backdrop-blur-md transition-colors">
       <div className="flex h-full items-center justify-between gap-3 px-3 sm:px-4 md:px-6">
@@ -69,6 +82,35 @@ export default function TopBar({ lang, theme, onToggleLang, onToggleTheme, onOpe
 
         {/* Right / Controls Area */}
         <div className="flex items-center gap-2">
+          {gamificationState && (
+            <div className="hidden items-center gap-2 xl:flex">
+              <StreakBadge
+                streak={gamificationState.streak}
+                weeklyHistory={gamificationState.weeklyHistory}
+                streakFreeze={gamificationState.streakFreezeAvailable}
+                lang={lang}
+              />
+              <XpCounter xp={gamificationState.xp} lang={lang} onClick={onOpenHub} />
+            </div>
+          )}
+          <button
+            type="button"
+            onClick={onOpenHub}
+            className="btn btn--primary btn--sm min-h-[44px] px-3 text-xs"
+            aria-label={lang === 'ar' ? 'فتح مركز التحفيز والإنجازات' : 'Open gamification hub'}
+          >
+            <span aria-hidden="true">🏆</span>
+            <span className="hidden lg:inline">{lang === 'ar' ? 'المركز' : 'Hub'}</span>
+          </button>
+          <button
+            type="button"
+            onClick={onOpenAuth}
+            className="btn btn--secondary btn--sm min-h-[44px] px-3 text-xs"
+            aria-label={user ? user.email : lang === 'ar' ? 'تسجيل الدخول' : 'Sign in'}
+          >
+            <span aria-hidden="true">{user ? user.email.charAt(0).toUpperCase() : '👤'}</span>
+            <span className="hidden sm:inline">{user ? user.email.split('@')[0] : lang === 'ar' ? 'دخول' : 'Login'}</span>
+          </button>
           {/* Language Switch */}
           <button
             type="button"

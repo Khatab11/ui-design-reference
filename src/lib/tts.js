@@ -1,4 +1,4 @@
-import { stripMarkdown } from './search.js'
+import { stripMarkdown } from './markdown.js'
 
 export function isSpeechSupported() {
   return typeof window !== 'undefined' && 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window

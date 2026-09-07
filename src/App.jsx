@@ -3,7 +3,7 @@ import { chapters, chapterById } from './lib/content.js'
 import { useHashRoute, useLocalStorage } from './lib/hooks.js'
 import { STORAGE_KEYS, site, DEFAULT_LANG, DEFAULT_THEME } from './config.js'
 import { t } from './lib/ui.js'
-import { stripMarkdown } from './lib/search.js'
+import { stripMarkdown } from './lib/markdown.js'
 import { sectionDomId } from './components/Section.jsx'
 import TopBar from './components/TopBar.jsx'
 import Sidebar from './components/Sidebar.jsx'
@@ -11,6 +11,13 @@ import Chapter from './components/Chapter.jsx'
 import Overview from './components/Overview.jsx'
 import Search from './components/Search.jsx'
 import PrintView from './components/PrintView.jsx'
+import GamificationDemo from './components/gamification/GamificationDemo.jsx'
+import GamificationHub from './components/gamification/GamificationHub.jsx'
+import CelebrationToast from './components/gamification/CelebrationToast.jsx'
+import AuthModal from './components/AuthModal.jsx'
+import { getCurrentRank, loadGamificationState, saveGamificationState } from './lib/gamification.js'
+import AudioPlayer from './components/AudioPlayer.jsx'
+import { SpeechProvider } from './context/SpeechContext.jsx'
 
 function setMetaTag(attrName, attrValue, content) {
   if (content === undefined || content === null) return
@@ -46,9 +53,69 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
+  const [user, setUser] = useLocalStorage('ui_ref_user', null)
+  const [authModalOpen, setAuthModalOpen] = useState(false)
+  const [gamificationState, setGamificationState] = useState(() => loadGamificationState())
+  const [hubOpen, setHubOpen] = useState(false)
+  const [celebrationEvent, setCelebrationEvent] = useState(null)
 
   const isPrint = route.chapter === 'print'
+  const isGamification = route.chapter === 'gamification'
   const chapter = route.chapter ? chapterById.get(route.chapter) : null
+
+  useEffect(() => {
+    saveGamificationState(gamificationState)
+  }, [gamificationState])
+
+  const handleCompleteSection = (fullSectionId) => {
+    setGamificationState((previous) => {
+      if (previous.completedSections?.includes(fullSectionId)) return previous
+
+      const completionXp = 15
+      const xpAfterCompletion = previous.xp + completionXp
+      const oldRank = getCurrentRank(previous.xp).rank
+      const rankAfterCompletion = getCurrentRank(xpAfterCompletion).rank
+      const levelUpBonus = rankAfterCompletion.level > oldRank.level ? 50 : 0
+      const xp = xpAfterCompletion + levelUpBonus
+
+      if (levelUpBonus) {
+        setCelebrationEvent({
+          type: 'level_up',
+          title: lang === 'ar' ? `ترقية إلى «${rankAfterCompletion.title[lang]}»!` : `Level up to "${rankAfterCompletion.title[lang]}"!`,
+          desc: lang === 'ar' ? 'أحسنت! واصل التعلّم لفتح المزيد من الرتب والأوسمة.' : 'Great job! Keep learning to unlock more ranks and badges.',
+          xpBonus: levelUpBonus,
+        })
+      }
+
+      const quests = (previous.quests || []).map((quest) => {
+        if (quest.id === 'q1' && !quest.completed) {
+          return { ...quest, current: Math.min(quest.target, quest.current + 1) }
+        }
+        return quest
+      })
+
+      return {
+        ...previous,
+        xp,
+        completedSections: [...(previous.completedSections || []), fullSectionId],
+        quests,
+      }
+    })
+  }
+
+  const handleClaimQuest = (questId) => {
+    setGamificationState((previous) => {
+      const quest = previous.quests?.find((item) => item.id === questId)
+      if (!quest || quest.completed || quest.current < quest.target) return previous
+      return {
+        ...previous,
+        xp: previous.xp + quest.xp,
+        quests: previous.quests.map((item) =>
+          item.id === questId ? { ...item, completed: true } : item,
+        ),
+      }
+    })
+  }
 
   // <html lang dir> + theme class
   useLayoutEffect(() => {
@@ -124,13 +191,16 @@ export default function App() {
 
     // Canonical link
     setLinkTag('canonical', currentUrl)
-  }, [lang, chapter, route.section, isPrint])
+  }, [lang, chapter, route.section, isPrint, isGamification])
 
   // Scroll on navigation (chapter or section). route.n changes on every
   // navigation, including repeats of the same hash.
   useEffect(() => {
     setMenuOpen(false)
-    if (isPrint || !chapter) return
+    if (isPrint || isGamification || !chapter) {
+      window.scrollTo({ top: 0 })
+      return
+    }
     if (route.section) {
       const el = document.getElementById(sectionDomId(chapter.id, route.section))
       if (el) {
@@ -140,7 +210,7 @@ export default function App() {
       }
     }
     window.scrollTo({ top: 0 })
-  }, [route.chapter, route.section, route.n, isPrint, chapter])
+  }, [route.chapter, route.section, route.n, isPrint, isGamification, chapter])
 
   // Cmd/Ctrl+K opens search
   useEffect(() => {
@@ -174,7 +244,10 @@ export default function App() {
     )
   }
 
+  const userName = user?.email ? user.email.split('@')[0] : lang === 'ar' ? 'أنت (المتعلم)' : 'You (Learner)'
+
   return (
+    <SpeechProvider lang={lang} activeChapterId={chapter?.id}>
     <div className="min-h-screen" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       <TopBar
         lang={lang}
@@ -183,11 +256,19 @@ export default function App() {
         onToggleTheme={toggleTheme}
         onOpenSearch={() => setSearchOpen(true)}
         onOpenMenu={() => setMenuOpen(true)}
+        gamificationState={gamificationState}
+        onOpenHub={() => setHubOpen(true)}
+        user={user}
+        onOpenAuth={() => setAuthModalOpen(true)}
       />
 
       {isPrint ? (
         <main>
           <PrintView lang={lang} />
+        </main>
+      ) : isGamification ? (
+        <main className="min-w-0">
+          <GamificationDemo lang={lang} />
         </main>
       ) : (
         <>
@@ -197,11 +278,21 @@ export default function App() {
             activeSectionId={activeSection}
             open={menuOpen}
             onClose={() => setMenuOpen(false)}
+            gamifiedChapterIds={chapters.map((item) => item.id)}
+            completedSections={gamificationState.completedSections}
           />
           <main className="min-w-0 md:ms-[284px]">
             <div className="px-4 pb-16 pt-6 sm:px-6 md:px-8">
               {chapter ? (
-                <Chapter key={chapter.id} chapter={chapter} lang={lang} onActiveSection={onActiveSection} />
+                <Chapter
+                  key={chapter.id}
+                  chapter={chapter}
+                  lang={lang}
+                  onActiveSection={onActiveSection}
+                  isGamified
+                  completedSections={gamificationState.completedSections}
+                  onCompleteSection={handleCompleteSection}
+                />
               ) : (
                 <Overview lang={lang} />
               )}
@@ -211,6 +302,28 @@ export default function App() {
       )}
 
       <Search lang={lang} open={searchOpen} onClose={() => setSearchOpen(false)} />
+      {!isPrint && !isGamification && <AudioPlayer lang={lang} />}
+      <GamificationHub
+        open={hubOpen}
+        onClose={() => setHubOpen(false)}
+        state={{ ...gamificationState, userName }}
+        lang={lang}
+        onClaimQuest={handleClaimQuest}
+      />
+      <CelebrationToast
+        event={celebrationEvent}
+        lang={lang}
+        onClose={() => setCelebrationEvent(null)}
+      />
+      <AuthModal
+        open={authModalOpen}
+        onClose={() => setAuthModalOpen(false)}
+        user={user}
+        onLogin={setUser}
+        onLogout={() => setUser(null)}
+        lang={lang}
+      />
     </div>
+    </SpeechProvider>
   )
 }
