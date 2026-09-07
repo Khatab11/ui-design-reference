@@ -7,7 +7,7 @@
   },
   "intro": {
     "en": "Words are the interface. Learn how UX microcopy guides decisions, why vague button labels cause user error, how to eliminate confusing double negatives, and why Lorem Ipsum must be banished.",
-    "ar": "الكلمات هي جوهر الواجهة. اتعلم إزاي النصوص الصغيرة (Microcopy) بتوجّه قرارات المستخدم، ليه تسمية الأزرار الغامضة بتسبب كوارث، إزاي تتجنب النفي المزدوج، وليه لازم تحظر Lorem Ipsum تماماً."
+    "ar": "الكلمات هي واجهة المستخدم. تعلم كيف توجه النصوص الدقيقة (Microcopy) لتجربة المستخدم القرارات، ولماذا تسبب تسميات الأزرار الغامضة أخطاء للمستخدمين، وكيفية التخلص من النفي المزدوج المربك، ولماذا يجب حظر نص Lorem Ipsum."
   },
   "sections": [
     {
@@ -18,7 +18,7 @@
       },
       "body": {
         "en": "There is an essential distinction between marketing copywriting and interface microcopy:\n\n- **Marketing Copywriting:** Persuasive, long-form sales messaging crafted by dedicated copywriters to convert leads.\n- **Interface Microcopy:** The compact, functional text placed directly on buttons, dialog prompts, empty states, error alerts, and field tooltips.\n\n**As a UI designer, interface microcopy is 100% your responsibility.** Users read these few words before committing to an action; if the phrasing is ambiguous, users hesitate, misclick, or bounce.",
-        "ar": "فيه فرق جوهري لازم تفهمه بين نوعين من الكتابة:\n\n- **كتابة الإعلانات (Copywriting):** نصوص بيعية وتسويقية طويلة وظيفتها تقنع الزبون يشتري، ودي مهارة كاتب الإعلانات المحترف.\n- **النصوص الصغيرة (Microcopy):** الكلام الوظيفي القصير اللي بيظهر على الأزرار، التلميحات (Tooltips)، النوافذ المنبثقة، ورسائل الخطأ.\n\n**كمصمم واجهات، النصوص الصغيرة دي مسؤوليتك إنت بالكامل.** المستخدم بيقرأ الكلمتين دول لحظة اتخاذ القرار؛ لو الصياغة مش واضحة، هيتردد أو يدوس غلط."
+        "ar": "هناك تمييز أساسي بين كتابة الإعلانات التسويقية والنصوص الدقيقة (Microcopy) للواجهة:\n\n- **كتابة الإعلانات التسويقية:** رسائل مبيعات طويلة الأمد ومقنعة يصوغها كتاب إعلانات متخصصون لتحويل العملاء المحتملين.\n- **النصوص الدقيقة للواجهة (Interface Microcopy):** النص الوظيفي المدمج الموضوع مباشرة على الأزرار، ومطالبات الحوار (Dialog prompts)، والحالات الفارغة (Empty states)، وتنبيهات الأخطاء، وتلميحات الحقول (Tooltips).\n\n**بصفتك مصمم واجهة مستخدم (UI designer)، تقع مسؤولية النصوص الدقيقة للواجهة عليك بنسبة 100٪.** يقرأ المستخدمون هذه الكلمات القليلة قبل الالتزام بإجراء ما؛ وإذا كانت الصياغة غامضة، يتردد المستخدمون، أو ينقرون بشكل خاطئ، أو يغادرون."
       }
     },
     {
@@ -29,7 +29,7 @@
       },
       "body": {
         "en": "A button label must tell the user exactly what will happen the moment they tap it. Find the sweet spot:\n\n- ❌ Too Vague: \"Next\" or \"Submit\"\n- ❌ Too Wordy: \"Proceed to the next administrative step in the form\"\n- ✅ The Sweet Spot: \"Next Step\", \"Save Changes\", \"Create Account\"\n\n**The Rule:** A concise, punchy action phrase that explicitly defines the outcome without unnecessary filler words.",
-        "ar": "النص المكتوب على الزرار لازم يقول بالمللي إيه اللي هيحصل أول ما المستخدم يدوس عليه:\n\n- ❌ غامض جداً: \"التالي\" أو \"إرسال\"\n- ❌ طويل بلا داعي: \"اضغط هنا للانتقال إلى مرحلة الدفع التالية في العملية\"\n- ✅ الصياغة المثالية: \"الخطوة التالية\"، \"حفظ التعديلات\"، \"إنشاء حساب\"\n\n**القاعدة الذهبية:** جملة قصيرة محددة ومباشرة — مش كلمة واحدة مبهمة ومش مقال طويل."
+        "ar": "يجب أن تخبر تسمية الزر المستخدم بالضبط بما سيحدث بمجرد النقر عليه. ابحث عن النقطة المثالية:\n\n- ❌ غامض جدًا: \"التالي\" أو \"إرسال\"\n- ❌ مليء بالكلمات: \"انتقل إلى الخطوة الإدارية التالية في النموذج\"\n- ✅ النقطة المثالية: \"الخطوة التالية\"، \"حفظ التغييرات\"، \"إنشاء حساب\"\n\n**القاعدة:** عبارة عمل موجزة وقوية تحدد النتيجة بوضوح دون كلمات حشو غير ضرورية."
       },
       "callout": {
         "type": "tip",
@@ -54,7 +54,7 @@
       },
       "body": {
         "en": "One of the most destructive UX anti-patterns is pairing a negative question with binary Yes/No buttons.\n\n**The Problem:**\nPrompt: *\"Are you sure you want to cancel your subscription?\"*\nButtons: `[ Yes ]` and `[ Cancel ]`\nUsers freeze in confusion: does \"Cancel\" cancel the subscription or cancel the dialog?\n\n**The Solution:**\nLabel buttons with their explicit, unequivocal consequence:\n- Primary Action: `[ Cancel Subscription ]` (Red/Destructive)\n- Safe Alternative: `[ Keep My Plan ]` or `[ Go Back ]` (Neutral)",
-        "ar": "من أخطر وأشهر الغلطات في تجربة المستخدم: دمج سؤال منفي مع أزرار نعم/إلغاء.\n\n**المشكلة الكارثية:**\nالسؤال: *\"هل أنت متأكد أنك تريد إلغاء اشتراكك؟\"*\nالأزرار: `[ نعم ]` و `[ إلغاء ]`\nالمستخدم بيتسمر مكانه محتار: هل كلمة \"إلغاء\" هتلغي الاشتراك ولا هتلغي النافذة وترجعني؟\n\n**الحل الاحترافي:**\nسمِّ كل زرار بالفعل الحقيقي اللي هينفذه:\n- الزرار الأساسي: `[ إلغاء الاشتراك ]` (بلون تحذيري أحمر)\n- البديل الآمن: `[ الاحتفاظ بالباقة ]` أو `[ رجوع ]`."
+        "ar": "من أكثر الأنماط المضادة لتجربة المستخدم تدميرًا دمج سؤال منفي مع أزرار ثنائية نعم/لا.\n\n**المشكلة:**\nالمطالبة (Prompt): *\"هل أنت متأكد أنك تريد إلغاء اشتراكك؟\"*\nالأزرار: `[ نعم ]` و `[ إلغاء ]`\nيتجمد المستخدمون في حيرة: هل كلمة \"إلغاء\" تلغي الاشتراك أم تلغي الحوار؟\n\n**الحل:**\nقم بتسمية الأزرار بعواقبها الصريحة والقاطعة:\n- الإجراء الأساسي: `[ إلغاء الاشتراك ]` (أحمر/إجراء مدمر)\n- البديل الآمن: `[ الاحتفاظ بخطتي ]` أو `[ الرجوع ]` (محايد)"
       },
       "callout": {
         "type": "warning",
@@ -99,12 +99,12 @@
       },
       "body": {
         "en": "Dummy Latin placeholder text (\"Lorem Ipsum...\") creates an artificial illusion of design balance that instantly breaks when real content arrives. Furthermore, in Arabic interfaces, Latin placeholder text looks totally unnatural and alienates regional clients.\n\nAlways populate your wireframes with semi-realistic draft copy written in the actual target language. If you're designing a restaurant app, look up an authentic Shawarma or Kunafa recipe and insert real ingredient text.",
-        "ar": "النص اللاتيني الوهمي (Lorem Ipsum) بيخدعك بإحساس توازن زائف؛ أول ما بييجي المحتوى الحقيقي التصميم كله بيبوظ. غير كده، وضع نص لاتيني في واجهة عربية بيخلي الشكل غريب ومشوه ومشتت للعميل.\n\nدايمًا حط نصوص شبه واقعية بالعربي مستوحاة من المجال الحقيقي؛ لو بتصمم تطبيق أكل، ادخل جوجل وهات وصفة كباب أو كنافة وحط المقادير الحقيقية كنص مؤقت."
+        "ar": "يخلق النص اللاتيني الوهمي (\"Lorem Ipsum...\") وهمًا مصطنعًا لتوازن التصميم ينكسر على الفور عند وصول المحتوى الحقيقي. علاوة على ذلك، في الواجهات العربية، يبدو النص اللاتيني النائب غير طبيعي تمامًا ويُنفّر العملاء الإقليميين.\n\nقم دائمًا بملء الإطارات السلكية (Wireframes) الخاصة بك بنسخة مسودة شبه واقعية مكتوبة باللغة المستهدفة الفعلية. إذا كنت تصمم تطبيقًا لمطعم، فابحث عن وصفة شاورما أو كنافة أصلية وأدخل نص المكونات الحقيقي."
       },
       "callout": {
         "type": "tip",
         "en": "Never use Latin Lorem Ipsum in Arabic UI. Use semi-realistic Arabic copy to properly evaluate typography scale and line wrap.",
-        "ar": "تجنب تماماً استخدام Lorem Ipsum في الواجهات العربية؛ اكتب نصاً عربياً واقعياً لاختبار التباعد وانكسار الأسطر بدقة."
+        "ar": "لا تستخدم نص Lorem Ipsum اللاتيني أبدًا في واجهة المستخدم العربية. استخدم نصًا عربيًا شبه واقعي لتقييم مقياس الطباعة والتفاف الأسطر بشكل صحيح."
       }
     }
   ]

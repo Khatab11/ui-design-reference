@@ -7,7 +7,7 @@
   },
   "intro": {
     "en": "Microinteractions transform an interface from merely functional to delightfully memorable. Master trigger-response feedback, natural easing curves, time budgets, and production performance restraint.",
-    "ar": "التفاعلات الدقيقة هي اللي بتحول التطبيق من مجرد برنامج \"شغال\" لمنتج \"ممتع ومحبوب\". اتعلم هندسة التغذية الراجعة، منحنيات التسارع الطبيعية، إدارة زمن الحركة، وتفادي استعراضات الدريبل غير العملية."
+    "ar": "تحول التفاعلات الدقيقة الواجهة من مجرد واجهة وظيفية إلى واجهة لا تُنسى ومبهجة. أتقن التغذية الراجعة للاستجابة للمحفزات، ومنحنيات التخفيف (Easing curves) الطبيعية، والميزانيات الزمنية، وقيود أداء الإنتاج."
   },
   "sections": [
     {
@@ -18,7 +18,7 @@
       },
       "body": {
         "en": "While any shift in geometry or opacity over time qualifies as an animation, a **microinteraction** is a distinct subset:\n\n**A microinteraction is a responsive animation that occurs as the direct, immediate consequence of a conscious user action.**\n\nPassive looping decorative backgrounds are animations; a toggle switch springing to the active state or a heart icon bursting with particle color upon tap is a microinteraction.",
-        "ar": "أي حركة في الحجم أو المكان مع الوقت اسمها أنيميشن، لكن **التفاعل الدقيق (Microinteraction)** نوع خاص ومحدد جداً:\n\n**التفاعل الدقيق هو حركة بتحدث كنتيجة مباشرة ولحظية لفعل واعي عمله المستخدم.**\n\nالحركات التزيينية التلقائية في الخلفية دي أنيميشن، لكن لما تدوس لايك والقلب ينبض باللون الأحمر، أو تسحب السويتش وينزلق بمرونة — ده تفاعل دقيق بيأكد استجابة النظام."
+        "ar": "في حين أن أي تحول في الهندسة أو العتامة (Opacity) بمرور الوقت يُعد رسومًا متحركة (Animation)، فإن التفاعل الدقيق (Microinteraction) هو مجموعة فرعية متميزة:\n\n**التفاعل الدقيق هو رسوم متحركة متجاوبة تحدث كنتيجة مباشرة وفورية لإجراء واعي من قبل المستخدم.**\n\nالخلفيات الزخرفية السلبية المتكررة هي رسوم متحركة؛ في حين أن مفتاح التبديل الذي يقفز إلى الحالة النشطة، أو أيقونة القلب التي تنفجر بلون جزيئي عند النقر، هي تفاعلات دقيقة."
       }
     },
     {
@@ -29,7 +29,7 @@
       },
       "body": {
         "en": "The primary role of every microinteraction is **feedback**. In digital products, users lack physical physical tactile clicks. A microinteraction provides digital haptics, reassuring the user that their request was successfully recognized.\n\n**The Golden Rule:** Keep microinteractions lightning fast. They should add delight without delaying user progress. Keep duration **strictly under 300–400ms** for simple controls.",
-        "ar": "الوظيفة الأولى لأي تفاعل دقيق هي **التغذية الراجعة (Feedback)**. المستخدم على الشاشة معندوش أزرار ميكانيكية ملموسة، فالحركة الدقيقة بتعوض الإحساس ده وتطمّنه إن ضغطته اتسجلت بنجاح.\n\n**القاعدة الذهبية:** خلّي التفاعل سريع وممتع وبدون أي تعطيل؛ زمن الحركة للعناصر التفاعلية لازم يكون خاطف (بين 200 إلى 400 مللي ثانية) عشان ميعطلش سرعة الاستخدام."
+        "ar": "الدور الأساسي لكل تفاعل دقيق هو التغذية الراجعة (Feedback). في المنتجات الرقمية، يفتقر المستخدمون إلى النقرات اللمسية المادية. يوفر التفاعل الدقيق لمسات رقمية (Digital haptics)، مما يطمئن المستخدم إلى أنه تم التعرف على طلبه بنجاح.\n\n**القاعدة الذهبية:** اجعل التفاعلات الدقيقة سريعة كالبرق. يجب أن تضيف البهجة دون تأخير تقدم المستخدم. حافظ على المدة أقل من 300-400 مللي ثانية لعناصر التحكم البسيطة."
       },
       "callout": {
         "type": "tip",
@@ -54,13 +54,13 @@
       },
       "body": {
         "en": "Physics dictates that objects in the real world never move at constant speed:\n\n- **Linear:** Constant speed from start to end. Appears robotic, rigid, and deeply unnatural.\n- **Ease-In:** Starts sluggishly and accelerates. Ideal for elements exiting the screen.\n- **Ease-Out:** Starts with high velocity and cushions to a gentle stop. **The gold standard for UI elements entering the viewport**.\n- **Ease-In-Out / Spring:** Accelerates and decelerates organically, mimicking real-world inertia.",
-        "ar": "قوانين الفيزياء بتقول إن مفيش جسم في العالم بيتحرك بسرعة ثابتة فجأة:\n\n- **خطي (Linear):** سرعة ثابتة ميتة؛ بيبان آلي وغير طبيعي على الإطلاق.\n- **تسارع (Ease-In):** بيبدأ بطيء ويسرّع؛ ممتاز للعناصر اللي بتغادر الشاشة.\n- **تباطؤ (Ease-Out):** بيبدأ سريع ويهدي بنعومة عند التوقف؛ **وده المعيار الذهبي للعناصر اللي بتدخل الشاشة**.\n- **حركة مرنة (Spring / Inertia):** بتحاكي مرونة السوستة والجاذبية في الطبيعة."
+        "ar": "تُملي الفيزياء أن الأجسام في العالم الحقيقي لا تتحرك أبدًا بسرعة ثابتة:\n\n- **خطي (Linear):** سرعة ثابتة من البداية إلى النهاية. يظهر آليًا وصلبًا وغير طبيعي بعمق.\n- **دخول مرن (Ease-In):** يبدأ ببطء ويتسارع. مثالي للعناصر التي تخرج من الشاشة.\n- **خروج مرن (Ease-Out):** يبدأ بسرعة عالية ويتوقف ببطء. المعيار الذهبي لعناصر واجهة المستخدم التي تدخل إلى إطار العرض (Viewport).\n- **دخول وخروج مرن / زنبرك (Ease-In-Out / Spring):** يتسارع ويتباطأ بشكل عضوي، محاكيًا القصور الذاتي (Inertia) في العالم الحقيقي."
       },
       "asset": {
         "file": "easing-curves.png",
         "alt": {
           "en": "Comparison graph of Linear, Ease-In, Ease-Out, and Cubic-Bezier easing curves",
-          "ar": "مقارنة بيانية لمنحنيات الحركة: الخطي، التسارع، التباطؤ، ومنحنى بيزييه"
+          "ar": "رسم بياني لمقارنة منحنيات التخفيف الخطية (Linear)، والدخول المرن (Ease-In)، والخروج المرن (Ease-Out)، ومنحنيات بيزييه المكعبة (Cubic-Bezier)"
         },
         "ratio": "16:9",
         "brief": "A graph comparing four velocity curves: flat Linear slope, upward curving Ease-In, cushioned Ease-Out curve, and organic Spring curve."
@@ -74,7 +74,7 @@
       },
       "body": {
         "en": "Everyday microinteractions that elevate products:\n- **Button Press Compression:** Shrinking a button to `scale(0.97)` on active press and rebounding.\n- **Favorite / Like Toggles:** A quick scale pulse and color fill.\n- **Skeleton Shimmer Screens:** Reassuring shimmer bars that confirm background content loading.\n- **Navbar Active Transitions:** Gliding pill highlight following active tab selection.",
-        "ar": "أمثلة لتفاعلات دقيقة بتنقل التطبيق لمستوى احترافي:\n- **انضغاط الزرار (Button Press):** تصغير حجم الزرار لنسبة 97% لحظة الضغط وارتداده سريعاً.\n- **زرار الإعجاب والقلب:** نبضة سريعة (Scale Pulse) مع امتلاء اللون.\n- **شاشات التحميل الهيكلية (Skeleton Shimmer):** لمعان خافت يطمّن المستخدم إن المحتوى بيتحمل.\n- **تغيير تابات التنقل:** انزلاق ناعم للمؤشر الملون للتاب الجديد."
+        "ar": "تفاعلات دقيقة يومية ترتقي بالمنتجات:\n- **انضغاط الضغط على الزر:** تقليص زر إلى `scale(0.97)` عند الضغط النشط ثم ارتداده.\n- **مفاتيح التبديل المفضلة / الإعجاب:** نبض مقياس سريع وملء لون.\n- **شاشات الوميض الهيكلية (Skeleton Shimmer Screens):** أشرطة وميض مطمئنة تؤكد تحميل محتوى الخلفية.\n- **الانتقالات النشطة لشريط التنقل:** إبراز انزلاقي يتبع تحديد علامة التبويب النشطة."
       }
     },
     {
@@ -85,7 +85,7 @@
       },
       "body": {
         "en": "The extravagant, slow-motion 3D transformations popular on social design portfolios are almost always toxic in real production apps. Heavy animations drain mobile batteries, trigger device lag, and obstruct user task completion.\n\nPrioritize raw performance, lightweight CSS transitions, and swift responsiveness over superficial pyrotechnics.",
-        "ar": "الاستعراضات الحركية البطيئة والمجسمات ثلاثية الأبعاد اللي بتشوفها على Dribbble غير صالحة للاستخدام في التطبيقات الحقيقية. الحركات التقيلة بتستنزف بطارية الموبايل، بتثقل الموقع، وبتعطل المستخدم عن هدفه.\n\nفي الشغل الحقيقي للإنتاج: السرعة، خفة الأداء، وبساطة الحركة هي سر التفوق."
+        "ar": "التحويلات ثلاثية الأبعاد الفاخرة والبطيئة الحركة الشائعة في محافظ التصميم الاجتماعي تكون دائمًا سامة في تطبيقات الإنتاج الحقيقية. فالرسوم المتحركة الثقيلة تستنزف بطاريات الأجهزة المحمولة، وتتسبب في تأخر الجهاز، وتعيق إنجاز المستخدم لمهمته.\n\nأعطِ الأولوية للأداء الخام، وانتقالات CSS خفيفة الوزن، والاستجابة السريعة على الألعاب النارية السطحية."
       },
       "callout": {
         "type": "warning",

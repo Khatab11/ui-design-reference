@@ -7,18 +7,18 @@
   },
   "intro": {
     "en": "Cards aggregate related information into modular, scannable units. Learn content prioritization, click affordance, responsive layout rules, and defensive edge-case handling.",
-    "ar": "البطاقات بتجمع المعلومات المرتبطة بموضوع واحد في حاوية معيارية سهلة التصفح. اتعلم ترتيب أولويات المحتوى، إيحاء النقر والتفاعل، القواعد المتجاوبة، والتعامل مع الحالات الحرجة."
+    "ar": "تجمع البطاقات المعلومات ذات الصلة في وحدات معيارية قابلة للمسح البصري. تعلم كيفية ترتيب أولويات المحتوى، وإيحاءات النقر (Click affordance)، وقواعد التخطيط المتجاوب، ومعالجة الحالات الطرفية (Edge-cases) الدفاعية."
   },
   "sections": [
     {
       "id": "what-is-a-card",
       "title": {
         "en": "What is a Card?",
-        "ar": "إيه هي البطاقة؟"
+        "ar": "ما هي البطاقة؟"
       },
       "body": {
         "en": "A card is an enclosed, modular container grouping related content about a single subject (typically image, title, metadata, and an action cue).\n\n**Think of a card as a bite-sized teaser for a full page.** Just as readers judge books by their covers, users evaluate cards in split seconds to decide whether to tap deeper or scroll past.",
-        "ar": "البطاقة (Card) بتجمع كل المعلومات المتعلقة **بموضوع واحد** (صورة، عنوان، بيانات، وزرار تفاعل) في حاوية واحدة سهلة التصفح.\n\n**فكرة البطاقة الأساسية: اعتبرها نسخة مصغرة وموجزة من صفحة كاملة.** زي ما الناس بتحكم على الكتاب من غلافه، المستخدم بيقرر في جزء من الثانية — يدوس عشان يعرف أكتر ولا يكمل تصفح."
+        "ar": "البطاقة (Card) هي حاوية معيارية مغلقة تجمع المحتوى ذي الصلة حول موضوع واحد (عادةً صورة، وعنوان، وبيانات وصفية، وإشارة إجراء).\n\n**اعتبر البطاقة بمثابة إعلان تشويقي مصغر لصفحة كاملة.** تمامًا كما يحكم القراء على الكتب من أغلفتها، يقيّم المستخدمون البطاقات في أجزاء من الثانية ليقرروا ما إذا كانوا سينقرون للتعمق أكثر أو سيتجاوزونها بالتمرير."
       }
     },
     {
@@ -29,7 +29,7 @@
       },
       "body": {
         "en": "The common trap is cramming an entire page into a card container. Packing recipes with full ingredient steps, for instance, overwhelms user memory and kills scannability.\n\n**The 3-Step Filter:**\n1. List every piece of metadata belonging to the entity.\n2. Isolate only the essentials needed to make a click decision (e.g. photo, recipe title, prep time, difficulty).\n3. Ruthlessly strip everything else. Additional details belong on the full destination page.",
-        "ar": "الغلطة الشائعة هي حشو كل معلومات الصفحة جوه الكارت؛ مثلاً لو كارت وصفة طبخ، حشو المكونات وطريقة التحضير بالكامل هيدمر سهولة التصفح ويزود الإجهاد الذهني.\n\n**فلتر الاختيار في ٣ خطوات:**\n1. اكتب كل المعلومات المتاحة عن العنصر.\n2. اختار بس التفاصيل اللي المستخدم محتاجها عشان يقرر يفتح أو لأ (الصورة، العنوان، وقت الطبخ، ومستوى الصعوبة).\n3. شيل أي معلومة زيادة؛ مكانها الطبيعي في الصفحة الداخلية."
+        "ar": "الفخ الشائع هو حشو صفحة كاملة في حاوية البطاقة. فعلى سبيل المثال، يؤدي حشو البطاقة بخطوات المكونات الكاملة لوصفة ما إلى إرهاق ذاكرة المستخدم والقضاء على إمكانية المسح البصري السريع.\n\n**مرشح الخطوات الثلاث:**\n1. قم بإدراج كل جزء من البيانات الوصفية (Metadata) التابعة للعنصر.\n2. اعزل الأساسيات المطلوبة فقط لاتخاذ قرار النقر (مثل: الصورة، عنوان الوصفة، وقت التحضير، مستوى الصعوبة).\n3. تخلص من كل شيء آخر بصرامة. فالتفاصيل الإضافية مكانها صفحة الوجهة الكاملة."
       },
       "callout": {
         "type": "tip",
@@ -54,13 +54,13 @@
       },
       "body": {
         "en": "Standard cards feature modular sub-components:\n- **Media Header:** Featured photograph or visual illustration.\n- **Status / Category Badge:** Contextual tag in the corner.\n- **Title & Summary:** Crisp, scannable headline paired with supporting description.\n- **Secondary Metadata:** Price, date, rating, or author.\n- **Primary CTA:** Explicit button or arrow affordance.",
-        "ar": "البطاقة النموذجية بتتكون من وحدات واضحة:\n- **هيدر بصري:** صورة فوتوغرافية أو رسمة توضيحية في الأعلى.\n- **شارة الحالة (Badge):** في الزاوية لتوضيح التصنيف أو التوفر.\n- **العنوان والوصف:** نص قصير واضح ومباشر.\n- **بيانات فرعية:** السعر، التقييم، أو التاريخ.\n- **إجراء تفاعلي:** زرار واضح أو سهم يشجع على النقر."
+        "ar": "تتميز البطاقات القياسية بمكونات فرعية معيارية:\n- **رأس الوسائط (Media Header):** صورة فوتوغرافية مميزة أو رسم توضيحي بصري.\n- **شارة الحالة / الفئة (Badge):** علامة سياقية في الزاوية.\n- **العنوان والملخص:** عنوان رئيسي واضح وقابل للمسح مقترن بوصف داعم.\n- **بيانات فرعية (Secondary Metadata):** السعر أو التاريخ أو التقييم أو المؤلف.\n- **الدعوة الرئيسية لاتخاذ إجراء (Primary CTA):** زر صريح أو إيحاء بسهم."
       },
       "asset": {
         "file": "card-anatomy.png",
         "alt": {
           "en": "Diagram showing card anatomy: header image, badge, title, metadata, and button",
-          "ar": "رسم توضيحي لعناصر البطاقة: الصورة، الشارة، العنوان، البيانات، والزرار"
+          "ar": "رسم تخطيطي يوضح تشريح البطاقة: صورة الرأس، الشارة، العنوان، البيانات الوصفية، والزر"
         },
         "ratio": "16:9",
         "brief": "An annotated card layout broken down with labels pointing to image container, status badge, typography block, metadata pills, and CTA button."
@@ -74,12 +74,12 @@
       },
       "body": {
         "en": "Designers rarely control raw dynamic user data. Always establish defensive rules:\n\n- **Long Headlines:** Enforce strict CSS line-clamp truncation (e.g. 2 lines maximum with an ellipsis `…`) so card heights remain predictable.\n- **Missing Images:** Never display broken icons or blank holes; supply an elegant default fallback illustration or tonal placeholder.\n- **Responsive Grids:** Design dedicated desktop, tablet, and mobile variants up front rather than hacking breakpoint transforms later.",
-        "ar": "كمصمم، إنت مش بتتحكم في النصوص أو الصور اللي المستخدمين والسيستم هيحطوها؛ عشان كده لازم تحط قواعد صارمة:\n\n- **العناوين الطويلة:** حدد حد أقصى للأسطر (سطرين مثلاً مع ثلاث نقط اقتصاص `…`) للحفاظ على ارتفاع البطاقات المتناسق.\n- **الصور المفقودة:** لا تترك فراغات بيضاء فارغة؛ جهز صورة افتراضية (Placeholder) مصممة بعناية.\n- **الشبكة المتجاوبة:** صمم قوالب مخصصة للموبايل والتابلت والديسكتوب من البداية."
+        "ar": "نادرًا ما يتحكم المصممون في بيانات المستخدم الديناميكية الخام. لذا، ضع دائمًا قواعد دفاعية:\n\n- **العناوين الطويلة:** افرض اقتطاعًا صارمًا لأسطر CSS (على سبيل المثال، سطرين كحد أقصى مع علامة الحذف `…`) حتى تظل ارتفاعات البطاقات قابلة للتنبؤ.\n- **الصور المفقودة:** لا تعرض أبدًا أيقونات مكسورة أو ثقوبًا فارغة؛ قدم رسمًا توضيحيًا افتراضيًا أنيقًا أو عنصرًا نائبًا (Placeholder) لونيًا كبديل.\n- **الشبكات المتجاوبة (Responsive Grids):** صمم متغيرات مخصصة لأجهزة سطح المكتب والجهاز اللوحي والهاتف المحمول مقدمًا بدلاً من اختراق تحويلات نقاط التوقف (Breakpoints) لاحقًا."
       },
       "callout": {
         "type": "warning",
         "en": "Always design for worst-case text overflow and missing assets to prevent production layouts from breaking.",
-        "ar": "صمم دائماً للحالات الحرجة مثل النصوص الطويلة جداً والصور المفقودة لمنع تشوه واجهة المستخدم الحقيقية."
+        "ar": "صمم دائمًا لأسوأ سيناريوهات تدفق النص الزائد (Text overflow) والأصول المفقودة لمنع تخطيطات الإنتاج من الانهيار."
       }
     },
     {

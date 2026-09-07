@@ -15,6 +15,8 @@ import GamificationHub from './components/gamification/GamificationHub.jsx'
 import CelebrationToast from './components/gamification/CelebrationToast.jsx'
 import AuthModal from './components/AuthModal.jsx'
 import { loadGamificationState, saveGamificationState, getCurrentRank } from './lib/gamification.js'
+import AudioPlayer from './components/AudioPlayer.jsx'
+import { SpeechProvider } from './context/SpeechContext.jsx'
 
 function setMetaTag(attrName, attrValue, content) {
   if (content === undefined || content === null) return
@@ -325,5 +327,41 @@ export default function App() {
         lang={lang}
       />
     </div>
+    <SpeechProvider lang={lang} activeChapterId={chapter?.id}>
+      <div className="min-h-screen" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+        <TopBar
+          lang={lang}
+          theme={theme}
+          onToggleLang={toggleLang}
+          onToggleTheme={toggleTheme}
+          onOpenSearch={() => setSearchOpen(true)}
+          onOpenMenu={() => setMenuOpen(true)}
+        />
+
+        {isPrint ? (
+          <main>
+            <PrintView lang={lang} />
+          </main>
+        ) : (
+          <>
+            <Sidebar
+              lang={lang}
+              activeChapterId={chapter.id}
+              activeSectionId={activeSection}
+              open={menuOpen}
+              onClose={() => setMenuOpen(false)}
+            />
+            <main className="min-w-0 md:ms-[272px]">
+              <div className="px-3 pb-12 pt-5 min-[360px]:px-4 sm:px-6 sm:pb-16 sm:pt-6 md:pe-8 md:ps-[150px]">
+                <Chapter key={chapter.id} chapter={chapter} lang={lang} onActiveSection={onActiveSection} />
+              </div>
+            </main>
+            <AudioPlayer lang={lang} />
+          </>
+        )}
+
+        <Search lang={lang} open={searchOpen} onClose={() => setSearchOpen(false)} />
+      </div>
+    </SpeechProvider>
   )
 }

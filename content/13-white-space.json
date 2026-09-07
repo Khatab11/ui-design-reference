@@ -7,7 +7,7 @@
   },
   "intro": {
     "en": "White space (negative space) is an active design element, not empty waste. Master focal clarity, gutter hygiene, the unboxing technique, and how to defend breathing room against client pushback.",
-    "ar": "المساحة البيضاء (المساحة السلبية) هي أداة تصميم فعّالة مش فراغ ضايع. اتعلم إزاي توجه تركيز المستخدم، تظبط الهوامش والشبكة، تطبق تقنية فك الصندوق، وتقنع العميل بأهمية الفراغ."
+    "ar": "تعتبر المساحة البيضاء (المساحة السلبية) عنصر تصميم نشطًا، وليست فراغًا مهدرًا. أتقن وضوح التركيز (Focal clarity)، ونظافة الهوامش (Gutter hygiene)، وتقنية فك الصندوق (Unboxing technique)، وكيفية الدفاع عن مساحة التنفس أمام اعتراضات العملاء."
   },
   "sections": [
     {
@@ -38,12 +38,12 @@
       },
       "body": {
         "en": "> **The Golden Rule:** The fewer elements competing on a screen, the more intense the user’s focus on the elements that remain.\n\nGenerous white space elevates scannability and reduces cognitive strain. However, white space must never compromise utility — never remove critical features simply to achieve hollow minimalism.",
-        "ar": "> **القاعدة الذهبية:** كل ما قلّت العناصر اللي بتنافس على الشاشة، كل ما زاد تركيز المستخدم على العناصر الموجودة واستوعبها أسرع.\n\nالمساحة الواسعة بتساعد العين تسترخي وتفهم التسلسل بسهولة. لكن ده لا يعني المينيماليزم المتطرف؛ متشلش وظائف أساسية أو محتوى مفيد بس عشان تزود الفراغ."
+        "ar": "> **القاعدة الذهبية:** كلما قل عدد العناصر المتنافسة على الشاشة، زاد تركيز المستخدم على العناصر المتبقية.\n\nتعمل المساحة البيضاء السخية على رفع مستوى المسح البصري وتقليل الإجهاد المعرفي. ومع ذلك، يجب ألا تخل المساحة البيضاء بالمنفعة أبدًا — لا تقم بإزالة الميزات المهمة لمجرد تحقيق بساطة (Minimalism) جوفاء."
       },
       "callout": {
         "type": "tip",
         "en": "Generous spacing improves comprehension and reading speed. Treat breathing room as a premier UX asset.",
-        "ar": "المساحة المدروسة تزيد من سرعة القراءة والاستيعاب؛ عامل الفراغ كأصل تصميمي جوهري."
+        "ar": "تعمل المسافات السخية على تحسين الفهم وسرعة القراءة. تعامل مع مساحة التنفس كأصل (Asset) من أصول تجربة المستخدم (UX) الأساسية."
       }
     },
     {
@@ -74,13 +74,13 @@
       },
       "body": {
         "en": "In e-commerce and product showcases, remove artificial boxy photo frames and let the silhouette of the product float freely on the clean surface background. This \"unboxing\" technique opens up expansive negative space and looks premium.\n\n**Respect Screen Margins:** In 99% of cases, text and cards must never touch the absolute screen edge. Maintain consistent padding (16–24 pt on mobile, 32–64 pt on desktop) to anchor content within safe optical boundaries.",
-        "ar": "في المتاجر وعرض المنتجات، شيل خلفية المستطيل بتاع الصورة وخلي مجسم المنتج يطفو بحرية فوق خلفية الصفحة. تقنية \"فك الصندوق (Unboxing)\" دي بتفتح مساحة بصرية واسعة وتدي إحساس فاخر بالحرية.\n\n**احترم هوامش الشاشة:** في ٩٩٪ من الحالات، النصوص والكروت لازم متلمسش حواف الشاشة إطلاقاً. حافظ على مسافات أمان ثابتة (١٦–٢٤ نقطة للموبايل) لتأطير المحتوى براحة."
+        "ar": "في التجارة الإلكترونية وعروض المنتجات، قم بإزالة إطارات الصور المربعة المصطنعة ودع صورة ظلية المنتج (Silhouette) تطفو بحرية على خلفية السطح النظيفة. تفتح تقنية \"فك الصندوق\" هذه مساحة سلبية واسعة وتبدو ممتازة.\n\n**احترم هوامش الشاشة:** في 99٪ من الحالات، يجب ألا يلمس النص والبطاقات حافة الشاشة المطلقة أبدًا. حافظ على حشوة (Padding) متسقة (16-24 نقطة على الهاتف المحمول، 32-64 نقطة على سطح المكتب) لترسيخ المحتوى ضمن حدود بصرية آمنة."
       },
       "asset": {
         "file": "unboxing-technique.png",
         "alt": {
           "en": "Comparison of a boxed product photo vs a free-floating unboxed product silhouette",
-          "ar": "مقارنة بين صورة منتج داخل إطار مغلق مقابل منتج حر بتقنية فك الصندوق"
+          "ar": "مقارنة بين صورة منتج معبأ مقابل صورة ظلية لمنتج غير معبأ عائم بحرية"
         },
         "ratio": "16:9",
         "brief": "Before and after cards showing a sneaker trapped inside an outlined container on the left, compared to the same sneaker seamlessly floating on clean white space with subtle drop shadow on the right."
@@ -90,16 +90,16 @@
       "id": "handling-client-pushback",
       "title": {
         "en": "Defending White Space: \"Fill the Gap!\"",
-        "ar": "التعامل مع اعتراضات العملاء: \"املا الفراغ ده\""
+        "ar": "التعامل مع اعتراضات العملاء: \"املأ هذا الفراغ\""
       },
       "body": {
         "en": "Stakeholders often view negative space as wasted opportunity and urge designers to \"fill that empty spot\". Respond with strategic professionalism:\n\n1. **Social Proof:** Demonstrate how industry leaders (Apple, Stripe, Airbnb) leverage sweeping white space to communicate luxury and confidence.\n2. **Explain the Conversion Cost:** Articulate that jamming extraneous banners into the gap directly dilutes user attention from the primary conversion button.\n3. **Tactical Compromise:** If forced to add visual texture, use calm, low-contrast tonal blocks or geometric watermarks rather than competing interactive clutter.",
-        "ar": "كتير من أصحاب المشاريع بيحسوا إن الفراغ مساحة ضايعة وبيطلبوا: \"املا الفراغ ده بأي إعلان أو بانر!\". اتعامل مع الموقف باحترافية:\n\n1. **الإثبات بالنماذج الناجحة:** اعرض شاشات من كبرى الشركات (زي Apple أو Stripe) اللي بتعتمد على الفراغ لإظهار الفخامة والهيبة.\n2. **شرح التكلفة على التحويل:** وضّح إن حشو أي عنصر زيادة هيشتت عين المستخدم عن زرار الشراء الأساسي ويقلل المبيعات.\n3. **الحل التوفيقي:** لو العميل أصر، املأ الفراغ بأسلوب هادئ وغير مشتت (خلفية لونية ناعمة جداً أو أشكال تجريدية مريحة)."
+        "ar": "غالبًا ما ينظر أصحاب المصلحة (Stakeholders) إلى المساحة السلبية على أنها فرصة ضائعة ويحثون المصممين على \"ملء تلك البقعة الفارغة\". استجب باحترافية استراتيجية:\n\n1. **الدليل الاجتماعي (Social Proof):** وضح كيف يستفيد قادة الصناعة (مثل Apple، Stripe، Airbnb) من المساحة البيضاء الواسعة للتعبير عن الفخامة والثقة.\n2. **شرح تكلفة التحويل (Conversion Cost):** وضح أن حشر لافتات خارجية في الفجوة يضعف بشكل مباشر انتباه المستخدم بعيدًا عن زر التحويل الأساسي.\n3. **حل وسط تكتيكي:** إذا أُجبرت على إضافة نسيج بصري (Visual texture)، فاستخدم كتلًا لونية هادئة ومنخفضة التباين أو علامات مائية هندسية بدلاً من الفوضى التفاعلية المتنافسة."
       },
       "callout": {
         "type": "note",
         "en": "Framing white space as a conversion accelerator helps clients see empty areas as strategic focus drivers rather than wasted real estate.",
-        "ar": "توضيح أن المساحة البيضاء تزيد من معدل التحويل والمبيعات يساعد العملاء على تقدير قيمتها الاستراتيجية."
+        "ar": "يساعد تأطير المساحة البيضاء كمسرع للتحويل (Conversion accelerator) العملاء على رؤية المناطق الفارغة كمحركات تركيز استراتيجية بدلاً من عقارات مهدرة."
       }
     }
   ]

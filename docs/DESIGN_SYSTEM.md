@@ -58,7 +58,7 @@ Declare once, globally. Every value below is used verbatim in the reference file
   --color-error-hover:       #A11F16;
 
   /* Type */
-  --font-sans: 'Public Sans', Helvetica, Arial, sans-serif;
+  --font-sans: 'Public Sans', 'Tajawal', Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --text-display: 56px;  --lh-display: 1.02;  --ls-display: -0.03em;  --fw-display: 700;
@@ -103,10 +103,10 @@ Tokens are named by **role**, not by appearance. Never introduce `--color-blue` 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet">
 ```
 
-Weights used: 400, 500, 600, 700. Do not load others.
+Weights used: 400, 500, 600, 700. Public Sans is used for English and Tajawal for Arabic. Do not load other weights.
 
 **Self-hosting is preferred** for a docs platform (offline builds, no third-party request). Public Sans is OFL-licensed — vendor the woff2 files and declare `@font-face` with `font-display: swap`.
 
