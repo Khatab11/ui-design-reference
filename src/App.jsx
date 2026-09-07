@@ -250,83 +250,6 @@ export default function App() {
   const userName = user?.email ? user.email.split('@')[0] : (lang === 'ar' ? 'أنت (المتعلم)' : 'You (Learner)')
 
   return (
-    <div className="min-h-screen" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-      <TopBar
-        lang={lang}
-        theme={theme}
-        onToggleLang={toggleLang}
-        onToggleTheme={toggleTheme}
-        onOpenSearch={() => setSearchOpen(true)}
-        onOpenMenu={() => setMenuOpen(true)}
-        gamificationState={gamificationState}
-        onOpenHub={() => setHubOpen(true)}
-        user={user}
-        onOpenAuth={() => setAuthModalOpen(true)}
-      />
-
-      {isPrint ? (
-        <main>
-          <PrintView lang={lang} />
-        </main>
-      ) : isGamification ? (
-        <main className="min-w-0">
-          <GamificationDemo lang={lang} />
-        </main>
-      ) : (
-        <>
-          <Sidebar
-            lang={lang}
-            activeChapterId={chapter.id}
-            activeSectionId={activeSection}
-            open={menuOpen}
-            onClose={() => setMenuOpen(false)}
-            gamifiedChapterIds={chapters.map((c) => c.id)}
-            completedSections={gamificationState.completedSections}
-          />
-          <main className="min-w-0 md:ms-[272px]">
-            <div className="px-3 pb-12 pt-5 min-[360px]:px-4 sm:px-6 sm:pb-16 sm:pt-6 md:pe-8 md:ps-[150px]">
-              <Chapter
-                key={chapter.id}
-                chapter={chapter}
-                lang={lang}
-                onActiveSection={onActiveSection}
-                isGamified={true}
-                completedSections={gamificationState.completedSections}
-                onCompleteSection={handleCompleteSection}
-              />
-            </div>
-          </main>
-        </>
-      )}
-
-      <Search lang={lang} open={searchOpen} onClose={() => setSearchOpen(false)} />
-
-      {/* Global Gamification Drawer Hub */}
-      <GamificationHub
-        open={hubOpen}
-        onClose={() => setHubOpen(false)}
-        state={{ ...gamificationState, userName }}
-        lang={lang}
-        onClaimQuest={handleClaimQuest}
-      />
-
-      {/* Global Celebration Toast */}
-      <CelebrationToast
-        event={celebrationEvent}
-        lang={lang}
-        onClose={() => setCelebrationEvent(null)}
-      />
-
-      {/* Global Auth Modal */}
-      <AuthModal
-        open={authModalOpen}
-        onClose={() => setAuthModalOpen(false)}
-        user={user}
-        onLogin={(loggedUser) => setUser(loggedUser)}
-        onLogout={() => setUser(null)}
-        lang={lang}
-      />
-    </div>
     <SpeechProvider lang={lang} activeChapterId={chapter?.id}>
       <div className="min-h-screen" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
         <TopBar
@@ -336,11 +259,19 @@ export default function App() {
           onToggleTheme={toggleTheme}
           onOpenSearch={() => setSearchOpen(true)}
           onOpenMenu={() => setMenuOpen(true)}
+          gamificationState={gamificationState}
+          onOpenHub={() => setHubOpen(true)}
+          user={user}
+          onOpenAuth={() => setAuthModalOpen(true)}
         />
 
         {isPrint ? (
           <main>
             <PrintView lang={lang} />
+          </main>
+        ) : isGamification ? (
+          <main className="min-w-0">
+            <GamificationDemo lang={lang} />
           </main>
         ) : (
           <>
@@ -350,10 +281,20 @@ export default function App() {
               activeSectionId={activeSection}
               open={menuOpen}
               onClose={() => setMenuOpen(false)}
+              gamifiedChapterIds={chapters.map((c) => c.id)}
+              completedSections={gamificationState.completedSections}
             />
             <main className="min-w-0 md:ms-[272px]">
               <div className="px-3 pb-12 pt-5 min-[360px]:px-4 sm:px-6 sm:pb-16 sm:pt-6 md:pe-8 md:ps-[150px]">
-                <Chapter key={chapter.id} chapter={chapter} lang={lang} onActiveSection={onActiveSection} />
+                <Chapter
+                  key={chapter.id}
+                  chapter={chapter}
+                  lang={lang}
+                  onActiveSection={onActiveSection}
+                  isGamified={true}
+                  completedSections={gamificationState.completedSections}
+                  onCompleteSection={handleCompleteSection}
+                />
               </div>
             </main>
             <AudioPlayer lang={lang} />
@@ -361,6 +302,32 @@ export default function App() {
         )}
 
         <Search lang={lang} open={searchOpen} onClose={() => setSearchOpen(false)} />
+
+        {/* Global Gamification Drawer Hub */}
+        <GamificationHub
+          open={hubOpen}
+          onClose={() => setHubOpen(false)}
+          state={{ ...gamificationState, userName }}
+          lang={lang}
+          onClaimQuest={handleClaimQuest}
+        />
+
+        {/* Global Celebration Toast */}
+        <CelebrationToast
+          event={celebrationEvent}
+          lang={lang}
+          onClose={() => setCelebrationEvent(null)}
+        />
+
+        {/* Global Auth Modal */}
+        <AuthModal
+          open={authModalOpen}
+          onClose={() => setAuthModalOpen(false)}
+          user={user}
+          onLogin={(loggedUser) => setUser(loggedUser)}
+          onLogout={() => setUser(null)}
+          lang={lang}
+        />
       </div>
     </SpeechProvider>
   )
