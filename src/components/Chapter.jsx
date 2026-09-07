@@ -7,7 +7,7 @@ import { VolumeIcon, PauseIcon, PlayIcon } from './Icons.jsx'
 import Section from './Section.jsx'
 import PrevNext from './PrevNext.jsx'
 
-export function ChapterHeader({ chapter, lang }) {
+export function ChapterHeader({ chapter, lang, isGamified = true }) {
   const number = String(chapterIndex(chapter.id) + 1).padStart(2, '0')
   const shouldReduceMotion = useReducedMotion()
   const {
@@ -44,6 +44,18 @@ export function ChapterHeader({ chapter, lang }) {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="min-w-0 border-b border-line pb-5 sm:pb-6"
     >
+      <div className="flex items-center justify-between gap-3">
+        <p className="label text-muted">
+          {t(lang, 'chapter')} {number}
+        </p>
+        {isGamified && (
+          <span className="tag tag--info text-xs font-bold gap-1.5">
+            <span>⚡</span>
+            <span>{lang === 'ar' ? 'فصل تفاعلي (+15 XP)' : 'Interactive (+15 XP)'}</span>
+          </span>
+        )}
+      </div>
+
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="label text-muted">
           {t(lang, 'chapter')} {number}
@@ -93,7 +105,14 @@ export function ChapterHeader({ chapter, lang }) {
   )
 }
 
-export default function Chapter({ chapter, lang, onActiveSection }) {
+export default function Chapter({
+  chapter,
+  lang,
+  onActiveSection,
+  isGamified = true,
+  completedSections = [],
+  onCompleteSection,
+}) {
   const ref = useRef(null)
   const shouldReduceMotion = useReducedMotion()
 
@@ -132,9 +151,17 @@ export default function Chapter({ chapter, lang, onActiveSection }) {
       transition={{ duration: 0.35, ease: 'easeOut' }}
       className="mx-auto w-full max-w-prose md:mx-0"
     >
-      <ChapterHeader chapter={chapter} lang={lang} />
+      <ChapterHeader chapter={chapter} lang={lang} isGamified={isGamified} />
       {chapter.sections.map((section) => (
-        <Section key={section.id} chapter={chapter} section={section} lang={lang} />
+        <Section
+          key={section.id}
+          chapter={chapter}
+          section={section}
+          lang={lang}
+          isGamified={isGamified}
+          isCompleted={completedSections.includes(`${chapter.id}--${section.id}`)}
+          onComplete={onCompleteSection}
+        />
       ))}
       <PrevNext chapter={chapter} lang={lang} />
     </motion.article>
