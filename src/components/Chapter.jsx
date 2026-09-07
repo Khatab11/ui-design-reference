@@ -66,7 +66,7 @@ export default function Chapter({ chapter, lang, onActiveSection }) {
       initial={shouldReduceMotion ? false : { opacity: 0 }}
       animate={shouldReduceMotion ? undefined : { opacity: 1 }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
-      className="mx-auto w-full max-w-prose"
+      className="mx-auto w-full max-w-prose md:mx-0"
     >
       <ChapterHeader chapter={chapter} lang={lang} />
       {chapter.sections.map((section) => (

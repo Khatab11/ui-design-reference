@@ -22,7 +22,7 @@ export default function Section({ chapter, section, lang, eagerAssets = false, l
       whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className="min-w-0 scroll-mt-[88px] pt-8 sm:pt-10"
+      className="chapter-section min-w-0 scroll-mt-[88px]"
     >
       <h2 className="group flex min-w-0 items-start gap-1.5 text-[20px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink sm:text-[22px] sm:leading-[1.25]">
         <span className="min-w-0 flex-1 break-words">{section.title[lang]}</span>
