@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { excerpt, getSearchIndex } from '../lib/search.js'
 import { navigate } from '../lib/hooks.js'
 import { t } from '../lib/ui.js'
-import { SearchIcon } from './Icons.jsx'
+import { CloseIcon, SearchIcon } from './Icons.jsx'
 
 const MAX = 12
 
@@ -58,18 +58,18 @@ export default function Search({ lang, open, onClose }) {
 
   return (
     <div
-      className="print-hidden fixed inset-0 z-[60] flex items-start justify-center bg-black/40 backdrop-blur-xs p-2 pt-[10vh] sm:p-3 sm:pt-[12vh]"
+      className="print-hidden fixed inset-0 z-[60] flex items-start justify-center bg-black/40 backdrop-blur-md p-2 pt-4 sm:p-4 sm:pt-[10vh]"
       onMouseDown={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
         role="dialog"
         aria-modal="true"
         aria-label={t(lang, 'search')}
-        className="modal flex max-h-[70vh] w-full max-w-[640px] flex-col overflow-hidden"
+        className="flex max-h-[85vh] sm:max-h-[75vh] w-full max-w-[640px] flex-col overflow-hidden rounded-2xl border border-border/80 bg-card/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.18),0_24px_64px_rgba(0,0,0,0.22)] dark:border-border/40"
         onKeyDown={onKeyDown}
       >
-        <div className="flex items-center gap-2 border-b border-line px-3 focus-within:border-action focus-within:ring-2 focus-within:ring-action">
-          <SearchIcon className="shrink-0 text-muted" width="20" height="20" />
+        <div className="flex h-[58px] items-center gap-2.5 sm:gap-3 border-b border-line/70 px-3 sm:px-4 focus-within:border-action">
+          <SearchIcon className="shrink-0 text-muted" width="18" height="18" />
           <input
             ref={inputRef}
             type="search"
@@ -79,26 +79,34 @@ export default function Search({ lang, open, onClose }) {
             aria-label={t(lang, 'search')}
             autoComplete="off"
             spellCheck={false}
-            className="h-[56px] w-full bg-transparent text-[17px] text-ink placeholder:text-muted focus:outline-none"
+            className="h-full w-full bg-transparent text-[16px] text-ink placeholder:text-muted focus:outline-none"
           />
           <button
             type="button"
             onClick={onClose}
-            className="hidden tag tag--neutral sm:inline-flex cursor-pointer"
+            className="hidden rounded-lg border border-line-strong/60 bg-surface-sunken px-2 py-0.5 font-mono text-[11px] font-semibold text-muted shadow-2xs sm:inline-flex cursor-pointer hover:text-ink active:scale-95"
           >
             Esc
           </button>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label={t(lang, 'closeMenu')}
+            className="btn btn--secondary btn--icon h-9 w-9 min-h-[36px] min-w-[36px] text-muted hover:text-ink sm:hidden"
+          >
+            <CloseIcon width="16" height="16" />
+          </button>
         </div>
 
-        <div className="overflow-y-auto">
+        <div className="overflow-y-auto p-2">
           {query.trim() === '' && (
-            <p className="px-4 py-4 text-sm text-muted">{t(lang, 'searchHint')}</p>
+            <p className="px-4 py-6 text-center text-sm text-muted">{t(lang, 'searchHint')}</p>
           )}
           {query.trim() !== '' && results.length === 0 && (
-            <p className="px-4 py-4 text-sm text-muted">{t(lang, 'noResults')}</p>
+            <p className="px-4 py-6 text-center text-sm text-muted">{t(lang, 'noResults')}</p>
           )}
           {results.length > 0 && (
-            <ul ref={listRef} role="listbox" className="py-2">
+            <ul ref={listRef} role="listbox" className="space-y-1">
               {results.map((r, i) => (
                 <li
                   key={`${r.item.chapterId}/${r.item.sectionId}`}
@@ -107,8 +115,10 @@ export default function Search({ lang, open, onClose }) {
                   onMouseEnter={() => setCursor(i)}
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => go(r)}
-                  className={`cursor-pointer border-s-2 px-4 py-2 transition-colors ${
-                    i === cursor ? 'border-action bg-action-tint text-ink' : 'border-transparent text-body hover:bg-ground hover:text-ink'
+                  className={`cursor-pointer rounded-xl px-3.5 py-2.5 transition-all duration-120 ${
+                    i === cursor
+                      ? 'border border-action/25 bg-action/10 text-ink shadow-xs'
+                      : 'border border-transparent text-body hover:bg-surface-sunken hover:text-ink'
                   }`}
                 >
                   <div className="flex items-baseline gap-2">
@@ -119,17 +129,17 @@ export default function Search({ lang, open, onClose }) {
                       </span>
                     )}
                   </div>
-                  <p className="mt-1 line-clamp-2 text-sm leading-[22px] text-body">{excerpt(r)}</p>
+                  <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-body">{excerpt(r)}</p>
                 </li>
               ))}
             </ul>
           )}
         </div>
 
-        <div className="hidden items-center gap-3 border-t border-line px-4 py-2 text-xs text-muted sm:flex">
-          <span><kbd className="font-sans font-semibold">↑↓</kbd> {t(lang, 'keyboardHint')}</span>
-          <span><kbd className="font-sans font-semibold">↵</kbd> {t(lang, 'keyboardSelect')}</span>
-          <span><kbd className="font-sans font-semibold">Esc</kbd> {t(lang, 'keyboardClose')}</span>
+        <div className="hidden items-center gap-3 border-t border-line/60 bg-surface-sunken/40 px-4 py-2.5 text-xs text-muted sm:flex">
+          <span><kbd className="rounded bg-surface px-1.5 py-0.5 font-mono text-[10px] font-semibold border border-line">↑↓</kbd> {t(lang, 'keyboardHint')}</span>
+          <span><kbd className="rounded bg-surface px-1.5 py-0.5 font-mono text-[10px] font-semibold border border-line">↵</kbd> {t(lang, 'keyboardSelect')}</span>
+          <span><kbd className="rounded bg-surface px-1.5 py-0.5 font-mono text-[10px] font-semibold border border-line">Esc</kbd> {t(lang, 'keyboardClose')}</span>
         </div>
       </div>
     </div>

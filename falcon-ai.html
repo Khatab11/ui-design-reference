@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>Falcon AI Operations Overview</title>
+
+  <script>
+    // Inline head script BEFORE styles per spec
+    (function () {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced && Element.prototype.animate) {
+        document.documentElement.classList.add("entrance-pending");
+        window.__entranceFallback = setTimeout(function () {
+          document.documentElement.classList.remove("entrance-pending", "entrance-active");
+        }, 3000);
+      }
+    })();
+  </script>
+
+  <style>
+    /* ==================================================
+       DESIGN TOKENS (:root)
+       ================================================== */
+    :root {
+      --aspect: 1.5204255;
+      --page: #f0f0f0;
+      --surface: #fff;
+      --panel: #fffaf6;
+      --ink: #282828;
+      --muted: #777;
+      --orange: #ff6900;
+      --orange-soft: #ffdfca;
+      --green: #4d8c35;
+
+      --weight-regular: 400;
+      --weight-body: 475;
+      --weight-medium: 500;
+      --weight-semibold: 600;
+      --weight-display: 600;
+      --weight-card-title: 600;
+      --weight-bold: 700;
+
+      --card-title-size: 1.86cqw;
+      --card-title-tracking: -.125cqw;
+      --feature-title-size: 2.17cqw;
+      --feature-title-tracking: -.09cqw;
+
+      --cards-height: 33.81cqw;
+      --cards-scale: min(1, calc(60cqh / var(--cards-height)));
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--page);
+      color: var(--ink);
+      font-family: "Segoe UI Variable", "Segoe UI", Arial, Helvetica, sans-serif;
+      font-weight: var(--weight-regular);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    .viewport {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background: var(--page);
+    }
+    .scene {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      container-type: size;
+      background: var(--page);
+    }
+
+    /* ==================================================
+       CARDS TRIPTYCH (DESKTOP)
+       ================================================== */
+    .cards {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      width: 81.71cqw;
+      height: var(--cards-height);
+      display: grid;
+      grid-template-columns: 32.33% 32.33% 31.70%;
+      justify-content: space-between;
+      align-items: start;
+      scale: var(--cards-scale);
+    }
+
+    /* ==================================================
+       CARD SHELL
+       ================================================== */
+    .card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 72.2% 27.8%;
+      border: .075cqw solid rgb(255 233 218 / 96%);
+      border-radius: 1.59cqw;
+      background: var(--surface);
+      box-shadow:
+        .32cqw 1.18cqh 1.42cqw rgb(44 35 29 / 11%),
+        0 .18cqh .42cqw rgb(44 35 29 / 3.5%);
+    }
+
+    .card:last-child {
+      height: 98.5%;
+      margin-top: .76%;
+    }
+
+    .panel {
+      position: relative;
+      margin-inline: 2.55%;
+      overflow: hidden;
+      border-radius: 1.28cqw 1.28cqw 1.08cqw 1.08cqw;
+      background:
+        radial-gradient(circle at 50% 78%, rgb(255 225 207 / 30%), transparent 47%),
+        linear-gradient(180deg, rgb(255 255 255 / 96%), rgb(255 248 243 / 94%));
+    }
+
+    .card:last-child .panel {
+      margin-inline: 2%;
+      background:
+        radial-gradient(circle at 74% 46%, rgb(255 225 204 / 70%), transparent 48%),
+        linear-gradient(180deg, rgb(255 255 255 / 96%), rgb(255 242 232 / 97%));
+    }
+
+    .card-copy {
+      position: relative;
+      padding: 7.1% 8.4% 6.5%;
+    }
+
+    .card-copy h2 {
+      margin: 0 0 1.6%;
+      color: #292929;
+      font-family: "Segoe UI Semibold", "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
+      font-size: var(--card-title-size);
+      font-weight: var(--weight-card-title);
+      line-height: 1.04;
+      letter-spacing: var(--card-title-tracking);
+      white-space: nowrap;
+      transform: translateY(-.36cqh);
+      transform-origin: left top;
+    }
+    .card:last-child h2 {
+      font-size: var(--feature-title-size);
+      letter-spacing: var(--feature-title-tracking);
+    }
+
+    .card-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-family: "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
+      font-size: 1.39cqw;
+      font-weight: var(--weight-medium);
+      line-height: 1.04;
+      letter-spacing: -.06cqw;
+      transform: scaleX(.94);
+      transform-origin: left top;
+    }
+
+    .corner-icon {
+      position: absolute;
+      right: 8.4%;
+      bottom: 22.5%;
+      width: 8.2%;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      color: var(--orange);
+    }
+
+    /* Entrance Classes */
+    .entrance-pending .card { opacity: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .entrance-pending .card { opacity: 1 !important; }
+    }
+    .entrance-active .card,
+    .entrance-active .panel,
+    .entrance-active .card-copy,
+    .entrance-active h2,
+    .entrance-active p,
+    .entrance-active .corner-icon {
+      will-change: opacity, transform, clip-path;
+    }
+
+    /* ==================================================
+       CARD 1 — VISIBILITY CHART
+       ================================================== */
+    .timeline {
+      position: absolute;
+      top: 5.7%;
+      left: 20.8%;
+      width: 58.4%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #f27624;
+      font-size: .62cqw;
+      font-weight: var(--weight-medium);
+      letter-spacing: -.015cqw;
+    }
+    .timeline i {
+      width: 20%;
+      border-top: .05cqw dashed rgb(190 139 96 / 70%);
+    }
+
+    .bars {
+      position: absolute;
+      left: 5.9%;
+      right: 5.9%;
+      bottom: 12%;
+      height: 62%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .bar {
+      width: 2.4%;
+      height: var(--h);
+      border-radius: 999px;
+      background: rgb(255 219 196 / 64%);
+    }
+    .bar.active {
+      width: 2.6%;
+      background: var(--orange);
+      box-shadow: 0 0 .28cqw rgb(255 105 0 / 24%);
+    }
+
+    .value-chip {
+      position: absolute;
+      top: 15.5%;
+      left: 46.2%;
+      width: 14%;
+      height: 7.6%;
+      display: grid;
+      place-items: center;
+      border: .12cqw solid #fff;
+      border-radius: 999px;
+      background: var(--orange);
+      box-shadow: 0 0 0 .055cqw var(--orange), 0 .28cqh .4cqw rgb(69 38 18 / 24%);
+      color: #fff;
+      font-size: .67cqw;
+      font-weight: var(--weight-semibold);
+    }
+
+    .axis {
+      position: absolute;
+      left: 7.7%;
+      right: 7.2%;
+      bottom: 5.2%;
+      display: flex;
+      justify-content: space-between;
+      color: #888;
+      font-size: .57cqw;
+    }
+
+    .spark {
+      position: relative;
+      width: 52%;
+      aspect-ratio: 1;
+    }
+    .spark::before {
+      content: "";
+      position: absolute;
+      top: 41%;
+      left: 0;
+      width: 100%;
+      height: 18%;
+      border-radius: 999px;
+      background: currentColor;
+    }
+    .spark::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 41%;
+      width: 18%;
+      height: 100%;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    /* ==================================================
+       CARD 2 — WORKFLOW & ASSISTANT
+       ================================================== */
+    .assistant-head {
+      position: absolute;
+      top: 8.2%;
+      left: 6.2%;
+      display: flex;
+      align-items: center;
+      gap: 1.02cqw;
+      color: var(--orange);
+      font-size: 1.28cqw;
+      font-weight: var(--weight-bold);
+      letter-spacing: -.04cqw;
+    }
+    .assistant-head .badge {
+      width: 2.16cqw;
+      height: 2.16cqw;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      display: grid;
+      place-items: center;
+    }
+    .assistant-head .badge .spark {
+      width: 48%;
+      height: 48%;
+      background: currentColor;
+      filter: blur(.035cqw);
+      clip-path: polygon(
+        47% 0, 53% 0, 58% 28%, 65% 35%, 72% 42%, 100% 47%, 100% 53%,
+        72% 58%, 65% 65%, 58% 72%, 53% 100%, 47% 100%,
+        42% 72%, 35% 65%, 28% 58%, 0 53%, 0 47%, 28% 42%, 35% 35%, 42% 28%
+      );
+    }
+    .assistant-head .badge .spark::before,
+    .assistant-head .badge .spark::after {
+      content: none;
+    }
+
+    .question {
+      position: absolute;
+      top: 21.5%;
+      left: 6.2%;
+      margin: 0;
+      color: #151515;
+      font-size: 1.34cqw;
+      font-weight: var(--weight-medium);
+      line-height: 1;
+      letter-spacing: -.07cqw;
+    }
+
+    .prompt {
+      position: absolute;
+      top: 32%;
+      left: 6.2%;
+      width: 87.2%;
+      height: 35.8%;
+      padding: 4.7% 4.2%;
+      border: .06cqw solid #beb4ae;
+      border-radius: .86cqw;
+      background: rgb(255 255 255 / 32%);
+      color: var(--muted);
+      font-size: 1.03cqw;
+      font-weight: var(--weight-body);
+      line-height: 1.31;
+      letter-spacing: -.035cqw;
+    }
+
+    .automate {
+      position: absolute;
+      top: 78.1%;
+      left: 6.2%;
+      width: 34.6%;
+      height: 11.6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline: 1cqw;
+      border-radius: 999px;
+      background: linear-gradient(100deg, #ff9b5b 0%, #ff8840 38%, #ff6b05 100%);
+      box-shadow:
+        0 .6cqh 1.35cqw rgb(255 105 0 / 52%),
+        0 .2cqh .46cqw rgb(255 105 0 / 31%),
+        0 0 .82cqw .08cqw rgb(255 118 30 / 24%);
+      color: #fff;
+      font-size: .98cqw;
+      font-weight: var(--weight-body);
+      line-height: 1;
+    }
+    .automate-label {
+      letter-spacing: -.025cqw;
+      transform: scaleX(1.03);
+      transform-origin: left center;
+    }
+    canvas.magic {
+      flex: 0 0 auto;
+      width: 1.5cqw;
+      height: 1.46cqw;
+      transform: translateX(-.15cqw);
+    }
+
+    .cursor {
+      position: absolute;
+      top: 85.7%;
+      left: 54%;
+      width: 4.3%;
+      aspect-ratio: .72;
+      z-index: 3;
+      isolation: isolate;
+      filter:
+        drop-shadow(0 0 .075cqw #fff)
+        drop-shadow(0 0 .075cqw #fff)
+        drop-shadow(.08cqw .16cqw .08cqw rgb(0 0 0 / 48%));
+    }
+    .cursor::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #050505;
+      clip-path: polygon(0 0, 94% 62%, 57% 67%, 38% 100%);
+    }
+    .cursor::after {
+      content: "";
+      position: absolute;
+      inset: -11%;
+      z-index: -1;
+      background: #fff;
+      clip-path: polygon(0 0, 94% 62%, 57% 67%, 38% 100%);
+    }
+
+    .flow-icon {
+      position: relative;
+      width: 54%;
+      height: 58%;
+      background: linear-gradient(var(--orange), var(--orange)) center / 48% 18% no-repeat;
+    }
+    .flow-icon::before,
+    .flow-icon::after {
+      content: "";
+      position: absolute;
+      width: 34%;
+      height: 70%;
+      border-radius: 999px;
+      background: var(--orange);
+    }
+    .flow-icon::before { left: 4%; top: 24%; }
+    .flow-icon::after  { right: 4%; top: 6%; }
+
+    /* ==================================================
+       CARD 3 — DECISION & METRICS
+       ================================================== */
+    .metric {
+      position: absolute;
+      top: 7.8%;
+      left: 5.2%;
+    }
+    .metric-label {
+      margin-bottom: .38cqh;
+      color: #676767;
+      font-size: .88cqw;
+      font-weight: var(--weight-body);
+    }
+    .metric-row {
+      display: flex;
+      align-items: center;
+      gap: 1.02cqw;
+    }
+    .metric-row strong {
+      color: var(--orange);
+      font-size: 2.1cqw;
+      font-weight: var(--weight-bold);
+      line-height: .95;
+      letter-spacing: -.04cqw;
+    }
+    .metric-row span {
+      margin-top: .52cqh;
+      color: var(--green);
+      font-size: .93cqw;
+      font-weight: var(--weight-bold);
+      letter-spacing: -.045cqw;
+    }
+
+    .decision-flow {
+      position: absolute;
+      top: 39%;
+      left: 0;
+      width: 100%;
+      height: 53%;
+      display: block;
+      pointer-events: none;
+    }
+
+    .tag {
+      position: absolute;
+      z-index: 2;
+      height: 8.3%;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgb(255 255 255 / 95%);
+      color: #282828;
+      font-size: .62cqw;
+      font-weight: var(--weight-semibold);
+      letter-spacing: -.012cqw;
+      box-shadow: 0 .15cqh .35cqw rgb(44 35 29 / 8%);
+    }
+    .tag.action      { top: 34.8%; right: 8%; width: 28%; }
+    .tag.confidence  { top: 67%;   left: 6%;  width: 40%; }
+    .tag.path        { top: 82.2%; right: 8%; width: 37%; }
+
+    .speed {
+      position: relative;
+      width: 58%;
+      aspect-ratio: 1;
+      background:
+        linear-gradient(var(--orange), var(--orange)) 0 31% / 27% 8% no-repeat,
+        linear-gradient(var(--orange), var(--orange)) 0 49% / 38% 8% no-repeat,
+        linear-gradient(var(--orange), var(--orange)) 0 67% / 22% 8% no-repeat;
+    }
+    .speed::before {
+      content: "";
+      position: absolute;
+      inset: 4% 1% 2% 28%;
+      background: var(--orange);
+      clip-path: polygon(58% 0, 100% 0, 69% 40%, 94% 40%, 28% 100%, 44% 58%, 7% 58%);
+    }
+
+    /* ==================================================
+       RESPONSIVE
+       ================================================== */
+    @media (max-width: 56rem) and (max-aspect-ratio: 5/4) {
+      .cards {
+        width: min(88cqw, 70cqh, 45rem);
+        height: auto;
+        scale: 1;
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(.75rem, 2cqw, 1.2rem);
+      }
+      .card {
+        height: auto;
+        aspect-ratio: .781;
+        border-radius: clamp(.9rem, 2cqw, 1.2rem);
+      }
+      .card:last-child {
+        grid-column: 1 / -1;
+        width: calc((100% - clamp(.75rem, 2cqw, 1.2rem)) / 2);
+        justify-self: center;
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 32rem), (max-height: 28rem) and (max-width: 64rem) and (pointer: coarse) {
+      html, body {
+        height: auto;
+        min-height: 100%;
+        overflow: auto;
+      }
+      .viewport {
+        position: relative;
+        min-height: 100svh;
+        overflow: visible;
+      }
+      .scene {
+        position: relative;
+        height: auto;
+        min-height: 100svh;
+        padding-block: clamp(1.5rem, 6vh, 3rem);
+        container-type: inline-size;
+        overflow: visible;
+      }
+      .cards {
+        position: relative;
+        top: auto;
+        left: auto;
+        translate: none;
+        width: min(90cqw, 26rem);
+        margin-inline: auto;
+        grid-template-columns: 1fr;
+        gap: clamp(1rem, 4cqw, 1.5rem);
+        scale: 1;
+      }
+      .card, .card:last-child {
+        width: 100%;
+        height: auto;
+        aspect-ratio: .781;
+        margin-top: 0;
+        border-radius: clamp(1rem, 3cqw, 1.4rem);
+      }
+      .automate {
+        min-height: 2.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="viewport" aria-label="Falcon AI operations overview">
+    <section class="scene">
+      <section class="cards" aria-label="Product benefits">
+
+        <!-- CARD 1: Instant Visibility -->
+        <article class="card">
+          <div class="panel" aria-label="Visibility timeline chart">
+            <div class="timeline">
+              <span>06 AM</span><i></i><span>12 PM</span><i></i><span>06 PM</span>
+            </div>
+            <div class="bars" aria-hidden="true">
+              <i class="bar" style="--h: 20%"></i>
+              <i class="bar" style="--h: 33%"></i>
+              <i class="bar" style="--h: 48%"></i>
+              <i class="bar" style="--h: 56%"></i>
+              <i class="bar" style="--h: 51%"></i>
+              <i class="bar" style="--h: 47%"></i>
+              <i class="bar" style="--h: 39%"></i>
+              <i class="bar" style="--h: 31%"></i>
+              <i class="bar" style="--h: 53%"></i>
+              <i class="bar" style="--h: 55%"></i>
+              <i class="bar" style="--h: 60%"></i>
+              <i class="bar" style="--h: 56%"></i>
+              <i class="bar active" style="--h: 100%"></i>
+              <i class="bar" style="--h: 92%"></i>
+              <i class="bar" style="--h: 76%"></i>
+              <i class="bar" style="--h: 67%"></i>
+              <i class="bar" style="--h: 62%"></i>
+              <i class="bar" style="--h: 65%"></i>
+              <i class="bar" style="--h: 59%"></i>
+              <i class="bar" style="--h: 70%"></i>
+              <i class="bar" style="--h: 74%"></i>
+              <i class="bar" style="--h: 87%"></i>
+              <i class="bar" style="--h: 83%"></i>
+              <i class="bar" style="--h: 77%"></i>
+            </div>
+            <div class="value-chip">$4.7M</div>
+            <div class="axis">
+              <span>START</span><span>ACTIVE</span><span>PEAK</span><span>COMPLETE</span>
+            </div>
+          </div>
+          <div class="card-copy">
+            <h2>Instant Visibility</h2>
+            <p>Real-time data across your<br>operations.</p>
+            <span class="corner-icon"><i class="spark"></i></span>
+          </div>
+        </article>
+
+        <!-- CARD 2: Autonomous Workflows -->
+        <article class="card">
+          <div class="panel">
+            <div class="assistant-head">
+              <span class="badge"><i class="spark"></i></span>
+              <span>Falcon AI</span>
+            </div>
+            <p class="question">How can I help you automate?</p>
+            <div class="prompt">
+              When a new lead is captured in WebFlow,<br>create a deal in HubSpot and notify the sales<br>team on Slack.
+            </div>
+            <div class="automate">
+              <span class="automate-label">Automate</span>
+              <canvas class="magic" data-sparkle-icon aria-hidden="true"></canvas>
+            </div>
+            <i class="cursor" aria-hidden="true"></i>
+          </div>
+          <div class="card-copy">
+            <h2>Autonomous Workflows</h2>
+            <p>Automate processes with<br>Falcon AI.</p>
+            <span class="corner-icon"><i class="flow-icon"></i></span>
+          </div>
+        </article>
+
+        <!-- CARD 3: Faster Decisions -->
+        <article class="card">
+          <div class="panel">
+            <div class="metric">
+              <div class="metric-label">Time saved</div>
+              <div class="metric-row">
+                <strong>128 Hrs</strong>
+                <span>↑ 18% efficiency</span>
+              </div>
+            </div>
+            <canvas class="decision-flow" data-flow-chart aria-label="Decision paths converging into an optimized result"></canvas>
+            <div class="tag action">Action: Approve</div>
+            <div class="tag confidence">Decision Confidence: 98%</div>
+            <div class="tag path">Path Optimized: +14.2%</div>
+          </div>
+          <div class="card-copy">
+            <h2>Faster Decisions</h2>
+            <p>Turn insights into action<br>instantly.</p>
+            <span class="corner-icon"><i class="speed"></i></span>
+          </div>
+        </article>
+
+      </section>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      /* ==================================================
+         CANVAS 1: SPARKLE ICON (Automate Button)
+         ================================================== */
+      var sparkleCanvas = document.querySelector("[data-sparkle-icon]");
+      var sparkles = [
+        { x: 0.01, y: 0.01, size: 0.50 },
+        { x: 0.28, y: 0.26, size: 0.72 }
+      ];
+      var sparklePoints = [
+        [0.50, 0.06], [0.59, 0.41], [0.94, 0.50], [0.59, 0.59],
+        [0.50, 0.94], [0.41, 0.59], [0.06, 0.50], [0.41, 0.41]
+      ];
+
+      function drawSparkles() {
+        if (!sparkleCanvas) return;
+        var rect = sparkleCanvas.getBoundingClientRect();
+        var dpr = window.devicePixelRatio || 1;
+        var w = rect.width;
+        var h = rect.height;
+        if (!w || !h) return;
+
+        sparkleCanvas.width = w * dpr;
+        sparkleCanvas.height = h * dpr;
+        var ctx = sparkleCanvas.getContext("2d");
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, w, h);
+
+        sparkles.forEach(function (sp) {
+          var size = Math.min(w, h) * sp.size;
+          var ox = w * sp.x;
+          var oy = h * sp.y;
+
+          ctx.save();
+          ctx.beginPath();
+          var pts = sparklePoints.map(function (p) {
+            return [ox + p[0] * size, oy + p[1] * size];
+          });
+
+          // Draw rounded polygon
+          var roundness = 0.34;
+          var len = pts.length;
+          for (var i = 0; i < len; i++) {
+            var curr = pts[i];
+            var prev = pts[(i + len - 1) % len];
+            var next = pts[(i + 1) % len];
+
+            var dPrevX = prev[0] - curr[0];
+            var dPrevY = prev[1] - curr[1];
+            var dNextX = next[0] - curr[0];
+            var dNextY = next[1] - curr[1];
+
+            var beforeX = curr[0] + dPrevX * roundness;
+            var beforeY = curr[1] + dPrevY * roundness;
+            var afterX = curr[0] + dNextX * roundness;
+            var afterY = curr[1] + dNextY * roundness;
+
+            if (i === 0) {
+              ctx.moveTo(afterX, afterY);
+            } else {
+              ctx.lineTo(beforeX, beforeY);
+              ctx.quadraticCurveTo(curr[0], curr[1], afterX, afterY);
+            }
+          }
+          ctx.closePath();
+
+          ctx.fillStyle = "rgba(255,220,202,.55)";
+          ctx.strokeStyle = "#fff";
+          ctx.lineWidth = Math.max(1.1, size * 0.15);
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          ctx.shadowColor = "rgba(255,255,255,.78)";
+          ctx.shadowBlur = size * 0.06;
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+        });
+      }
+
+      /* ==================================================
+         CANVAS 2: DECISION FLOW CHART (Ribbons & Threads)
+         ================================================== */
+      var flowCanvas = document.querySelector("[data-flow-chart]");
+      var bands = [
+        { source: [0.08, 0.26], target: [0.29, 0.32],  color: 'rgba(255,189,144,.60)' },
+        { source: [0.23, 0.42], target: [0.30, 0.335], color: 'rgba(255,149,80,.70)' },
+        { source: [0.50, 0.75], target: [0.32, 0.355], color: 'rgba(255,136,64,.82)' },
+        { source: [0.69, 0.98], target: [0.33, 0.365], color: 'rgba(255,181,128,.54)' },
+        { source: [0.39, 0.51], target: [0.31, 0.345], color: 'rgba(255,105,0,.96)' }
+      ];
+      var threads = [
+        { source: 0.05, target: 0.30,  alpha: 0.68 },
+        { source: 0.20, target: 0.315, alpha: 0.60 },
+        { source: 0.62, target: 0.342, alpha: 0.84 },
+        { source: 0.82, target: 0.352, alpha: 0.74 },
+        { source: 0.97, target: 0.36,  alpha: 0.64 }
+      ];
+
+      function drawDecisionFlow() {
+        if (!flowCanvas) return;
+        var rect = flowCanvas.getBoundingClientRect();
+        var dpr = window.devicePixelRatio || 1;
+        var w = rect.width;
+        var h = rect.height;
+        if (!w || !h) return;
+
+        flowCanvas.width = w * dpr;
+        flowCanvas.height = h * dpr;
+        var ctx = flowCanvas.getContext("2d");
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, w, h);
+
+        var sourceHold = 0.38;
+        var targetApproach = 0.74;
+        var threadWidth = 0.00135;
+
+        // Draw 5 Bezier Ribbons
+        bands.forEach(function (b) {
+          ctx.beginPath();
+          ctx.moveTo(0, h * b.source[0]);
+          ctx.bezierCurveTo(
+            w * sourceHold, h * b.source[0],
+            w * targetApproach, h * b.target[0],
+            w, h * b.target[0]
+          );
+          ctx.lineTo(w, h * b.target[1]);
+          ctx.bezierCurveTo(
+            w * targetApproach, h * b.target[1],
+            w * sourceHold, h * b.source[1],
+            0, h * b.source[1]
+          );
+          ctx.closePath();
+          ctx.fillStyle = b.color;
+          ctx.fill();
+        });
+
+        // Draw Hairline Threads
+        threads.forEach(function (th) {
+          ctx.beginPath();
+          ctx.moveTo(0, h * th.source);
+          ctx.bezierCurveTo(
+            w * sourceHold, h * th.source,
+            w * targetApproach, h * th.target,
+            w, h * th.target
+          );
+          ctx.lineWidth = Math.max(0.72, w * threadWidth);
+          ctx.strokeStyle = "rgba(255,255,255," + th.alpha + ")";
+          ctx.stroke();
+        });
+      }
+
+      // ResizeObservers
+      if (window.ResizeObserver) {
+        if (sparkleCanvas) new ResizeObserver(drawSparkles).observe(sparkleCanvas);
+        if (flowCanvas) new ResizeObserver(drawDecisionFlow).observe(flowCanvas);
+      } else {
+        window.addEventListener("resize", function () {
+          drawSparkles();
+          drawDecisionFlow();
+        });
+      }
+      setTimeout(function () {
+        drawSparkles();
+        drawDecisionFlow();
+      }, 50);
+
+      /* ==================================================
+         ENTRANCE ANIMATION (Web Animations API)
+         ================================================== */
+      if (document.documentElement.classList.contains("entrance-pending") && !window.__entranceStarted) {
+        window.__entranceStarted = true;
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            var cards = Array.from(document.querySelectorAll(".card"));
+            var viewportW = window.innerWidth;
+            var compact = viewportW <= 512;
+            var rise = compact ? 11 : 16;
+            var easePlace = "cubic-bezier(.16, 1, .3, 1)";
+            var easeWipe = "cubic-bezier(.24, .86, .28, 1)";
+
+            // Detect singleRow
+            var singleRow = true;
+            if (cards.length > 1) {
+              var firstTop = cards[0].getBoundingClientRect().top;
+              for (var i = 1; i < cards.length; i++) {
+                if (Math.abs(cards[i].getBoundingClientRect().top - firstTop) > Math.max(4, window.innerHeight * 0.04)) {
+                  singleRow = false;
+                  break;
+                }
+              }
+            }
+
+            var animations = [];
+            document.documentElement.classList.add("entrance-active");
+            document.documentElement.classList.remove("entrance-pending");
+
+            cards.forEach(function (card, idx) {
+              var isPrimary = (idx === 1);
+              var order = isPrimary ? 0 : (idx === 0 ? 1 : 2);
+              var delay = singleRow ? (isPrimary ? 60 : 245 + (order - 1) * 85) : 70 + idx * 115;
+              var centreOffset = card.getBoundingClientRect().left + card.getBoundingClientRect().width / 2 - viewportW / 2;
+              var drift = (singleRow && !isPrimary) ? -Math.sign(centreOffset) * Math.min(card.getBoundingClientRect().width * 0.018, 7) : 0;
+
+              // 1. Surface .card
+              var cardAnim = card.animate([
+                { opacity: 0, transform: "translate3d(" + drift + "px, " + rise + "px, 0) scale(0.985)" },
+                { opacity: 1, transform: "none" }
+              ], {
+                duration: compact ? 780 : (isPrimary ? 960 : 900),
+                delay: delay,
+                easing: easePlace,
+                fill: "both"
+              });
+              animations.push(cardAnim);
+
+              // 2. Panel .panel
+              var panel = card.querySelector(".panel");
+              if (panel) {
+                var wipePct = compact ? 26 : 34;
+                var panelAnim = panel.animate([
+                  { opacity: 0, transform: "scale(0.994)", clipPath: "inset(0 0 " + wipePct + "% 0)" },
+                  { opacity: 1, transform: "none", clipPath: "inset(0 0 0 0)" }
+                ], {
+                  duration: compact ? 620 : 720,
+                  delay: delay + 200,
+                  easing: easeWipe,
+                  fill: "both"
+                });
+                animations.push(panelAnim);
+              }
+
+              // 3. Copy .card-copy
+              var copy = card.querySelector(".card-copy");
+              if (copy) {
+                var copyAnim = copy.animate([
+                  { opacity: 0, transform: "translate3d(0, " + (compact ? 8 : 11) + "px, 0)" },
+                  { opacity: 1, transform: "none" }
+                ], {
+                  duration: compact ? 540 : 620,
+                  delay: delay + 330,
+                  easing: easePlace,
+                  fill: "both"
+                });
+                animations.push(copyAnim);
+              }
+
+              // 4. Heading & Description
+              var h2 = card.querySelector("h2");
+              if (h2) {
+                var h2Anim = h2.animate([
+                  { opacity: 0, clipPath: "inset(-30% 0 100% 0)" },
+                  { opacity: 1, clipPath: "inset(-30% 0 -30% 0)" }
+                ], {
+                  duration: compact ? 470 : 540,
+                  delay: delay + 350,
+                  easing: easeWipe,
+                  fill: "both"
+                });
+                animations.push(h2Anim);
+              }
+
+              var p = card.querySelector("p");
+              if (p) {
+                var pAnim = p.animate([
+                  { opacity: 0, clipPath: "inset(-30% 0 100% 0)" },
+                  { opacity: 1, clipPath: "inset(-30% 0 -30% 0)" }
+                ], {
+                  duration: compact ? 430 : 490,
+                  delay: delay + 450,
+                  easing: easeWipe,
+                  fill: "both"
+                });
+                animations.push(pAnim);
+              }
+
+              // 5. Corner Icon
+              var corner = card.querySelector(".corner-icon");
+              if (corner) {
+                var cornerAnim = corner.animate([
+                  { opacity: 0, transform: "scale(0.88)" },
+                  { opacity: 1, transform: "none" }
+                ], {
+                  duration: compact ? 340 : 400,
+                  delay: delay + 540,
+                  easing: easePlace,
+                  fill: "both"
+                });
+                animations.push(cornerAnim);
+              }
+            });
+
+            // Clean up when done
+            Promise.all(animations.map(function (a) { return a.finished; })).then(function () {
+              if (window.__entranceFallback) clearTimeout(window.__entranceFallback);
+              document.documentElement.classList.remove("entrance-active", "entrance-pending");
+            }).catch(function () {
+              document.documentElement.classList.remove("entrance-active", "entrance-pending");
+            });
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

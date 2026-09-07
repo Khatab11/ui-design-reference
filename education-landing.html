@@ -1,27 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#FAF9F7">
-  <title>Built for Systematic Performance — UI Design Reference</title>
+  <title>UI Design Reference & Operations Overview</title>
 
-  <!-- Google Fonts: Public Sans (400, 500, 600, 700) per Design System -->
+  <!-- Google Fonts: Public Sans (EN) & IBM Plex Sans Arabic (AR) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap">
 
   <script>
-    // Entrance animation trigger before first paint
-    document.documentElement.classList.add("entrance-active");
-    window.__entranceFailsafe = setTimeout(function () {
-      document.documentElement.classList.remove("entrance-active");
-    }, 3200);
+    // Synchronize initial language & theme before first paint
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var lang = params.get('lang') || localStorage.getItem('uiref:lang') || 'en';
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      } catch (e) {}
+
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced && Element.prototype.animate) {
+        document.documentElement.classList.add("entrance-pending");
+        window.__entranceFallback = setTimeout(function () {
+          document.documentElement.classList.remove("entrance-pending", "entrance-active");
+        }, 3000);
+      }
+    })();
   </script>
 
   <style>
     /* ==================================================
-       TOKENS & BASE RULES (from DESIGN_SYSTEM.md)
+       GLOBAL DESIGN TOKENS
        ================================================== */
     :root {
       /* Brand Tokens — Education Platform */
@@ -47,14 +59,38 @@
       --color-warning: #A45B00;
       --color-error: #C0271C;
 
+      /* Design Principles Triptych Tokens */
+      --page: #f0f0f0;
+      --surface: #fff;
+      --panel: #fffaf6;
+      --ink: #282828;
+      --muted: #777;
+      --orange: #ff6900;
+      --orange-soft: #ffdfca;
+      --green: #4d8c35;
+
+      --weight-regular: 400;
+      --weight-body: 475;
+      --weight-medium: 500;
+      --weight-semibold: 600;
+      --weight-display: 600;
+      --weight-card-title: 600;
+      --weight-bold: 700;
+
+      --card-title-size: 1.86cqw;
+      --card-title-tracking: -.125cqw;
+      --feature-title-size: 2.17cqw;
+      --feature-title-tracking: -.09cqw;
+      --cards-height: 33.81cqw;
+      --cards-scale: min(1, calc(60cqh / var(--cards-height)));
+
       /* Typography */
       --font-sans: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-arabic: 'IBM Plex Sans Arabic', var(--font-sans);
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
       /* Stage Layout Variables */
       --paper: var(--color-ground);
-      --ink: var(--color-ink);
-      --copy: var(--color-body);
       --glass-line: rgba(255, 255, 255, 0.34);
       --card-ref-w: 429;
       --card-ref-h: 554;
@@ -63,45 +99,149 @@
       --gap: clamp(8px, 1.5vw, 23px);
       --gutter: clamp(14px, 3.6vw, 54px);
       --content-max: calc(var(--card-count) * var(--card-ref-w) * 1px + (var(--card-count) - 1) * var(--gap));
-      --pad-top: clamp(20px, 8.4vh, 88px);
+      --pad-top: clamp(64px, 11vh, 104px);
       --pad-bottom: clamp(16px, 3vh, 48px);
       --masthead-gap: clamp(16px, 3vw, 40px);
-      --cards-offset: clamp(14px, 8.4vh, 80px);
+      --cards-offset: clamp(14px, 7vh, 72px);
 
       --radius-tag: 6px;
       --radius-control: 8px;
       --radius-card: 12px;
       --radius-pill: 999px;
+      --duration-fast: 140ms;
     }
 
     * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      min-width: 100%;
-      height: 100%;
-      overflow: hidden;
+    html {
+      scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
     }
-    body {
-      color: var(--ink);
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto; /* Fully scrollable page */
       background: var(--paper);
+      color: var(--color-ink);
       font-family: var(--font-sans);
-      font-optical-sizing: auto;
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
+    }
+
+    html[dir="rtl"] body {
+      font-family: var(--font-arabic);
     }
     button, a { font: inherit; }
 
     /* ==================================================
-       STAGE LAYOUT
+       STICKY TOP NAVIGATION BAR
+       ================================================== */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 60px;
+      padding: 0 var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(250, 249, 247, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-line);
+    }
+    .top-nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-ink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+    .top-nav__logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--color-action);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .top-nav__links {
+      display: none;
+      align-items: center;
+      gap: 24px;
+    }
+    @media (min-width: 900px) {
+      .top-nav__links { display: flex; }
+    }
+    .nav-link {
+      color: var(--color-body);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color var(--duration-fast) ease;
+    }
+    .nav-link:hover {
+      color: var(--color-action);
+    }
+    .top-nav__actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-action {
+      min-height: 40px;
+      padding: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--color-line-strong);
+      background: var(--color-surface);
+      color: var(--color-ink);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--duration-fast) ease;
+    }
+    .btn-action:hover {
+      border-color: var(--color-action);
+      color: var(--color-action);
+    }
+    .btn-action:focus-visible {
+      outline: 2px solid var(--color-action);
+      outline-offset: 2px;
+    }
+    .btn-action--primary {
+      background: var(--color-action);
+      border-color: var(--color-action);
+      color: #fff;
+    }
+    .btn-action--primary:hover {
+      background: var(--color-action-hover);
+      border-color: var(--color-action-hover);
+      color: #fff;
+    }
+
+    /* ==================================================
+       SECTION 1: HERO MARKETING STAGE
        ================================================== */
     .stage {
       position: relative;
       isolation: isolate;
       display: flex;
       flex-direction: column;
-      height: 100svh;
-      overflow: hidden;
+      min-height: 100svh;
       padding: var(--pad-top) var(--gutter) var(--pad-bottom);
       background:
         linear-gradient(rgba(250, 249, 247, 0.12), rgba(250, 249, 247, 0.12)),
@@ -120,27 +260,11 @@
     }
     .stage-motion--narrow { display: none; }
 
-    .paper-texture {
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      display: none;
-    }
-    .filter-defs {
-      position: absolute;
-      width: 0;
-      height: 0;
-      overflow: hidden;
-    }
-
-    .masthead, .cards {
+    .masthead, .cards-hero {
       width: min(100%, var(--content-max));
       margin-inline: auto;
     }
 
-    /* ==================================================
-       MASTHEAD (Tailored to UI Design Reference)
-       ================================================== */
     .masthead {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, clamp(260px, 32vw, 483px));
@@ -157,7 +281,11 @@
       font-size: clamp(24px, min(3.1vw, 5.9vh), 47px);
       font-weight: 700;
       letter-spacing: -0.025em;
-      line-height: 1.15;
+      line-height: 1.18;
+    }
+    html[dir="rtl"] h1.headline {
+      letter-spacing: 0;
+      line-height: 1.25;
     }
 
     .headline__line {
@@ -171,7 +299,7 @@
       align-items: center;
       flex: 0 0 auto;
       height: .766em;
-      margin-left: .32em;
+      margin-inline-start: .32em;
       color: var(--color-action);
       transform: translateY(.085em);
     }
@@ -181,6 +309,7 @@
       width: auto;
       overflow: visible;
       color: inherit;
+      direction: ltr;
     }
 
     p.intro {
@@ -194,46 +323,53 @@
       line-height: 1.62;
       max-width: 70ch;
     }
+    html[dir="rtl"] p.intro {
+      letter-spacing: 0;
+      line-height: 1.78;
+    }
+
     .desktop-break { display: none; }
     @container (min-width: 26.5em) {
       .desktop-break { display: inline; }
     }
 
-    /* ==================================================
-       CARDS ROW & CONTAINER UNIT
-       ================================================== */
-    section.cards {
-      flex: 1 1 auto;
-      container-type: size;
-      display: flex;
-      justify-content: space-between;
+    /* Cards Hero Row */
+    section.cards-hero {
+      width: 100%;
+      max-width: 1340px;
+      margin: clamp(24px, 4vh, 48px) auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(14px, 2vw, 28px);
       align-items: center;
-      gap: var(--gap);
-      min-height: 0;
-      margin-top: var(--cards-offset);
-      --card-w: min(
-        (100cqw - (var(--card-count) - 1) * var(--gap)) / var(--card-count),
-        100cqh * var(--card-ref-w) / var(--card-ref-h),
-        var(--card-ref-w) * 1px
-      );
+      justify-content: center;
     }
 
-    .card {
+    .card-hero {
       container-type: inline-size;
       position: relative;
-      flex: 0 0 auto;
-      overflow: hidden;
-      width: var(--card-w);
+      width: 100%;
+      max-width: 429px;
+      margin: 0 auto;
       aspect-ratio: 429 / 554;
       border: 1px solid var(--glass-line);
-      border-radius: calc(var(--card-w) * 12 / 429);
+      border-radius: clamp(14px, 3cqw, 24px);
       background-origin: border-box;
       color: #fff;
       --u: calc(100cqw / 429);
-      box-shadow: 0 4px 18px rgba(26, 26, 23, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      box-shadow: 0 10px 36px rgba(26, 26, 23, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    }
+    .card-hero:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 52px rgba(26, 26, 23, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.36);
     }
 
-    .card::before {
+    .card-hero::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -245,7 +381,7 @@
         radial-gradient(ellipse 85% 34% at 54% 7%, rgba(255, 255, 255, 0.24), transparent 72%);
     }
 
-    .card__grain {
+    .card-hero__grain {
       position: absolute;
       z-index: 2;
       inset: -8%;
@@ -256,7 +392,7 @@
       pointer-events: none;
     }
 
-    .card__media {
+    .card-hero__media {
       position: absolute;
       inset: 0;
       z-index: 0;
@@ -266,10 +402,7 @@
       pointer-events: none;
     }
 
-    /* ==================================================
-       CARD 1 — SPATIAL SYSTEM (.card--speed)
-       ================================================== */
-    .card--speed {
+    .card-hero--speed {
       background:
         radial-gradient(ellipse 34% 24% at 50% 2%, rgba(200, 224, 255, 0.15) 0%, transparent 76%),
         radial-gradient(ellipse 44% 34% at 106% 20%, rgba(190, 215, 255, 0.12) 0%, transparent 74%),
@@ -292,54 +425,8 @@
         linear-gradient(180deg, #2563eb 0%, #1d4ed8 38%, #1e40af 72%, #0f172a 100%);
       background-origin: border-box;
     }
-    .card--speed::before {
-      background:
-        linear-gradient(103deg, rgba(255, 255, 255, 0.09), transparent 31%, rgba(255, 255, 255, 0.06) 63%, transparent 88%),
-        radial-gradient(ellipse 92% 19% at 51% 0%, rgba(255, 255, 255, 0.10), transparent 78%);
-    }
-    .card--speed .card__grain { opacity: .54; }
-    .card--speed .card__title { top: 6.3%; color: #fff; font-size: calc(22.7 * var(--u)); }
 
-    /* Spatial Gauge (Radar) */
-    svg.gauge {
-      position: absolute;
-      z-index: 2;
-      top: 27.63%;
-      left: 10.5%;
-      width: 79%;
-      height: 59%;
-      overflow: visible;
-      pointer-events: none;
-    }
-    .tick { stroke: rgba(199, 219, 251, 0.42); }
-
-    .metric--speed {
-      top: 48.6%;
-    }
-    .metric--speed .dot-number {
-      display: inline-flex;
-      align-items: flex-end;
-    }
-    .metric--speed .dot-number svg {
-      height: calc(44 * var(--u));
-      width: auto;
-    }
-    .metric--speed .metric__unit {
-      margin-left: calc(6 * var(--u));
-      font-size: calc(30.6 * var(--u));
-      transform: translateY(calc(3 * var(--u)));
-      font-weight: 600;
-      opacity: 0.95;
-    }
-    .card--speed .caption {
-      top: 64.75%;
-      font-size: calc(20.33 * var(--u));
-    }
-
-    /* ==================================================
-       CARD 2 — TYPOGRAPHY & SCALE (.card--context)
-       ================================================== */
-    .card--context {
+    .card-hero--context {
       background:
         radial-gradient(ellipse 118% 66% at 48% -8%, rgba(221, 232, 255, 0.08), transparent 74%),
         radial-gradient(ellipse 106% 52% at 48% 112%, rgba(230, 180, 255, 0.10), transparent 73%),
@@ -355,133 +442,8 @@
         linear-gradient(164deg, #7c3aed 0%, #6d28d9 29%, #4c1d95 64%, #1e1b4b 100%);
       background-origin: border-box;
     }
-    .card--context .card__title {
-      font-size: calc(23 * var(--u));
-      line-height: 1.48;
-    }
-    .card--context .card__grain { opacity: .68; }
-    .card--context::before {
-      mix-blend-mode: multiply;
-      opacity: .54;
-      background:
-        radial-gradient(ellipse 18% 23% at 20% 32%, rgba(50, 20, 120, 0.24), transparent 76%),
-        radial-gradient(ellipse 20% 24% at 81% 30%, rgba(70, 25, 100, 0.22), transparent 76%),
-        radial-gradient(ellipse 66% 9% at 50% 30%, rgba(60, 20, 110, 0.26), transparent 82%),
-        radial-gradient(ellipse 68% 8% at 50% 69%, rgba(40, 15, 80, 0.23), transparent 83%),
-        linear-gradient(103deg, rgba(255, 255, 255, 0.08), transparent 31%, rgba(255, 255, 255, 0.05) 63%, transparent 88%);
-    }
 
-    .context-backdrop {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-    }
-    .context-backdrop svg {
-      width: 100%;
-      height: 100%;
-      mask: linear-gradient(180deg, #000 0%, #000 54%, rgba(0, 0, 0, 0.72) 58%, rgba(0, 0, 0, 0.18) 62%, transparent 65%);
-      -webkit-mask: linear-gradient(180deg, #000 0%, #000 54%, rgba(0, 0, 0, 0.72) 58%, rgba(0, 0, 0, 0.18) 62%, transparent 65%);
-    }
-
-    /* Typographic Hierarchy Specimen Window */
-    .context-window {
-      position: absolute;
-      z-index: 3;
-      top: 31.4%;
-      left: 17%;
-      width: 66%;
-      height: 31.5%;
-      overflow: hidden;
-      padding: calc(14 * var(--u)) calc(16 * var(--u));
-      border-radius: calc(10 * var(--u));
-      background:
-        linear-gradient(0deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0) 80%),
-        linear-gradient(270deg, rgba(124, 58, 237, 0.62) 0px, rgba(124, 58, 237, 0) calc(5 * var(--u))),
-        radial-gradient(ellipse 118% 70% at 60% 8%, rgba(235, 215, 255, 0.34), transparent 74%),
-        linear-gradient(105deg, rgba(245, 235, 255, 0.72) 0%, rgba(167, 139, 250, 0.68) 51%, rgba(124, 58, 237, 0.82) 100%);
-      box-shadow: 0 calc(13 * var(--u)) calc(25 * var(--u)) rgba(30, 10, 60, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20);
-      backdrop-filter: blur(calc(9 * var(--u))) saturate(1.08);
-      -webkit-backdrop-filter: blur(calc(9 * var(--u))) saturate(1.08);
-    }
-    .context-window .window-grain {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: .24;
-      mix-blend-mode: soft-light;
-      pointer-events: none;
-    }
-    .window-lines {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    /* Hierarchy: Tag, Display, Body, Caption */
-    .window-lines span:nth-child(1) {
-      display: block;
-      height: calc(5 * var(--u));
-      border-radius: calc(2.5 * var(--u));
-      background: rgba(255, 255, 255, 0.90);
-      width: 32%;
-    }
-    .window-lines span:nth-child(2) {
-      display: block;
-      width: 100%;
-      height: calc(18 * var(--u));
-      border-radius: calc(5 * var(--u));
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(233, 213, 255, 0.88) 46%, rgba(196, 181, 253, 0.85));
-    }
-    .window-lines span:nth-child(3) {
-      display: block;
-      width: 88%;
-      height: calc(5 * var(--u));
-      border-radius: calc(2.5 * var(--u));
-      background: rgba(255, 255, 255, 0.70);
-    }
-    .window-lines span:nth-child(4) {
-      display: block;
-      width: 64%;
-      height: calc(5 * var(--u));
-      border-radius: calc(2.5 * var(--u));
-      background: rgba(255, 255, 255, 0.55);
-    }
-
-    .metric--context {
-      top: 48.0%;
-    }
-    .metric--context .dot-number {
-      display: inline-flex;
-      align-items: flex-end;
-    }
-    .metric--context .dot-number svg {
-      height: calc(44 * var(--u));
-      width: auto;
-    }
-    .metric--context .metric__unit {
-      margin-left: calc(6 * var(--u));
-      font-size: calc(30.6 * var(--u));
-      transform: translateY(calc(3 * var(--u)));
-      font-weight: 600;
-      opacity: 0.95;
-    }
-    .card--context .caption {
-      top: 65.72%;
-      color: rgba(255, 255, 255, 0.88);
-      font-size: calc(19.1 * var(--u));
-      letter-spacing: calc(-.28 * var(--u));
-      line-height: 1.38;
-    }
-
-    /* ==================================================
-       CARD 3 — BILINGUAL PARITY (.card--connections)
-       ================================================== */
-    .card--connections {
+    .card-hero--connections {
       background:
         radial-gradient(ellipse 54% 14% at 56% 0%, rgba(255, 230, 210, 0.16), transparent 76%),
         radial-gradient(ellipse 38% 24% at 102% 8%, rgba(255, 210, 180, 0.24), transparent 75%),
@@ -493,53 +455,8 @@
         linear-gradient(177deg, #c25e1a 0%, #b45309 24%, #92400e 52%, #78350f 78%, #451a03 100%);
       background-origin: border-box;
     }
-    .card--connections .card__grain { opacity: .58; }
-    .card--connections::before {
-      background:
-        linear-gradient(102deg, rgba(255, 255, 255, 0.08), transparent 30%, rgba(255, 255, 255, 0.05) 62%, transparent 88%),
-        radial-gradient(ellipse 84% 26% at 54% 4%, rgba(255, 255, 255, 0.12), transparent 74%);
-    }
 
-    .connections-map {
-      position: absolute;
-      z-index: 2;
-      top: 21.7%;
-      left: 0;
-      width: 100%;
-      height: 43%;
-      opacity: .78;
-      pointer-events: none;
-    }
-    .connections-map svg {
-      width: 100%;
-      height: 100%;
-      mask: linear-gradient(180deg, #000 0%, #000 50%, rgba(0, 0, 0, 0.46) 67%, rgba(0, 0, 0, 0.15) 83%, transparent 96%);
-      -webkit-mask: linear-gradient(180deg, #000 0%, #000 50%, rgba(0, 0, 0, 0.46) 67%, rgba(0, 0, 0, 0.15) 83%, transparent 96%);
-    }
-
-    .metric--connections {
-      top: 48.5%;
-    }
-    .metric--connections .dot-number {
-      display: inline-flex;
-      align-items: flex-end;
-    }
-    .metric--connections .dot-number svg {
-      height: calc(44 * var(--u));
-      width: auto;
-    }
-    .metric--connections .metric__unit {
-      margin-left: calc(6 * var(--u));
-      font-size: calc(30.6 * var(--u));
-      transform: translateY(calc(3 * var(--u)));
-      font-weight: 600;
-      opacity: 0.95;
-    }
-
-    /* ==================================================
-       SHARED CARD CONTROLS & TYPOGRAPHY
-       ================================================== */
-    .card__title {
+    .card-hero__title {
       position: absolute;
       z-index: 4;
       top: 6.1%;
@@ -549,15 +466,15 @@
       color: rgba(255, 255, 255, 0.96);
       font-size: calc(22.95 * var(--u));
       font-weight: 600;
-      letter-spacing: 0;
       line-height: 1.48;
       text-align: center;
       text-shadow: 0 1px 2px rgba(26, 26, 23, 0.24);
     }
 
-    .metric {
+    .metric-hero {
       position: absolute;
       z-index: 5;
+      top: 48.2%;
       left: 0;
       width: 100%;
       display: flex;
@@ -566,35 +483,48 @@
       color: rgba(255, 255, 255, 0.97);
       filter: drop-shadow(0 1px 2px rgba(26, 26, 23, 0.18));
       pointer-events: none;
+      direction: ltr;
+    }
+    .metric-hero .dot-number {
+      display: inline-flex;
+      align-items: flex-end;
+    }
+    .metric-hero .dot-number svg {
+      height: calc(44 * var(--u));
+      width: auto;
+    }
+    .metric-hero .metric__unit {
+      margin-inline-start: calc(6 * var(--u));
+      font-size: calc(30.6 * var(--u));
+      transform: translateY(calc(3 * var(--u)));
+      font-weight: 600;
+      direction: ltr;
     }
 
-    .caption {
+    .caption-hero {
       position: absolute;
       z-index: 5;
       top: 65.1%;
-      left: 10%;
-      width: 80%;
+      left: 8%;
+      width: 84%;
       color: rgba(255, 255, 255, 0.88);
       font-size: calc(19.95 * var(--u));
       font-weight: 400;
-      letter-spacing: calc(-.36 * var(--u));
       line-height: 1.45;
       text-align: center;
       text-shadow: 0 1px 2px rgba(26, 26, 23, 0.22);
     }
 
-    /* Action Links conforming strictly to DESIGN_SYSTEM.md §4:
-       min-height: 44px, radius 8px, accessible focus ring */
-    .learn-more {
+    .btn-hero {
       position: absolute;
       z-index: 6;
       top: 83.75%;
       left: 50%;
       transform: translateX(-50%);
-      width: calc(134 * var(--u));
+      width: calc(142 * var(--u));
       height: calc(44 * var(--u));
       min-height: 44px;
-      padding: 0 calc(18 * var(--u));
+      padding: 0 calc(16 * var(--u));
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -605,416 +535,1671 @@
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.60) inset, 0 2px 6px rgba(26, 26, 23, 0.14);
       font-size: calc(14 * var(--u));
       font-weight: 600;
-      letter-spacing: -0.01em;
       cursor: pointer;
       text-decoration: none;
       white-space: nowrap;
-      transition: transform var(--duration-fast, 140ms) ease, box-shadow var(--duration-fast, 140ms) ease, background var(--duration-fast, 140ms) ease;
+      transition: all var(--duration-fast) ease;
     }
-    .learn-more:hover {
+    .btn-hero:hover {
       transform: translateX(-50%) translateY(calc(-2 * var(--u)));
       background: #ffffff;
       box-shadow: 0 6px 18px rgba(26, 26, 23, 0.22);
-      text-decoration: none;
-    }
-    .learn-more:active {
-      transform: translateX(-50%) translateY(0);
-      background: var(--color-surface-sunken);
-    }
-    .learn-more:focus-visible {
-      outline: 2px solid var(--color-action);
-      outline-offset: 2px;
     }
 
-    /* ==================================================
-       ENTRANCE ANIMATIONS (one-shot, entrance-active)
-       ================================================== */
-    @keyframes headline-reveal {
-      from { opacity: 0; transform: translateY(0.52em); clip-path: inset(0 0 56% 0); }
-      to   { opacity: 1; transform: none; clip-path: inset(-8% -2% -8% -2%); }
+    /* Gauge & SVG elements */
+    svg.gauge-hero {
+      position: absolute;
+      z-index: 2;
+      top: 27.63%;
+      left: 10.5%;
+      width: 79%;
+      height: 59%;
+      overflow: visible;
+      pointer-events: none;
     }
-    @keyframes support-reveal {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: none; }
+    .context-window-hero {
+      position: absolute;
+      z-index: 3;
+      top: 31.4%;
+      left: 17%;
+      width: 66%;
+      height: 31.5%;
+      overflow: hidden;
+      padding: calc(14 * var(--u)) calc(16 * var(--u));
+      border-radius: calc(10 * var(--u));
+      background:
+        linear-gradient(0deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0) 80%),
+        linear-gradient(105deg, rgba(245, 235, 255, 0.72) 0%, rgba(167, 139, 250, 0.68) 51%, rgba(124, 58, 237, 0.82) 100%);
+      box-shadow: 0 calc(13 * var(--u)) calc(25 * var(--u)) rgba(30, 10, 60, 0.35);
+      backdrop-filter: blur(calc(9 * var(--u)));
     }
-    @keyframes card-establish {
-      from { opacity: 0.52; transform: translateY(10px) scale(0.985); }
-      to   { opacity: 1; transform: none; scale: 1; }
+    .window-lines-hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
-    @keyframes card-title-reveal {
-      from { opacity: 0; transform: translateY(calc(8 * var(--u))); clip-path: inset(0 0 48% 0); }
-      to   { opacity: 1; transform: none; clip-path: inset(-8% -2% -8% -2%); }
-    }
-    @keyframes gauge-resolve {
-      from { opacity: 0; transform: translateY(calc(9 * var(--u))) scale(0.972); clip-path: inset(0 7% 18% 7%); }
-      to   { opacity: 1; transform: none; scale: 1; clip-path: inset(-3%); }
-    }
-    @keyframes panel-resolve {
-      from { opacity: 0; transform: translateY(calc(10 * var(--u))) scale(0.972); clip-path: inset(8% 4% 8% 4%); }
-      to   { opacity: 1; transform: none; scale: 1; clip-path: inset(-3%); }
-    }
-    @keyframes network-resolve {
-      from { opacity: 0; transform: translateY(calc(6 * var(--u))); clip-path: inset(45% 0 45% 0); }
-      to   { opacity: .78; transform: none; clip-path: inset(0); }
-    }
-    @keyframes metric-resolve {
-      from { opacity: 0; transform: translateY(calc(7 * var(--u))) scale(0.985); filter: blur(2.5px); }
-      to   { opacity: 1; transform: none; scale: 1; filter: none; }
-    }
-    @keyframes control-settle {
-      from { opacity: 0; transform: translateX(-50%) translateY(calc(6 * var(--u))) scale(0.975); }
-      to   { opacity: 1; transform: translateX(-50%) none; scale: 1; }
+    .window-lines-hero span:nth-child(1) { height: calc(5*var(--u)); width: 32%; background: #fff; border-radius: 2px; }
+    .window-lines-hero span:nth-child(2) { height: calc(18*var(--u)); width: 100%; background: linear-gradient(90deg, #fff, #ddd); border-radius: 4px; }
+    .window-lines-hero span:nth-child(3) { height: calc(5*var(--u)); width: 88%; background: rgba(255,255,255,.7); border-radius: 2px; }
+    .window-lines-hero span:nth-child(4) { height: calc(5*var(--u)); width: 64%; background: rgba(255,255,255,.5); border-radius: 2px; }
+
+    .connections-map-hero {
+      position: absolute;
+      z-index: 2;
+      top: 21.7%;
+      left: 0;
+      width: 100%;
+      height: 43%;
+      opacity: .78;
     }
 
-    html.entrance-active .headline__line:nth-child(1) {
-      animation: headline-reveal 0.84s cubic-bezier(.16, 1, .3, 1) 0.08s both;
-    }
-    html.entrance-active .headline__line:nth-child(2) {
-      animation: headline-reveal 0.84s cubic-bezier(.16, 1, .3, 1) 0.17s both;
-    }
-    html.entrance-active .intro {
-      animation: support-reveal 0.72s cubic-bezier(.22, 1, .36, 1) 0.25s both;
-    }
-
-    html.entrance-active .card--speed       { --entrance-delay: 0.46s; }
-    html.entrance-active .card--context     { --entrance-delay: 0.58s; }
-    html.entrance-active .card--connections { --entrance-delay: 0.70s; }
-
-    html.entrance-active .card {
-      animation: card-establish 0.76s cubic-bezier(.16, 1, .3, 1) var(--entrance-delay) both;
-    }
-    html.entrance-active .card .card__title {
-      animation: card-title-reveal 0.62s cubic-bezier(.22, 1, .36, 1) calc(var(--entrance-delay) + 0.14s) both;
-    }
-    html.entrance-active .card .gauge {
-      animation: gauge-resolve 0.82s cubic-bezier(.16, 1, .3, 1) calc(var(--entrance-delay) + 0.30s) both;
-    }
-    html.entrance-active .card .context-window {
-      animation: panel-resolve 0.82s cubic-bezier(.16, 1, .3, 1) calc(var(--entrance-delay) + 0.30s) both;
-    }
-    html.entrance-active .card .connections-map {
-      animation: network-resolve 0.82s cubic-bezier(.16, 1, .3, 1) calc(var(--entrance-delay) + 0.30s) both;
-    }
-    html.entrance-active .card .metric {
-      animation: metric-resolve 0.66s cubic-bezier(.16, 1, .3, 1) calc(var(--entrance-delay) + 0.48s) both;
-    }
-    html.entrance-active .card .caption {
-      animation: support-reveal 0.54s cubic-bezier(.22, 1, .36, 1) calc(var(--entrance-delay) + 0.64s) both;
-    }
-    html.entrance-active .card .learn-more {
-      animation: control-settle 0.52s cubic-bezier(.16, 1, .3, 1) calc(var(--entrance-delay) + 0.80s) both;
-    }
-
-    /* ==================================================
-       RESPONSIVE RULES
-       ================================================== */
-    @media (min-width: 768px) and (max-width: 1180px) and (max-aspect-ratio: 6/7) {
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(2, max-content);
-        justify-content: center;
-        align-content: center;
-        --card-w: min(
-          (100cqw - var(--gap)) / 2,
-          (100cqh - var(--gap)) / 2 * 429 / 554,
-          429px
-        );
-      }
-      .card:last-child {
-        grid-column: 1 / -1;
-        justify-self: center;
+    /* Responsive Hero */
+    @media (max-width: 960px) {
+      .cards-hero {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        gap: 24px;
       }
     }
-
     @media (max-width: 767px) {
-      html, body {
-        height: auto;
-        overflow: visible;
-      }
       .stage {
-        height: auto;
-        min-height: 100svh;
-        overflow: visible;
-        background:
-          linear-gradient(rgba(250, 249, 247, 0.08), rgba(250, 249, 247, 0.08)),
-          url("https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/0f4926a4-e660-4df2-9195-2bfb3e341bdd.webp") center top / 100% 100% no-repeat,
-          var(--paper);
+        min-height: auto;
+        padding-top: 80px;
       }
       .stage-motion--wide { display: none; }
       .stage-motion--narrow { display: block; }
-      .masthead { grid-template-columns: minmax(0, 1fr); }
-      .cards {
-        container-type: inline-size;
-        flex: 0 0 auto;
-        flex-direction: column;
-        align-items: center;
-        --card-w: min(100cqw, 429px);
-      }
-      html.entrance-active .card {
-        --entrance-delay: 0.40s !important;
+      .masthead { grid-template-columns: 1fr; }
+      .cards-hero {
+        grid-template-columns: 1fr;
+        max-width: 429px;
+        gap: 24px;
+        min-height: auto;
       }
     }
 
     /* ==================================================
-       ACCESSIBILITY: PREFERS-REDUCED-MOTION
+       SECTION 2: INTERACTIVE DESIGN PRINCIPLES TRIPTYCH
        ================================================== */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+    .falcon-section {
+      position: relative;
+      background: var(--page);
+      padding: clamp(60px, 10vh, 100px) var(--gutter);
+      overflow: hidden;
+      border-top: 1px solid var(--color-line);
+      border-bottom: 1px solid var(--color-line);
+    }
+    .falcon-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(36px, 6vh, 60px);
+    }
+    .falcon-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--orange-soft);
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .falcon-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0 0 12px;
+    }
+    .falcon-subtitle {
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .falcon-container {
+      position: relative;
+      width: 100%;
+      max-width: 1340px;
+      aspect-ratio: 1.5204255;
+      margin: 0 auto;
+      container-type: size;
+    }
+
+    .falcon-cards {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      width: 81.71cqw;
+      height: var(--cards-height);
+      display: grid;
+      grid-template-columns: 32.33% 32.33% 31.70%;
+      justify-content: space-between;
+      align-items: start;
+      scale: var(--cards-scale);
+    }
+
+    .falcon-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 72.2% 27.8%;
+      border: .075cqw solid rgb(255 233 218 / 96%);
+      border-radius: 1.59cqw;
+      background: var(--surface);
+      box-shadow:
+        .32cqw 1.18cqh 1.42cqw rgb(44 35 29 / 11%),
+        0 .18cqh .42cqw rgb(44 35 29 / 3.5%);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .falcon-card:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        .32cqw 1.4cqh 1.8cqw rgb(44 35 29 / 16%),
+        0 .25cqh .6cqw rgb(44 35 29 / 6%);
+    }
+    .falcon-card:last-child {
+      height: 98.5%;
+      margin-top: .76%;
+    }
+
+    .falcon-panel {
+      position: relative;
+      margin-inline: 2.55%;
+      overflow: hidden;
+      border-radius: 1.28cqw 1.28cqw 1.08cqw 1.08cqw;
+      background:
+        radial-gradient(circle at 50% 78%, rgb(255 225 207 / 30%), transparent 47%),
+        linear-gradient(180deg, rgb(255 255 255 / 96%), rgb(255 248 243 / 94%));
+    }
+    .falcon-card:last-child .falcon-panel {
+      margin-inline: 2%;
+      background:
+        radial-gradient(circle at 74% 46%, rgb(255 225 204 / 70%), transparent 48%),
+        linear-gradient(180deg, rgb(255 255 255 / 96%), rgb(255 242 232 / 97%));
+    }
+
+    .falcon-card-copy {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+      padding: 5.5% 7.5% 6%;
+    }
+    .falcon-card-copy-text {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .falcon-card-copy h2 {
+      margin: 0 0 4px;
+      color: #292929;
+      font-size: var(--card-title-size);
+      font-weight: var(--weight-card-title);
+      line-height: 1.15;
+      letter-spacing: var(--card-title-tracking);
+    }
+    .falcon-card:last-child h2 {
+      font-size: var(--feature-title-size);
+      letter-spacing: var(--feature-title-tracking);
+    }
+    .falcon-card-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.35cqw;
+      font-weight: var(--weight-medium);
+      line-height: 1.4;
+    }
+
+    .falcon-corner-icon {
+      position: static;
+      flex: 0 0 auto;
+      width: 2.8cqw;
+      min-width: 32px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      color: var(--orange);
+      box-shadow: 0 2px 8px rgba(255, 105, 0, 0.16);
+      margin-bottom: 2px;
+    }
+
+    /* Card 1 Internal Elements */
+    .timeline {
+      position: absolute;
+      top: 5.7%;
+      left: 20.8%;
+      width: 58.4%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #f27624;
+      font-size: .62cqw;
+      font-weight: var(--weight-medium);
+      letter-spacing: -.015cqw;
+    }
+    .timeline i {
+      width: 20%;
+      border-top: .05cqw dashed rgb(190 139 96 / 70%);
+    }
+    .bars {
+      position: absolute;
+      left: 5.9%;
+      right: 5.9%;
+      bottom: 12%;
+      height: 62%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .bar {
+      width: 2.4%;
+      height: var(--h);
+      border-radius: 999px;
+      background: rgb(255 219 196 / 64%);
+    }
+    .bar.active {
+      width: 2.6%;
+      background: var(--orange);
+      box-shadow: 0 0 .28cqw rgb(255 105 0 / 24%);
+    }
+    .value-chip {
+      position: absolute;
+      top: 15.5%;
+      left: 46.2%;
+      width: 14%;
+      height: 7.6%;
+      display: grid;
+      place-items: center;
+      border: .12cqw solid #fff;
+      border-radius: 999px;
+      background: var(--orange);
+      box-shadow: 0 0 0 .055cqw var(--orange), 0 .28cqh .4cqw rgb(69 38 18 / 24%);
+      color: #fff;
+      font-size: .67cqw;
+      font-weight: var(--weight-semibold);
+    }
+    .axis {
+      position: absolute;
+      left: 7.7%;
+      right: 7.2%;
+      bottom: 5.2%;
+      display: flex;
+      justify-content: space-between;
+      color: #888;
+      font-size: .57cqw;
+    }
+    .spark {
+      position: relative;
+      width: 52%;
+      aspect-ratio: 1;
+    }
+    .spark::before {
+      content: "";
+      position: absolute;
+      top: 41%;
+      left: 0;
+      width: 100%;
+      height: 18%;
+      border-radius: 999px;
+      background: currentColor;
+    }
+    .spark::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 41%;
+      width: 18%;
+      height: 100%;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    /* Card 2 Internal Elements */
+    .assistant-head {
+      position: absolute;
+      top: 8.2%;
+      left: 6.2%;
+      display: flex;
+      align-items: center;
+      gap: 1.02cqw;
+      color: var(--orange);
+      font-size: 1.28cqw;
+      font-weight: var(--weight-bold);
+      letter-spacing: -.04cqw;
+    }
+    .assistant-head .badge {
+      width: 2.16cqw;
+      height: 2.16cqw;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      display: grid;
+      place-items: center;
+    }
+    .assistant-head .badge .spark {
+      width: 48%;
+      height: 48%;
+      background: currentColor;
+      filter: blur(.035cqw);
+      clip-path: polygon(
+        47% 0, 53% 0, 58% 28%, 65% 35%, 72% 42%, 100% 47%, 100% 53%,
+        72% 58%, 65% 65%, 58% 72%, 53% 100%, 47% 100%,
+        42% 72%, 35% 65%, 28% 58%, 0 53%, 0 47%, 28% 42%, 35% 35%, 42% 28%
+      );
+    }
+    .assistant-head .badge .spark::before,
+    .assistant-head .badge .spark::after { content: none; }
+
+    .question {
+      position: absolute;
+      top: 21.5%;
+      left: 6.2%;
+      margin: 0;
+      color: #151515;
+      font-size: 1.34cqw;
+      font-weight: var(--weight-medium);
+      line-height: 1;
+      letter-spacing: -.07cqw;
+    }
+    .prompt {
+      position: absolute;
+      top: 32%;
+      left: 6.2%;
+      width: 87.2%;
+      height: 35.8%;
+      padding: 4.7% 4.2%;
+      border: .06cqw solid #beb4ae;
+      border-radius: .86cqw;
+      background: rgb(255 255 255 / 32%);
+      color: var(--muted);
+      font-size: 1.03cqw;
+      font-weight: var(--weight-body);
+      line-height: 1.31;
+      letter-spacing: -.035cqw;
+    }
+    .automate {
+      position: absolute;
+      top: 78.1%;
+      left: 6.2%;
+      width: 34.6%;
+      height: 11.6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline: 1cqw;
+      border-radius: 999px;
+      background: linear-gradient(100deg, #ff9b5b 0%, #ff8840 38%, #ff6b05 100%);
+      box-shadow:
+        0 .6cqh 1.35cqw rgb(255 105 0 / 52%),
+        0 .2cqh .46cqw rgb(255 105 0 / 31%),
+        0 0 .82cqw .08cqw rgb(255 118 30 / 24%);
+      color: #fff;
+      font-size: .98cqw;
+      font-weight: var(--weight-body);
+      line-height: 1;
+    }
+    .automate-label {
+      letter-spacing: -.025cqw;
+      transform: scaleX(1.03);
+      transform-origin: left center;
+    }
+    canvas.magic {
+      flex: 0 0 auto;
+      width: 1.5cqw;
+      height: 1.46cqw;
+      transform: translateX(-.15cqw);
+    }
+    .cursor {
+      position: absolute;
+      top: 85.7%;
+      left: 54%;
+      width: 4.3%;
+      aspect-ratio: .72;
+      z-index: 3;
+      isolation: isolate;
+      filter:
+        drop-shadow(0 0 .075cqw #fff)
+        drop-shadow(0 0 .075cqw #fff)
+        drop-shadow(.08cqw .16cqw .08cqw rgb(0 0 0 / 48%));
+    }
+    .cursor::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #050505;
+      clip-path: polygon(0 0, 94% 62%, 57% 67%, 38% 100%);
+    }
+    .cursor::after {
+      content: "";
+      position: absolute;
+      inset: -11%;
+      z-index: -1;
+      background: #fff;
+      clip-path: polygon(0 0, 94% 62%, 57% 67%, 38% 100%);
+    }
+    .flow-icon {
+      position: relative;
+      width: 54%;
+      height: 58%;
+      background: linear-gradient(var(--orange), var(--orange)) center / 48% 18% no-repeat;
+    }
+    .flow-icon::before, .flow-icon::after {
+      content: "";
+      position: absolute;
+      width: 34%;
+      height: 70%;
+      border-radius: 999px;
+      background: var(--orange);
+    }
+    .flow-icon::before { left: 4%; top: 24%; }
+    .flow-icon::after  { right: 4%; top: 6%; }
+
+    /* Card 3 Internal Elements */
+    .metric-falcon {
+      position: absolute;
+      top: 7.8%;
+      left: 5.2%;
+    }
+    .metric-falcon-label {
+      margin-bottom: .38cqh;
+      color: #676767;
+      font-size: .88cqw;
+      font-weight: var(--weight-body);
+    }
+    .metric-falcon-row {
+      display: flex;
+      align-items: center;
+      gap: 1.02cqw;
+    }
+    .metric-falcon-row strong {
+      color: var(--orange);
+      font-size: 2.1cqw;
+      font-weight: var(--weight-bold);
+      line-height: .95;
+      letter-spacing: -.04cqw;
+    }
+    .metric-falcon-row span {
+      margin-top: .52cqh;
+      color: var(--green);
+      font-size: .93cqw;
+      font-weight: var(--weight-bold);
+      letter-spacing: -.045cqw;
+    }
+    .decision-flow {
+      position: absolute;
+      top: 39%;
+      left: 0;
+      width: 100%;
+      height: 53%;
+      display: block;
+      pointer-events: none;
+    }
+    .tag-falcon {
+      position: absolute;
+      z-index: 2;
+      height: 8.3%;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgb(255 255 255 / 95%);
+      color: #282828;
+      font-size: .62cqw;
+      font-weight: var(--weight-semibold);
+      letter-spacing: -.012cqw;
+      box-shadow: 0 .15cqh .35cqw rgb(44 35 29 / 8%);
+    }
+    .tag-falcon.action     { top: 34.8%; right: 8%; width: 28%; }
+    .tag-falcon.confidence { top: 67%;   left: 6%;  width: 40%; }
+    .tag-falcon.path       { top: 82.2%; right: 8%; width: 37%; }
+    .speed {
+      position: relative;
+      width: 58%;
+      aspect-ratio: 1;
+      background:
+        linear-gradient(var(--orange), var(--orange)) 0 31% / 27% 8% no-repeat,
+        linear-gradient(var(--orange), var(--orange)) 0 49% / 38% 8% no-repeat,
+        linear-gradient(var(--orange), var(--orange)) 0 67% / 22% 8% no-repeat;
+    }
+    .speed::before {
+      content: "";
+      position: absolute;
+      inset: 4% 1% 2% 28%;
+      background: var(--orange);
+      clip-path: polygon(58% 0, 100% 0, 69% 40%, 94% 40%, 28% 100%, 44% 58%, 7% 58%);
+    }
+
+    /* Responsive Falcon */
+    @media (max-width: 960px) {
+      .falcon-container {
+        aspect-ratio: auto;
+        height: auto;
+        container-type: normal;
       }
-      .stage-motion, .card__media {
-        display: none !important;
+      .falcon-cards {
+        position: static;
+        top: auto; left: auto; translate: none;
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        scale: 1;
       }
+      .falcon-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 429 / 554;
+        border-radius: 22px;
+        border-width: 1px;
+        box-shadow: 0 8px 24px rgba(44, 35, 29, 0.08);
+      }
+      .falcon-panel {
+        border-radius: 20px 20px 16px 16px;
+      }
+      .falcon-card-copy {
+        padding: 16px 20px 18px;
+      }
+      .falcon-card-copy h2 {
+        font-size: 20px;
+        letter-spacing: -0.015em;
+      }
+      .falcon-card:last-child h2 {
+        font-size: 22px;
+      }
+      .falcon-card-copy p {
+        font-size: 14px;
+        line-height: 1.45;
+      }
+      .falcon-corner-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+      }
+      .timeline {
+        font-size: 11px;
+        letter-spacing: 0;
+      }
+      .timeline i {
+        border-top-width: 1px;
+      }
+      .value-chip {
+        font-size: 12px;
+        border-width: 1.5px;
+      }
+      .axis {
+        font-size: 10px;
+      }
+      .assistant-head {
+        font-size: 16px;
+        gap: 8px;
+      }
+      .assistant-head .badge {
+        width: 26px;
+        height: 26px;
+      }
+      .question {
+        font-size: 16px;
+      }
+      .prompt {
+        font-size: 13px;
+        border-width: 1px;
+        border-radius: 12px;
+        padding: 12px 14px;
+      }
+      .automate {
+        font-size: 13px;
+        padding-inline: 14px;
+      }
+      canvas.magic {
+        width: 18px;
+        height: 18px;
+      }
+      .metric-falcon-label {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+      .metric-falcon-row {
+        gap: 10px;
+      }
+      .metric-falcon-row strong {
+        font-size: 26px;
+      }
+      .metric-falcon-row span {
+        font-size: 13px;
+      }
+      .tag-falcon {
+        font-size: 11px;
+        padding: 2px 10px;
+      }
+    }
+
+    /* ==================================================
+       SECTION 3: 21ST.DEV INTERACTIVE BENTO GRID
+       ================================================== */
+    .bento-section {
+      padding: clamp(60px, 10vh, 100px) var(--gutter);
+      background: var(--color-ground);
+    }
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto clamp(36px, 6vh, 60px);
+    }
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--color-action-tint);
+      color: var(--color-action);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-ink);
+      margin: 0 0 14px;
+    }
+    .section-desc {
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: var(--color-body);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .bento-card {
+      position: relative;
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease, border-color var(--duration-fast) ease;
+    }
+    .bento-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(26, 26, 23, 0.08);
+      border-color: var(--color-line-hover);
+    }
+    .bento-col-8 { grid-column: span 8; }
+    .bento-col-4 { grid-column: span 4; }
+    .bento-col-6 { grid-column: span 6; }
+    .bento-col-12 { grid-column: span 12; }
+
+    @media (max-width: 900px) {
+      .bento-col-8, .bento-col-4, .bento-col-6 {
+        grid-column: span 12;
+      }
+    }
+
+    .bento-visual {
+      min-height: 140px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background: var(--color-surface-sunken);
+      border: 1px dashed var(--color-line-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .bento-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-ink);
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+    .bento-desc {
+      font-size: 15px;
+      color: var(--color-body);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Bento visual details */
+    .rhythm-bars {
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+      height: 80px;
+    }
+    .rhythm-bar {
+      width: 28px;
+      border-radius: 4px;
+      background: var(--color-action);
+      color: #fff;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    .contrast-badge {
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      background: #10B981;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .type-scale-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 85%;
+    }
+    .type-scale-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #7C3AED, #A78BFA);
+    }
+
+    /* ==================================================
+       SECTION 4: 21ST.DEV METRICS STRIP
+       ================================================== */
+    .metrics-section {
+      padding: clamp(48px, 8vh, 80px) var(--gutter);
+      background: #ffffff;
+      border-top: 1px solid var(--color-line);
+      border-bottom: 1px solid var(--color-line);
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(16px, 3vw, 40px);
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .metric-val {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      color: var(--color-action);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .metric-lbl {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ==================================================
+       SECTION 5: 21ST.DEV REVIEWS MARQUEE
+       ================================================== */
+    .marquee-section {
+      padding: clamp(60px, 8vh, 90px) 0;
+      background: var(--color-ground);
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: marquee 35s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+    html[dir="rtl"] .marquee-track {
+      animation-name: marquee-rtl;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-rtl {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(50%); }
+    }
+    .review-card {
+      width: 340px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-card);
+      padding: 22px;
+      box-shadow: 0 4px 12px rgba(26, 26, 23, 0.04);
+      flex-shrink: 0;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-action-tint);
+      color: var(--color-action);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .review-name { font-weight: 600; font-size: 15px; color: var(--color-ink); }
+    .review-role { font-size: 12px; color: var(--color-muted); }
+    .review-text { font-size: 14px; line-height: 1.55; color: var(--color-body); margin: 0; }
+
+    /* ==================================================
+       SECTION 6: 21ST.DEV ACCESSIBLE FAQ ACCORDION
+       ================================================== */
+    .faq-section {
+      padding: clamp(60px, 10vh, 100px) var(--gutter);
+      background: #ffffff;
+      border-top: 1px solid var(--color-line);
+    }
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-card);
+      background: var(--color-ground);
+      overflow: hidden;
+      transition: border-color var(--duration-fast) ease;
+    }
+    .faq-item:hover { border-color: var(--color-line-hover); }
+    .faq-question {
+      width: 100%;
+      padding: 20px 24px;
+      text-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: none;
+      border: none;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-ink);
+      cursor: pointer;
+    }
+    .faq-question:focus-visible {
+      outline: 2px solid var(--color-action);
+    }
+    .faq-chevron {
+      width: 20px;
+      height: 20px;
+      transition: transform var(--duration-fast) ease;
+    }
+    .faq-item.active .faq-chevron {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 24px 22px;
+      color: var(--color-body);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* ==================================================
+       SECTION 7: CTA BANNER & FOOTER
+       ================================================== */
+    .cta-section {
+      padding: clamp(60px, 10vh, 100px) var(--gutter);
+      background: var(--color-ground);
+    }
+    .cta-card {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #1F5AE0 0%, #123A96 100%);
+      border-radius: 20px;
+      padding: clamp(36px, 6vw, 64px);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(31, 90, 224, 0.25);
+    }
+    .cta-card h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 700;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+    }
+    .cta-card p {
+      font-size: clamp(15px, 1.8vw, 18px);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+    .cta-btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 50px;
+      padding: 0 32px;
+      border-radius: var(--radius-control);
+      background: #ffffff;
+      color: var(--color-action-pressed);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+    }
+    .cta-btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    footer.site-footer {
+      padding: 40px var(--gutter);
+      background: #ffffff;
+      border-top: 1px solid var(--color-line);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      color: var(--color-muted);
+      font-size: 13px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <!-- SVG Global Filter Definitions -->
-  <div class="filter-defs" aria-hidden="true">
-    <svg>
-      <defs>
-        <!-- Card Noise -->
-        <filter id="cardNoise">
-          <feTurbulence type="fractalNoise" baseFrequency=".54" numOctaves="3" seed="27" stitchTiles="stitch" />
-          <feColorMatrix type="saturate" values="0" />
-          <feComponentTransfer>
-            <feFuncR type="linear" slope="1.8" intercept="-.25" />
-            <feFuncG type="linear" slope="1.8" intercept="-.25" />
-            <feFuncB type="linear" slope="1.8" intercept="-.25" />
-            <feFuncA type="table" tableValues="0 .52" />
-          </feComponentTransfer>
-        </filter>
+  <!-- STICKY TOP NAV -->
+  <header class="top-nav">
+    <a href="#hero" class="top-nav__brand">
+      <div class="top-nav__logo" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect width="7" height="7" x="3" y="3" rx="1.5" />
+          <rect width="7" height="7" x="14" y="3" rx="1.5" />
+          <rect width="7" height="7" x="14" y="14" rx="1.5" />
+          <rect width="7" height="7" x="3" y="14" rx="1.5" />
+        </svg>
+      </div>
+      <span data-i18n="brandTitle">UI Design Reference</span>
+    </a>
 
-        <!-- Context Panel Noise -->
-        <filter id="panelNoiseF">
-          <feTurbulence type="fractalNoise" baseFrequency=".58" numOctaves="3" seed="13" stitchTiles="stitch" />
-          <feColorMatrix type="saturate" values="0" />
-          <feComponentTransfer>
-            <feFuncA type="table" tableValues="0 .38" />
-          </feComponentTransfer>
-        </filter>
+    <nav class="top-nav__links" aria-label="Main Navigation">
+      <a href="#hero" class="nav-link" data-i18n="navHero">Overview</a>
+      <a href="#operations" class="nav-link" data-i18n="navOps">Design Principles</a>
+      <a href="#bento" class="nav-link" data-i18n="navBento">System Pillars</a>
+      <a href="#metrics" class="nav-link" data-i18n="navMetrics">Impact</a>
+      <a href="#faq" class="nav-link" data-i18n="navFaq">FAQ</a>
+    </nav>
 
-        <!-- Gauge Filters -->
-        <filter id="radarSoft"><feGaussianBlur stdDeviation="1.35" /></filter>
-        <filter id="radarHalo"><feGaussianBlur stdDeviation="5.2" /></filter>
-        <filter id="gaugeBlur"><feGaussianBlur stdDeviation="11" /></filter>
-      </defs>
-    </svg>
-  </div>
+    <div class="top-nav__actions">
+      <a href="/#/login" class="btn-action" data-i18n="signIn">
+        Sign in
+      </a>
+      <a href="/" class="btn-action btn-action--primary" data-i18n="openDocs">
+        Open Course ↗
+      </a>
+      <button type="button" class="btn-action" id="langToggle">
+        <span id="langLabel">العربية</span>
+      </button>
+    </div>
+  </header>
 
-  <!-- Hidden Paper Texture (display: none, per spec) -->
-  <svg class="paper-texture" aria-hidden="true">
-    <defs>
-      <filter id="paperNoise">
-        <feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="4" seed="8" stitchTiles="stitch" />
-        <feColorMatrix type="saturate" values="0" />
-      </filter>
-      <pattern id="paperFiber" width="100" height="100" patternTransform="rotate(17)" patternUnits="userSpaceOnUse">
-        <rect width="100" height="100" filter="url(#paperNoise)" />
-      </pattern>
-    </defs>
-  </svg>
-
-  <main class="stage">
-    <!-- Looping Stage Motion (Desktop) -->
+  <!-- ==================================================
+       SECTION 1: HERO MARKETING STAGE
+       ================================================== -->
+  <section id="hero" class="stage">
     <video class="stage-motion stage-motion--wide" autoplay muted loop playsinline preload="auto" aria-hidden="true"
       poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/5c3ec08f-2dbf-4c0a-8588-f6106a789443.webp"
       src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_125226_45cb4f38-aa7e-47e1-885d-ae0b69745369.mp4"></video>
 
-    <!-- Looping Stage Motion (Mobile) -->
     <video class="stage-motion stage-motion--narrow" autoplay muted loop playsinline preload="none" aria-hidden="true"
       poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/0f4926a4-e660-4df2-9195-2bfb3e341bdd.webp"
       src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_125242_daae1570-386d-4bd5-8896-80499e2371e0.mp4"></video>
 
-    <!-- Masthead: Tailored to UI Design Reference -->
     <header class="masthead">
       <h1 class="headline">
         <span class="headline__line">
-          Built for
+          <span data-i18n="headlineLead">Built for</span>
           <span class="dot-word" data-dots="Systematic" aria-label="Systematic"></span>
         </span>
-        <span class="headline__line">Interface Design</span>
+        <span class="headline__line" data-i18n="headlineSecond">Interface Design</span>
       </h1>
-      <p class="intro">
+      <p class="intro" data-i18n="introText">
         Every principle is grounded in human perception, spatial mathematics and<br class="desktop-break"> layout rhythm, giving designers the foundation<br class="desktop-break"> to make defensible visual decisions in production.
       </p>
     </header>
 
-    <!-- Cards Row -->
-    <section class="cards" aria-label="Course pillars and system capabilities">
-
-      <!-- CARD 1: Spatial System (8pt Grid & Touch Targets) -->
-      <article class="card card--speed">
-        <video class="card__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+    <section class="cards-hero" aria-label="Core Capabilities">
+      <!-- Card 1 -->
+      <article class="card-hero card-hero--speed">
+        <video class="card-hero__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/167977c6-8539-46b1-9a15-8dba566f50b8.png"
           src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_130045_1a612b69-4854-4b34-8043-ccb91f2c60af.mp4"></video>
-
-        <svg class="card__grain" viewBox="0 0 429 554" preserveAspectRatio="none" aria-hidden="true">
-          <rect width="100%" height="100%" filter="url(#cardNoise)" />
+        <h2 class="card-hero__title" data-i18n="card1Title">Spatial System<br>8pt Component Grid</h2>
+        <svg class="gauge-hero" viewBox="0 0 326 326" aria-hidden="true">
+          <path d="M11.34 136.26A154 154 0 0 1 307.71 110.33" fill="none" stroke-width="3" stroke="rgba(255,255,255,.4)" />
+          <path d="M6.91 135.48A158.5 158.5 0 0 1 311.94 108.79" fill="none" stroke-width="2.2" stroke="#93c5fd" />
+          <g id="gaugeTicksHero"></g>
         </svg>
-
-        <h2 class="card__title">Spatial System<br>8pt Component Grid</h2>
-
-        <!-- Gauge SVG (Spatial Radar) -->
-        <svg class="gauge" viewBox="0 0 326 326" aria-hidden="true">
-          <defs>
-            <linearGradient id="gaugeArc" gradientUnits="userSpaceOnUse" x1="7" y1="136" x2="312" y2="109">
-              <stop offset="0" stop-color="#93c5fd" stop-opacity=".06" />
-              <stop offset="0.08" stop-color="#60a5fa" stop-opacity=".44" />
-              <stop offset="0.34" stop-color="#3b82f6" stop-opacity=".94" />
-              <stop offset="0.58" stop-color="#1f5ae0" stop-opacity="1" />
-              <stop offset="0.82" stop-color="#dbeafe" stop-opacity=".74" />
-              <stop offset="0.94" stop-color="#eff6ff" stop-opacity=".28" />
-              <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
-            </linearGradient>
-            <linearGradient id="gaugeShadow" gradientUnits="userSpaceOnUse" x1="11" y1="136" x2="308" y2="110">
-              <stop offset="0" stop-color="#0f2557" stop-opacity=".04" />
-              <stop offset="0.09" stop-color="#0f2557" stop-opacity=".17" />
-              <stop offset="0.52" stop-color="#123a96" stop-opacity=".18" />
-              <stop offset="0.78" stop-color="#1747b8" stop-opacity=".10" />
-              <stop offset="1" stop-color="#1747b8" stop-opacity="0" />
-            </linearGradient>
-            <radialGradient id="radarBeam" cx="163" cy="163" r="145" gradientUnits="userSpaceOnUse">
-              <stop offset="0.3" stop-color="#123a96" stop-opacity="0" />
-              <stop offset="0.45" stop-color="#1747b8" stop-opacity=".025" />
-              <stop offset="0.7" stop-color="#1f5ae0" stop-opacity=".065" />
-              <stop offset="0.9" stop-color="#3b82f6" stop-opacity=".08" />
-              <stop offset="1" stop-color="#60a5fa" stop-opacity=".05" />
-            </radialGradient>
-            <linearGradient id="radarBeamEdge" x1="238" y1="33" x2="190.5" y2="115.4" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#e0f2fe" stop-opacity=".19" />
-              <stop offset="0.48" stop-color="#bae6fd" stop-opacity=".11" />
-              <stop offset="0.82" stop-color="#93c5fd" stop-opacity=".045" />
-              <stop offset="1" stop-color="#93c5fd" stop-opacity="0" />
-            </linearGradient>
-          </defs>
-          <path d="M11.34 136.26A154 154 0 0 1 307.71 110.33" fill="none" stroke-width="3.2" stroke-linecap="round" stroke="url(#gaugeShadow)" />
-          <path d="M6.91 135.48A158.5 158.5 0 0 1 311.94 108.79" fill="none" stroke-width="2.2" stroke-linecap="round" stroke="url(#gaugeArc)" />
-          <path d="M19.22 137.65A146 146 0 0 1 236 36.56" fill="none" stroke-width="1.15" stroke="rgba(147, 197, 253, 0.31)" />
-          <path d="M238 33.1A150 150 0 0 1 277.9 66.6L199.8 119.5A55 55 0 0 0 190.5 115.4Z" fill="#123a96" opacity=".022" filter="url(#radarHalo)" />
-          <path d="M238 33.1A150 150 0 0 1 277.9 66.6L199.8 119.5A55 55 0 0 0 190.5 115.4Z" fill="url(#radarBeam)" filter="url(#radarSoft)" />
-          <path d="M238 33.1L190.5 115.4" stroke="url(#radarBeamEdge)" stroke-width="1.25" stroke-linecap="round" filter="url(#radarSoft)" />
-          <g id="gaugeTicks"></g>
-          <ellipse cx="225" cy="166" rx="92" ry="76" fill="#fff" opacity=".055" filter="url(#gaugeBlur)" />
-        </svg>
-
-        <div class="metric metric--speed">
+        <div class="metric-hero">
           <span class="dot-number" data-dots="8"></span>
           <span class="metric__unit">pt</span>
         </div>
-
-        <div class="caption">Consistent rhythm across<br>all touch targets</div>
-        <a href="/#/grid-layout/8pt-grid" class="learn-more">Explore Grids</a>
+        <div class="caption-hero" data-i18n="card1Caption">Consistent rhythm across<br>all touch targets</div>
+        <a href="/#/grid-layout/8pt-grid" class="btn-hero" data-i18n="card1Btn">Explore Grids</a>
       </article>
 
-      <!-- CARD 2: Typographic Scale (Modular Proportions) -->
-      <article class="card card--context">
-        <video class="card__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+      <!-- Card 2 -->
+      <article class="card-hero card-hero--context">
+        <video class="card-hero__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/0446d1d5-e65e-4db5-8090-3e30d09afc43.png"
           src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_130054_dd005674-d693-4d81-80a5-357f7f10b3a3.mp4"></video>
-
-        <svg class="card__grain" viewBox="0 0 429 554" preserveAspectRatio="none" aria-hidden="true">
-          <rect width="100%" height="100%" filter="url(#cardNoise)" />
-        </svg>
-
-        <h2 class="card__title">Type Hierarchy<br>Modular Proportions</h2>
-
-        <!-- Context Tile Wall Backdrop -->
-        <div class="context-backdrop">
-          <svg viewBox="0 0 429 554" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="tTLf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4b0ee" stop-opacity=".05"/><stop offset="1" stop-color="#c6bbff" stop-opacity=".18"/></linearGradient>
-              <linearGradient id="tTCf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d5c2ff" stop-opacity=".22"/><stop offset=".4" stop-color="#e0bdff" stop-opacity=".26"/><stop offset=".75" stop-color="#f2a0ee" stop-opacity=".32"/><stop offset="1" stop-color="#ff96da" stop-opacity=".34"/></linearGradient>
-              <linearGradient id="tTRf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe8da" stop-opacity=".56"/><stop offset=".5" stop-color="#f9c6d0" stop-opacity=".26"/><stop offset="1" stop-color="#eba4bf" stop-opacity=".08"/></linearGradient>
-              <linearGradient id="tMRf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e858b8" stop-opacity=".52"/><stop offset=".5" stop-color="#e6459c" stop-opacity=".46"/><stop offset="1" stop-color="#de74ba" stop-opacity=".16"/></linearGradient>
-              <filter id="tileSoft"><feGaussianBlur stdDeviation="3.4" /></filter>
-              <filter id="groutSoft"><feGaussianBlur stdDeviation="6.5" /></filter>
-            </defs>
-            <rect x="-24" y="22" width="106" height="149" rx="15" fill="url(#tTLf)" filter="url(#tileSoft)" />
-            <rect x="88" y="22" width="247" height="150" rx="15" fill="url(#tTCf)" filter="url(#tileSoft)" />
-            <rect x="346" y="22" width="111" height="147" rx="15" fill="url(#tTRf)" filter="url(#tileSoft)" />
-            <rect x="-24" y="177" width="108" height="174" rx="15" fill="rgba(218,211,255,.2)" filter="url(#tileSoft)" />
-            <rect x="88" y="177" width="247" height="174" rx="15" fill="rgba(224,189,255,.24)" filter="url(#tileSoft)" />
-            <rect x="344" y="175" width="113" height="176" rx="15" fill="url(#tMRf)" filter="url(#tileSoft)" />
-          </svg>
-        </div>
-
-        <!-- Frosted Glass Specimen Window (Label, Heading, Body, Caption) -->
-        <div class="context-window">
-          <svg class="window-grain" viewBox="0 0 252 166" preserveAspectRatio="none" aria-hidden="true">
-            <rect width="100%" height="100%" filter="url(#panelNoiseF)" />
-          </svg>
-          <div class="window-lines" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <h2 class="card-hero__title" data-i18n="card2Title">Type Hierarchy<br>Modular Proportions</h2>
+        <div class="context-window-hero">
+          <div class="window-lines-hero">
+            <span></span><span></span><span></span><span></span>
           </div>
         </div>
-
-        <div class="metric metric--context">
+        <div class="metric-hero">
           <span class="dot-number" data-dots="1.2"></span>
           <span class="metric__unit">x</span>
         </div>
-
-        <div class="caption">Harmonic scale from<br>11px to 56px</div>
-        <a href="/#/typography/type-scale" class="learn-more">Explore Type</a>
+        <div class="caption-hero" data-i18n="card2Caption">Harmonic scale from<br>11px to 56px</div>
+        <a href="/#/typography/type-scale" class="btn-hero" data-i18n="card2Btn">Explore Type</a>
       </article>
 
-      <!-- CARD 3: Bilingual Parity (RTL / LTR Parity) -->
-      <article class="card card--connections">
-        <video class="card__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+      <!-- Card 3 -->
+      <article class="card-hero card-hero--connections">
+        <video class="card-hero__media" autoplay muted loop playsinline preload="auto" aria-hidden="true"
           poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/da8d0242-4dee-4f6d-813f-a5887e86ad77.png"
           src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_130103_7550f407-f14b-40a6-9616-7a26d7a8bd9f.mp4"></video>
-
-        <svg class="card__grain" viewBox="0 0 429 554" preserveAspectRatio="none" aria-hidden="true">
-          <rect width="100%" height="100%" filter="url(#cardNoise)" />
+        <h2 class="card-hero__title" data-i18n="card3Title">Bilingual Parity<br>Bidirectional Flow</h2>
+        <svg class="connections-map-hero" viewBox="0 0 429 238" aria-hidden="true">
+          <path opacity=".30" d="M0 61h95c14 0 22-6 27-20 4-13 12-20 27-20h115c15 0 23 6 27 20 5 14 13 20 28 20h110" fill="none" stroke="#fff8dd" stroke-width="1.2" />
+          <path opacity=".80" d="M0 117h88c15 0 22-8 25-25 4-24 12-31 31-31h129c20 0 27 7 31 31 3 17 10 25 26 25h99" fill="none" stroke="#fff8dd" stroke-width="1.2" />
+          <circle cx="133" cy="61" r="6" fill="#fff4a7" />
+          <circle cx="319" cy="117" r="6" fill="#fff2a0" />
         </svg>
-
-        <h2 class="card__title">Bilingual Parity<br>Bidirectional Flow</h2>
-
-        <!-- Connections Map SVG (RTL & LTR Flow Network) -->
-        <div class="connections-map">
-          <svg viewBox="0 0 429 238" preserveAspectRatio="none" aria-hidden="true">
-            <!-- White stroke network -->
-            <path opacity=".20" d="M0 5H128c27 0 36 7 39 26 2 16 9 22 24 22h106c16 0 23-8 25-25 2-16 10-23 31-23h76" fill="none" stroke="#ffffff" stroke-width="1" />
-            <path opacity=".30" d="M0 117h46c15 0 22 8 26 25 5 23 12 31 31 31h174c18 0 25-8 30-31 4-17 11-25 26-25h96" fill="none" stroke="#ffffff" stroke-width="1" />
-            <path opacity=".34" d="M0 173h87c15 0 22 7 27 25 4 15 11 22 28 22h140c17 0 25-7 29-22 5-18 12-25 28-25h90" fill="none" stroke="#ffffff" stroke-width="1" />
-            <path opacity=".16" d="M0 228h120c17 0 25-5 28-18 4-15 10-20 28-20h81c18 0 25 6 28 20 4 13 11 18 28 18h116" fill="none" stroke="#ffffff" stroke-width="1" />
-            <path opacity=".26" d="M0 5H429M0 61H429M0 117H429" fill="none" stroke="#ffffff" stroke-width="1" />
-            <path opacity=".09" d="M0 173H429" fill="none" stroke="#ffffff" stroke-width="1" />
-            <!-- Warm copper strokes -->
-            <path opacity=".52" d="M0 61h95c14 0 22-6 27-20 4-13 12-20 27-20h115c15 0 23 6 27 20 5 14 13 20 28 20h110" fill="none" stroke="#fff8dd" stroke-width="1.15" />
-            <path opacity=".94" d="M0 117h88c15 0 22-8 25-25 4-24 12-31 31-31h129c20 0 27 7 31 31 3 17 10 25 26 25h99" fill="none" stroke="#fff8dd" stroke-width="1.15" />
-            <!-- Glowing Nodes -->
-            <circle cx="45" cy="117" r="6.5" fill="#ffffff" />
-            <circle cx="133" cy="61" r="6.5" fill="#fff4a7" />
-            <circle cx="189" cy="61" r="6.5" fill="#fff1a4" />
-            <circle cx="319" cy="61" r="6.5" fill="#fff4a6" />
-            <circle cx="319" cy="117" r="6.5" fill="#fff2a0" />
-          </svg>
-        </div>
-
-        <div class="metric metric--connections">
+        <div class="metric-hero">
           <span class="dot-number" data-dots="100"></span>
           <span class="metric__unit">%</span>
         </div>
-
-        <div class="caption">Full Arabic and English<br>design parity</div>
-        <a href="/#/basics" class="learn-more">Explore System</a>
+        <div class="caption-hero" data-i18n="card3Caption">Full Arabic and English<br>design parity</div>
+        <a href="/#/basics" class="btn-hero" data-i18n="card3Btn">Explore System</a>
       </article>
-
     </section>
-  </main>
+  </section>
 
   <!-- ==================================================
-       VANILLA JS: LED DOT TYPE & GAUGE TICKS
-       ================================================== */ -->
+       SECTION 2: INTERACTIVE DESIGN PRINCIPLES TRIPTYCH
+       ================================================== -->
+  <section id="operations" class="falcon-section">
+    <div class="falcon-header">
+      <span class="falcon-tag" data-i18n="opsTag">Systematic Foundations</span>
+      <h2 class="falcon-title" data-i18n="opsTitle">Interactive Design Principles</h2>
+      <p class="falcon-subtitle" data-i18n="opsSubtitle">
+        Master the foundational rules of visual hierarchy, component states, and defensible design decisions that drive production-grade interfaces.
+      </p>
+    </div>
+
+    <div class="falcon-container">
+      <div class="falcon-cards" aria-label="Interactive design principle demonstrations">
+
+        <!-- CARD 1: Visual Hierarchy -->
+        <article class="falcon-card">
+          <div class="falcon-panel" aria-label="Visual hierarchy scale and contrast chart">
+            <div class="timeline" dir="ltr">
+              <span>CAPTION</span><i></i><span>BODY</span><i></i><span>HEADING</span>
+            </div>
+            <div class="bars" aria-hidden="true">
+              <i class="bar" style="--h: 20%"></i>
+              <i class="bar" style="--h: 33%"></i>
+              <i class="bar" style="--h: 48%"></i>
+              <i class="bar" style="--h: 56%"></i>
+              <i class="bar" style="--h: 51%"></i>
+              <i class="bar" style="--h: 47%"></i>
+              <i class="bar" style="--h: 39%"></i>
+              <i class="bar" style="--h: 31%"></i>
+              <i class="bar" style="--h: 53%"></i>
+              <i class="bar" style="--h: 55%"></i>
+              <i class="bar" style="--h: 60%"></i>
+              <i class="bar" style="--h: 56%"></i>
+              <i class="bar active" style="--h: 100%"></i>
+              <i class="bar" style="--h: 92%"></i>
+              <i class="bar" style="--h: 76%"></i>
+              <i class="bar" style="--h: 67%"></i>
+              <i class="bar" style="--h: 62%"></i>
+              <i class="bar" style="--h: 65%"></i>
+              <i class="bar" style="--h: 59%"></i>
+              <i class="bar" style="--h: 70%"></i>
+              <i class="bar" style="--h: 74%"></i>
+              <i class="bar" style="--h: 87%"></i>
+              <i class="bar" style="--h: 83%"></i>
+              <i class="bar" style="--h: 77%"></i>
+            </div>
+            <div class="value-chip" dir="ltr">4.5:1 AA</div>
+            <div class="axis" dir="ltr">
+              <span>MICRO</span><span>BODY</span><span>HEADING</span><span>DISPLAY</span>
+            </div>
+          </div>
+          <div class="falcon-card-copy">
+            <div class="falcon-card-copy-text">
+              <h2 data-i18n="opsCard1Title">Visual Hierarchy</h2>
+              <p data-i18n="opsCard1Text">Guiding attention through scale,<br>contrast, and weight.</p>
+            </div>
+            <span class="falcon-corner-icon"><i class="spark"></i></span>
+          </div>
+        </article>
+
+        <!-- CARD 2: Component Anatomy -->
+        <article class="falcon-card">
+          <div class="falcon-panel">
+            <div class="assistant-head" dir="ltr">
+              <span class="badge"><i class="spark"></i></span>
+              <span data-i18n="opsCard2Badge">Design System</span>
+            </div>
+            <p class="question" data-i18n="opsCard2Question">Component States & Bounds</p>
+            <div class="prompt" data-i18n="opsCard2Prompt">
+              Every button must support default, hover, active, focus-visible, and disabled states with a 44px minimum hit target.
+            </div>
+            <div class="automate">
+              <span class="automate-label" data-i18n="opsCard2Btn">Inspect State</span>
+              <canvas class="magic" data-sparkle-icon aria-hidden="true"></canvas>
+            </div>
+            <i class="cursor" aria-hidden="true"></i>
+          </div>
+          <div class="falcon-card-copy">
+            <div class="falcon-card-copy-text">
+              <h2 data-i18n="opsCard2Title">Component Anatomy</h2>
+              <p data-i18n="opsCard2Text">Reusable interface patterns<br>built with rigorous states.</p>
+            </div>
+            <span class="falcon-corner-icon"><i class="flow-icon"></i></span>
+          </div>
+        </article>
+
+        <!-- CARD 3: Defensible Decisions -->
+        <article class="falcon-card">
+          <div class="falcon-panel">
+            <div class="metric-falcon">
+              <div class="metric-falcon-label" data-i18n="opsCard3Label">Decisions Grounded</div>
+              <div class="metric-falcon-row" dir="ltr">
+                <strong data-i18n="opsCard3Val">100%</strong>
+                <span data-i18n="opsCard3Sub">↑ 0 guesswork</span>
+              </div>
+            </div>
+            <canvas class="decision-flow" data-flow-chart aria-label="Decision paths converging into an optimized result"></canvas>
+            <div class="tag-falcon action" data-i18n="opsCard3Tag1">Rule: 8pt Soft Grid</div>
+            <div class="tag-falcon confidence" data-i18n="opsCard3Tag2">WCAG AAA 7:1 Contrast</div>
+            <div class="tag-falcon path" data-i18n="opsCard3Tag3">Max Measure: 70ch</div>
+          </div>
+          <div class="falcon-card-copy">
+            <div class="falcon-card-copy-text">
+              <h2 data-i18n="opsCard3Title">Defensible Decisions</h2>
+              <p data-i18n="opsCard3Text">Ground every visual choice in<br>human perception.</p>
+            </div>
+            <span class="falcon-corner-icon"><i class="speed"></i></span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       SECTION 3: 21ST.DEV INTERACTIVE BENTO GRID
+       ================================================== -->
+  <section id="bento" class="bento-section">
+    <div class="section-header">
+      <span class="section-badge" data-i18n="bentoBadge">Curriculum Architecture</span>
+      <h2 class="section-title" data-i18n="bentoTitle">Five Core Pillars of Interface Mastery</h2>
+      <p class="section-desc" data-i18n="bentoDesc">
+        Every system element in the UI Design Reference is backed by concrete code, verifiable ratios, and responsive behaviors.
+      </p>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Bento 1: Spatial Grid (Wide) -->
+      <div class="bento-card bento-col-8">
+        <div class="bento-visual">
+          <div class="rhythm-bars">
+            <div class="rhythm-bar" style="height: 24px;">8pt</div>
+            <div class="rhythm-bar" style="height: 38px;">16</div>
+            <div class="rhythm-bar" style="height: 52px;">24</div>
+            <div class="rhythm-bar" style="height: 66px;">32</div>
+            <div class="rhythm-bar" style="height: 80px; background: #10B981;">44px</div>
+          </div>
+        </div>
+        <div>
+          <h3 class="bento-title" data-i18n="bento1Title">8pt Soft Grid & Touch Bounds</h3>
+          <p class="bento-desc" data-i18n="bento1Desc">Consistent mathematical spacing scale from 4pt half-steps to 88pt section gutters. Guarantees 44px minimum touch targets.</p>
+        </div>
+      </div>
+
+      <!-- Bento 2: Contrast & Accessibility -->
+      <div class="bento-card bento-col-4">
+        <div class="bento-visual">
+          <div class="contrast-badge">AAA 7.2:1 PASS</div>
+        </div>
+        <div>
+          <h3 class="bento-title" data-i18n="bento2Title">Contrast & Tokens</h3>
+          <p class="bento-desc" data-i18n="bento2Desc">Every color pair satisfies WCAG 4.5:1 body text contrast with strict semantic token mapping.</p>
+        </div>
+      </div>
+
+      <!-- Bento 3: Modular Scale -->
+      <div class="bento-card bento-col-4">
+        <div class="bento-visual">
+          <div class="type-scale-bars">
+            <div class="type-scale-bar" style="width: 40%"></div>
+            <div class="type-scale-bar" style="width: 65%"></div>
+            <div class="type-scale-bar" style="width: 100%"></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="bento-title" data-i18n="bento3Title">1.2x Modular Scale</h3>
+          <p class="bento-desc" data-i18n="bento3Desc">Rigid harmonic progression from 11px micro-labels to 56px display titles, anchored to 70ch prose measure.</p>
+        </div>
+      </div>
+
+      <!-- Bento 4: Bidirectional Mirroring (Wide) -->
+      <div class="bento-card bento-col-8">
+        <div class="bento-visual" style="gap: 20px;">
+          <span style="font-family: var(--font-sans); font-weight:700; color:var(--color-action)">LTR English Layout</span>
+          <span style="font-size: 20px;">⇄</span>
+          <span style="font-family: var(--font-arabic); font-weight:700; color:var(--color-action)">تخطيط عربي RTL</span>
+        </div>
+        <div>
+          <h3 class="bento-title" data-i18n="bento4Title">Native Bidirectional RTL Parity</h3>
+          <p class="bento-desc" data-i18n="bento4Desc">Zero layout breakage across writing directions. CSS logical properties ensure seamless Arabic & English parity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       SECTION 4: 21ST.DEV METRICS STRIP
+       ================================================== -->
+  <section id="metrics" class="metrics-section">
+    <div class="metrics-grid">
+      <div>
+        <div class="metric-val">21+</div>
+        <div class="metric-lbl" data-i18n="stat1">Course Chapters</div>
+      </div>
+      <div>
+        <div class="metric-val">100%</div>
+        <div class="metric-lbl" data-i18n="stat2">Bilingual Parity</div>
+      </div>
+      <div>
+        <div class="metric-val">44px</div>
+        <div class="metric-lbl" data-i18n="stat3">Min Hit Target</div>
+      </div>
+      <div>
+        <div class="metric-val">0</div>
+        <div class="metric-lbl" data-i18n="stat4">External Dependencies</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       SECTION 5: 21ST.DEV REVIEWS MARQUEE
+       ================================================== -->
+  <section class="marquee-section">
+    <div class="marquee-track">
+      <!-- Review 1 -->
+      <div class="review-card">
+        <div class="review-author">
+          <div class="review-avatar">OM</div>
+          <div>
+            <div class="review-name">Omar Mansour</div>
+            <div class="review-role">Senior Product Designer</div>
+          </div>
+        </div>
+        <p class="review-text">"The explanation of 8pt grids and modular scales changed how our entire design team builds production design systems."</p>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card">
+        <div class="review-author">
+          <div class="review-avatar">SA</div>
+          <div>
+            <div class="review-name">سارة الأحمدي</div>
+            <div class="review-role">UI/UX Engineer</div>
+          </div>
+        </div>
+        <p class="review-text">"أفضل مرجع عربي رأيته لتصميم الواجهات، الدعم ثنائي اللغة والاهتمام بالتفاصيل يثري المحتوى العربي جداً."</p>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card">
+        <div class="review-author">
+          <div class="review-avatar">KH</div>
+          <div>
+            <div class="review-name">Karim Hassan</div>
+            <div class="review-role">Design Systems Lead</div>
+          </div>
+        </div>
+        <p class="review-text">"Finally a guide that explains WHY design decisions are made, rather than just showing a Figma speedrun."</p>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="review-card">
+        <div class="review-author">
+          <div class="review-avatar">YN</div>
+          <div>
+            <div class="review-name">يوسف نبيل</div>
+            <div class="review-role">مطور واجهات أمامية</div>
+          </div>
+        </div>
+        <p class="review-text">"قواعد الـ tokens والمسافات سهلت جداً التواصل بين المطورين والمصممين في فريقنا."</p>
+      </div>
+
+      <!-- Duplicate for infinite seamless scroll -->
+      <div class="review-card">
+        <div class="review-author">
+          <div class="review-avatar">OM</div>
+          <div>
+            <div class="review-name">Omar Mansour</div>
+            <div class="review-role">Senior Product Designer</div>
+          </div>
+        </div>
+        <p class="review-text">"The explanation of 8pt grids and modular scales changed how our entire design team builds production design systems."</p>
+      </div>
+      <div class="review-card">
+        <div class="review-author">
+          <div class="review-avatar">SA</div>
+          <div>
+            <div class="review-name">سارة الأحمدي</div>
+            <div class="review-role">UI/UX Engineer</div>
+          </div>
+        </div>
+        <p class="review-text">"أفضل مرجع عربي رأيته لتصميم الواجهات، الدعم ثنائي اللغة والاهتمام بالتفاصيل يثري المحتوى العربي جداً."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       SECTION 6: 21ST.DEV ACCORDION FAQ
+       ================================================== -->
+  <section id="faq" class="faq-section">
+    <div class="section-header">
+      <span class="section-badge" data-i18n="faqBadge">Help & Clarifications</span>
+      <h2 class="section-title" data-i18n="faqTitle">Frequently Asked Questions</h2>
+      <p class="section-desc" data-i18n="faqDesc">Everything you need to know about the reference platform and design system.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item active">
+        <button class="faq-question" type="button">
+          <span data-i18n="faq1Q">Who is this reference platform designed for?</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer" data-i18n="faq1A">
+          It is built for both beginner designers starting their journey and senior designers/engineers looking for rigorous, defensible visual rules and token standards.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span data-i18n="faq2Q">How does the bilingual Arabic & English parity work?</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer" data-i18n="faq2A">
+          Every chapter and code token is mirrored symmetrically. Code and Latin values stay LTR with isolated bi-directional contexts, while typography switches smoothly between Public Sans and IBM Plex Sans Arabic.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span data-i18n="faq3Q">Can I export and use the live diagrams in Figma?</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer" data-i18n="faq3A">
+          Yes! All artboards are authored in pure HTML/SVG canvases and exported to 2x high-resolution assets that you can drop directly into Figma or export as PDF.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       SECTION 7: CTA BANNER & FOOTER
+       ================================================== -->
+  <section class="cta-section">
+    <div class="cta-card">
+      <h2 data-i18n="ctaTitle">Ready to Master UI Design Decisions?</h2>
+      <p data-i18n="ctaText">Explore all 21 chapters of principles, interactive HTML diagrams, and token specifications today.</p>
+      <a href="/" class="cta-btn-white" data-i18n="ctaBtn">
+        Open Full Course Reference ↗
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div>UI Design Reference & Companion — Based on UI Design Principles by Michael Filipiuk.</div>
+    <div>Bilingual (Arabic / English) Documentation Platform · MIT Licensed Code.</div>
+  </footer>
+
+  <!-- ==================================================
+       SCRIPTS: I18N, DOTS, CANVASES, & ANIMATIONS
+       ================================================== -->
   <script>
     (function () {
-      // 7-row bitmap glyph definitions (Expanded for UI Design vocabulary)
+      // Translations
+      var TRANSLATIONS = {
+        en: {
+          brandTitle: "UI Design Reference",
+          navHero: "Overview",
+          navOps: "Design Principles",
+          navBento: "System Pillars",
+          navMetrics: "Impact",
+          navFaq: "FAQ",
+          openDocs: "Open Course ↗",
+          signIn: "Sign in",
+          headlineLead: "Built for",
+          headlineSecond: "Interface Design",
+          dotWord: "Systematic",
+          introText: 'Every principle is grounded in human perception, spatial mathematics and<br class="desktop-break"> layout rhythm, giving designers the foundation<br class="desktop-break"> to make defensible visual decisions in production.',
+          card1Title: "Spatial System<br>8pt Component Grid",
+          card1Caption: "Consistent rhythm across<br>all touch targets",
+          card1Btn: "Explore Grids",
+          card2Title: "Type Hierarchy<br>Modular Proportions",
+          card2Caption: "Harmonic scale from<br>11px to 56px",
+          card2Btn: "Explore Type",
+          card3Title: "Bilingual Parity<br>Bidirectional Flow",
+          card3Caption: "Full Arabic and English<br>design parity",
+          card3Btn: "Explore System",
+          opsTag: "Systematic Foundations",
+          opsTitle: "Interactive Design Principles",
+          opsSubtitle: "Master the foundational rules of visual hierarchy, component states, and defensible design decisions that drive production-grade interfaces.",
+          opsCard1Title: "Visual Hierarchy",
+          opsCard1Text: "Guiding attention through scale,<br>contrast, and weight.",
+          opsCard2Badge: "Design System",
+          opsCard2Title: "Component Anatomy",
+          opsCard2Text: "Reusable interface patterns<br>built with rigorous states.",
+          opsCard2Question: "Component States & Bounds",
+          opsCard2Prompt: "Every button must support default, hover, active, focus-visible, and disabled states with a 44px minimum hit target.",
+          opsCard2Btn: "Inspect State",
+          opsCard3Title: "Defensible Decisions",
+          opsCard3Text: "Ground every visual choice in<br>human perception.",
+          opsCard3Label: "Decisions Grounded",
+          opsCard3Val: "100%",
+          opsCard3Sub: "↑ 0 guesswork",
+          opsCard3Tag1: "Rule: 8pt Soft Grid",
+          opsCard3Tag2: "WCAG AAA 7:1 Contrast",
+          opsCard3Tag3: "Max Measure: 70ch",
+          bentoBadge: "Curriculum Architecture",
+          bentoTitle: "Five Core Pillars of Interface Mastery",
+          bentoDesc: "Every system element in the UI Design Reference is backed by concrete code, verifiable ratios, and responsive behaviors.",
+          bento1Title: "8pt Soft Grid & Touch Bounds",
+          bento1Desc: "Consistent mathematical spacing scale from 4pt half-steps to 88pt section gutters. Guarantees 44px minimum touch targets.",
+          bento2Title: "Contrast & Tokens",
+          bento2Desc: "Every color pair satisfies WCAG 4.5:1 body text contrast with strict semantic token mapping.",
+          bento3Title: "1.2x Modular Scale",
+          bento3Desc: "Rigid harmonic progression from 11px micro-labels to 56px display titles, anchored to 70ch prose measure.",
+          bento4Title: "Native Bidirectional RTL Parity",
+          bento4Desc: "Zero layout breakage across writing directions. CSS logical properties ensure seamless Arabic & English parity.",
+          stat1: "Course Chapters",
+          stat2: "Bilingual Parity",
+          stat3: "Min Hit Target",
+          stat4: "External Dependencies",
+          faqBadge: "Help & Clarifications",
+          faqTitle: "Frequently Asked Questions",
+          faqDesc: "Everything you need to know about the reference platform and design system.",
+          faq1Q: "Who is this reference platform designed for?",
+          faq1A: "It is built for both beginner designers starting their journey and senior designers/engineers looking for rigorous, defensible visual rules and token standards.",
+          faq2Q: "How does the bilingual Arabic & English parity work?",
+          faq2A: "Every chapter and code token is mirrored symmetrically. Code and Latin values stay LTR with isolated bi-directional contexts, while typography switches smoothly between Public Sans and IBM Plex Sans Arabic.",
+          faq3Q: "Can I export and use the live diagrams in Figma?",
+          faq3A: "Yes! All artboards are authored in pure HTML/SVG canvases and exported to 2x high-resolution assets that you can drop directly into Figma or export as PDF.",
+          ctaTitle: "Ready to Master UI Design Decisions?",
+          ctaText: "Explore all 21 chapters of principles, interactive HTML diagrams, and token specifications today.",
+          ctaBtn: "Open Full Course Reference ↗",
+          nextLangLabel: "العربية"
+        },
+        ar: {
+          brandTitle: "مرجع تصميم الواجهات",
+          navHero: "نظرة عامة",
+          navOps: "المبادئ التصميمية",
+          navBento: "أركان النظام",
+          navMetrics: "الأثر",
+          navFaq: "الأسئلة الشائعة",
+          openDocs: "تصفح المرجع ↗",
+          signIn: "تسجيل الدخول",
+          headlineLead: "صُمم من أجل",
+          headlineSecond: "تصميم الواجهات",
+          dotWord: "Systematic",
+          introText: 'كل مبدأ قائم على الإدراك البشري، الحسابات المكانية وتناغم التخطيط،<br class="desktop-break"> ليمنحك الأساس الصلب لاتخاذ قرارات تصميمية<br class="desktop-break"> واعية يمكن الدفاع عنها بثقة في بيئة العمل.',
+          card1Title: "النظام المكاني<br>جريد المكونات 8pt",
+          card1Caption: "تناغم متسق ومدروس عبر<br>كافة أهداف اللمس",
+          card1Btn: "استكشف الجريد",
+          card2Title: "الهرمية الطباعية<br>تناسبات القياس المعياري",
+          card2Caption: "تدرج طباعي متناغم من<br>11px حتى 56px",
+          card2Btn: "استكشف الخطوط",
+          card3Title: "التكافؤ ثنائي اللغة<br>انسياب ثنائي الاتجاه",
+          card3Caption: "توافق وتطابق كامل بين<br>العربية والإنجليزية",
+          card3Btn: "استكشف المرجع",
+          opsTag: "الأسس المعيارية",
+          opsTitle: "المبادئ التصميمية التفاعلية",
+          opsSubtitle: "أتقن القواعد الأساسية للهرمية البصرية، وحالات المكونات، والقرارات التصميمية الواعية التي تُبنى عليها أفضل واجهات المنتجات.",
+          opsCard1Title: "الهرمية البصرية",
+          opsCard1Text: "توجيه عين المستخدم عبر الحجم والتباين<br>والأوزان البصرية.",
+          opsCard2Badge: "نظام المكونات",
+          opsCard2Title: "تشريح المكونات",
+          opsCard2Text: "أنماط واجهات قابلة لإعادة الاستخدام<br>مبنية بحالات واضحة.",
+          opsCard2Question: "حالات المكون وأهدافه",
+          opsCard2Prompt: "كل زر يجب أن يدعم حالات: الافتراضي، التحويم، النشط، التركيز، والمعطل مع 44px كحد أدنى للمس.",
+          opsCard2Btn: "معاينة الحالات",
+          opsCard3Title: "قرارات تصميمية واعية",
+          opsCard3Text: "تأسيس كل قرار بصري على معايير<br>الإدراك البشري.",
+          opsCard3Label: "قرارات مبررة",
+          opsCard3Val: "100%",
+          opsCard3Sub: "↑ صفر عشوائية",
+          opsCard3Tag1: "قاعدة: شبكة 8pt",
+          opsCard3Tag2: "معيار التباين AAA 7:1",
+          opsCard3Tag3: "سعة السطر: 70ch",
+          bentoBadge: "بنية المنهج الدراسي",
+          bentoTitle: "الأركان الخمسة لإتقان الواجهات",
+          bentoDesc: "كل عنصر في المرجع مدعوم بكود تطبيقي، ونسب قابلة للتحقق، وتصرفات تجاوبية متكاملة.",
+          bento1Title: "جريد 8pt المرن وأهداف اللمس",
+          bento1Desc: "مقياس مسافات رياضي دقيق يبدأ من نصف خطوة 4pt حتى 88pt لهوامش الأقسام، مع ضمان 44px كحد أدنى لأهداف اللمس.",
+          bento2Title: "التباين ومصفوفة الألوان",
+          bento2Desc: "كل زوج لوني يحقق متطلبات WCAG 4.5:1 للنصوص الأساسية مع ربط معنوي محكم للمتغيرات.",
+          bento3Title: "مقياس طباعي بنسبة 1.2x",
+          bento3Desc: "تدرج هرمي متناغم من الملصقات الدقيقة 11px حتى العناوين 56px، مع التقيد بسعة 70 حرفاً للسطر.",
+          bento4Title: "تكافؤ كامل مع الاتجاه العربي RTL",
+          bento4Desc: "انسيابية تامة بلا انكسار في الواجهة. الخصائص المنطقية في CSS تضمن تكافؤاً تاماً بين العربية والإنجليزية.",
+          stat1: "فصل تعليمي",
+          stat2: "تطابق لغوي",
+          stat3: "الحد الأدنى للمس",
+          stat4: "اعتماديات خارجية",
+          faqBadge: "المساعدة والتوضيحات",
+          faqTitle: "الأسئلة الأكثر شيوعاً",
+          faqDesc: "كل ما تحتاج معرفته عن المنصة المرجعية ونظام التصميم.",
+          faq1Q: "لمن صُممت هذه المنصة المرجعية؟",
+          faq1A: "صُممت لتفيد كلاً من المصمم المبتدئ الذي يبدأ مساره، والمصممين والمهندسين الخبراء الذين يبحثون عن قواعد بصرية دقيقة ومعايير قابلة للدفاع عنها.",
+          faq2Q: "كيف يعمل التكافؤ ثنائي اللغة (العربية والإنجليزية)؟",
+          faq2A: "كل فصل ومتغير كودي يتطابق بالكامل. الأكواد والرموز اللاتينية تبقى من اليسار لليمين LTR بينما يتبدل الخط بسلاسة بين Public Sans و IBM Plex Sans Arabic.",
+          faq3Q: "هل يمكنني تصدير الرسوم التوضيحية واستخدامها في Figma؟",
+          faq3A: "نعم! جميع اللوحات مرسومة بكود HTML/SVG نقي، وتُصدر كأصول بدقة 2x جاهزة للإسقاط المباشر في Figma أو كملفات PDF.",
+          ctaTitle: "مستعد لإتقان قرارات تصميم الواجهات؟",
+          ctaText: "استكشف 21 فصلاً من المبادئ، والرسوم التوضيحية التفاعلية، ومواصفات الرموز البرمجية الآن.",
+          ctaBtn: "تصفح المرجع كاملاً ↗",
+          nextLangLabel: "English"
+        }
+      };
+
+      // Apply language
+      function applyLang(lang) {
+        var dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n");
+          if (dict[k]) el.innerHTML = dict[k];
+        });
+        var lbl = document.getElementById("langLabel");
+        if (lbl) lbl.textContent = dict.nextLangLabel;
+        try { localStorage.setItem('uiref:lang', lang); } catch (e) {}
+        renderDots();
+      }
+
+      var langToggle = document.getElementById("langToggle");
+      if (langToggle) {
+        langToggle.addEventListener("click", function () {
+          var next = document.documentElement.lang === 'ar' ? 'en' : 'ar';
+          applyLang(next);
+        });
+      }
+
+      // FAQ accordion
+      document.querySelectorAll(".faq-question").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var item = btn.closest(".faq-item");
+          var wasActive = item.classList.contains("active");
+          document.querySelectorAll(".faq-item").forEach(function (i) { i.classList.remove("active"); });
+          if (!wasActive) item.classList.add("active");
+        });
+      });
+
+      // LED Dots
       var GLYPHS = {
         "0": ["01110", "10001", "10011", "10101", "11001", "10001", "01110"],
         "1": ["010", "110", "010", "010", "010", "010", "111"],
@@ -1029,109 +2214,196 @@
         ".": ["0", "0", "0", "0", "0", "0", "1"],
         "I": ["111", "010", "010", "010", "010", "010", "111"],
         "S": ["01111", "10000", "10000", "01110", "00001", "00001", "11110"],
-        "P": ["11110", "10001", "10001", "11110", "10000", "10000", "10000"],
         "a": ["00000", "00000", "01110", "00001", "01111", "10001", "01111"],
         "c": ["00000", "00000", "01111", "10000", "10000", "10000", "01111"],
-        "d": ["00001", "00001", "01101", "10011", "10001", "10001", "01111"],
         "e": ["00000", "00000", "01110", "10001", "11111", "10000", "01110"],
-        "g": ["00000", "00000", "01111", "10001", "01111", "00001", "01110"],
         "i": ["1", "0", "1", "1", "1", "1", "1"],
-        "l": ["10", "10", "10", "10", "10", "10", "01"],
         "m": ["00000", "00000", "11011", "10101", "10101", "10101", "10101"],
-        "n": ["00000", "00000", "11110", "10001", "10001", "10001", "10001"],
-        "o": ["00000", "00000", "01110", "10001", "10001", "10001", "01110"],
-        "p": ["00000", "00000", "11110", "10001", "11110", "10000", "10000"],
-        "r": ["00000", "00000", "10110", "11001", "10000", "10000", "10000"],
         "s": ["00000", "00000", "01111", "10000", "01110", "00001", "11110"],
         "t": ["010", "010", "111", "010", "010", "010", "001"],
-        "u": ["00000", "00000", "10001", "10001", "10001", "10011", "01101"],
         "y": ["00000", "00000", "10001", "10001", "01111", "00001", "01110"]
       };
 
-      // Render dot SVG glyphs for any container with [data-dots]
-      var dotContainers = document.querySelectorAll("[data-dots]");
-      dotContainers.forEach(function (container) {
-        var text = container.getAttribute("data-dots");
-        var isWord = container.classList.contains("dot-word");
-        var isContext = container.closest(".metric--context") !== null;
-
-        var pitchX = isWord ? 4 : 5;
-        var pitchY = 4;
-        var gap = 1;
-        var dotRadius = isWord ? 1.75 : (isContext ? 2.32 : 1.95);
-
-        var circles = [];
-        var curX = 0;
-
-        for (var i = 0; i < text.length; i++) {
-          var char = text[i];
-          var glyph = GLYPHS[char];
-          if (!glyph) {
-            curX += pitchX * 2;
-            continue;
-          }
-          var charCols = glyph[0].length;
-          for (var r = 0; r < 7; r++) {
-            var row = glyph[r];
-            for (var c = 0; c < row.length; c++) {
-              if (row[c] === '1') {
-                var cx = curX + c * pitchX + 1.55;
-                var cy = r * pitchY + 1.55;
-                circles.push('<circle cx="' + cx.toFixed(2) + '" cy="' + cy.toFixed(2) + '" r="' + dotRadius + '"/>');
+      function renderDots() {
+        document.querySelectorAll("[data-dots]").forEach(function (c) {
+          var text = c.getAttribute("data-dots");
+          var isWord = c.classList.contains("dot-word");
+          var pitchX = isWord ? 4 : 5;
+          var pitchY = 4;
+          var gap = 1;
+          var dotRadius = isWord ? 1.75 : 1.95;
+          var circles = [];
+          var curX = 0;
+          for (var i = 0; i < text.length; i++) {
+            var g = GLYPHS[text[i]];
+            if (!g) { curX += pitchX * 2; continue; }
+            var cols = g[0].length;
+            for (var r = 0; r < 7; r++) {
+              for (var col = 0; col < g[r].length; col++) {
+                if (g[r][col] === '1') {
+                  circles.push('<circle cx="' + (curX + col * pitchX + 1.55) + '" cy="' + (r * pitchY + 1.55) + '" r="' + dotRadius + '"/>');
+                }
               }
             }
+            curX += cols * pitchX + (pitchX * gap);
           }
-          curX += charCols * pitchX + (pitchX * gap);
-        }
+          c.innerHTML = '<svg class="dot-svg" viewBox="0 0 ' + curX + ' 28" fill="currentColor">' + circles.join('') + '</svg>';
+        });
+      }
 
-        var svgHtml = '<svg class="dot-svg" viewBox="0 0 ' + curX + ' 28" fill="currentColor" aria-hidden="true">' +
-          circles.join('') +
-          '</svg>';
-        container.innerHTML = svgHtml;
-      });
-
-      // Render Spatial Gauge Ticks (8pt rhythm markers)
-      var ticksGroup = document.getElementById("gaugeTicks");
-      if (ticksGroup) {
-        var tickElements = [];
+      // Gauge Ticks Hero
+      var ticksHero = document.getElementById("gaugeTicksHero");
+      if (ticksHero) {
+        var lines = [];
         for (var i = 0; i <= 22; i++) {
-          var angle = (190 + i * 5) * Math.PI / 180;
-          var outer = 142;
-          var inner = (i % 5 === 0) ? 128 : 133;
-          var strokeWidth = (i % 5 === 0) ? 1.75 : 1.0;
-
-          var x1 = 163 + inner * Math.cos(angle);
-          var y1 = 163 + inner * Math.sin(angle);
-          var x2 = 163 + outer * Math.cos(angle);
-          var y2 = 163 + outer * Math.sin(angle);
-
-          tickElements.push(
-            '<line class="tick" x1="' + x1.toFixed(2) + '" y1="' + y1.toFixed(2) +
-            '" x2="' + x2.toFixed(2) + '" y2="' + y2.toFixed(2) +
-            '" stroke-width="' + strokeWidth + '"/>'
-          );
+          var ang = (190 + i * 5) * Math.PI / 180;
+          var out = 142;
+          var inn = (i % 5 === 0) ? 128 : 133;
+          var sw = (i % 5 === 0) ? 1.75 : 1.0;
+          lines.push('<line x1="' + (163 + inn * Math.cos(ang)) + '" y1="' + (163 + inn * Math.sin(ang)) + '" x2="' + (163 + out * Math.cos(ang)) + '" y2="' + (163 + out * Math.sin(ang)) + '" stroke="rgba(199,219,251,.42)" stroke-width="' + sw + '"/>');
         }
-        ticksGroup.innerHTML = tickElements.join('');
+        ticksHero.innerHTML = lines.join('');
       }
 
-      // Entrance animation cleanup and prefers-reduced-motion listener
-      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) {
-        if (window.__entranceFailsafe) clearTimeout(window.__entranceFailsafe);
-        document.documentElement.classList.remove("entrance-active");
-      } else {
-        var isMobile = window.matchMedia('(max-width: 767px)').matches;
-        var watchElem = isMobile
-          ? document.querySelector(".card--speed .learn-more")
-          : document.querySelector(".card--connections .learn-more");
+      /* ==================================================
+         FALCON AI CANVASES: SPARKLE & DECISION FLOW
+         ================================================== */
+      var sparkleCanvas = document.querySelector("[data-sparkle-icon]");
+      var sparkles = [{ x: 0.01, y: 0.01, size: 0.50 }, { x: 0.28, y: 0.26, size: 0.72 }];
+      var sparklePoints = [[0.50,0.06],[0.59,0.41],[0.94,0.50],[0.59,0.59],[0.50,0.94],[0.41,0.59],[0.06,0.50],[0.41,0.41]];
 
-        if (watchElem) {
-          watchElem.addEventListener("animationend", function () {
-            if (window.__entranceFailsafe) clearTimeout(window.__entranceFailsafe);
-            document.documentElement.classList.remove("entrance-active");
-          }, { once: true });
-        }
+      function drawSparkles() {
+        if (!sparkleCanvas) return;
+        var r = sparkleCanvas.getBoundingClientRect();
+        var dpr = window.devicePixelRatio || 1;
+        if (!r.width || !r.height) return;
+        sparkleCanvas.width = r.width * dpr;
+        sparkleCanvas.height = r.height * dpr;
+        var ctx = sparkleCanvas.getContext("2d");
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, r.width, r.height);
+
+        sparkles.forEach(function (sp) {
+          var sz = Math.min(r.width, r.height) * sp.size;
+          var ox = r.width * sp.x;
+          var oy = r.height * sp.y;
+          ctx.save();
+          ctx.beginPath();
+          var pts = sparklePoints.map(function (p) { return [ox + p[0] * sz, oy + p[1] * sz]; });
+          var len = pts.length;
+          for (var i = 0; i < len; i++) {
+            var curr = pts[i];
+            var prev = pts[(i + len - 1) % len];
+            var next = pts[(i + 1) % len];
+            var bX = curr[0] + (prev[0] - curr[0]) * 0.34;
+            var bY = curr[1] + (prev[1] - curr[1]) * 0.34;
+            var aX = curr[0] + (next[0] - curr[0]) * 0.34;
+            var aY = curr[1] + (next[1] - curr[1]) * 0.34;
+            if (i === 0) ctx.moveTo(aX, aY);
+            else { ctx.lineTo(bX, bY); ctx.quadraticCurveTo(curr[0], curr[1], aX, aY); }
+          }
+          ctx.closePath();
+          ctx.fillStyle = "rgba(255,220,202,.55)";
+          ctx.strokeStyle = "#fff";
+          ctx.lineWidth = Math.max(1.1, sz * 0.15);
+          ctx.lineCap = "round";
+          ctx.shadowColor = "rgba(255,255,255,.78)";
+          ctx.shadowBlur = sz * 0.06;
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+        });
       }
+
+      var flowCanvas = document.querySelector("[data-flow-chart]");
+      var bands = [
+        { source: [0.08, 0.26], target: [0.29, 0.32],  color: 'rgba(255,189,144,.60)' },
+        { source: [0.23, 0.42], target: [0.30, 0.335], color: 'rgba(255,149,80,.70)' },
+        { source: [0.50, 0.75], target: [0.32, 0.355], color: 'rgba(255,136,64,.82)' },
+        { source: [0.69, 0.98], target: [0.33, 0.365], color: 'rgba(255,181,128,.54)' },
+        { source: [0.39, 0.51], target: [0.31, 0.345], color: 'rgba(255,105,0,.96)' }
+      ];
+      var threads = [
+        { source: 0.05, target: 0.30,  alpha: 0.68 },
+        { source: 0.20, target: 0.315, alpha: 0.60 },
+        { source: 0.62, target: 0.342, alpha: 0.84 },
+        { source: 0.82, target: 0.352, alpha: 0.74 },
+        { source: 0.97, target: 0.36,  alpha: 0.64 }
+      ];
+
+      function drawDecisionFlow() {
+        if (!flowCanvas) return;
+        var r = flowCanvas.getBoundingClientRect();
+        var dpr = window.devicePixelRatio || 1;
+        if (!r.width || !r.height) return;
+        flowCanvas.width = r.width * dpr;
+        flowCanvas.height = r.height * dpr;
+        var ctx = flowCanvas.getContext("2d");
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, r.width, r.height);
+        var sHold = 0.38, tApp = 0.74;
+
+        bands.forEach(function (b) {
+          ctx.beginPath();
+          ctx.moveTo(0, r.height * b.source[0]);
+          ctx.bezierCurveTo(r.width * sHold, r.height * b.source[0], r.width * tApp, r.height * b.target[0], r.width, r.height * b.target[0]);
+          ctx.lineTo(r.width, r.height * b.target[1]);
+          ctx.bezierCurveTo(r.width * tApp, r.height * b.target[1], r.width * sHold, r.height * b.source[1], 0, r.height * b.source[1]);
+          ctx.closePath();
+          ctx.fillStyle = b.color;
+          ctx.fill();
+        });
+
+        threads.forEach(function (th) {
+          ctx.beginPath();
+          ctx.moveTo(0, r.height * th.source);
+          ctx.bezierCurveTo(r.width * sHold, r.height * th.source, r.width * tApp, r.height * th.target, r.width, r.height * th.target);
+          ctx.lineWidth = Math.max(0.72, r.width * 0.00135);
+          ctx.strokeStyle = "rgba(255,255,255," + th.alpha + ")";
+          ctx.stroke();
+        });
+      }
+
+      if (window.ResizeObserver) {
+        if (sparkleCanvas) new ResizeObserver(drawSparkles).observe(sparkleCanvas);
+        if (flowCanvas) new ResizeObserver(drawDecisionFlow).observe(flowCanvas);
+      }
+      setTimeout(function () {
+        drawSparkles();
+        drawDecisionFlow();
+      }, 60);
+
+      // Web Animations API for Falcon cards
+      var falconCards = Array.from(document.querySelectorAll(".falcon-card"));
+      if (falconCards.length && Element.prototype.animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var obs = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            obs.disconnect();
+            falconCards.forEach(function (card, idx) {
+              var isPrimary = (idx === 1);
+              var delay = isPrimary ? 60 : (idx === 0 ? 245 : 330);
+              card.animate([
+                { opacity: 0, transform: "translate3d(0, 16px, 0) scale(0.985)" },
+                { opacity: 1, transform: "none" }
+              ], { duration: isPrimary ? 960 : 900, delay: delay, easing: "cubic-bezier(.16, 1, .3, 1)", fill: "both" });
+
+              var panel = card.querySelector(".falcon-panel");
+              if (panel) {
+                panel.animate([
+                  { opacity: 0, clipPath: "inset(0 0 34% 0)" },
+                  { opacity: 1, clipPath: "inset(0 0 0 0)" }
+                ], { duration: 720, delay: delay + 200, easing: "cubic-bezier(.24, .86, .28, 1)", fill: "both" });
+              }
+            });
+          }
+        }, { threshold: 0.15 });
+        var opsSection = document.getElementById("operations");
+        if (opsSection) obs.observe(opsSection);
+      }
+
+      // Initial boot
+      var initialLang = document.documentElement.lang || 'en';
+      applyLang(initialLang);
     })();
   </script>
 </body>

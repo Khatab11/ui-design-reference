@@ -10,6 +10,7 @@ import Sidebar from './components/Sidebar.jsx'
 import Chapter from './components/Chapter.jsx'
 import Search from './components/Search.jsx'
 import PrintView from './components/PrintView.jsx'
+import Auth from './components/Auth.jsx'
 
 function prefersDark() {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
@@ -51,6 +52,7 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false)
 
   const isPrint = route.chapter === 'print'
+  const isAuth = route.chapter === 'login' || route.chapter === 'signup'
   const chapter = chapterById.get(route.chapter) ?? chapters[0]
 
   // <html lang dir> + theme class
@@ -69,13 +71,15 @@ export default function App() {
       ? chapter?.sections?.find((s) => s.id === route.section)
       : null
 
-    const pageTitle = isPrint
-      ? `${t(lang, 'printView')} · ${site.title[lang]}`
-      : section
-        ? `${section.title[lang]} · ${chapter?.title[lang]} · ${site.title[lang]}`
-        : chapter
-          ? `${chapter.title[lang]} · ${site.title[lang]}`
-          : site.title[lang]
+    const pageTitle = isAuth
+      ? `${t(lang, route.chapter === 'signup' ? 'signUp' : 'logIn')} · ${site.title[lang]}`
+      : isPrint
+        ? `${t(lang, 'printView')} · ${site.title[lang]}`
+        : section
+          ? `${section.title[lang]} · ${chapter?.title[lang]} · ${site.title[lang]}`
+          : chapter
+            ? `${chapter.title[lang]} · ${site.title[lang]}`
+            : site.title[lang]
 
     document.title = pageTitle
 
@@ -133,7 +137,7 @@ export default function App() {
   // navigation, including repeats of the same hash.
   useEffect(() => {
     setMenuOpen(false)
-    if (isPrint || !chapter) return
+    if (isPrint || isAuth || !chapter) return
     if (route.section) {
       const el = document.getElementById(sectionDomId(chapter.id, route.section))
       if (el) {
@@ -143,7 +147,7 @@ export default function App() {
       }
     }
     window.scrollTo({ top: 0 })
-  }, [route.chapter, route.section, route.n, isPrint, chapter])
+  }, [route.chapter, route.section, route.n, isPrint, isAuth, chapter])
 
   // Cmd/Ctrl+K opens search
   useEffect(() => {
@@ -169,6 +173,18 @@ export default function App() {
   const toggleLang = () => setLang((l) => (l === 'en' ? 'ar' : 'en'))
   const toggleTheme = () => setTheme((th) => (th === 'dark' ? 'light' : 'dark'))
 
+  if (isAuth) {
+    return (
+      <Auth
+        initialMode={route.chapter === 'signup' ? 'signup' : 'login'}
+        lang={lang}
+        theme={theme}
+        onToggleLang={toggleLang}
+        onToggleTheme={toggleTheme}
+      />
+    )
+  }
+
   if (chapters.length === 0) {
     return (
       <main className="mx-auto max-w-prose p-4 text-ink">
@@ -193,7 +209,7 @@ export default function App() {
           <PrintView lang={lang} />
         </main>
       ) : (
-        <>
+        <div className="mx-auto max-w-[1400px] px-3 sm:px-6 md:flex md:gap-8">
           <Sidebar
             lang={lang}
             activeChapterId={chapter.id}
@@ -201,12 +217,10 @@ export default function App() {
             open={menuOpen}
             onClose={() => setMenuOpen(false)}
           />
-          <main className="min-w-0 md:ms-[284px]">
-            <div className="px-4 pb-16 pt-6 sm:px-6 md:px-8">
-              <Chapter key={chapter.id} chapter={chapter} lang={lang} onActiveSection={onActiveSection} />
-            </div>
+          <main className="min-w-0 flex-1 pb-16 pt-6">
+            <Chapter key={chapter.id} chapter={chapter} lang={lang} onActiveSection={onActiveSection} />
           </main>
-        </>
+        </div>
       )}
 
       <Search lang={lang} open={searchOpen} onClose={() => setSearchOpen(false)} />

@@ -96,6 +96,36 @@
   --c-success-soft: 240 247 244;
   --c-error: 192 39 28;
 
+  /* OKLCH Feedback Tokens */
+  --warning: oklch(0.769 0.188 70.08);
+  --warning-foreground: oklch(0.555 0.163 48.998);
+  --success: oklch(0.696 0.17 162.48);
+  --success-foreground: oklch(0.508 0.118 165.612);
+  --info: oklch(0.623 0.214 259.815);
+  --info-foreground: oklch(0.488 0.243 264.376);
+
+  /* shadcn/ui semantic tokens */
+  --background: var(--color-ground);
+  --foreground: var(--color-ink);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-surface);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-action);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--color-surface-sunken);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-surface-sunken);
+  --muted-foreground: var(--color-muted);
+  --accent: var(--color-surface-sunken);
+  --accent-foreground: var(--color-ink);
+  --destructive: var(--color-error);
+  --destructive-foreground: #FFFFFF;
+  --border: var(--color-line);
+  --input: var(--color-line-strong);
+  --ring: var(--color-action);
+  --radius: 0.875rem;
+
   color-scheme: light;
 }
 
@@ -158,8 +188,64 @@
   --c-success-soft: 5 46 22;
   --c-error: 239 68 68;
 
+  /* OKLCH Feedback Tokens */
+  --warning: oklch(0.769 0.188 70.08);
+  --warning-foreground: oklch(0.828 0.111 60.34);
+  --success: oklch(0.696 0.17 162.48);
+  --success-foreground: oklch(0.765 0.177 163.223);
+  --info: oklch(0.623 0.214 259.815);
+  --info-foreground: oklch(0.707 0.165 254.624);
+
+  /* shadcn/ui semantic tokens */
+  --background: var(--color-ground);
+  --foreground: var(--color-ink);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-surface);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-action);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--color-surface-sunken);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-surface-sunken);
+  --muted-foreground: var(--color-muted);
+  --accent: var(--color-surface-sunken);
+  --accent-foreground: var(--color-ink);
+  --destructive: var(--color-error);
+  --destructive-foreground: #FFFFFF;
+  --border: var(--color-line);
+  --input: var(--color-line-strong);
+  --ring: var(--color-action);
+
   color-scheme: dark;
 }
+
+/* ==========================================================================
+   Apple Design & Nested Radius System (R_outer = R_inner + padding)
+   ========================================================================== */
+.radius-nested-outer {
+  border-radius: 20px;
+}
+.radius-nested-inner {
+  border-radius: 12px;
+}
+
+/* Chevron animation support for Collapsible state */
+[data-state="open"] > * > .in-data-panel-open\:rotate-180,
+[data-state="open"] .in-data-panel-open\:rotate-180,
+[data-panel-open] .in-data-panel-open\:rotate-180,
+button[data-state="open"] .in-data-panel-open\:rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Apple-grade tactile feedback */
+.apple-press {
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 120ms ease;
+}
+.apple-press:active {
+  transform: scale(0.98);
+}
+
 
 /* ==========================================================================
    3. Base + Typography (§3)
@@ -168,10 +254,12 @@ html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: var(--space-6);
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--color-ground);
   color: var(--color-body);
   font-family: var(--font-sans);
@@ -264,6 +352,7 @@ html[lang='ar'] p {
   line-height: 1.75;
 }
 
+@layer components {
 /* ==========================================================================
    4. Buttons (§4)
    ========================================================================== */
@@ -368,6 +457,18 @@ html[lang='ar'] p {
   padding: 0 14px;
   font-size: 13px;
   border-radius: 7px;
+}
+.btn--icon {
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0 !important;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -722,6 +823,7 @@ code:not(pre code) {
   .docs-shell {
     grid-template-columns: minmax(0, 1fr);
   }
+}
 }
 
 /* ==========================================================================

@@ -14,16 +14,18 @@ export function ChapterHeader({ chapter, lang }) {
       initial={shouldReduceMotion ? false : { opacity: 0, y: -12 }}
       animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="border-b border-line pb-6"
+      className="border-b border-line/70 pb-8"
     >
-      <p className="label text-muted">
-        {t(lang, 'chapter')} {number}
-      </p>
-      <h1 className="mt-2 text-[34px] font-semibold leading-[1.10] tracking-[-0.02em] text-ink">
+      <div className="flex items-center gap-2">
+        <span className="inline-flex items-center rounded-full border border-line bg-surface-sunken px-2.5 py-0.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-muted">
+          {t(lang, 'chapter')} {number}
+        </span>
+      </div>
+      <h1 className="mt-3 text-2xl sm:text-3xl md:text-[38px] font-semibold leading-[1.12] tracking-[-0.025em] text-ink">
         {chapter.title[lang]}
       </h1>
       {chapter.intro?.[lang] && (
-        <p className="mt-3 max-w-[70ch] text-[17px] leading-[1.65] text-body">{chapter.intro[lang]}</p>
+        <p className="mt-3.5 max-w-[68ch] text-[16px] sm:text-[17px] leading-[1.7] text-body">{chapter.intro[lang]}</p>
       )}
     </motion.header>
   )
@@ -33,8 +35,7 @@ export default function Chapter({ chapter, lang, onActiveSection }) {
   const ref = useRef(null)
   const shouldReduceMotion = useReducedMotion()
 
-  // Active-section tracking: the topmost section intersecting a band near the
-  // top of the viewport wins.
+  // Active-section tracking: topmost section intersecting near top wins
   useEffect(() => {
     const root = ref.current
     if (!root || !('IntersectionObserver' in window)) return
@@ -66,12 +67,14 @@ export default function Chapter({ chapter, lang, onActiveSection }) {
       initial={shouldReduceMotion ? false : { opacity: 0 }}
       animate={shouldReduceMotion ? undefined : { opacity: 1 }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
-      className="mx-auto w-full max-w-prose"
+      className="mx-auto w-full max-w-[800px]"
     >
       <ChapterHeader chapter={chapter} lang={lang} />
-      {chapter.sections.map((section) => (
-        <Section key={section.id} chapter={chapter} section={section} lang={lang} />
-      ))}
+      <div className="space-y-2">
+        {chapter.sections.map((section) => (
+          <Section key={section.id} chapter={chapter} section={section} lang={lang} />
+        ))}
+      </div>
       <PrevNext chapter={chapter} lang={lang} />
     </motion.article>
   )

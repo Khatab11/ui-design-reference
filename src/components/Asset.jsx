@@ -65,10 +65,12 @@ function Placeholder({ chapterId, asset, lang, className = '' }) {
       role="img"
       aria-label={asset.alt?.[lang] || asset.brief}
       style={ratioStyle(asset.ratio)}
-      className={`placeholder flex w-full flex-col items-center justify-center gap-2 rounded-card border-2 border-dashed border-line-strong bg-surface p-4 text-center shadow-raised ${className}`}
+      className={`placeholder flex w-full flex-col items-center justify-center gap-2.5 rounded-2xl border-2 border-dashed border-line-strong/60 bg-surface/80 p-6 text-center shadow-xs backdrop-blur-sm ${className}`}
     >
-      <ImageIcon className="text-muted" width="28" height="28" />
-      <p className="label text-muted">
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-surface-sunken text-muted">
+        <ImageIcon width="24" height="24" />
+      </div>
+      <p className="font-mono text-[11px] font-semibold tracking-wider text-muted uppercase">
         {t(lang, 'placeholder')}
       </p>
       {asset.brief && (
@@ -78,7 +80,7 @@ function Placeholder({ chapterId, asset, lang, className = '' }) {
       )}
       <p className="mt-0.5 text-xs text-muted">
         {t(lang, 'expectedFile')}:{' '}
-        <code className="rounded bg-surface-sunken px-1.5 py-0.5 text-body">
+        <code className="rounded-md border border-line bg-surface-sunken px-2 py-0.5 font-mono text-body">
           assets/{chapterId}/{asset.file}
         </code>
       </p>
@@ -122,7 +124,7 @@ function Figure({ chapterId, asset, lang, eager, live }) {
     <div
       ref={ref}
       style={ratioStyle(asset.ratio)}
-      className="card card--interactive relative w-full overflow-hidden p-0 bg-surface-sunken"
+      className="relative w-full overflow-hidden rounded-2xl border border-border/80 bg-surface-sunken shadow-[0_1px_3px_rgba(0,0,0,0.04),0_6px_16px_rgba(0,0,0,0.02)] transition-all hover:shadow-[0_2px_8px_rgba(0,0,0,0.06),0_12px_28px_rgba(0,0,0,0.04)] dark:border-border/40 dark:shadow-[0_1px_3px_rgba(0,0,0,0.4),0_8px_24px_rgba(0,0,0,0.25)]"
     >
       {hasDiagram && (
         <iframe
@@ -132,12 +134,10 @@ function Figure({ chapterId, asset, lang, eager, live }) {
           loading={eager ? 'eager' : 'lazy'}
           scrolling="no"
           onLoad={() => setFrameReady(true)}
-          className="print-hidden absolute inset-0 block h-full w-full border-0"
+          className="print-hidden absolute inset-0 block h-full w-full border-0 rounded-2xl"
         />
       )}
-      {/* Always mounted so native lazy loading (and printing) can fetch it.
-          While unresolved it stays in layout but invisible: a display:none
-          image with loading="lazy" never starts loading. */}
+      {/* Always mounted so native lazy loading (and printing) can fetch it. */}
       <img
         src={imgSrc}
         alt={alt}
@@ -145,7 +145,7 @@ function Figure({ chapterId, asset, lang, eager, live }) {
         decoding="async"
         onLoad={() => setImg('ok')}
         onError={() => setImg('missing')}
-        className={`absolute inset-0 h-full w-full object-cover ${
+        className={`absolute inset-0 h-full w-full object-cover rounded-2xl ${
           showImage ? '' : img === 'ok' ? 'print-only' : 'invisible'
         }`}
       />
@@ -163,7 +163,6 @@ export default function Asset({ chapterId, asset, lang, eager = false, live = tr
   const alt = asset.alt?.[lang]
   return (
     <figure className="my-6">
-      {/* key forces a fresh load state when the file changes */}
       <Figure
         key={`${chapterId}/${asset.file}`}
         chapterId={chapterId}
@@ -173,7 +172,9 @@ export default function Asset({ chapterId, asset, lang, eager = false, live = tr
         live={live}
       />
       {alt && (
-        <figcaption className="caption mt-2">{alt}</figcaption>
+        <figcaption className="mt-2.5 text-center text-xs text-muted">
+          {alt}
+        </figcaption>
       )}
     </figure>
   )
