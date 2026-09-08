@@ -97,7 +97,7 @@ export default function App() {
       : chapter?.sections?.find((s) => s.asset?.file)?.asset
 
     const imgUrl = assetObj?.file
-      ? new URL(`/assets/${chapter.id}/${assetObj.file}`, window.location.origin).href
+      ? new URL(`${import.meta.env.BASE_URL}assets/${chapter.id}/${assetObj.file}`, window.location.origin).href
       : ''
     const imgAlt = assetObj?.alt?.[lang] || section?.title?.[lang] || chapter?.title?.[lang] || ''
 

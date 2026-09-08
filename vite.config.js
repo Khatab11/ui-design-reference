@@ -6,6 +6,8 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  // Served from a repo subpath on GitHub Pages; '/' locally and on root hosts.
+  base: process.env.BASE_PATH || '/',
   plugins: [react()],
   resolve: {
     alias: {

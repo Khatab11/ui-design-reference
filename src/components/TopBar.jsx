@@ -85,7 +85,7 @@ export default function TopBar({ lang, theme, onToggleLang, onToggleTheme, onOpe
 
           {/* Landing Stage Link */}
           <a
-            href={`/education-landing.html${lang === 'ar' ? '?lang=ar' : ''}`}
+            href={`${import.meta.env.BASE_URL}education-landing.html${lang === 'ar' ? '?lang=ar' : ''}`}
             className="btn btn--secondary btn--sm hidden md:inline-flex items-center gap-1.5 rounded-xl px-3 text-xs font-semibold transition-transform active:scale-95"
             title={t(lang, 'landing')}
           >
